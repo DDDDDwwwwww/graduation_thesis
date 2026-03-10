@@ -1,108 +1,117 @@
-import time
 from ggp_statemachine import GameStateMachine
-from ggp_agent import RandomAgent, MCTSAgent 
+from ggp_agent import RandomAgent, MCTSAgent
+
 
 class GameRunner:
     def __init__(self, game_file, agents):
         """
         Args:
-            game_file: .kif 规则文件路径
-            agents: 一个字典，映射角色名到 Agent 实例。
-                    例如: {'white': agent1, 'black': agent2}
+            game_file: path to .kif rule file
+            agents: dict role_name -> Agent instance
         """
         self.game = GameStateMachine(game_file)
         self.game_file = game_file
         self.agents = agents
-        self.history = [] # 记录棋谱，方便论文里做分析
+        self.history = []
+        self.roles = [str(role) for role in self.game.get_roles()]
+        self._validate_agents()
+
+    def _validate_agents(self):
+        missing = [role for role in self.roles if role not in self.agents]
+        if missing:
+            raise ValueError(f"Missing agent(s) for role(s): {', '.join(missing)}")
 
     def run_match(self, verbose=True):
         print(f"=== Match Start: {self.game_name()} ===")
-        print(f"Players: {', '.join([str(a) for a in self.agents.values()])}")
-        
-        # 1. 获取初始状态
+        print(f"Players: {', '.join([str(self.agents[r]) for r in self.roles])}")
+
         current_state = self.game.get_initial_state()
         step = 0
-        
+
         while not self.game.is_terminal(current_state):
             step += 1
             if verbose:
                 print(f"\n--- Step {step} ---")
-                # 简单的状态可视化 (打印出当前被标记的格子)
                 self._print_board_state(current_state)
 
-            # 2. 收集所有玩家的动作 (Simultaneous Move)
             moves = {}
-            for role in self.game.get_roles():
-                # role 可能是 pyswip 的 Atom 对象，转字符串比较安全
-                role_str = str(role)
-                agent = self.agents.get(role_str)
-                
+            for role in self.roles:
+                agent = self.agents.get(role)
                 if not agent:
-                    raise ValueError(f"No agent assigned for role: {role_str}")
-                
-                # 调用 Agent 的思考接口
+                    raise ValueError(f"No agent assigned for role: {role}")
+
                 move = agent.select_move(self.game, current_state)
-                moves[role_str] = move
-                
+                moves[role] = move
                 if verbose:
                     print(f"{agent.name} selects: {move}")
 
-            # 记录历史
-            self.history.append({'state': current_state, 'moves': moves})
-
-            # 3. 状态转移
+            self.history.append({"state": current_state, "moves": moves})
             current_state = self.game.get_next_state(current_state, moves)
 
-        # 4. 游戏结束，结算分数
         print("\n=== Game Over ===")
         self._print_board_state(current_state)
         scores = self.get_scores(current_state)
-        print("Final Scores:", scores)
-        
-        winner = max(scores, key=scores.get)
-        print(f"Winner: {winner} (Score: {scores[winner]})")
+
+        if len(self.roles) == 1:
+            role = self.roles[0]
+            print(f"Final Score: {role} = {scores.get(role, 0)}")
+        else:
+            print("Final Scores:", scores)
+            max_score = max(scores.values())
+            winners = [role for role, score in scores.items() if score == max_score]
+            if len(winners) == 1:
+                print(f"Winner: {winners[0]} (Score: {max_score})")
+            else:
+                print(f"Draw: {', '.join(winners)} (Score: {max_score})")
+
         return scores
 
     def get_scores(self, state):
-        scores = {}
-        for role in self.game.get_roles():
-            scores[str(role)] = self.game.get_goal(state, role)
-        return scores
+        return {role: self.game.get_goal(state, role) for role in self.roles}
 
     def game_name(self):
-        name = game_file.replace(".kif","")
-        return name
+        return self.game_file.replace(".kif", "")
 
     def _print_board_state(self, state):
-        """
-        一个通用的辅助函数，尝试打印出 (cell x y mark) 类型的事实，
-        方便调试 Tic-Tac-Toe。
-        """
-        # 将 Prolog 的 Atom/Functor 转换为字符串列表
         facts = [str(f) for f in state]
-        # 过滤出 cell 信息
-        cells = [f for f in facts if f.startswith('cell')]
+        cells = [fact for fact in facts if fact.startswith("cell")]
         if cells:
             print(f"Board State: {cells}")
         else:
             print(f"State: {facts}")
 
-# --- 主程序入口 ---
+
 if __name__ == "__main__":
-    # 1. 定义游戏文件
     game_file = "games/ticTacToe.kif"
-    
-    # 2. 初始化不同的 Agent
-    # 我们也可以让一个 Random 玩，一个用 (还没实现的) MCTS 玩
-    # 注意：这里角色的名字 'white' / 'black' 必须和 kif 文件里定义的 role 一致！
-    bot_1 = RandomAgent("Bot_Random_1", "xplayer")
-    bot_2 = RandomAgent("Bot_Random_2", "oplayer")
-    
     agents = {
-        "xplayer": bot_1,
-        "oplayer": bot_2
+        "xplayer": MCTSAgent("Bot_MCT_1", "xplayer"),
+        "oplayer": MCTSAgent("Bot_MCT_2", "oplayer"),
     }
-    
-    # 3. 启动比赛
+
+    # game_file = "games/bonaparte.kif"
+    # agents = {
+    #     "france": MCTSAgent("Bot_MCT_1", "france"),
+    #     "germany": MCTSAgent("Bot_MCT_2", "germany"),
+    #     "russia": MCTSAgent("Bot_MCT_3", "russia"),
+    # }
+
+    # game_file = "games/mediocrity.kif"
+    # agents = {
+    #     "a": MCTSAgent("Bot_MCT_1", "a"),
+    #     "b": MCTSAgent("Bot_MCT_2", "b"),
+    #     "c": MCTSAgent("Bot_MCT_3", "c"),
+    # }
+
+    # game_file = "games/connectFour.kif"
+    # agents = {
+    #     "red": MCTSAgent("Bot_MCT_1", "red"),
+    #     "black": MCTSAgent("Bot_MCT_2", "black"),
+    # }
+
+    # game_file = "games/maze.kif"
+    # agents = {
+    #     "robot": MCTSAgent("Bot_MCT_1", "robot"),
+    # }
+
     runner = GameRunner(game_file, agents)
     final_scores = runner.run_match()
