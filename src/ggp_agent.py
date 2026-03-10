@@ -1,4 +1,4 @@
-﻿import math
+import math
 import random
 import time
 
@@ -75,6 +75,7 @@ class MCTSAgent(Agent):
         temperature=10.0,
         simulation_limit=None,
         rollout_depth_limit=200,
+        fallback_legal_threshold=None,
         seed=None,
     ):
         """
@@ -97,6 +98,11 @@ class MCTSAgent(Agent):
         self.discount_factor = float(discount_factor)
         self.temperature = max(1e-6, float(temperature))
         self.rollout_depth_limit = max(1, int(rollout_depth_limit))
+        self.fallback_legal_threshold = (
+            None
+            if fallback_legal_threshold is None
+            else max(1, int(fallback_legal_threshold))
+        )
 
         if seed is not None:
             random.seed(seed)
@@ -123,6 +129,15 @@ class MCTSAgent(Agent):
             return None
         if len(legal_moves) == 1:
             return legal_moves[0]
+        if (
+            self.fallback_legal_threshold is not None
+            and len(legal_moves) > self.fallback_legal_threshold
+        ):
+            # Avoid expensive state-expansion when branching factor explodes.
+            move_keys = [self._move_key(m) for m in legal_moves]
+            chosen_key = self._sample_by_history(self.role, move_keys)
+            action = self._action_from_key(legal_moves, chosen_key)
+            return action if action is not None else random.choice(legal_moves)
 
         roles = [str(r) for r in game_machine.get_roles()]
         if self.role not in roles:
@@ -142,7 +157,9 @@ class MCTSAgent(Agent):
         for _ in range(self.iterations):
             if budget_end is not None and time.time() >= budget_end:
                 break
-            self._run_single_iteration(game_machine, root, roles)
+            finished = self._run_single_iteration(game_machine, root, roles, budget_end=budget_end)
+            if not finished:
+                break
 
         best_key = self._best_action_from_node(root, self.role, legal_moves)
         if best_key is None:
@@ -153,7 +170,7 @@ class MCTSAgent(Agent):
             return random.choice(legal_moves)
         return action
 
-    def _run_single_iteration(self, game_machine, root, roles):
+    def _run_single_iteration(self, game_machine, root, roles, budget_end=None):
         """
         执行一次 Selection -> Expansion -> Simulation -> Backpropagation。
         """
@@ -162,6 +179,8 @@ class MCTSAgent(Agent):
 
         # 1) Selection + 2) Expansion（仅扩展首个新节点）
         while True:
+            if budget_end is not None and time.time() >= budget_end:
+                return False
             if game_machine.is_terminal(node.state):
                 leaf_node = node
                 break
@@ -188,10 +207,11 @@ class MCTSAgent(Agent):
             break
 
         # 3) Simulation
-        terminal_values = self._simulate(game_machine, leaf_node.state, roles)
+        terminal_values = self._simulate(game_machine, leaf_node.state, roles, budget_end=budget_end)
 
         # 4) Backpropagation
         self._backpropagate(path, leaf_node, terminal_values)
+        return True
 
     def _select_joint_actions(self, game_machine, node, roles):
         """
@@ -231,7 +251,7 @@ class MCTSAgent(Agent):
 
         return chosen
 
-    def _simulate(self, game_machine, state, roles):
+    def _simulate(self, game_machine, state, roles, budget_end=None):
         """
         从叶节点状态进行 rollout。
 
@@ -243,6 +263,8 @@ class MCTSAgent(Agent):
         depth = 0
 
         while depth < self.rollout_depth_limit and not game_machine.is_terminal(current_state):
+            if budget_end is not None and time.time() >= budget_end:
+                break
             joint_moves = {}
             for role in roles:
                 legal_moves = game_machine.get_legal_moves(current_state, role)
