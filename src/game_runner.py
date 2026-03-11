@@ -1,7 +1,7 @@
 import time
 
 from ggp_statemachine import GameStateMachine
-from ggp_agent import RandomAgent, MCTSAgent
+from ggp_agent import RandomAgent, MCTSAgent, PureMCTAgent
 
 
 class GameRunner:
@@ -129,6 +129,10 @@ if __name__ == "__main__":
     #     "xplayer": MCTSAgent("Bot_MCT_1", "xplayer"),
     #     "oplayer": MCTSAgent("Bot_MCT_2", "oplayer"),
     # }
+    # agents = {
+    #     "xplayer": PureMCTAgent("Bot_PureMCT_1", "xplayer"),
+    #     "oplayer": PureMCTAgent("Bot_PureMCT_2", "oplayer"),
+    # }
 
     game_file = "games/bonaparte.kif"
     agents = {
@@ -150,6 +154,25 @@ if __name__ == "__main__":
             fallback_legal_threshold=150,
         ),
     }
+    # agents = {
+    #     "france": RandomAgent("Bot_Random_1", "france"),
+    #     "germany": PureMCTAgent(
+    #         "Bot_PureMCT_2",
+    #         "germany",
+    #         iterations=8,
+    #         rollout_depth_limit=8,
+    #         exploration_constant=15.0,
+    #         fallback_legal_threshold=150,
+    #     ),
+    #     "russia": PureMCTAgent(
+    #         "Bot_PureMCT_3",
+    #         "russia",
+    #         iterations=8,
+    #         rollout_depth_limit=8,
+    #         exploration_constant=15.0,
+    #         fallback_legal_threshold=150,
+    #     ),
+    # }
 
     # game_file = "games/mediocrity.kif"
     # agents = {

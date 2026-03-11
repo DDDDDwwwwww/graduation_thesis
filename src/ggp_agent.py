@@ -456,3 +456,37 @@ class MCTSAgent(Agent):
             if self._move_key(move) == move_key:
                 return move
         return None
+
+
+class PureMCTAgent(MCTSAgent):
+    """
+    纯 MCT(UCT) 智能体：
+    - Selection: 未探索动作随机，已探索动作按 UCT
+    - Simulation: rollout 全随机
+    - Backpropagation: 仅更新树内统计，不维护全局历史启发
+    """
+
+    def _sample_by_history(self, role, move_keys):
+        if not move_keys:
+            return None
+        return random.choice(move_keys)
+
+    def _backpropagate(self, path, leaf_node, terminal_values):
+        q_values = dict(terminal_values)
+
+        for node, chosen_actions in reversed(path):
+            for role in q_values:
+                q_values[role] *= self.discount_factor
+
+            node.visits += 1
+
+            for role, payload in chosen_actions.items():
+                move_key = payload["key"]
+                reward = float(q_values.get(role, 0.0))
+
+                role_stats = node.action_stats.setdefault(role, {})
+                entry = role_stats.setdefault(move_key, {"visits": 0, "value_sum": 0.0})
+                entry["visits"] += 1
+                entry["value_sum"] += reward
+
+        leaf_node.visits += 1
