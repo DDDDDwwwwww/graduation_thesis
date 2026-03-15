@@ -18,7 +18,8 @@ class GameStateMachine:
         self._load_and_transform_rules(rule_file)
 
     def _load_and_transform_rules(self, filename):
-        with open(filename, "r") as f:
+        # 规则文件固定按 UTF-8 读取，避免 Windows 默认编码导致解析失败。
+        with open(filename, "r", encoding="utf-8") as f:
             gdl_content = f.read()
 
         parsed_expressions = self.parser.parse(gdl_content)

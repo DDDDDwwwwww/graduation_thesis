@@ -205,7 +205,7 @@ def translate_gdl_to_prolog(input_file, output_file='prolog'):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='将GDL/KIF文件转换为Prolog文件')
-    parser.add_argument('-i', '--input', default='games/bonaparte.kif', 
+    parser.add_argument('-i', '--input', default='games/breakthrough.kif', 
                        help='输入的GDL文件路径')
     parser.add_argument('-o', '--output', 
                        help='输出的Prolog文件路径 (默认: prolog/<输入文件名>.pl)')
