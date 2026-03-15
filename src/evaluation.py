@@ -26,6 +26,7 @@ class EvalConfig:
     mcts_rollout_depth: int
     mcts_exploration_constant: float
     mcts_fallback_legal_threshold: int
+    cache_modes: List[str]
 
 
 def create_agent(agent_type: str, role: str, config: EvalConfig):
@@ -65,6 +66,18 @@ def safe_div(a: float, b: float) -> float:
     return a / b if b else 0.0
 
 
+def normalize_cache_modes(raw_modes: List[str]) -> List[str]:
+    # 允许用户用 both 一次性展开为 A/B 两组。
+    expanded = []
+    for mode in raw_modes:
+        if mode == "both":
+            expanded.extend(["enabled", "disabled"])
+        else:
+            expanded.append(mode)
+    # 去重并保持顺序，避免重复跑相同组别。
+    return list(dict.fromkeys(expanded))
+
+
 def evaluate_single_match(
     game_file: str,
     roles: List[str],
@@ -72,10 +85,12 @@ def evaluate_single_match(
     seed: int,
     match_id: int,
     repeat_id: int,
+    cache_mode: str,
     config: EvalConfig,
 ):
     random.seed(seed)
-    game = GameStateMachine(game_file)
+    # A/B 对照开关：enabled=使用缓存，disabled=禁用缓存。
+    game = GameStateMachine(game_file, cache_enabled=(cache_mode == "enabled"))
     game.clear_caches()
     game.reset_perf_stats()
 
@@ -151,6 +166,7 @@ def evaluate_single_match(
             "repeat_id": repeat_id,
             "game_file": game_file,
             "game_name": os.path.splitext(os.path.basename(game_file))[0],
+            "cache_mode": cache_mode,
             "seed": seed,
             "role": role,
             "agent_type": agent_type,
@@ -190,11 +206,12 @@ def generate_lineups(role_count: int) -> List[Tuple[str, ...]]:
 def aggregate_summary(detail_rows: List[dict]) -> List[dict]:
     grouped = {}
     for row in detail_rows:
-        key = (row["game_name"], row["agent_type"])
+        key = (row["game_name"], row["cache_mode"], row["agent_type"])
         bucket = grouped.setdefault(
             key,
             {
                 "game_name": row["game_name"],
+                "cache_mode": row["cache_mode"],
                 "agent_type": row["agent_type"],
                 "appearances": 0,
                 "wins": 0,
@@ -230,12 +247,13 @@ def aggregate_summary(detail_rows: List[dict]) -> List[dict]:
         bucket["next_hits_sum"] += row["next_cache_hits"]
 
     summary = []
-    for (_, _), b in grouped.items():
+    for (_, _, _), b in grouped.items():
         appearances = b["appearances"]
         losses = b["losses"]
         summary.append(
             {
                 "game_name": b["game_name"],
+                "cache_mode": b["cache_mode"],
                 "agent_type": b["agent_type"],
                 "appearances": appearances,
                 "wins": b["wins"],
@@ -272,7 +290,7 @@ def aggregate_summary(detail_rows: List[dict]) -> List[dict]:
             }
         )
 
-    summary.sort(key=lambda x: (x["game_name"], x["agent_type"]))
+    summary.sort(key=lambda x: (x["game_name"], x["cache_mode"], x["agent_type"]))
     return summary
 
 
@@ -289,6 +307,7 @@ def write_csv(path: str, rows: List[dict]):
 def run_evaluation(config: EvalConfig):
     details = []
     match_id = 0
+    scenario_id = 0
 
     for game_file in config.games:
         probe = GameStateMachine(game_file)
@@ -299,18 +318,22 @@ def run_evaluation(config: EvalConfig):
         for lineup in lineups:
             for repeat_idx in range(config.repeats):
                 rotated = rotate_lineup(lineup, repeat_idx)
-                seed = config.base_seed + match_id
-                match_rows = evaluate_single_match(
-                    game_file=game_file,
-                    roles=roles,
-                    lineup=rotated,
-                    seed=seed,
-                    match_id=match_id,
-                    repeat_id=repeat_idx,
-                    config=config,
-                )
-                details.extend(match_rows)
-                match_id += 1
+                # 同一场景使用同一随机种子，确保 enabled/disabled 可直接配对比较。
+                seed = config.base_seed + scenario_id
+                for cache_mode in config.cache_modes:
+                    match_rows = evaluate_single_match(
+                        game_file=game_file,
+                        roles=roles,
+                        lineup=rotated,
+                        seed=seed,
+                        match_id=match_id,
+                        repeat_id=repeat_idx,
+                        cache_mode=cache_mode,
+                        config=config,
+                    )
+                    details.extend(match_rows)
+                    match_id += 1
+                scenario_id += 1
 
     summary = aggregate_summary(details)
     detail_csv = os.path.join(config.output_dir, "match_details.csv")
@@ -348,6 +371,13 @@ def parse_args():
     parser.add_argument("--mcts-rollout-depth", type=int, default=80)
     parser.add_argument("--mcts-exploration-constant", type=float, default=20.0)
     parser.add_argument("--mcts-fallback-legal-threshold", type=int, default=180)
+    parser.add_argument(
+        "--cache-modes",
+        nargs="+",
+        choices=["enabled", "disabled", "both"],
+        default=["both"],
+        help="Cache mode(s) for A/B evaluation. Use both to run enabled+disabled.",
+    )
     return parser.parse_args()
 
 
@@ -364,6 +394,7 @@ if __name__ == "__main__":
         mcts_rollout_depth=max(1, args.mcts_rollout_depth),
         mcts_exploration_constant=args.mcts_exploration_constant,
         mcts_fallback_legal_threshold=max(1, args.mcts_fallback_legal_threshold),
+        cache_modes=normalize_cache_modes(args.cache_modes),
     )
 
     detail_path, summary_path, row_count = run_evaluation(cfg)

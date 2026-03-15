@@ -3,10 +3,12 @@ from gdl_parser import SExpressionParser, GDLTranslator
 
 
 class GameStateMachine:
-    def __init__(self, rule_file):
+    def __init__(self, rule_file, cache_enabled=True):
         self.prolog = Prolog()
         self.translator = GDLTranslator()
         self.parser = SExpressionParser()
+        # 统一缓存开关：用于 A/B 对照时显式关闭状态机缓存。
+        self.cache_enabled = bool(cache_enabled)
 
         self._legal_cache = {}
         self._next_cache = {}
@@ -40,18 +42,20 @@ class GameStateMachine:
         self._perf_stats["legal_calls"] += 1
 
         state_key = self._state_key(state)
-        cache_key = (state_key, str(role))
-        cached_moves = self._legal_cache.get(cache_key)
-        if cached_moves is not None:
-            self._perf_stats["legal_cache_hits"] += 1
-            return list(cached_moves)
+        if self.cache_enabled:
+            cache_key = (state_key, str(role))
+            cached_moves = self._legal_cache.get(cache_key)
+            if cached_moves is not None:
+                self._perf_stats["legal_cache_hits"] += 1
+                return list(cached_moves)
 
         self._reset_state(state)
         query = f"legal({role}, M)"
         solutions = [sol["M"] for sol in self.prolog.query(query)]
         unique_moves = list(set(solutions))
 
-        self._legal_cache[cache_key] = tuple(unique_moves)
+        if self.cache_enabled:
+            self._legal_cache[(state_key, str(role))] = tuple(unique_moves)
         return unique_moves
 
     def get_next_state(self, state, moves):
@@ -59,11 +63,12 @@ class GameStateMachine:
 
         state_key = self._state_key(state)
         moves_key = self._moves_key(moves)
-        cache_key = (state_key, moves_key)
-        cached_state = self._next_cache.get(cache_key)
-        if cached_state is not None:
-            self._perf_stats["next_cache_hits"] += 1
-            return list(cached_state)
+        if self.cache_enabled:
+            cache_key = (state_key, moves_key)
+            cached_state = self._next_cache.get(cache_key)
+            if cached_state is not None:
+                self._perf_stats["next_cache_hits"] += 1
+                return list(cached_state)
 
         self._reset_state(state)
         self._inject_moves(moves)
@@ -71,7 +76,8 @@ class GameStateMachine:
         unique_state = list(set(next_state))
         self._clean_moves()
 
-        self._next_cache[cache_key] = tuple(unique_state)
+        if self.cache_enabled:
+            self._next_cache[(state_key, moves_key)] = tuple(unique_state)
         return unique_state
 
     def is_terminal(self, state):
