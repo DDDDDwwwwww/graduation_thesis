@@ -100,6 +100,10 @@ class GameStateMachine:
 
     def _inject_moves(self, moves):
         for role, move in moves.items():
+            # 防御性处理：Python None 写入 Prolog 会被当作变量，污染推理结果。
+            # 统一降级为 noop，兼容回合制游戏中的“非控制方空动作”。
+            if move is None or str(move) == "None":
+                move = "noop"
             self.prolog.assertz(f"does({role}, {move})")
 
     def _clean_moves(self):

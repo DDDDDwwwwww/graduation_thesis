@@ -134,38 +134,19 @@ if __name__ == "__main__":
     #     "oplayer": PureMCTAgent("Bot_PureMCT_2", "oplayer"),
     # }
 
-    game_file = "games/bonaparte.kif"
-    agents = {
-        "france": RandomAgent("Bot_Random_1", "france"),
-        "germany": MCTSAgent(
-            "Bot_MCTS_2",
-            "germany",
-            iterations=8,
-            rollout_depth_limit=8,
-            exploration_constant=15.0,
-            fallback_legal_threshold=150,
-        ),
-        "russia": MCTSAgent(
-            "Bot_MCTS_3",
-            "russia",
-            iterations=8,
-            rollout_depth_limit=8,
-            exploration_constant=15.0,
-            fallback_legal_threshold=150,
-        ),
-    }
+    # game_file = "games/bonaparte.kif"
     # agents = {
     #     "france": RandomAgent("Bot_Random_1", "france"),
-    #     "germany": PureMCTAgent(
-    #         "Bot_PureMCT_2",
+    #     "germany": MCTSAgent(
+    #         "Bot_MCTS_2",
     #         "germany",
     #         iterations=8,
     #         rollout_depth_limit=8,
     #         exploration_constant=15.0,
     #         fallback_legal_threshold=150,
     #     ),
-    #     "russia": PureMCTAgent(
-    #         "Bot_PureMCT_3",
+    #     "russia": MCTSAgent(
+    #         "Bot_MCTS_3",
     #         "russia",
     #         iterations=8,
     #         rollout_depth_limit=8,
@@ -180,6 +161,12 @@ if __name__ == "__main__":
     #     "b": MCTSAgent("Bot_MCT_2", "b"),
     #     "c": MCTSAgent("Bot_MCT_3", "c"),
     # }
+
+    game_file = "games/breakthrough.kif"
+    agents = {
+        "white": PureMCTAgent("Bot_MCT_1", "white"),
+        "black": MCTSAgent("Bot_MCT_2", "black")
+    }
 
     # game_file = "games/connectFour.kif"
     # agents = {

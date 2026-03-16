@@ -75,6 +75,12 @@
     (adjacent_col ?y ?ny)
     (not (true (cell ?nx ?ny b))))
 
+;; 非当前控制方只能执行 noop，保证双人回合同步输入完备
+(<= (legal white noop)
+    (true (control black)))
+(<= (legal black noop)
+    (true (control white)))
+
 ;; ==========================================
 ;; 状态转换 (Next)
 ;; ==========================================
