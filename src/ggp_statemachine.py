@@ -88,9 +88,8 @@ class GameStateMachine:
     def get_goal(self, state, role):
         self._reset_state(state)
         q = f"goal({role}, V)"
-        res = list(self.prolog.query(q))
-        if res:
-            return res[0]["V"]
+        for sol in self.prolog.query(q):
+            return sol["V"]
         return 0
 
     def _reset_state(self, state):

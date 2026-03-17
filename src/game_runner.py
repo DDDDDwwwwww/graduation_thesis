@@ -162,10 +162,16 @@ if __name__ == "__main__":
     #     "c": HeuristicMCTSAgent("Bot_MCT_3", "c"),
     # }
 
-    game_file = "games/breakthrough.kif"
+    # game_file = "games/breakthrough.kif"
+    # agents = {
+    #     "white": PureMCTAgent("Bot_MCT_1", "white"),
+    #     "black": HeuristicMCTSAgent("Bot_MCT_2", "black")
+    # }
+
+    game_file = "games/reversi.kif"
     agents = {
         "white": PureMCTAgent("Bot_MCT_1", "white"),
-        "black": HeuristicMCTSAgent("Bot_MCT_2", "black")
+        "black": RandomAgent("Bot_MCT_2", "black")
     }
 
     # game_file = "games/connectFour.kif"

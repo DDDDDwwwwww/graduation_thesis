@@ -1,3 +1,4 @@
+我用的是"D:\Anaconda\envs\MLcourse\python.exe"这个虚拟环境，修改代码时若 patch 失败，请先缩小上下文重试，不要整文件覆盖。
 # CADIAPLAYER (AAAI 2008) 论文复现指南
 
 [cite_start]这篇论文介绍了 CADIAPLAYER，它是 2007 年 AAAI 通用人工智能游戏（GGP）竞赛的冠军程序 [cite: 9, 25, 140][cite_start]。该系统的核心贡献在于证明了基于 UCT（Upper Confidence-bounds applied to Trees）的蒙特卡洛（MC）模拟在不需要任何先验领域知识的情况下，能替代传统带启发式评估函数的博弈树搜索 [cite: 7, 8, 23, 24]。
