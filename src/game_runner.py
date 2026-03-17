@@ -1,7 +1,7 @@
 import time
 
 from ggp_statemachine import GameStateMachine
-from ggp_agent import RandomAgent, MCTSAgent, PureMCTAgent
+from ggp_agent import RandomAgent, HeuristicMCTSAgent, PureMCTAgent
 
 
 class GameRunner:
@@ -126,8 +126,8 @@ class GameRunner:
 if __name__ == "__main__":
     # game_file = "games/ticTacToe.kif"
     # agents = {
-    #     "xplayer": MCTSAgent("Bot_MCT_1", "xplayer"),
-    #     "oplayer": MCTSAgent("Bot_MCT_2", "oplayer"),
+    #     "xplayer": HeuristicMCTSAgent("Bot_MCT_1", "xplayer"),
+    #     "oplayer": HeuristicMCTSAgent("Bot_MCT_2", "oplayer"),
     # }
     # agents = {
     #     "xplayer": PureMCTAgent("Bot_PureMCT_1", "xplayer"),
@@ -137,7 +137,7 @@ if __name__ == "__main__":
     # game_file = "games/bonaparte.kif"
     # agents = {
     #     "france": RandomAgent("Bot_Random_1", "france"),
-    #     "germany": MCTSAgent(
+    #     "germany": HeuristicMCTSAgent(
     #         "Bot_MCTS_2",
     #         "germany",
     #         iterations=8,
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     #         exploration_constant=15.0,
     #         fallback_legal_threshold=150,
     #     ),
-    #     "russia": MCTSAgent(
+    #     "russia": HeuristicMCTSAgent(
     #         "Bot_MCTS_3",
     #         "russia",
     #         iterations=8,
@@ -157,26 +157,26 @@ if __name__ == "__main__":
 
     # game_file = "games/mediocrity.kif"
     # agents = {
-    #     "a": MCTSAgent("Bot_MCT_1", "a"),
-    #     "b": MCTSAgent("Bot_MCT_2", "b"),
-    #     "c": MCTSAgent("Bot_MCT_3", "c"),
+    #     "a": HeuristicMCTSAgent("Bot_MCT_1", "a"),
+    #     "b": HeuristicMCTSAgent("Bot_MCT_2", "b"),
+    #     "c": HeuristicMCTSAgent("Bot_MCT_3", "c"),
     # }
 
     game_file = "games/breakthrough.kif"
     agents = {
         "white": PureMCTAgent("Bot_MCT_1", "white"),
-        "black": MCTSAgent("Bot_MCT_2", "black")
+        "black": HeuristicMCTSAgent("Bot_MCT_2", "black")
     }
 
     # game_file = "games/connectFour.kif"
     # agents = {
-    #     "red": MCTSAgent("Bot_MCT_1", "red"),
-    #     "black": MCTSAgent("Bot_MCT_2", "black"),
+    #     "red": HeuristicMCTSAgent("Bot_MCT_1", "red"),
+    #     "black": HeuristicMCTSAgent("Bot_MCT_2", "black"),
     # }
 
     # game_file = "games/maze.kif"
     # agents = {
-    #     "robot": MCTSAgent("Bot_MCT_1", "robot"),
+    #     "robot": HeuristicMCTSAgent("Bot_MCT_1", "robot"),
     # }
 
     runner = GameRunner(game_file, agents)

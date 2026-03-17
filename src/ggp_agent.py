@@ -32,7 +32,7 @@ class RandomAgent(Agent):
         return random.choice(legal_moves)
 
 
-class MCTSAgent(Agent):
+class HeuristicMCTSAgent(Agent):
     """
     基于 UCT 的蒙特卡洛树搜索智能体。
 
@@ -458,7 +458,7 @@ class MCTSAgent(Agent):
         return None
 
 
-class PureMCTAgent(MCTSAgent):
+class PureMCTAgent(HeuristicMCTSAgent):
     """
     纯 MCT(UCT) 智能体：
     - Selection: 未探索动作随机，已探索动作按 UCT
@@ -490,3 +490,7 @@ class PureMCTAgent(MCTSAgent):
                 entry["value_sum"] += reward
 
         leaf_node.visits += 1
+
+
+# 向后兼容旧名称，避免外部脚本导入失败。
+MCTSAgent = HeuristicMCTSAgent

@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from itertools import product
 from typing import Dict, List, Tuple
 
-from ggp_agent import MCTSAgent, PureMCTAgent, RandomAgent
+from ggp_agent import HeuristicMCTSAgent, PureMCTAgent, RandomAgent
 from ggp_statemachine import GameStateMachine
 
 
@@ -43,7 +43,7 @@ def create_agent(agent_type: str, role: str, config: EvalConfig):
             fallback_legal_threshold=config.mcts_fallback_legal_threshold,
         )
     if agent_type == "mcts":
-        return MCTSAgent(
+        return HeuristicMCTSAgent(
             name,
             role,
             iterations=config.mcts_iterations,
