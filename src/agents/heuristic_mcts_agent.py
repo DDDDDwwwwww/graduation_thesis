@@ -1,10 +1,15 @@
-﻿from __future__ import annotations
+from __future__ import annotations
+
+"""启发式 MCTS 基线智能体。
+
+特征：UCT 选子 + 历史统计引导的 rollout / 动作采样。
+"""
 
 from ._mcts_core import _MCTSCoreAgent
 
 
 class HeuristicMCTSAgent(_MCTSCoreAgent):
-    """UCT + history-guided rollout MCTS baseline."""
+    """带历史先验的 MCTS 基线实现。"""
 
     def __init__(
         self,
@@ -19,6 +24,7 @@ class HeuristicMCTSAgent(_MCTSCoreAgent):
         fallback_legal_threshold=None,
         seed=None,
     ):
+        # 与 PureMCT 的主要差异在于两个 history 相关开关。
         super().__init__(
             name=name,
             role=role,

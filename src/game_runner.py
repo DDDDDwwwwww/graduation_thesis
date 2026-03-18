@@ -1,7 +1,21 @@
+"""通用比赛运行器。
+
+职责：
+- 载入指定游戏规则文件。
+- 驱动多个角色智能体轮流决策。
+- 执行状态转移直到终局并输出结果。
+"""
+
 import time
 
 from ggp_statemachine import GameStateMachine
-from ggp_agent import RandomAgent, HeuristicMCTSAgent, PureMCTAgent
+from ggp_agent import (
+    HeuristicMCTSAgent,
+    NeuralValueMCTSAgent,
+    PureMCTAgent,
+    RandomAgent,
+    ValueGreedyAgent,
+)
 
 
 class GameRunner:
@@ -19,15 +33,17 @@ class GameRunner:
         self._validate_agents()
 
     def _validate_agents(self):
+        """确保所有角色都有对应智能体。"""
         missing = [role for role in self.roles if role not in self.agents]
         if missing:
             raise ValueError(f"Missing agent(s) for role(s): {', '.join(missing)}")
 
     def run_match(self, verbose=True, move_time_limit=1.0, perf_log=False):
+        """运行一局完整比赛并返回终局分数。"""
         print(f"=== Match Start: {self.game_name()} ===")
         print(f"Players: {', '.join([str(self.agents[r]) for r in self.roles])}")
 
-        # Keep cache and metrics scoped to current match.
+        # 每局开始前清空缓存与性能统计，避免跨局污染。
         self.game.clear_caches()
         self.game.reset_perf_stats()
 
@@ -43,6 +59,7 @@ class GameRunner:
             moves = {}
             role_perf_logs = []
 
+            # 每个角色依次决策，组合为一步联合动作。
             for role in self.roles:
                 agent = self.agents.get(role)
                 if not agent:
@@ -58,6 +75,7 @@ class GameRunner:
                 if verbose:
                     print(f"{agent.name} selects: {move} (decision_sec={elapsed:.3f})")
 
+                # 记录该角色本步期间触发的状态机调用与缓存命中。
                 if perf_log and before_stats and after_stats:
                     role_perf_logs.append(
                         {
@@ -71,6 +89,7 @@ class GameRunner:
                         }
                     )
 
+            # 保存轨迹，便于复盘或后续数据集构建。
             self.history.append({"state": current_state, "moves": moves})
             current_state = self.game.get_next_state(current_state, moves)
 
@@ -109,12 +128,15 @@ class GameRunner:
         return scores
 
     def get_scores(self, state):
+        """读取终局状态下各角色 goal 分数。"""
         return {role: self.game.get_goal(state, role) for role in self.roles}
 
     def game_name(self):
+        """返回游戏文件名（去掉 `.kif` 后缀）。"""
         return self.game_file.replace(".kif", "")
 
     def _print_board_state(self, state):
+        """优先打印 `cell(...)` 棋盘事实，否则打印全部事实。"""
         facts = [str(f) for f in state]
         cells = [fact for fact in facts if fact.startswith("cell")]
         if cells:
