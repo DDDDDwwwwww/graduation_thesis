@@ -396,7 +396,7 @@ class FactVectorEncoder:
 ---
 
 ## 7.2 `BoardTensorEncoder`
-在 `FactVectorEncoder` 工作后实现。
+暂时不实现，只是留作可参考内容。
 
 ### 目的
 支持具有更结构化神经输入的棋盘类 GGP 游戏。
@@ -423,6 +423,123 @@ class BoardTensorEncoder:
 
 ### 重要说明
 此编码器不是第一个端到端里程碑所必需的，但后续实验需要它。
+
+---
+
+## 7.3 `BoardTokenEncoder`
+该编码器用于支持基于注意力（Transformer）的价值网络，是论文方法的核心输入形式。
+
+### 目的
+
+将棋盘状态表示为**一组无序的格子级 token（tile tokens）**，避免对棋盘拓扑（如邻接关系或固定网格结构）的任何依赖，从而实现 knowledge-free 的表示方式。
+
+### 必需的行为
+
+* 从状态中提取类似格子的事实，如 `cell(x,y,content)` 或其他可配置模式
+* 将每个格子转换为一个独立 token，而不是构建整体张量
+* 将格子内容（`content`）映射为离散 token id（词表索引）
+* 为每个格子分配一个位置标识，供 TransformerValueNet 进行位置编码
+* 输出适用于 Transformer 输入的 token 序列，而非固定形状网格
+
+### 必需的类
+
+```python
+class BoardTokenEncoder:
+    def __init__(
+        self,
+        content_vocab=None,
+        position_mode="index",   # "index" or "xy"
+        include_player_feature=True,
+        include_turn_features=True,
+    ): ...
+
+    def fit(self, samples): 
+        """构建内容词表（content vocabulary）及必要的编码映射。"""
+
+    def encode(self, state, game, role=None) -> dict:
+        """
+        返回：
+        {
+            "tile_content_ids": np.ndarray [T],   # 每个格子的内容token id
+            "tile_positions": np.ndarray [T] or [T,2],  # 位置索引或(x,y)
+            "global_features": np.ndarray [G] (可选),
+            "mask": np.ndarray [T] (可选)
+        }
+        """
+```
+
+### 编码设计
+
+#### 1. Token 定义
+
+每个格子对应一个 token：
+
+* token = `content`（例如 empty / black / white / king 等）
+* 不包含邻接信息或局部结构
+
+#### 2. 内容编码（Content Embedding）
+
+* 为所有出现过的 `content` 构建词表（类似 `FactVocabulary`）
+* 每个 content 映射为整数 id
+* 推理时未知 content 必须有 fallback（如 `<UNK>`）
+
+#### 3. 位置信息（Positional Information）
+
+编码器必须为每个格子提供位置标识，用于后续模型中的位置编码。
+
+位置来源：
+- 可将 `(x, y)` 映射为单一 position id
+- 或保留为 `(x, y)` 坐标对，交由模型进一步处理
+
+重要约束：
+- 不依赖棋盘邻接关系
+- 不假设规则网格结构
+- 仅提供“位置标识”，而不是拓扑信息或位置向量编码
+
+#### 4. Token 顺序
+
+* token 序列**不要求固定顺序**
+* 必须保证 deterministic（例如按 `(x,y)` 排序）
+* 模型应对 token 顺序变化具备鲁棒性
+
+#### 5. 全局特征（可选）
+
+可附加少量全局信息：
+
+* 当前玩家（one-hot 或 embedding）
+* 回合数 / ply index
+* 终局标志（如果有）
+
+这些特征应：
+
+* 单独输出
+* 在模型中与 pooled token 表示结合
+
+#### 6. Mask
+
+* 用于支持不规则棋盘或 padding
+* 对 Transformer 是可选但推荐
+
+### 输出约束
+
+* 输出必须适用于 Transformer：
+
+  * token 序列长度 T 可变
+  * 每个 token 对应一个 embedding（由模型完成）
+* 不得输出固定二维网格结构（那属于 `BoardTensorEncoder`）
+
+### 回退策略
+
+* 如果无法检测棋盘结构：
+
+  * 自动回退到 `FactVectorEncoder`
+* 或允许通过配置指定 pattern/schema
+
+### 重要说明
+
+* 此编码器是论文方法的核心输入形式
+* 与 `BoardTensorEncoder` 不同，它**不编码空间邻接关系**
+* 其目标是让 Transformer 自主学习格子之间的关系，而非人为注入拓扑结构
 
 ---
 
@@ -534,13 +651,261 @@ class MLPValueNet(nn.Module):
 - 兼容 CPU
 - 用于单状态评估的推理辅助函数
 
-## 9.2 第二个模型：`BoardValueNet`
-稍后实现。
+---
 
-可能的选择：
-- 用于标记化棋盘输入的小型 Transformer/注意力模型
+## 9.2 第二个模型：`TransformerValueNet`
+在 `MLPValueNet` 之后实现。该模型用于处理 `BoardTokenEncoder` 输出的格子级 token 序列，是论文方法的核心价值网络。
 
-这不是第一个里程碑，但保留代码结构以便日后添加。
+### 目的
+使用基于注意力（Transformer）的结构，对**无拓扑假设的格子 token 序列**进行建模，从而学习格子之间的关系，并输出当前状态的价值评估。
+
+
+### 输入形式（必须与 `BoardTokenEncoder` 对齐）
+模型输入应直接来自 `BoardTokenEncoder.encode()`：
+
+```python
+{
+    "tile_content_ids": LongTensor [T],
+    "tile_positions": LongTensor [T] or Tensor [T,2],
+    "global_features": FloatTensor [G] (optional),
+    "mask": BoolTensor [T] (optional)
+}
+````
+
+说明：
+
+* `T` 为格子数量（可变长度）
+* 每个格子为一个 token
+* 不存在固定二维网格结构
+* 不依赖棋盘邻接关系
+
+### 必需的接口
+
+```python
+class TransformerValueNet(nn.Module):
+    def __init__(
+        self,
+        num_tokens: int,          # content vocab size
+        d_model: int = 128,
+        n_heads: int = 4,
+        n_layers: int = 3,
+        dim_feedforward: int = 256,
+        dropout: float = 0.1,
+        position_encoding: str = "sinusoidal",  # or "learned"
+        use_global_features: bool = True,
+    ): ...
+
+    def forward(self, batch):
+        """
+        输入：来自 BoardTokenEncoder 的 batch
+        输出：Tensor [B, 1]，范围在 [-1, 1]
+        """
+```
+
+---
+
+### 模型结构
+
+#### 1. Content Embedding
+
+将 `tile_content_ids` 映射为 embedding：
+
+```python
+content_emb = Embedding(num_tokens, d_model)
+```
+
+输出：
+
+```
+[B, T, d_model]
+```
+
+---
+
+#### 2. Positional Encoding（必须）
+
+对每个 token 加位置编码：
+
+支持两种模式：
+
+##### (a) Sinusoidal（默认）
+
+* 根据 position id 生成固定编码
+
+##### (b) Learned
+
+* 使用可训练 embedding：
+
+  ```python
+  pos_emb = Embedding(max_positions, d_model)
+  ```
+
+位置来源：
+
+* 单一 position id（推荐）
+* 或 `(x,y)` 分别编码后组合
+
+最终：
+
+```python
+x = content_emb + pos_emb
+```
+
+---
+
+#### 3. Transformer Encoder
+
+使用标准 Transformer encoder：
+
+```python
+encoder_layer = nn.TransformerEncoderLayer(
+    d_model=d_model,
+    nhead=n_heads,
+    dim_feedforward=dim_feedforward,
+    dropout=dropout,
+    batch_first=True,
+)
+
+self.encoder = nn.TransformerEncoder(
+    encoder_layer,
+    num_layers=n_layers,
+)
+```
+
+输入：
+
+```
+[B, T, d_model]
+```
+
+输出：
+
+```
+[B, T, d_model]
+```
+
+注意：
+
+* 使用 `mask`（如提供）处理 padding 或非法位置
+
+---
+
+#### 4. Token Pooling（必须）
+
+将 token 表示聚合为单一状态表示：
+
+推荐方法：
+
+* Mean pooling：
+
+  ```python
+  pooled = x.mean(dim=1)
+  ```
+
+可选方法：
+
+* Masked mean
+* Attention pooling（后续扩展）
+
+输出：
+
+```
+[B, d_model]
+```
+
+---
+
+#### 5. 融合全局特征（可选）
+
+如果使用 `global_features`：
+
+```python
+pooled = concat(pooled, global_features)
+```
+
+或：
+
+```python
+pooled = pooled + projection(global_features)
+```
+
+---
+
+#### 6. Value Head
+
+MLP 输出最终价值：
+
+```python
+value_head = nn.Sequential(
+    nn.Linear(d_model (+ G), 128),
+    nn.ReLU(),
+    nn.Linear(128, 1),
+    nn.Tanh(),
+)
+```
+
+输出范围：
+
+```
+[-1, 1]
+```
+
+---
+
+### 关键设计约束（必须满足）
+
+#### 1. 无棋盘拓扑假设
+
+* 不使用 convolution
+* 不使用邻接信息
+* 不假设 grid 结构
+
+#### 2. 顺序不敏感（Permutation Robustness）
+
+* token 顺序仅用于 batching
+* 模型应能适应 token 顺序变化
+* 不依赖固定 tile 排列
+
+#### 3. 可变长度输入
+
+* 支持不同大小棋盘（T 可变）
+* 使用 mask 或 padding 处理 batch
+
+#### 4. 每个 token 独立建模
+
+* 每个格子作为独立实体
+* 关系完全由 attention 学习
+
+---
+
+### 默认推荐配置
+
+```yaml
+d_model: 128
+n_heads: 4
+n_layers: 3
+dim_feedforward: 256
+dropout: 0.1
+position_encoding: sinusoidal
+```
+
+---
+
+### 推理要求
+
+* 支持单状态快速推理（用于 MCTS）
+* 尽量兼容 CPU
+* 避免重复构建 position encoding（缓存或预计算）
+
+---
+
+### 重要说明
+
+* 此模型必须与 `BoardTokenEncoder` 配套使用
+* 不应与 `FactVectorEncoder` 或 `BoardTensorEncoder` 混用
+* 该设计对应 attention-based value network
+* 核心思想是：**让模型学习格子之间的关系，而不是人为提供结构**
+
 
 ---
 
@@ -803,9 +1168,10 @@ combined = alpha * value_net_score + (1 - alpha) * rollout_score
 ## 15.5 实验 E：编码器消融
 比较：
 - FactVectorEncoder + MLPValueNet
-- BoardTensorEncoder + 合适的棋盘模型
+- BoardTokenEncoder + MLPValueNet
+- BoardTokenEncoder + TransformerValueNet
 
-如果棋盘模型尚未准备好，仍需构建代码结构以便日后进行此实验。
+如果TransformerValueNet尚未准备好，仍需构建代码结构以便日后进行此实验。
 
 ## 15.6 实验 F：缓存/性能研究
 比较状态机缓存：
@@ -1055,7 +1421,7 @@ python experiments/benchmark.py --config configs/experiments/baseline_suite.yaml
 
 仅在核心流水线稳定后实施。
 
-- 特定于棋盘的编码器和棋盘价值模型
+- 特定于棋盘的编码器和注意力价值模型
 - 混合神经+rollout 评估器
 - MCTS 中的批量神经推理
 - MCTS 的置换表
