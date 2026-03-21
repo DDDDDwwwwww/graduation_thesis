@@ -15,7 +15,7 @@ from torch.nn.utils import clip_grad_norm_
 from torch.utils.data import DataLoader
 
 from .dataset import ValueDataset
-from .value_net import MLPValueNet
+from .value_net import MLPValueNet, TransformerValueNet
 
 
 def _set_seed(seed: int) -> None:
@@ -52,11 +52,11 @@ def _eval_model(model, dataloader, criterion, device):
     sign_correct = 0
     with torch.no_grad():
         for x, y in dataloader:
-            x = x.to(device)
+            x = _move_to_device(x, device)
             y = y.to(device)
             pred = model(x)
             loss = criterion(pred, y)
-            b = x.size(0)
+            b = y.size(0)
             loss_sum += float(loss.item()) * b
             n += b
             sign_correct += int((torch.sign(pred) == torch.sign(y)).sum().item())
@@ -65,10 +65,17 @@ def _eval_model(model, dataloader, criterion, device):
     return {"loss": loss_sum / n, "sign_acc": sign_correct / n}
 
 
+def _move_to_device(x, device):
+    if isinstance(x, dict):
+        return {k: v.to(device) for k, v in x.items()}
+    return x.to(device)
+
+
 def train_value_model(
     samples,
     encoder,
     output_dir,
+    model_name="mlp",
     seed=42,
     epochs=20,
     batch_size=128,
@@ -76,29 +83,52 @@ def train_value_model(
     weight_decay=1e-4,
     hidden_dims=(256, 128),
     dropout=0.1,
+    transformer_kwargs=None,
     loss_name="mse",
     patience=5,
     device="cpu",
 ):
-    """训练 MLP 价值网络并保存 checkpoint 与指标。"""
+    """训练价值网络并保存 checkpoint 与指标。"""
     _set_seed(int(seed))
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    model_name = str(model_name).lower()
+    transformer_kwargs = dict(transformer_kwargs or {})
 
     train_samples, val_samples, test_samples = _split_dataset(samples, seed=seed)
     train_ds = ValueDataset(train_samples, encoder)
     val_ds = ValueDataset(val_samples, encoder)
     test_ds = ValueDataset(test_samples, encoder)
 
-    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True)
-    val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False)
-    test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False)
+    collate_fn = None
+    if model_name == "transformer":
+        collate_fn = ValueDataset.collate_board_tokens
 
-    model = MLPValueNet(
-        input_dim=encoder.input_dim,
-        hidden_dims=hidden_dims,
-        dropout=dropout,
-    ).to(device)
+    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
+    val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
+    test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
+
+    if model_name == "mlp":
+        model = MLPValueNet(
+            input_dim=encoder.input_dim,
+            hidden_dims=hidden_dims,
+            dropout=dropout,
+        ).to(device)
+    elif model_name == "transformer":
+        model = TransformerValueNet(
+            num_tokens=int(transformer_kwargs.get("num_tokens", getattr(encoder, "num_tokens"))),
+            d_model=int(transformer_kwargs.get("d_model", 128)),
+            n_heads=int(transformer_kwargs.get("n_heads", 4)),
+            n_layers=int(transformer_kwargs.get("n_layers", 3)),
+            dim_feedforward=int(transformer_kwargs.get("dim_feedforward", 256)),
+            dropout=float(transformer_kwargs.get("dropout", dropout)),
+            position_encoding=str(transformer_kwargs.get("position_encoding", "sinusoidal")),
+            use_global_features=bool(transformer_kwargs.get("use_global_features", True)),
+            max_positions=int(transformer_kwargs.get("max_positions", 4096)),
+        ).to(device)
+    else:
+        raise ValueError(f"Unsupported model_name: {model_name}")
+
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     criterion = torch.nn.MSELoss() if loss_name.lower() == "mse" else torch.nn.HuberLoss()
 
@@ -113,7 +143,7 @@ def train_value_model(
         train_loss_sum = 0.0
         train_n = 0
         for x, y in train_loader:
-            x = x.to(device)
+            x = _move_to_device(x, device)
             y = y.to(device)
             optimizer.zero_grad(set_to_none=True)
             pred = model(x)
@@ -122,7 +152,7 @@ def train_value_model(
             # 防止梯度爆炸，稳定训练过程。
             clip_grad_norm_(model.parameters(), max_norm=1.0)
             optimizer.step()
-            b = x.size(0)
+            b = y.size(0)
             train_loss_sum += float(loss.item()) * b
             train_n += b
 
@@ -155,13 +185,29 @@ def train_value_model(
         "n_test": len(test_ds),
     }
 
-    checkpoint = {
-        "model_type": "mlp",
-        "input_dim": encoder.input_dim,
-        "hidden_dims": list(hidden_dims),
-        "dropout": float(dropout),
-        "state_dict": model.state_dict(),
-    }
+    checkpoint = {"model_type": model_name, "state_dict": model.state_dict()}
+    if model_name == "mlp":
+        checkpoint.update(
+            {
+                "input_dim": encoder.input_dim,
+                "hidden_dims": list(hidden_dims),
+                "dropout": float(dropout),
+            }
+        )
+    else:
+        checkpoint.update(
+            {
+                "num_tokens": int(getattr(encoder, "num_tokens")),
+                "d_model": int(getattr(model, "d_model")),
+                "n_heads": int(transformer_kwargs.get("n_heads", 4)),
+                "n_layers": int(transformer_kwargs.get("n_layers", 3)),
+                "dim_feedforward": int(transformer_kwargs.get("dim_feedforward", 256)),
+                "dropout": float(transformer_kwargs.get("dropout", dropout)),
+                "position_encoding": str(transformer_kwargs.get("position_encoding", "sinusoidal")),
+                "use_global_features": bool(transformer_kwargs.get("use_global_features", True)),
+                "max_positions": int(transformer_kwargs.get("max_positions", 4096)),
+            }
+        )
     torch.save(checkpoint, output_dir / "model.pt")
     (output_dir / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
     return model, metrics

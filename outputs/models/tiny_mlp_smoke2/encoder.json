@@ -1,0 +1,8 @@
+{
+  "include_role": true,
+  "include_turn_features": true,
+  "roles": [
+    "oplayer",
+    "xplayer"
+  ]
+}

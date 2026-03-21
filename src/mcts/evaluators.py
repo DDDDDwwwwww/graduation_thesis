@@ -84,6 +84,26 @@ class ValueNetworkEvaluator(LeafEvaluator):
         self.device = device
         self.value_model.eval()
 
+    def _to_model_input(self, encoded):
+        """把编码结果转换为模型可直接前向的 batch 输入。"""
+        if isinstance(encoded, dict):
+            batch = {}
+            for key, value in encoded.items():
+                t = torch.as_tensor(value, device=self.device)
+                if key in {"tile_content_ids", "tile_positions", "mask"}:
+                    if t.dim() == 1:
+                        t = t.unsqueeze(0)
+                    elif key == "tile_positions" and t.dim() == 2 and t.size(-1) == 2:
+                        # 单样本 xy 坐标: [T,2] -> [1,T,2]
+                        t = t.unsqueeze(0)
+                elif key == "global_features":
+                    if t.dim() == 1:
+                        t = t.unsqueeze(0)
+                    t = t.to(dtype=torch.float32)
+                batch[key] = t
+            return batch
+        return torch.tensor(encoded, dtype=torch.float32, device=self.device).unsqueeze(0)
+
     def evaluate_for_roles(self, game, state, roles, budget_end=None):
         """对多个角色分别编码并推理，返回 role->value。"""
         if game.is_terminal(state):
@@ -92,9 +112,9 @@ class ValueNetworkEvaluator(LeafEvaluator):
         values = {}
         with torch.no_grad():
             for role in roles:
-                x = self.encoder.encode(state, game, role=role)
-                t = torch.tensor(x, dtype=torch.float32, device=self.device).unsqueeze(0)
-                values[role] = float(self.value_model(t).item())
+                encoded = self.encoder.encode(state, game, role=role)
+                model_input = self._to_model_input(encoded)
+                values[role] = float(self.value_model(model_input).item())
         return values
 
     def evaluate(self, game, state, role, time_limit=None) -> float:

@@ -25,6 +25,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from encoding.fact_vector_encoder import FactVectorEncoder
+from encoding.board_token_encoder import BoardTokenEncoder
 from encoding.vocab import FactVocabulary
 from nn.dataset import ValueDataset
 from nn.trainer import train_value_model
@@ -41,8 +42,8 @@ def main():
     """命令行入口。"""
     parser = argparse.ArgumentParser(description="Train value model from JSONL dataset.")
     parser.add_argument("--dataset", required=True, help="Input JSONL dataset path")
-    parser.add_argument("--encoder", choices=["fact_vector"], default="fact_vector")
-    parser.add_argument("--model", choices=["mlp"], default="mlp")
+    parser.add_argument("--encoder", choices=["fact_vector", "board_token"], default="fact_vector")
+    parser.add_argument("--model", choices=["mlp", "transformer"], default="mlp")
     parser.add_argument("--epochs", type=int, default=20)
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--learning-rate", type=float, default=1e-3)
@@ -52,6 +53,14 @@ def main():
     parser.add_argument("--dropout", type=float, default=0.1)
     parser.add_argument("--loss", choices=["mse", "huber"], default="mse")
     parser.add_argument("--patience", type=int, default=5)
+    parser.add_argument("--position-mode", choices=["index", "xy"], default="index")
+    parser.add_argument("--d-model", type=int, default=128)
+    parser.add_argument("--n-heads", type=int, default=4)
+    parser.add_argument("--n-layers", type=int, default=3)
+    parser.add_argument("--dim-feedforward", type=int, default=256)
+    parser.add_argument("--position-encoding", choices=["sinusoidal", "learned"], default="sinusoidal")
+    parser.add_argument("--max-positions", type=int, default=4096)
+    parser.add_argument("--disable-global-features", action="store_true")
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--device", default="cpu")
     args = parser.parse_args()
@@ -67,18 +76,31 @@ def main():
 
     # 基于数据集自动提取角色集合与事实词汇。
     roles = sorted({str(s.get("acting_role", "")) for s in samples if s.get("acting_role")})
-    vocab = FactVocabulary.fit((s["state_facts"] for s in samples))
-    encoder = FactVectorEncoder(
-        vocab=vocab,
-        roles=roles,
-        include_role=True,
-        include_turn_features=True,
-    )
+    vocab = None
+    if args.encoder == "fact_vector":
+        if args.model != "mlp":
+            raise ValueError("encoder=fact_vector 仅支持 model=mlp")
+        vocab = FactVocabulary.fit((s["state_facts"] for s in samples))
+        encoder = FactVectorEncoder(
+            vocab=vocab,
+            roles=roles,
+            include_role=True,
+            include_turn_features=True,
+        )
+    else:
+        if args.model != "transformer":
+            raise ValueError("encoder=board_token 仅支持 model=transformer")
+        encoder = BoardTokenEncoder(
+            position_mode=args.position_mode,
+            include_player_feature=not args.disable_global_features,
+            include_turn_features=not args.disable_global_features,
+        ).fit(samples)
 
     model, metrics = train_value_model(
         samples=samples,
         encoder=encoder,
         output_dir=output_dir,
+        model_name=args.model,
         seed=args.seed,
         epochs=args.epochs,
         batch_size=args.batch_size,
@@ -86,13 +108,25 @@ def main():
         weight_decay=args.weight_decay,
         hidden_dims=tuple(args.hidden_dims),
         dropout=args.dropout,
+        transformer_kwargs={
+            "num_tokens": int(getattr(encoder, "num_tokens", 0)),
+            "d_model": args.d_model,
+            "n_heads": args.n_heads,
+            "n_layers": args.n_layers,
+            "dim_feedforward": args.dim_feedforward,
+            "dropout": args.dropout,
+            "position_encoding": args.position_encoding,
+            "max_positions": args.max_positions,
+            "use_global_features": not args.disable_global_features,
+        },
         loss_name=args.loss,
         patience=args.patience,
         device=args.device,
     )
 
-    vocab.save(output_dir / "vocab.json")
     encoder.save(output_dir / "encoder.json")
+    if vocab is not None:
+        vocab.save(output_dir / "vocab.json")
     # 保存配置，便于后续复现实验。
     config = {
         "dataset": args.dataset,
@@ -108,10 +142,27 @@ def main():
         "loss": args.loss,
         "patience": args.patience,
         "device": args.device,
-        "input_dim": encoder.input_dim,
         "roles": roles,
         "num_samples": len(samples),
     }
+    if args.model == "mlp":
+        config["input_dim"] = encoder.input_dim
+        config["hidden_dims"] = args.hidden_dims
+    else:
+        config.update(
+            {
+                "position_mode": args.position_mode,
+                "num_tokens": encoder.num_tokens,
+                "d_model": args.d_model,
+                "n_heads": args.n_heads,
+                "n_layers": args.n_layers,
+                "dim_feedforward": args.dim_feedforward,
+                "position_encoding": args.position_encoding,
+                "max_positions": args.max_positions,
+                "use_global_features": (not args.disable_global_features),
+                "global_feature_dim": encoder.global_feature_dim,
+            }
+        )
     (output_dir / "config.json").write_text(json.dumps(config, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"[train_value_model] saved artifacts to {output_dir}")

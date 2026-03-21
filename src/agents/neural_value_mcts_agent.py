@@ -51,7 +51,7 @@ class NeuralValueMCTSAgent(_MCTSCoreAgent):
         name,
         role,
         model_path,
-        vocab_path,
+        vocab_path=None,
         encoder_config_path=None,
         iterations=200,
         exploration_c=1.4,
@@ -64,12 +64,21 @@ class NeuralValueMCTSAgent(_MCTSCoreAgent):
         """从训练产物快速构造神经 MCTS 智能体。"""
         from nn.inference import load_value_artifacts
 
-        value_model, encoder, _ = load_value_artifacts(
-            model_path=model_path,
-            vocab_path=vocab_path,
-            encoder_config_path=encoder_config_path,
-            device=device,
-        )
+        try:
+            value_model, encoder, _ = load_value_artifacts(
+                model_path=model_path,
+                vocab_path=vocab_path,
+                encoder_config_path=encoder_config_path,
+                device=device,
+            )
+        except ValueError as exc:
+            msg = str(exc)
+            if "vocab_path is required for mlp model" in msg:
+                raise ValueError(
+                    "Loading MLP artifacts requires vocab_path. "
+                    "For transformer checkpoints, vocab_path can be omitted."
+                ) from exc
+            raise
         return cls(
             name=name,
             role=role,
