@@ -1107,17 +1107,75 @@ combined = alpha * value_net_score + (1 - alpha) * rollout_score
 
 ## 15. 必需的实验
 
-以下所有实验必须通过脚本/配置得到支持。
+以下所有实验必须通过脚本/配置得到支持，并且实验设计需同时回答以下核心问题：
+
+1. `NeuralValueMCTSAgent` 应使用哪一种价值网络配置；
+2. 自博弈数据集是否应仅来自单个游戏；
+3. 所提出方法是否在不同游戏上都具有稳定效果，而非仅对单一游戏有效。
+
+因此，实验部分不仅要验证最终方法的总体强度，还必须通过编码器、模型、数据来源和游戏集合四个维度的对比，明确说明性能提升的来源。
+
+### 15.0 实验总原则
+
+所有主要实验应尽量在**多个游戏**上重复进行，而不是仅在单个游戏上报告结果。
+
+推荐至少覆盖以下两类游戏：
+
+- 棋盘类游戏（如 Tic-Tac-Toe、Connect Four、Breakthrough 等）
+- 非棋盘或弱棋盘结构游戏（如规则较简单但不依赖规则网格拓扑的游戏）
+
+目的：
+- 验证方法不是只对某一个特定游戏有效
+- 体现 GGP 场景下方法的通用性
+- 为后续 cross-game generalization 实验提供基础
+
+单游戏实验游戏要求：
+- 基于connectFour.kif完成
+
+多游戏实验游戏要求：
+- 多游戏用：ticTacToe + connectFour + breakthrough + reversi
+- 在输出的结果中需要标明使用了什么游戏
+
+### 15.0.1 `NeuralValueMCTSAgent` 的实验配置要求
+
+`NeuralValueMCTSAgent` 不得只使用单一网络配置进行实验。必须至少支持并比较以下三种配置：
+
+1. `FactVectorEncoder + MLPValueNet`
+2. `BoardTokenEncoder + MLPValueNet`
+3. `BoardTokenEncoder + TransformerValueNet`
+
+其中：
+
+- `FactVectorEncoder + MLPValueNet` 作为通用事实表示基线
+- `BoardTokenEncoder + MLPValueNet` 用于隔离“token 化棋盘表示”本身的贡献
+- `BoardTokenEncoder + TransformerValueNet` 作为最终主方法
+
+目的：
+- 区分性能提升究竟来自编码器，还是来自 Transformer 结构
+- 避免最终结果无法解释“为什么有效”
+
+---
 
 ## 15.1 实验 A：基线强度排序
+
 比较：
+
 - `RandomAgent`
 - `PureMCTAgent`
 - `HeuristicMCTSAgent`
 - `ValueGreedyAgent`
 - `NeuralValueMCTSAgent`
 
+其中：
+
+- `ValueGreedyAgent` 至少应使用 `FactVectorEncoder + MLPValueNet` 与最终主方法各测试一次
+- `NeuralValueMCTSAgent` 至少应使用以下三种配置分别测试：
+  - `FactVectorEncoder + MLPValueNet`
+  - `BoardTokenEncoder + MLPValueNet`
+  - `BoardTokenEncoder + TransformerValueNet`
+
 必需的对阵：
+
 - Random vs Random
 - PureMCT vs Random
 - HeuristicMCTS vs PureMCT
@@ -1125,64 +1183,307 @@ combined = alpha * value_net_score + (1 - alpha) * rollout_score
 - NeuralValueMCTS vs PureMCT
 - NeuralValueMCTS vs HeuristicMCTS
 
+如果实验预算允许，推荐进一步拆分为：
+
+- `N-MCTS (Fact+MLP) vs PureMCT`
+- `N-MCTS (Token+MLP) vs PureMCT`
+- `N-MCTS (Token+Transformer) vs PureMCT`
+- `N-MCTS (Fact+MLP) vs HeuristicMCTS`
+- `N-MCTS (Token+MLP) vs HeuristicMCTS`
+- `N-MCTS (Token+Transformer) vs HeuristicMCTS`
+
+目的：
+- 给出所有必需智能体的总体强度排序
+- 明确最终主方法相对于经典搜索基线的收益
+- 初步展示不同神经配置之间的差异
+
+---
+
 ## 15.2 实验 B：时间预算敏感性
+
 对于每个主要搜索智能体，在不同的决策时间限制下进行评估。
 
 必需的设置：
+
 - 0.1秒
 - 0.5秒
 - 1.0秒
 - 2.0秒
 
 智能体：
+
 - PureMCT
 - HeuristicMCTS
 - NeuralValueMCTS
 
+要求：
+
+- `NeuralValueMCTS` 至少对最终主方法 `BoardTokenEncoder + TransformerValueNet` 进行测试
+- 如果资源允许，推荐同时比较 `Fact+MLP` 与 `Token+Transformer` 两个版本，以分析神经评估在不同实时预算下的收益差异
+
+目的：
+- 验证神经叶子评估是否在短时预算下更具优势
+- 检查不同搜索方法对 playclock 的敏感性
+- 分析最终方法是否特别适合低预算决策场景
+
+---
+
 ## 15.3 实验 C：搜索预算敏感性
+
 在固定的迭代次数下进行评估。
 
 必需的设置：
+
 - 50
 - 100
 - 200
 - 500
 
 智能体：
+
 - PureMCT
 - HeuristicMCTS
 - NeuralValueMCTS
 
+要求：
+
+- `NeuralValueMCTS` 至少测试最终主方法
+- 推荐对 `Fact+MLP`、`Token+MLP`、`Token+Transformer` 三种版本都进行比较
+
+目的：
+- 分析神经价值评估是否能减少对大规模 rollout/搜索次数的依赖
+- 观察最终方法在小迭代预算下是否已有明显收益
+- 区分“模型更强”与“搜索更深”两种因素的影响
+
+---
+
 ## 15.4 实验 D：数据集大小敏感性
-使用从以下来源生成的数据集训练价值模型：
+
+使用从以下规模生成的数据集训练价值模型：
+
 - 200 局游戏
 - 500 局游戏
 - 1000 局游戏
 - 3000 局游戏
 
 评估：
+
 - 验证损失
-- ValueGreedy 胜率
-- NeuralValueMCTS 胜率
+- 测试损失
+- `ValueGreedyAgent` 胜率
+- `NeuralValueMCTSAgent` 胜率
 
-## 15.5 实验 E：编码器消融
-比较：
-- FactVectorEncoder + MLPValueNet
-- BoardTokenEncoder + MLPValueNet
-- BoardTokenEncoder + TransformerValueNet
+要求：
 
-如果TransformerValueNet尚未准备好，仍需构建代码结构以便日后进行此实验。
+- 至少对最终主方法进行该实验
+- 推荐同时报告 `Fact+MLP` 和 `Token+Transformer` 的差异
+
+目的：
+- 分析价值模型对数据规模的依赖
+- 判断最终方法是否需要更多数据才能体现优势
+- 说明在小样本与较大样本条件下，不同表示方式的表现差异
+
+---
+
+## 15.5 实验 E：编码器与模型消融
+
+比较以下三种核心配置：
+
+- `FactVectorEncoder + MLPValueNet`
+- `BoardTokenEncoder + MLPValueNet`
+- `BoardTokenEncoder + TransformerValueNet`
+
+要求：
+
+- 同时比较离线预测指标与对局指标
+- 至少报告：
+  - 验证/测试损失
+  - 符号准确率
+  - `ValueGreedyAgent` 对局表现
+  - `NeuralValueMCTSAgent` 对局表现
+
+目的：
+- 检验性能提升是否来自棋盘 token 表示
+- 检验 Transformer 是否优于简单 MLP
+- 明确最终方法中“表示改进”和“模型改进”的相对贡献
+
+重要说明：
+
+该实验不再是可选消融，而是论文中解释最终方法有效性的**核心实验**。
+
+---
 
 ## 15.6 实验 F：缓存/性能研究
+
 比较状态机缓存：
+
 - 启用
 - 禁用
 
 跟踪：
+
 - 挂钟时间
 - 合法动作缓存命中率
 - 下一个状态缓存命中率
 - 对游戏结果的影响（如果有）
+
+要求：
+
+- 至少在 `PureMCTAgent`、`HeuristicMCTSAgent` 与最终版 `NeuralValueMCTSAgent` 上进行比较
+
+目的：
+- 说明工程优化是否显著影响实验效率
+- 检查缓存是否改变不同方法的相对比较结论
+- 为后续实验配置提供合理默认值
+
+---
+
+## 15.7 实验 G：单游戏训练 vs 多游戏训练
+
+该实验用于回答：自博弈数据集是否只能基于单个游戏构建。
+
+必须比较两种数据设置：
+
+### 设置 1：单游戏训练
+
+训练集、验证集、测试集均来自同一个游戏。
+
+示例：
+
+- train: Tic-Tac-Toe self-play
+- val/test: Tic-Tac-Toe self-play
+
+用途：
+- 作为最直接、最容易实现的标准设置
+- 验证每个模型在单游戏场景下的拟合与部署效果
+
+### 设置 2：多游戏联合训练
+
+训练集来自多个游戏的自博弈数据混合。
+
+示例：
+
+- train: Tic-Tac-Toe + Connect Four + Breakthrough
+- test: 分别在这些游戏上评估
+
+要求：
+
+- 至少在最终主方法上进行比较
+- 如果实现成本可控，推荐同时报告 `Fact+MLP` 与 `Token+Transformer` 的差异
+
+评估：
+
+- 验证/测试损失
+- 不同游戏上的 `ValueGreedyAgent` 胜率
+- 不同游戏上的 `NeuralValueMCTSAgent` 胜率
+
+目的：
+- 检验自博弈数据是否应限制于单游戏
+- 观察多游戏混合训练是否提升表示学习质量
+- 为后续 cross-game generalization 提供依据
+
+---
+
+## 15.8 实验 H：多游戏基准测试
+
+所有主要对局实验不应仅在单一游戏上报告，而必须在多个游戏上重复进行。
+
+推荐至少选择 3 个游戏：
+
+- 一个简单小型棋盘游戏
+- 一个中等复杂度棋盘游戏
+- 一个结构不同或弱棋盘假设的游戏
+
+对于每个游戏，至少运行以下对阵：
+
+- Random vs Random
+- PureMCT vs Random
+- HeuristicMCTS vs PureMCT
+- ValueGreedy vs Random
+- NeuralValueMCTS vs PureMCT
+- NeuralValueMCTS vs HeuristicMCTS
+
+要求：
+
+- 对每个游戏分别保存原始结果与汇总结果
+- 最终报告中同时给出：
+  - 按游戏分组的结果
+  - 跨游戏平均结果
+
+目的：
+- 验证方法并非只对某一游戏有效
+- 展示最终方法在不同游戏环境下的稳健性
+- 体现 GGP 场景下的通用实验价值
+
+---
+
+## 15.9 实验 I：跨游戏泛化（Cross-game Generalization）
+
+这是用于体现 GGP 特性的关键实验。
+
+目标：
+检验价值模型是否具有一定程度的跨游戏迁移能力，而不是只记住单个游戏中的状态模式。
+
+### 推荐设置
+
+#### Seen-game evaluation
+训练和测试都包含相同游戏，但数据划分互不重叠。
+
+#### Unseen-game evaluation
+训练集来自若干游戏，测试集来自未参与训练的新游戏。
+
+示例：
+
+- train: game A + game B + game C
+- test: game D
+
+或更稳妥地：
+
+- train: 两到三个棋盘类游戏
+- test: 一个未见过的相似棋盘类游戏
+
+评估：
+
+- 离线价值预测损失
+- 符号准确率
+- `ValueGreedyAgent` 在目标游戏上的表现
+- `NeuralValueMCTSAgent` 在目标游戏上的表现
+
+重要说明：
+
+- 若未见游戏上的绝对性能较低，也必须如实报告
+- 该实验的重点不是追求很高胜率，而是观察：
+  - 不同表示是否具有更好的迁移性
+  - `BoardTokenEncoder + TransformerValueNet` 是否比 `Fact+MLP` 更适合跨游戏泛化
+
+目的：
+- 体现本项目“general game playing”而非“单一棋类优化”的定位
+- 说明最终表示方式是否具有更强的跨任务共享能力
+- 为论文结论提供更强的通用性证据
+
+---
+
+## 15.10 实验结果汇总要求
+
+所有实验至少应记录以下指标中的适用部分：
+
+- 胜率
+- 平局率
+- 平均得分
+- 平均游戏长度
+- 平均决策时间
+- 训练损失
+- 验证损失
+- 测试损失
+- 符号准确率
+- 缓存命中率（如适用）
+
+结果呈现建议：
+
+- 以游戏为分组单位汇报详细结果
+- 再给出跨游戏平均结果
+- 对神经方法应同时报告“离线预测质量”和“真实对局效果”
+- 对最终主方法应特别与 `Fact+MLP` 和 `Token+MLP` 对照，以支撑论文结论
 
 ---
 

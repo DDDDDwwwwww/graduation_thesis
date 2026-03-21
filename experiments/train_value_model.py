@@ -1,12 +1,6 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
-"""价值模型训练脚本。
-
-流程：
-1. 读取 JSONL 样本；
-2. 构建词汇表与事实向量编码器；
-3. 训练 MLP 价值网络并保存产物。
-"""
+"""Train value models from JSONL self-play datasets."""
 
 import argparse
 import json
@@ -20,26 +14,24 @@ import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
-# 允许脚本在项目根目录直接执行。
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from encoding.fact_vector_encoder import FactVectorEncoder
 from encoding.board_token_encoder import BoardTokenEncoder
+from encoding.board_token_mlp_encoder import BoardTokenMLPEncoder
+from encoding.fact_vector_encoder import FactVectorEncoder
 from encoding.vocab import FactVocabulary
 from nn.dataset import ValueDataset
 from nn.trainer import train_value_model
 
 
-def set_seed(seed: int):
-    """统一设置随机种子，尽量保证实验可复现。"""
+def set_seed(seed: int) -> None:
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
 
 
-def main():
-    """命令行入口。"""
+def main() -> None:
     parser = argparse.ArgumentParser(description="Train value model from JSONL dataset.")
     parser.add_argument("--dataset", required=True, help="Input JSONL dataset path")
     parser.add_argument("--encoder", choices=["fact_vector", "board_token"], default="fact_vector")
@@ -74,12 +66,12 @@ def main():
     if not samples:
         raise ValueError("Dataset is empty.")
 
-    # 基于数据集自动提取角色集合与事实词汇。
     roles = sorted({str(s.get("acting_role", "")) for s in samples if s.get("acting_role")})
     vocab = None
+
     if args.encoder == "fact_vector":
         if args.model != "mlp":
-            raise ValueError("encoder=fact_vector 仅支持 model=mlp")
+            raise ValueError("encoder=fact_vector only supports model=mlp")
         vocab = FactVocabulary.fit((s["state_facts"] for s in samples))
         encoder = FactVectorEncoder(
             vocab=vocab,
@@ -88,13 +80,22 @@ def main():
             include_turn_features=True,
         )
     else:
-        if args.model != "transformer":
-            raise ValueError("encoder=board_token 仅支持 model=transformer")
-        encoder = BoardTokenEncoder(
-            position_mode=args.position_mode,
-            include_player_feature=not args.disable_global_features,
-            include_turn_features=not args.disable_global_features,
-        ).fit(samples)
+        if args.model == "transformer":
+            encoder = BoardTokenEncoder(
+                position_mode=args.position_mode,
+                include_player_feature=not args.disable_global_features,
+                include_turn_features=not args.disable_global_features,
+            ).fit(samples)
+        elif args.model == "mlp":
+            encoder = BoardTokenMLPEncoder.fit(
+                samples=samples,
+                position_mode=args.position_mode,
+                include_player_feature=not args.disable_global_features,
+                include_turn_features=not args.disable_global_features,
+                normalize_counts=True,
+            )
+        else:
+            raise ValueError(f"Unsupported model for board_token encoder: {args.model}")
 
     model, metrics = train_value_model(
         samples=samples,
@@ -127,7 +128,7 @@ def main():
     encoder.save(output_dir / "encoder.json")
     if vocab is not None:
         vocab.save(output_dir / "vocab.json")
-    # 保存配置，便于后续复现实验。
+
     config = {
         "dataset": args.dataset,
         "encoder": args.encoder,
@@ -145,9 +146,19 @@ def main():
         "roles": roles,
         "num_samples": len(samples),
     }
+
     if args.model == "mlp":
         config["input_dim"] = encoder.input_dim
-        config["hidden_dims"] = args.hidden_dims
+        if args.encoder == "board_token":
+            config.update(
+                {
+                    "position_mode": args.position_mode,
+                    "num_tokens": encoder.board_encoder.num_tokens,
+                    "use_global_features": (not args.disable_global_features),
+                    "global_feature_dim": encoder.board_encoder.global_feature_dim,
+                    "token_pooling": "normalized_histogram",
+                }
+            )
     else:
         config.update(
             {
@@ -163,6 +174,7 @@ def main():
                 "global_feature_dim": encoder.global_feature_dim,
             }
         )
+
     (output_dir / "config.json").write_text(json.dumps(config, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"[train_value_model] saved artifacts to {output_dir}")

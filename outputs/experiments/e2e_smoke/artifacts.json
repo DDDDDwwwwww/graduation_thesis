@@ -1,0 +1,17 @@
+{
+  "fact_mlp": {
+    "model_path": "outputs\\experiments\\e2e_smoke\\models\\fact_mlp\\model.pt",
+    "encoder_config_path": "outputs\\experiments\\e2e_smoke\\models\\fact_mlp\\encoder.json",
+    "vocab_path": "outputs\\experiments\\e2e_smoke\\models\\fact_mlp\\vocab.json"
+  },
+  "token_mlp": {
+    "model_path": "outputs\\experiments\\e2e_smoke\\models\\token_mlp\\model.pt",
+    "encoder_config_path": "outputs\\experiments\\e2e_smoke\\models\\token_mlp\\encoder.json",
+    "vocab_path": null
+  },
+  "token_transformer": {
+    "model_path": "outputs\\experiments\\e2e_smoke\\models\\token_transformer\\model.pt",
+    "encoder_config_path": "outputs\\experiments\\e2e_smoke\\models\\token_transformer\\encoder.json",
+    "vocab_path": null
+  }
+}

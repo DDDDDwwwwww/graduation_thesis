@@ -46,7 +46,7 @@ class ValueGreedyAgent(BaseAgent):
         name,
         role,
         model_path,
-        vocab_path,
+        vocab_path=None,
         encoder_config_path=None,
         device="cpu",
         seed=None,
