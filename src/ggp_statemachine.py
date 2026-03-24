@@ -8,6 +8,8 @@
 
 from __future__ import annotations
 
+import re
+
 from pyswip import Prolog
 
 from gdl_parser import GDLTranslator, SExpressionParser
@@ -28,7 +30,41 @@ class GameStateMachine:
         self._perf_stats = {}
         self.reset_perf_stats()
 
+        # pyswip uses a shared Prolog runtime in-process. Without cleanup, rules
+        # from previously loaded games can leak into later matches.
+        self._reset_knowledge_base()
         self._load_and_transform_rules(rule_file)
+
+    @staticmethod
+    def _prolog_atom(atom) -> str:
+        text = str(atom)
+        if re.fullmatch(r"[a-z][A-Za-z0-9_]*", text):
+            return text
+        return "'" + text.replace("'", "''") + "'"
+
+    def _reset_knowledge_base(self) -> None:
+        """Clear user-defined dynamic predicates to avoid cross-game contamination."""
+        try:
+            rows = list(
+                self.prolog.query(
+                    "predicate_property(H, dynamic), "
+                    "\\+ predicate_property(H, imported_from(_)), "
+                    "functor(H, N, A)"
+                )
+            )
+        except Exception:
+            rows = []
+
+        targets = {(str(r["N"]), int(r["A"])) for r in rows}
+        for name, arity in targets:
+            if name.startswith("$"):
+                continue
+            try:
+                atom = self._prolog_atom(name)
+                list(self.prolog.query(f"abolish({atom}/{int(arity)})"))
+            except Exception:
+                # Best-effort cleanup; keep going to avoid blocking initialization.
+                continue
 
     def _load_and_transform_rules(self, filename):
         """读取 GDL 文件，解析并断言到 Prolog 知识库。"""
