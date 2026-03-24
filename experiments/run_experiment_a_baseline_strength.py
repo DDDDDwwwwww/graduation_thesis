@@ -21,9 +21,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Experiment A: baseline strength ranking.")
     parser.add_argument("--artifacts", required=True, help="JSON path with fact_mlp/token_mlp/token_transformer artifacts")
     parser.add_argument("--games", nargs="+", default=default_games(multi=True))
-    parser.add_argument("--rounds", type=int, default=20)
-    parser.add_argument("--playclock", type=float, default=1.0)
-    parser.add_argument("--iterations", type=int, default=200)
+    parser.add_argument("--rounds", type=int, default=10)
+    parser.add_argument("--playclock", type=float, default=0.7)
+    parser.add_argument("--iterations", type=int, default=120)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--out-dir", default=f"outputs/experiments/{EXP_NAME}")
@@ -32,16 +32,10 @@ def main() -> None:
     artifacts = load_artifact_map(args.artifacts)
 
     pairs = [
-        ("random", "random"),
         ("pure_mct", "random"),
         ("heuristic_mcts", "pure_mct"),
-        ("value_greedy:fact_mlp", "random"),
         ("value_greedy:token_transformer", "random"),
-        ("neural_mcts:fact_mlp", "pure_mct"),
-        ("neural_mcts:token_mlp", "pure_mct"),
         ("neural_mcts:token_transformer", "pure_mct"),
-        ("neural_mcts:fact_mlp", "heuristic_mcts"),
-        ("neural_mcts:token_mlp", "heuristic_mcts"),
         ("neural_mcts:token_transformer", "heuristic_mcts"),
     ]
 

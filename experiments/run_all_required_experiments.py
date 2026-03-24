@@ -9,6 +9,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REQUIRED_EXPERIMENTS = ["A", "B", "C", "D", "E", "H"]
+OPTIONAL_EXPERIMENTS = ["F", "G", "I"]
 
 
 def _run(script_name: str, args: list[str]) -> None:
@@ -22,14 +24,27 @@ def main() -> None:
     parser.add_argument("--artifacts", help="Artifact map JSON required by A/B/C/E/F/H")
     parser.add_argument("--device", default="cpu")
     parser.add_argument(
+        "--include-optional",
+        action="store_true",
+        help="Also run optional heavy experiments: F/G/I.",
+    )
+    parser.add_argument(
         "--experiments",
         nargs="+",
-        default=["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+        default=None,
         help="Subset to run. Choices in {A,B,C,D,E,F,G,H,I}",
     )
     args = parser.parse_args()
 
-    exp_set = {e.upper() for e in args.experiments}
+    if args.experiments:
+        selected = [e.upper() for e in args.experiments]
+    else:
+        selected = list(REQUIRED_EXPERIMENTS)
+        if args.include_optional:
+            selected.extend(OPTIONAL_EXPERIMENTS)
+
+    exp_set = set(selected)
+    print("[run_all_required_experiments] selected:", " ".join(selected))
     need_artifacts = {"A", "B", "C", "E", "F", "H"}
     if exp_set.intersection(need_artifacts) and not args.artifacts:
         raise ValueError("--artifacts is required when running any of A/B/C/E/F/H.")

@@ -359,24 +359,35 @@ def run_series(
     swap_roles: bool = True,
 ) -> list[dict]:
     rows = []
+    game_name = Path(game_file).stem
     for i in range(int(rounds)):
         if swap_roles:
             first = (i % 2 == 0)
         else:
             first = True
-        rows.append(
-            run_single_match(
-                game_file=game_file,
-                agent_a_key=agent_a_key,
-                agent_b_key=agent_b_key,
-                a_is_first_role=first,
-                playclock=playclock,
-                iterations=iterations,
-                seed=seed + i * 101,
-                cache_enabled=cache_enabled,
-                artifacts=artifacts,
-                device=device,
-            )
+        match_seed = seed + i * 101
+        t0 = time.perf_counter()
+        row = run_single_match(
+            game_file=game_file,
+            agent_a_key=agent_a_key,
+            agent_b_key=agent_b_key,
+            a_is_first_role=first,
+            playclock=playclock,
+            iterations=iterations,
+            seed=match_seed,
+            cache_enabled=cache_enabled,
+            artifacts=artifacts,
+            device=device,
+        )
+        rows.append(row)
+        elapsed = time.perf_counter() - t0
+        print(
+            "[progress][match] "
+            f"game={game_name} pair={agent_a_key}__vs__{agent_b_key} "
+            f"round={i + 1}/{int(rounds)} winner={row['winner']} "
+            f"score_a={row['score_a']:.1f} score_b={row['score_b']:.1f} "
+            f"ply={row['ply_count']} elapsed_sec={elapsed:.2f}",
+            flush=True,
         )
     return rows
 
@@ -430,8 +441,18 @@ def run_match_grid(
     raw_rows: list[dict] = []
     summary_rows: list[dict] = []
 
+    total_groups = len(games) * len(pairs)
+    group_idx = 0
     for game in games:
+        game_name = Path(game).stem
         for a, b in pairs:
+            group_idx += 1
+            print(
+                "[progress][group-start] "
+                f"{group_idx}/{total_groups} game={game_name} pair={a}__vs__{b}",
+                flush=True,
+            )
+            t0 = time.perf_counter()
             series = run_series(
                 game_file=game,
                 agent_a_key=a,
@@ -446,7 +467,18 @@ def run_match_grid(
                 swap_roles=True,
             )
             raw_rows.extend(series)
-            summary_rows.append(summarize_series(series))
+            summary = summarize_series(series)
+            summary_rows.append(summary)
+            elapsed = time.perf_counter() - t0
+            print(
+                "[progress][group-done] "
+                f"{group_idx}/{total_groups} game={game_name} pair={a}__vs__{b} "
+                f"n_matches={summary.get('n_matches', 0)} "
+                f"win_rate_a={summary.get('win_rate_a', 0.0):.3f} "
+                f"draw_rate={summary.get('draw_rate', 0.0):.3f} "
+                f"elapsed_sec={elapsed:.2f}",
+                flush=True,
+            )
     return raw_rows, summary_rows
 
 

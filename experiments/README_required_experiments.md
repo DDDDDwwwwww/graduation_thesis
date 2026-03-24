@@ -66,6 +66,21 @@ For scripts that accept `--artifacts`, prepare a JSON file like:
 - `run_experiment_i_cross_game_generalization.py`
 - `run_all_required_experiments.py`
 
+## Required vs optional in batch runner
+
+- Required by default in `run_all_required_experiments.py`: `A B C D E H`
+- Optional heavy blocks: `F G I`
+- Run optional blocks together with required via `--include-optional`
+- Or run any subset explicitly via `--experiments ...`
+
+## Full-lite defaults
+
+The experiment defaults were globally reduced for easier execution while preserving comparisons:
+
+- Match-style experiments: fewer rounds (`10`), lower playclock (`0.7`), moderate iterations (`120` or `180`)
+- Dataset/training experiments: reduced dataset sizes or game counts, `selfplay-iterations=70`, `epochs=12`
+- Experiment A uses a reduced 5-pair core comparison set
+
 ## Useful helpers
 
 - `generate_dataset.py` (single-game self-play dataset)
@@ -77,5 +92,7 @@ For scripts that accept `--artifacts`, prepare a JSON file like:
 ```bash
 D:/Anaconda/envs/MLcourse/python.exe experiments/run_experiment_a_baseline_strength.py --artifacts outputs/artifacts.json
 D:/Anaconda/envs/MLcourse/python.exe experiments/run_experiment_d_dataset_size.py --game games/connectFour.kif
+D:/Anaconda/envs/MLcourse/python.exe experiments/run_all_required_experiments.py --artifacts outputs/artifacts.json
+D:/Anaconda/envs/MLcourse/python.exe experiments/run_all_required_experiments.py --artifacts outputs/artifacts.json --include-optional
 D:/Anaconda/envs/MLcourse/python.exe experiments/run_all_required_experiments.py --artifacts outputs/artifacts.json --experiments A B C H
 ```
