@@ -1,0 +1,32 @@
+[
+  {
+    "config": "fact_mlp",
+    "model_path": "E:\\yc_guaduate_project\\graduation_thesis\\outputs\\experiments\\e2e_smoke\\models\\fact_mlp\\model.pt",
+    "test_loss": 0.36525753140449524,
+    "test_sign_acc": 0.2727272727272727,
+    "best_val_loss": 0.6572698354721069,
+    "n_train": 352,
+    "n_val": 44,
+    "n_test": 44
+  },
+  {
+    "config": "token_mlp",
+    "model_path": "E:\\yc_guaduate_project\\graduation_thesis\\outputs\\experiments\\e2e_smoke\\models\\token_mlp\\model.pt",
+    "test_loss": 0.3828944265842438,
+    "test_sign_acc": 0.2727272727272727,
+    "best_val_loss": 0.5980268120765686,
+    "n_train": 352,
+    "n_val": 44,
+    "n_test": 44
+  },
+  {
+    "config": "token_transformer",
+    "model_path": "E:\\yc_guaduate_project\\graduation_thesis\\outputs\\experiments\\e2e_smoke\\models\\token_transformer\\model.pt",
+    "test_loss": 0.40672409534454346,
+    "test_sign_acc": 0.2727272727272727,
+    "best_val_loss": 0.5612712502479553,
+    "n_train": 352,
+    "n_val": 44,
+    "n_test": 44
+  }
+]

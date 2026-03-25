@@ -1,0 +1,33 @@
+{
+  "position_mode": "index",
+  "include_player_feature": true,
+  "include_turn_features": true,
+  "schema": {},
+  "x_to_idx": {
+    "1": 0,
+    "2": 1,
+    "3": 2,
+    "4": 3,
+    "5": 4,
+    "6": 5,
+    "7": 6,
+    "8": 7
+  },
+  "y_to_idx": {
+    "1": 0,
+    "2": 1,
+    "3": 2,
+    "4": 3,
+    "5": 4,
+    "6": 5
+  },
+  "content_to_id": {
+    "<UNK>": 0,
+    "black": 1,
+    "red": 2
+  },
+  "roles": [
+    "black",
+    "red"
+  ]
+}

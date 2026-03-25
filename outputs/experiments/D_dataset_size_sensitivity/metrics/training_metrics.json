@@ -1,0 +1,86 @@
+[
+  {
+    "dataset_games": 200,
+    "config": "fact_mlp",
+    "test_loss": 0.3326785084775803,
+    "test_sign_acc": 0.8636363636363636,
+    "best_val_loss": 0.36128814998404774
+  },
+  {
+    "dataset_games": 200,
+    "config": "token_mlp",
+    "test_loss": 0.9925001183342853,
+    "test_sign_acc": 0.5454545454545454,
+    "best_val_loss": 0.978930585802506
+  },
+  {
+    "dataset_games": 200,
+    "config": "token_transformer",
+    "test_loss": 1.0262862909522523,
+    "test_sign_acc": 0.51010101010101,
+    "best_val_loss": 0.9681355645644524
+  },
+  {
+    "dataset_games": 500,
+    "config": "fact_mlp",
+    "test_loss": 0.3768386261146625,
+    "test_sign_acc": 0.8456507521255723,
+    "best_val_loss": 0.36349482669421246
+  },
+  {
+    "dataset_games": 500,
+    "config": "token_mlp",
+    "test_loss": 0.9704591049876691,
+    "test_sign_acc": 0.5853499018966645,
+    "best_val_loss": 0.9668673580584373
+  },
+  {
+    "dataset_games": 500,
+    "config": "token_transformer",
+    "test_loss": 0.9575384216342898,
+    "test_sign_acc": 0.6030085022890779,
+    "best_val_loss": 0.9617552021085318
+  },
+  {
+    "dataset_games": 1000,
+    "config": "fact_mlp",
+    "test_loss": 0.3908200389028756,
+    "test_sign_acc": 0.8408862034239678,
+    "best_val_loss": 0.40056007754133977
+  },
+  {
+    "dataset_games": 1000,
+    "config": "token_mlp",
+    "test_loss": 0.9797719770447846,
+    "test_sign_acc": 0.5552198724404163,
+    "best_val_loss": 0.985411157834678
+  },
+  {
+    "dataset_games": 1000,
+    "config": "token_transformer",
+    "test_loss": 0.9535463918331847,
+    "test_sign_acc": 0.5904665995300437,
+    "best_val_loss": 0.9537632685200976
+  },
+  {
+    "dataset_games": 2000,
+    "config": "fact_mlp",
+    "test_loss": 0.4514838284374135,
+    "test_sign_acc": 0.8201754385964912,
+    "best_val_loss": 0.4387798235909986
+  },
+  {
+    "dataset_games": 2000,
+    "config": "token_mlp",
+    "test_loss": 0.9841682529821266,
+    "test_sign_acc": 0.543859649122807,
+    "best_val_loss": 0.9777959916046931
+  },
+  {
+    "dataset_games": 2000,
+    "config": "token_transformer",
+    "test_loss": 0.981611737111236,
+    "test_sign_acc": 0.5560428849902534,
+    "best_val_loss": 0.985796541605129
+  }
+]

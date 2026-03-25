@@ -1,0 +1,70 @@
+{
+  "200": {
+    "fact_mlp": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_200\\fact_mlp\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_200\\fact_mlp\\encoder.json",
+      "vocab_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_200\\fact_mlp\\vocab.json"
+    },
+    "token_mlp": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_200\\token_mlp\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_200\\token_mlp\\encoder.json",
+      "vocab_path": null
+    },
+    "token_transformer": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_200\\token_transformer\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_200\\token_transformer\\encoder.json",
+      "vocab_path": null
+    }
+  },
+  "500": {
+    "fact_mlp": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_500\\fact_mlp\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_500\\fact_mlp\\encoder.json",
+      "vocab_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_500\\fact_mlp\\vocab.json"
+    },
+    "token_mlp": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_500\\token_mlp\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_500\\token_mlp\\encoder.json",
+      "vocab_path": null
+    },
+    "token_transformer": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_500\\token_transformer\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_500\\token_transformer\\encoder.json",
+      "vocab_path": null
+    }
+  },
+  "1000": {
+    "fact_mlp": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\fact_mlp\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\fact_mlp\\encoder.json",
+      "vocab_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\fact_mlp\\vocab.json"
+    },
+    "token_mlp": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\token_mlp\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\token_mlp\\encoder.json",
+      "vocab_path": null
+    },
+    "token_transformer": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\token_transformer\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\token_transformer\\encoder.json",
+      "vocab_path": null
+    }
+  },
+  "2000": {
+    "fact_mlp": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\fact_mlp\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\fact_mlp\\encoder.json",
+      "vocab_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\fact_mlp\\vocab.json"
+    },
+    "token_mlp": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_mlp\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_mlp\\encoder.json",
+      "vocab_path": null
+    },
+    "token_transformer": {
+      "model_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_transformer\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_transformer\\encoder.json",
+      "vocab_path": null
+    }
+  }
+}

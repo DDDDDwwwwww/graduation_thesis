@@ -1,0 +1,33 @@
+{
+  "dataset": "outputs\\experiments\\D_dataset_size_sensitivity\\datasets\\dataset_1000.jsonl",
+  "encoder": "board_token",
+  "model": "transformer",
+  "epochs": 12,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "seed": 2076,
+  "hidden_dims": [
+    256,
+    128
+  ],
+  "dropout": 0.1,
+  "loss": "mse",
+  "patience": 5,
+  "device": "cuda",
+  "roles": [
+    "black",
+    "red"
+  ],
+  "num_samples": 29776,
+  "position_mode": "index",
+  "num_tokens": 3,
+  "d_model": 128,
+  "n_heads": 4,
+  "n_layers": 3,
+  "dim_feedforward": 256,
+  "position_encoding": "sinusoidal",
+  "max_positions": 4096,
+  "use_global_features": true,
+  "global_feature_dim": 3
+}

@@ -1,0 +1,18 @@
+{
+  "experiment": "A_baseline_strength",
+  "root": "outputs\\experiments\\A_baseline_strength",
+  "args": {
+    "artifacts": "outputs\\experiments\\e2e_smoke\\artifacts.json",
+    "games": [
+      "games/ticTacToe.kif",
+      "games/connectFour.kif",
+      "games/breakthrough.kif"
+    ],
+    "rounds": 10,
+    "playclock": 0.7,
+    "iterations": 120,
+    "seed": 42,
+    "device": "cuda",
+    "out_dir": "outputs/experiments/A_baseline_strength"
+  }
+}
