@@ -1,8 +1,0 @@
-{
-  "include_role": true,
-  "include_turn_features": true,
-  "roles": [
-    "black",
-    "red"
-  ]
-}
