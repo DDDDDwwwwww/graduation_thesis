@@ -13,7 +13,7 @@ from encoding.board_token_mlp_encoder import BoardTokenMLPEncoder
 from encoding.fact_vector_encoder import FactVectorEncoder
 from encoding.vocab import FactVocabulary
 
-from .value_net import MLPValueNet, TransformerValueNet
+from .value_net import MLPValueNet, MLPVarianceValueNet, TransformerValueNet
 
 
 def _read_encoder_type(encoder_config_path: str | Path | None) -> str | None:
@@ -67,6 +67,20 @@ def load_value_artifacts(model_path, vocab_path=None, encoder_config_path=None, 
             dropout=float(checkpoint.get("dropout", 0.1)),
         )
 
+    elif model_type == "mlp_variance":
+        encoder_type = _read_encoder_type(encoder_config_path)
+        if encoder_type != "board_token_mlp":
+            raise ValueError("mlp_variance requires board_token_mlp encoder_config_path.")
+        if encoder_config_path is None or not Path(encoder_config_path).exists():
+            raise ValueError("encoder_config_path is required for mlp_variance model.")
+        encoder = BoardTokenMLPEncoder.load(encoder_config_path)
+        model = MLPVarianceValueNet(
+            input_dim=int(checkpoint["input_dim"]),
+            hidden_dims=tuple(checkpoint.get("hidden_dims", [256, 128])),
+            dropout=float(checkpoint.get("dropout", 0.1)),
+            min_variance=float(checkpoint.get("min_variance", 1e-4)),
+        )
+        extra = None
     elif model_type == "transformer":
         if encoder_config_path is None or not Path(encoder_config_path).exists():
             raise ValueError("encoder_config_path is required for transformer model.")
@@ -107,6 +121,12 @@ def predict_value(model, x, device="cpu") -> float:
                 elif t.dim() == 2 and k == "tile_positions" and t.size(-1) == 2:
                     t = t.unsqueeze(0)
                 batch[k] = t
-            return float(model(batch).item())
+            out = model(batch)
+            if isinstance(out, dict):
+                return float(out["value"].item())
+            return float(out.item())
         t = torch.tensor(x, dtype=torch.float32, device=device).unsqueeze(0)
-        return float(model(t).item())
+        out = model(t)
+        if isinstance(out, dict):
+            return float(out["value"].item())
+        return float(out.item())

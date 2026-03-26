@@ -30,6 +30,31 @@ class MLPValueNet(nn.Module):
         return self.output(self.backbone(x))
 
 
+class MLPVarianceValueNet(nn.Module):
+    """MLP value net with an uncertainty (variance) head."""
+
+    def __init__(self, input_dim: int, hidden_dims=(256, 128), dropout=0.1, min_variance: float = 1e-4):
+        super().__init__()
+        layers = []
+        in_dim = int(input_dim)
+        for hidden in hidden_dims:
+            layers.append(nn.Linear(in_dim, int(hidden)))
+            layers.append(nn.ReLU())
+            if dropout and dropout > 0:
+                layers.append(nn.Dropout(float(dropout)))
+            in_dim = int(hidden)
+        self.backbone = nn.Sequential(*layers)
+        self.value_head = nn.Sequential(nn.Linear(in_dim, 1), nn.Tanh())
+        self.log_var_head = nn.Linear(in_dim, 1)
+        self.min_variance = float(min_variance)
+
+    def forward(self, x):
+        h = self.backbone(x)
+        value = self.value_head(h)
+        variance = torch.nn.functional.softplus(self.log_var_head(h)) + self.min_variance
+        return {"value": value, "variance": variance}
+
+
 class TransformerValueNet(nn.Module):
     """基于 token 序列的 Transformer 价值网络。"""
 

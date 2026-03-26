@@ -1,0 +1,21 @@
+{
+  "experiment": "TS_A_main_benchmark",
+  "root": "outputs4two_stage\\experiments\\SMOKE_TS_A_MLCOURSE",
+  "args": {
+    "artifacts": "outputs4two_stage/artifacts/two_stage_artifacts.json",
+    "games": [
+      "games/ticTacToe.kif"
+    ],
+    "rounds": 1,
+    "playclock": 0.2,
+    "iterations": 20,
+    "seed": 42,
+    "device": "cpu",
+    "tau": 0.15,
+    "visit_threshold": 4,
+    "slow_budget_per_move": 16,
+    "uncertainty_type": "variance_head",
+    "gate_type": "combined",
+    "out_dir": "outputs4two_stage/experiments/SMOKE_TS_A_MLCOURSE"
+  }
+}

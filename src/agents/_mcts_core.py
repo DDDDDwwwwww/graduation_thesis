@@ -106,6 +106,9 @@ class _MCTSCoreAgent(BaseAgent):
         for role in roles:
             self.history_stats.setdefault(role, {})
 
+        if hasattr(self.evaluator, "start_move"):
+            self.evaluator.start_move()
+
         root = self._prepare_root(state)
         budget_end = None
         if time_limit is not None:
@@ -170,7 +173,11 @@ class _MCTSCoreAgent(BaseAgent):
 
         # 评估器统一返回“各角色价值”字典。
         terminal_values = self.evaluator.evaluate_for_roles(
-            game_machine, leaf_node.state, roles, budget_end=budget_end
+            game_machine,
+            leaf_node.state,
+            roles,
+            budget_end=budget_end,
+            node_visit_count=int(getattr(leaf_node, "visits", 0)),
         )
         self._backpropagate(path, leaf_node, terminal_values)
         return True

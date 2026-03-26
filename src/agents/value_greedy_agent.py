@@ -84,8 +84,22 @@ class ValueGreedyAgent(BaseAgent):
         next_state = game.get_next_state(state, joint)
         x = self.encoder.encode(next_state, game, role=self.role)
         with torch.no_grad():
-            t = torch.tensor(x, dtype=torch.float32, device=self.device).unsqueeze(0)
-            return float(self.value_model(t).item())
+            if isinstance(x, dict):
+                batch = {}
+                for k, v in x.items():
+                    t = torch.as_tensor(v, device=self.device)
+                    if t.dim() == 1:
+                        t = t.unsqueeze(0)
+                    elif t.dim() == 2 and k == "tile_positions" and t.size(-1) == 2:
+                        t = t.unsqueeze(0)
+                    batch[k] = t
+                out = self.value_model(batch)
+            else:
+                t = torch.tensor(x, dtype=torch.float32, device=self.device).unsqueeze(0)
+                out = self.value_model(t)
+            if isinstance(out, dict):
+                return float(out["value"].item())
+            return float(out.item())
 
     def select_action(self, game, state, legal_actions, time_limit=None):
         """遍历全部合法动作并返回价值最高者。"""

@@ -8,6 +8,7 @@ from .heuristic_mcts_agent import HeuristicMCTSAgent
 from .neural_value_mcts_agent import NeuralValueMCTSAgent
 from .pure_mct_agent import PureMCTAgent
 from .random_agent import RandomAgent
+from .two_stage_neural_mcts_agent import TwoStageNeuralMCTSAgent
 from .value_greedy_agent import ValueGreedyAgent
 
 __all__ = [
@@ -17,4 +18,5 @@ __all__ = [
     "HeuristicMCTSAgent",
     "ValueGreedyAgent",
     "NeuralValueMCTSAgent",
+    "TwoStageNeuralMCTSAgent",
 ]
