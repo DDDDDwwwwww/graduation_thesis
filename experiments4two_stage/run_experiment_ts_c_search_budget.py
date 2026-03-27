@@ -1,13 +1,16 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 
 from experiment_utils import (
     collect_cross_game_mean,
     default_games,
     init_output_layout,
     load_artifacts,
+    log_line,
     run_match_grid,
+    set_log_file,
     write_csv,
     write_json,
 )
@@ -31,7 +34,17 @@ def main() -> None:
     parser.add_argument("--uncertainty-type", choices=["margin", "variance_head"], default="variance_head")
     parser.add_argument("--gate-type", default="combined")
     parser.add_argument("--out-dir", default=f"outputs4two_stage/experiments/{EXP_NAME}")
+    parser.add_argument("--log-file", default=None)
     args = parser.parse_args()
+    log_path = Path(args.log_file) if args.log_file else (Path(args.out_dir) / "meta" / "run.log")
+    set_log_file(log_path, mode="w")
+    log_line(
+        EXP_NAME,
+        (
+            f"start artifacts={args.artifacts} device={args.device} games={len(args.games)} "
+            f"iterations_list={list(args.iterations_list)} rounds={args.rounds} playclock={args.playclock}"
+        ),
+    )
 
     artifacts = load_artifacts(args.artifacts)
     two_stage_kwargs = {
@@ -48,6 +61,7 @@ def main() -> None:
     raw_rows = []
     summary_rows = []
     for i, iters in enumerate(args.iterations_list):
+        log_line(EXP_NAME, f"search_budget-start {i + 1}/{len(args.iterations_list)} iterations={int(iters)}")
         r, s = run_match_grid(
             games=args.games,
             pairs=pairs,
@@ -65,6 +79,13 @@ def main() -> None:
             row["search_iterations"] = int(iters)
         raw_rows.extend(r)
         summary_rows.extend(s)
+        log_line(
+            EXP_NAME,
+            (
+                f"search_budget-end {i + 1}/{len(args.iterations_list)} iterations={int(iters)} "
+                f"raw_rows_total={len(raw_rows)} summary_rows_total={len(summary_rows)}"
+            ),
+        )
     cross = collect_cross_game_mean(summary_rows, ["search_iterations", "agent_a_key", "agent_b_key"])
     layout = init_output_layout(EXP_NAME, args.out_dir, args=args)
     write_json(layout["raw"] / "matches.json", raw_rows)
@@ -72,7 +93,7 @@ def main() -> None:
     write_json(layout["summary"] / "cross_game.json", cross)
     write_csv(layout["summary"] / "by_game.csv", summary_rows)
     write_csv(layout["summary"] / "cross_game.csv", cross)
-    print(f"[{EXP_NAME}] finished. output={layout['root']}")
+    log_line(EXP_NAME, f"finished output={layout['root']}")
 
 
 if __name__ == "__main__":

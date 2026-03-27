@@ -1,0 +1,7 @@
+[2026-03-27 00:53:30][run_all_two_stage_experiments] suite-start log_file=outputs4two_stage\logs\run_all_latest.log device=cuda artifacts=outputs4two_stage/artifacts/two_stage_artifacts.json experiments=E,F
+[2026-03-27 00:53:30][run_all_two_stage_experiments] skip rebuilding artifacts (using existing file)
+[2026-03-27 00:53:30][run_all_two_stage_experiments] start script=run_experiment_ts_e_uncertainty_ablation.py cmd=D:\anaconda\envs\ggp_thesis\python.exe E:\yc_guaduate_project\graduation_thesis\experiments4two_stage\run_experiment_ts_e_uncertainty_ablation.py --artifacts outputs4two_stage/artifacts/two_stage_artifacts.json --device cuda
+[2026-03-27 01:10:47][run_all_two_stage_experiments] done script=run_experiment_ts_e_uncertainty_ablation.py elapsed=17:16
+[2026-03-27 01:10:47][run_all_two_stage_experiments] start script=run_experiment_ts_f_overhead_analysis.py cmd=D:\anaconda\envs\ggp_thesis\python.exe E:\yc_guaduate_project\graduation_thesis\experiments4two_stage\run_experiment_ts_f_overhead_analysis.py --artifacts outputs4two_stage/artifacts/two_stage_artifacts.json --device cuda
+[2026-03-27 01:32:42][run_all_two_stage_experiments] done script=run_experiment_ts_f_overhead_analysis.py elapsed=21:55
+[2026-03-27 01:32:42][run_all_two_stage_experiments] suite-done elapsed=39:11

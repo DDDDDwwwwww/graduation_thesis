@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import atexit
 import csv
 import json
 import statistics
@@ -8,12 +9,65 @@ import time
 from dataclasses import dataclass
 from pathlib import Path
 import sys
+from typing import TextIO
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
+
+_LOG_FH: TextIO | None = None
+_ORIG_STDOUT = sys.stdout
+_ORIG_STDERR = sys.stderr
+
+
+def _now_ts() -> str:
+    return time.strftime("%Y-%m-%d %H:%M:%S")
+
+
+def _fmt_seconds(seconds: float) -> str:
+    total = max(0, int(seconds))
+    h, rem = divmod(total, 3600)
+    m, s = divmod(rem, 60)
+    if h > 0:
+        return f"{h:02d}:{m:02d}:{s:02d}"
+    return f"{m:02d}:{s:02d}"
+
+
+def set_log_file(path: str | Path, mode: str = "a", redirect_std_streams: bool = True) -> Path:
+    global _LOG_FH
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    if _LOG_FH is not None:
+        _LOG_FH.close()
+    _LOG_FH = p.open(mode, encoding="utf-8")
+    if redirect_std_streams:
+        sys.stdout = _LOG_FH
+        sys.stderr = _LOG_FH
+    return p
+
+
+def _close_log_file() -> None:
+    global _LOG_FH
+    if _LOG_FH is not None:
+        _LOG_FH.close()
+        _LOG_FH = None
+    sys.stdout = _ORIG_STDOUT
+    sys.stderr = _ORIG_STDERR
+
+
+atexit.register(_close_log_file)
+
+
+def log_line(tag: str, message: str) -> None:
+    line = f"[{_now_ts()}][{tag}] {message}\n"
+    if _LOG_FH is not None:
+        _LOG_FH.write(line)
+        _LOG_FH.flush()
+        return
+    # Fallback for scripts that did not configure a log file yet.
+    print(line, end="", flush=True)
 
 
 def _runtime_imports():
@@ -116,7 +170,8 @@ def _resolve_path(path_like: str) -> str:
 
 
 def load_artifacts(path: str | Path) -> dict:
-    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    # Allow JSON files saved by PowerShell with UTF-8 BOM.
+    payload = json.loads(Path(path).read_text(encoding="utf-8-sig"))
     out = {
         "token_mlp": ValueArtifact(
             model_path=_resolve_path(payload["token_mlp"]["model_path"]),
@@ -327,8 +382,17 @@ def run_series(
     two_stage_kwargs: dict | None = None,
 ) -> list[dict]:
     rows = []
+    t_series = time.perf_counter()
+    log_line(
+        "progress/series-start",
+        (
+            f"game={Path(game_file).stem} pair={agent_a_key}__vs__{agent_b_key} "
+            f"rounds={int(rounds)} playclock={playclock} iterations={iterations}"
+        ),
+    )
     for i in range(int(rounds)):
         first = (i % 2 == 0)
+        t_round = time.perf_counter()
         row = run_single_match(
             game_file=game_file,
             agent_a_key=agent_a_key,
@@ -342,13 +406,29 @@ def run_series(
             two_stage_kwargs=two_stage_kwargs,
         )
         rows.append(row)
-        print(
-            "[progress][match] "
-            f"game={Path(game_file).stem} pair={agent_a_key}__vs__{agent_b_key} "
-            f"round={i + 1}/{int(rounds)} winner={row['winner']} "
-            f"score_a={row['score_a']:.1f} score_b={row['score_b']:.1f}",
-            flush=True,
+        round_elapsed = time.perf_counter() - t_round
+        series_elapsed = time.perf_counter() - t_series
+        done = i + 1
+        avg_round = series_elapsed / done
+        eta = max(0.0, avg_round * (int(rounds) - done))
+        log_line(
+            "progress/match",
+            (
+                f"game={Path(game_file).stem} pair={agent_a_key}__vs__{agent_b_key} "
+                f"round={done}/{int(rounds)} winner={row['winner']} "
+                f"score_a={row['score_a']:.1f} score_b={row['score_b']:.1f} "
+                f"round_time={_fmt_seconds(round_elapsed)} "
+                f"series_elapsed={_fmt_seconds(series_elapsed)} "
+                f"series_eta={_fmt_seconds(eta)}"
+            ),
         )
+    log_line(
+        "progress/series-end",
+        (
+            f"game={Path(game_file).stem} pair={agent_a_key}__vs__{agent_b_key} "
+            f"elapsed={_fmt_seconds(time.perf_counter() - t_series)} rounds={int(rounds)}"
+        ),
+    )
     return rows
 
 
@@ -410,10 +490,16 @@ def run_match_grid(
     summary_rows = []
     total = len(games) * len(pairs)
     idx = 0
+    t_grid = time.perf_counter()
+    log_line(
+        "progress/grid-start",
+        f"groups={total} games={len(games)} pairs={len(pairs)} rounds={int(rounds)} device={device}",
+    )
     for game in games:
         for a, b in pairs:
             idx += 1
-            print(f"[progress][group-start] {idx}/{total} game={Path(game).stem} pair={a}__vs__{b}", flush=True)
+            t_group = time.perf_counter()
+            log_line("progress/group-start", f"{idx}/{total} game={Path(game).stem} pair={a}__vs__{b}")
             series = run_series(
                 game_file=game,
                 agent_a_key=a,
@@ -428,6 +514,23 @@ def run_match_grid(
             )
             raw_rows.extend(series)
             summary_rows.append(summarize_series(series))
+            group_elapsed = time.perf_counter() - t_group
+            grid_elapsed = time.perf_counter() - t_grid
+            avg_group = grid_elapsed / idx
+            grid_eta = max(0.0, avg_group * (total - idx))
+            log_line(
+                "progress/group-end",
+                (
+                    f"{idx}/{total} game={Path(game).stem} pair={a}__vs__{b} "
+                    f"group_elapsed={_fmt_seconds(group_elapsed)} "
+                    f"grid_elapsed={_fmt_seconds(grid_elapsed)} "
+                    f"grid_eta={_fmt_seconds(grid_eta)}"
+                ),
+            )
+    log_line(
+        "progress/grid-end",
+        f"groups={total} total_elapsed={_fmt_seconds(time.perf_counter() - t_grid)}",
+    )
     return raw_rows, summary_rows
 
 

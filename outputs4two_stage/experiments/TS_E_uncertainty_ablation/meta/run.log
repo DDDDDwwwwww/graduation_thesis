@@ -1,0 +1,62 @@
+[2026-03-27 00:53:30][TS_E_uncertainty_ablation] start artifacts=outputs4two_stage/artifacts/two_stage_artifacts.json device=cuda games=1 rounds=20 playclock=0.7 iterations=120
+[2026-03-27 00:53:30][TS_E_uncertainty_ablation] uncertainty_variant-start 1/2 type=margin
+[2026-03-27 00:53:30][progress/grid-start] groups=1 games=1 pairs=1 rounds=20 device=cuda
+[2026-03-27 00:53:30][progress/group-start] 1/1 game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer
+[2026-03-27 00:53:30][progress/series-start] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer rounds=20 playclock=0.7 iterations=120
+E:\yc_guaduate_project\graduation_thesis\src\nn\inference.py:43: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(model_path, map_location=device)
+D:\anaconda\envs\ggp_thesis\Lib\site-packages\torch\nn\modules\transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\NestedTensorImpl.cpp:180.)
+  output = torch._nested_tensor_from_mask(
+[2026-03-27 00:53:54][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=1/20 winner=b score_a=0.0 score_b=100.0 round_time=00:23 series_elapsed=00:23 series_eta=07:19
+[2026-03-27 00:54:06][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:12 series_elapsed=00:35 series_eta=05:16
+[2026-03-27 00:54:39][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=3/20 winner=b score_a=0.0 score_b=100.0 round_time=00:33 series_elapsed=01:09 series_eta=06:31
+[2026-03-27 00:54:50][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:10 series_elapsed=01:19 series_eta=05:18
+[2026-03-27 00:55:03][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=5/20 winner=b score_a=0.0 score_b=100.0 round_time=00:12 series_elapsed=01:32 series_eta=04:36
+[2026-03-27 00:55:34][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=6/20 winner=a score_a=100.0 score_b=0.0 round_time=00:30 series_elapsed=02:03 series_eta=04:47
+[2026-03-27 00:55:46][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=7/20 winner=b score_a=0.0 score_b=100.0 round_time=00:12 series_elapsed=02:15 series_eta=04:12
+[2026-03-27 00:56:08][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:21 series_elapsed=02:37 series_eta=03:56
+[2026-03-27 00:56:29][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:20 series_elapsed=02:58 series_eta=03:37
+[2026-03-27 00:57:03][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:34 series_elapsed=03:32 series_eta=03:32
+[2026-03-27 00:57:26][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:23 series_elapsed=03:55 series_eta=03:13
+[2026-03-27 00:58:11][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:44 series_elapsed=04:40 series_eta=03:06
+[2026-03-27 00:58:57][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:45 series_elapsed=05:26 series_eta=02:55
+[2026-03-27 00:59:30][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:33 series_elapsed=05:59 series_eta=02:33
+[2026-03-27 00:59:51][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:21 series_elapsed=06:21 series_eta=02:07
+[2026-03-27 01:00:30][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:38 series_elapsed=06:59 series_eta=01:44
+[2026-03-27 01:00:44][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=17/20 winner=b score_a=0.0 score_b=100.0 round_time=00:14 series_elapsed=07:14 series_eta=01:16
+[2026-03-27 01:00:55][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:10 series_elapsed=07:24 series_eta=00:49
+[2026-03-27 01:01:12][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:16 series_elapsed=07:41 series_eta=00:24
+[2026-03-27 01:02:11][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=20/20 winner=a score_a=100.0 score_b=0.0 round_time=00:59 series_elapsed=08:40 series_eta=00:00
+[2026-03-27 01:02:11][progress/series-end] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer elapsed=08:40 rounds=20
+[2026-03-27 01:02:11][progress/group-end] 1/1 game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer group_elapsed=08:40 grid_elapsed=08:40 grid_eta=00:00
+[2026-03-27 01:02:11][progress/grid-end] groups=1 total_elapsed=08:40
+[2026-03-27 01:02:11][TS_E_uncertainty_ablation] uncertainty_variant-end 1/2 type=margin raw_rows_total=20 summary_rows_total=1
+[2026-03-27 01:02:11][TS_E_uncertainty_ablation] uncertainty_variant-start 2/2 type=variance_head
+[2026-03-27 01:02:11][progress/grid-start] groups=1 games=1 pairs=1 rounds=20 device=cuda
+[2026-03-27 01:02:11][progress/group-start] 1/1 game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer
+[2026-03-27 01:02:11][progress/series-start] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer rounds=20 playclock=0.7 iterations=120
+[2026-03-27 01:02:26][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:14 series_elapsed=00:14 series_eta=04:39
+[2026-03-27 01:03:10][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=2/20 winner=a score_a=100.0 score_b=0.0 round_time=00:43 series_elapsed=00:58 series_eta=08:45
+[2026-03-27 01:03:39][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=3/20 winner=b score_a=0.0 score_b=100.0 round_time=00:29 series_elapsed=01:27 series_eta=08:18
+[2026-03-27 01:04:01][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:21 series_elapsed=01:49 series_eta=07:19
+[2026-03-27 01:04:38][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:37 series_elapsed=02:27 series_eta=07:21
+[2026-03-27 01:05:06][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:27 series_elapsed=02:54 series_eta=06:47
+[2026-03-27 01:05:25][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:18 series_elapsed=03:13 series_eta=05:59
+[2026-03-27 01:06:02][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=8/20 winner=a score_a=100.0 score_b=0.0 round_time=00:36 series_elapsed=03:50 series_eta=05:45
+[2026-03-27 01:06:40][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=9/20 winner=b score_a=0.0 score_b=100.0 round_time=00:38 series_elapsed=04:28 series_eta=05:28
+[2026-03-27 01:07:03][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:23 series_elapsed=04:51 series_eta=04:51
+[2026-03-27 01:07:26][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:23 series_elapsed=05:14 series_eta=04:17
+[2026-03-27 01:08:01][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=12/20 winner=a score_a=100.0 score_b=0.0 round_time=00:35 series_elapsed=05:50 series_eta=03:53
+[2026-03-27 01:08:11][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=13/20 winner=b score_a=0.0 score_b=100.0 round_time=00:09 series_elapsed=06:00 series_eta=03:13
+[2026-03-27 01:08:23][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:12 series_elapsed=06:12 series_eta=02:39
+[2026-03-27 01:08:38][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:14 series_elapsed=06:26 series_eta=02:08
+[2026-03-27 01:09:17][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:38 series_elapsed=07:05 series_eta=01:46
+[2026-03-27 01:09:28][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=17/20 winner=b score_a=0.0 score_b=100.0 round_time=00:11 series_elapsed=07:16 series_eta=01:17
+[2026-03-27 01:09:42][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:13 series_elapsed=07:30 series_eta=00:50
+[2026-03-27 01:10:02][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=19/20 winner=a score_a=100.0 score_b=0.0 round_time=00:20 series_elapsed=07:50 series_eta=00:24
+[2026-03-27 01:10:46][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:44 series_elapsed=08:35 series_eta=00:00
+[2026-03-27 01:10:46][progress/series-end] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer elapsed=08:35 rounds=20
+[2026-03-27 01:10:46][progress/group-end] 1/1 game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer group_elapsed=08:35 grid_elapsed=08:35 grid_eta=00:00
+[2026-03-27 01:10:46][progress/grid-end] groups=1 total_elapsed=08:35
+[2026-03-27 01:10:46][TS_E_uncertainty_ablation] uncertainty_variant-end 2/2 type=variance_head raw_rows_total=40 summary_rows_total=2
+[2026-03-27 01:10:46][TS_E_uncertainty_ablation] finished output=outputs4two_stage\experiments\TS_E_uncertainty_ablation

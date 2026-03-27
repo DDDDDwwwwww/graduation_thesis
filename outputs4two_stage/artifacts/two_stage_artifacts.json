@@ -1,24 +1,24 @@
-{
+﻿{
   "token_mlp": {
-    "model_path": "D:\\WeChat File\\xwechat_files\\wxid_aj8xetejqqzt22_2d56\\msg\\file\\2025-11\\graduation_thesis\\project\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\token_mlp\\model.pt",
-    "encoder_config_path": "D:\\WeChat File\\xwechat_files\\wxid_aj8xetejqqzt22_2d56\\msg\\file\\2025-11\\graduation_thesis\\project\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\token_mlp\\encoder.json",
+    "model_path": "Preliminary_experimental/outputs/experiments/D_dataset_size_sensitivity/models/size_1000/token_mlp/model.pt",
+    "encoder_config_path": "Preliminary_experimental/outputs/experiments/D_dataset_size_sensitivity/models/size_1000/token_mlp/encoder.json",
     "vocab_path": null
   },
   "token_transformer": {
-    "model_path": "D:\\WeChat File\\xwechat_files\\wxid_aj8xetejqqzt22_2d56\\msg\\file\\2025-11\\graduation_thesis\\project\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_transformer\\model.pt",
-    "encoder_config_path": "D:\\WeChat File\\xwechat_files\\wxid_aj8xetejqqzt22_2d56\\msg\\file\\2025-11\\graduation_thesis\\project\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_transformer\\encoder.json",
+    "model_path": "Preliminary_experimental/outputs/experiments/D_dataset_size_sensitivity/models/size_2000/token_transformer/model.pt",
+    "encoder_config_path": "Preliminary_experimental/outputs/experiments/D_dataset_size_sensitivity/models/size_2000/token_transformer/encoder.json",
     "vocab_path": null
   },
   "two_stage_neural_mcts": {
-    "fast_model_path": "D:\\WeChat File\\xwechat_files\\wxid_aj8xetejqqzt22_2d56\\msg\\file\\2025-11\\graduation_thesis\\project\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\token_mlp\\model.pt",
-    "fast_encoder_config_path": "D:\\WeChat File\\xwechat_files\\wxid_aj8xetejqqzt22_2d56\\msg\\file\\2025-11\\graduation_thesis\\project\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_1000\\token_mlp\\encoder.json",
+    "fast_model_path": "outputs4two_stage/models/fast_variance_main/model.pt",
+    "fast_encoder_config_path": "outputs4two_stage/models/fast_variance_main/encoder.json",
     "fast_vocab_path": null,
-    "slow_model_path": "D:\\WeChat File\\xwechat_files\\wxid_aj8xetejqqzt22_2d56\\msg\\file\\2025-11\\graduation_thesis\\project\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_transformer\\model.pt",
-    "slow_encoder_config_path": "D:\\WeChat File\\xwechat_files\\wxid_aj8xetejqqzt22_2d56\\msg\\file\\2025-11\\graduation_thesis\\project\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_transformer\\encoder.json",
+    "slow_model_path": "Preliminary_experimental/outputs/experiments/D_dataset_size_sensitivity/models/size_2000/token_transformer/model.pt",
+    "slow_encoder_config_path": "Preliminary_experimental/outputs/experiments/D_dataset_size_sensitivity/models/size_2000/token_transformer/encoder.json",
     "slow_vocab_path": null
   },
   "reuse_meta": {
-    "source_manifest": "D:\\WeChat File\\xwechat_files\\wxid_aj8xetejqqzt22_2d56\\msg\\file\\2025-11\\graduation_thesis\\project\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\artifacts\\artifact_manifest.json",
+    "source_manifest": "Preliminary_experimental/outputs/experiments/D_dataset_size_sensitivity/artifacts/artifact_manifest.json",
     "fast_source": "token_mlp@size_1000",
     "slow_source": "token_transformer@size_2000"
   }

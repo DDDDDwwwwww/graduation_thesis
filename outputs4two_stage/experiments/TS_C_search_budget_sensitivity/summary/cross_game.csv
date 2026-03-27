@@ -1,0 +1,7 @@
+agent_a_key,agent_b_key,mean_avg_decision_sec_a,mean_avg_decision_sec_b,mean_avg_game_length,mean_avg_score_a,mean_avg_score_b,mean_draw_rate,mean_legal_cache_hit_rate,mean_mean_fast_calls_a,mean_mean_fast_eval_time_a,mean_mean_leaf_eval_a,mean_mean_slow_call_ratio_a,mean_mean_slow_calls_a,mean_mean_slow_eval_time_a,mean_next_cache_hit_rate,mean_win_rate_a,n_games,search_iterations
+neural_mcts:token_transformer,neural_mcts:token_mlp,0.34000372865187817,0.2104293085622495,17.15,35.0,65.0,0.0,0.7056071122202293,0.0,0.0,0.0,0.0,0.0,0.0,0.050198306991061384,0.35,1,50
+two_stage_neural_mcts,neural_mcts:token_transformer,0.21929538256737008,0.34423904568793573,23.25,75.0,25.0,0.0,0.7048009636342778,2231.0,0.0003828690820857518,2231.0,0.0,0.0,0.0,0.05087612768910479,0.75,1,50
+neural_mcts:token_transformer,neural_mcts:token_mlp,0.3546359973407581,0.3474089157562109,34.95,65.0,35.0,0.0,0.7859976693334032,0.0,0.0,0.0,0.0,0.0,0.0,0.04681163171973423,0.65,1,120
+two_stage_neural_mcts,neural_mcts:token_transformer,0.3501501100544814,0.35164298258552973,33.8,50.0,50.0,0.0,0.7799875611341984,5246.2,0.0003941273674391107,5246.2,0.0,0.0,0.0,0.04575613563835893,0.5,1,120
+neural_mcts:token_transformer,neural_mcts:token_mlp,0.3521131359555341,0.35364542225816753,45.7,50.0,50.0,0.0,0.7850092073144619,0.0,0.0,0.0,0.0,0.0,0.0,0.04596172447146608,0.5,1,300
+two_stage_neural_mcts,neural_mcts:token_transformer,0.3523146462047773,0.35307680723414914,44.45,45.0,55.0,0.0,0.7746702896149513,6769.1,0.00041240023444785566,6769.1,0.0,0.0,0.0,0.04534313725490196,0.45,1,300

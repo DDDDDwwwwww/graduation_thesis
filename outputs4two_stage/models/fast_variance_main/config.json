@@ -1,0 +1,22 @@
+{
+  "dataset": "E:\\yc_guaduate_project\\graduation_thesis\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\datasets\\dataset_1000.jsonl",
+  "teacher_model": "E:\\yc_guaduate_project\\graduation_thesis\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_transformer\\model.pt",
+  "teacher_encoder": "E:\\yc_guaduate_project\\graduation_thesis\\Preliminary_experimental\\outputs\\experiments\\D_dataset_size_sensitivity\\models\\size_2000\\token_transformer\\encoder.json",
+  "seed": 42,
+  "epochs": 20,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "hidden_dims": [
+    256,
+    128
+  ],
+  "dropout": 0.1,
+  "patience": 5,
+  "lambda_target": 0.5,
+  "lambda_distill": 0.5,
+  "lambda_uncertainty": 1.0,
+  "device": "cuda",
+  "num_samples": 29776,
+  "best_val_nll": -4.401425729231983
+}

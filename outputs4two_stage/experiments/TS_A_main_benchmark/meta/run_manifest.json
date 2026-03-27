@@ -1,0 +1,24 @@
+{
+  "experiment": "TS_A_main_benchmark",
+  "root": "outputs4two_stage\\experiments\\TS_A_main_benchmark",
+  "args": {
+    "artifacts": "outputs4two_stage/artifacts/two_stage_artifacts.json",
+    "games": [
+      "games/ticTacToe.kif",
+      "games/connectFour.kif",
+      "games/breakthrough.kif"
+    ],
+    "rounds": 20,
+    "playclock": 0.7,
+    "iterations": 120,
+    "seed": 42,
+    "device": "cuda",
+    "tau": 0.15,
+    "visit_threshold": 4,
+    "slow_budget_per_move": 16,
+    "uncertainty_type": "variance_head",
+    "gate_type": "combined",
+    "out_dir": "outputs4two_stage/experiments/TS_A_main_benchmark",
+    "log_file": null
+  }
+}
