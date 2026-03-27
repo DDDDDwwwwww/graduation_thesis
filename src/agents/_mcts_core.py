@@ -172,12 +172,26 @@ class _MCTSCoreAgent(BaseAgent):
             break
 
         # 评估器统一返回“各角色价值”字典。
+        parent_visit_count = int(getattr(node, "visits", 0))
+        expanded_child_visit_count = int(getattr(leaf_node, "visits", 0))
+        chosen_action_visit_count = 0
+        if path:
+            parent_node, chosen_actions = path[-1]
+            role_choice = chosen_actions.get(self.role)
+            if role_choice is not None:
+                role_stats = parent_node.action_stats.get(self.role, {})
+                chosen_stat = role_stats.get(role_choice["key"], {})
+                chosen_action_visit_count = int(chosen_stat.get("visits", 0))
+
         terminal_values = self.evaluator.evaluate_for_roles(
             game_machine,
             leaf_node.state,
             roles,
             budget_end=budget_end,
-            node_visit_count=int(getattr(leaf_node, "visits", 0)),
+            node_visit_count=parent_visit_count,
+            parent_visit_count=parent_visit_count,
+            child_visit_count=expanded_child_visit_count,
+            action_visit_count=chosen_action_visit_count,
         )
         self._backpropagate(path, leaf_node, terminal_values)
         return True

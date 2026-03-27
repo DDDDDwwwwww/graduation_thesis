@@ -1,0 +1,10 @@
+[2026-03-27 11:43:46][TS_G_gate_sweep] start artifacts=outputs4two_stage/artifacts/two_stage_artifacts.json device=cpu games=1 rounds=20 playclock=0.7 iterations=120
+[2026-03-27 11:43:46][TS_G_gate_sweep] sweep-start 1/72 tau=0.001 visit_threshold=0 slow_budget=4
+[2026-03-27 11:43:46][progress/grid-start] groups=2 games=1 pairs=2 rounds=20 device=cpu
+[2026-03-27 11:43:46][progress/group-start] 1/2 game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer
+[2026-03-27 11:43:46][progress/series-start] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer rounds=20 playclock=0.7 iterations=120
+D:\Anaconda\envs\MLcourse\Lib\site-packages\torch\nn\modules\transformer.py:508: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\NestedTensorImpl.cpp:182.)
+  output = torch._nested_tensor_from_mask(
+[2026-03-27 11:44:04][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:18 series_elapsed=00:18 series_eta=05:42
+[2026-03-27 11:44:48][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=2/20 winner=a score_a=100.0 score_b=0.0 round_time=00:44 series_elapsed=01:02 series_eta=09:18
+[2026-03-27 11:45:21][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:33 series_elapsed=01:35 series_eta=09:01

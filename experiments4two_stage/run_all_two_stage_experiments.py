@@ -83,7 +83,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run two-stage experiment suite.")
     parser.add_argument("--artifacts", default="outputs4two_stage/artifacts/two_stage_artifacts.json")
     parser.add_argument("--device", default="cpu")
-    parser.add_argument("--experiments", nargs="+", default=["A", "B", "C", "D", "E", "F"])
+    parser.add_argument("--experiments", nargs="+", default=["A", "B", "C", "D", "E", "F", "G"])
     parser.add_argument("--log-file", default=None)
     parser.add_argument(
         "--rebuild-artifacts",
@@ -117,6 +117,8 @@ def main() -> None:
         _run("run_experiment_ts_e_uncertainty_ablation.py", ["--artifacts", args.artifacts, "--device", args.device])
     if "F" in selected:
         _run("run_experiment_ts_f_overhead_analysis.py", ["--artifacts", args.artifacts, "--device", args.device])
+    if "G" in selected:
+        _run("run_experiment_ts_g_gate_sweep.py", ["--artifacts", args.artifacts, "--device", args.device])
     _log(f"suite-done elapsed={_fmt_seconds(time.perf_counter() - all_start)}")
 
 

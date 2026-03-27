@@ -6,6 +6,7 @@ from __future__ import annotations
 """
 
 import random
+import math
 import time
 try:
     import torch
@@ -170,6 +171,11 @@ class TwoStageValueEvaluator(LeafEvaluator):
             "fast_time_sec": 0.0,
             "slow_time_sec": 0.0,
             "slow_budget_used": 0,
+            "uncertainty_ok_count": 0,
+            "visit_ok_count": 0,
+            "budget_ok_count": 0,
+            "slow_trigger_count": 0,
+            "u_fast_values": [],
         }
 
     def _to_model_input(self, encoded):
@@ -226,10 +232,28 @@ class TwoStageValueEvaluator(LeafEvaluator):
             return float(out["value"].item())
         return float(out.item())
 
+    def _percentile(self, values: list[float], q: float) -> float:
+        if not values:
+            return 0.0
+        ordered = sorted(float(v) for v in values)
+        if len(ordered) == 1:
+            return ordered[0]
+        q = min(1.0, max(0.0, float(q)))
+        idx = q * (len(ordered) - 1)
+        lo = int(math.floor(idx))
+        hi = int(math.ceil(idx))
+        if lo == hi:
+            return ordered[lo]
+        frac = idx - lo
+        return ordered[lo] * (1.0 - frac) + ordered[hi] * frac
+
     def _need_slow(self, u_fast: float, node_visit_count: int) -> bool:
         uncertainty_ok = u_fast > self.tau
         visit_ok = int(node_visit_count) >= self.visit_threshold
         budget_ok = self._move_stats["slow_budget_used"] < self.slow_budget_per_move
+        self._move_stats["uncertainty_ok_count"] += int(uncertainty_ok)
+        self._move_stats["visit_ok_count"] += int(visit_ok)
+        self._move_stats["budget_ok_count"] += int(budget_ok)
 
         if self.gate_type == "uncertainty":
             return uncertainty_ok
@@ -247,13 +271,15 @@ class TwoStageValueEvaluator(LeafEvaluator):
         if game.is_terminal(state):
             return {role: float(game.get_goal(state, role)) for role in roles}
 
-        node_visit_count = int(kwargs.get("node_visit_count", 0))
+        node_visit_count = int(kwargs.get("action_visit_count", kwargs.get("node_visit_count", 0)))
         values = {}
         with torch.no_grad():
             for role in roles:
                 self._move_stats["leaf_evaluations"] += 1
                 v_fast, u_fast = self._fast_forward(state, game, role)
+                self._move_stats["u_fast_values"].append(float(u_fast))
                 use_slow = self._need_slow(u_fast=u_fast, node_visit_count=node_visit_count)
+                self._move_stats["slow_trigger_count"] += int(use_slow)
                 values[role] = self._slow_forward(state, game, role) if use_slow else v_fast
         return values
 
@@ -268,4 +294,14 @@ class TwoStageValueEvaluator(LeafEvaluator):
         out["slow_call_ratio"] = (slow_calls / max(1, fast_calls))
         out["avg_fast_time_sec"] = float(self._move_stats["fast_time_sec"]) / leaf
         out["avg_slow_time_sec"] = float(self._move_stats["slow_time_sec"]) / max(1, slow_calls)
+        out["uncertainty_ok_rate"] = float(self._move_stats["uncertainty_ok_count"]) / leaf
+        out["visit_ok_rate"] = float(self._move_stats["visit_ok_count"]) / leaf
+        out["budget_ok_rate"] = float(self._move_stats["budget_ok_count"]) / leaf
+        out["slow_trigger_rate"] = float(self._move_stats["slow_trigger_count"]) / leaf
+        values = list(self._move_stats["u_fast_values"])
+        out["u_fast_mean"] = (sum(values) / len(values)) if values else 0.0
+        out["u_fast_p50"] = self._percentile(values, 0.50)
+        out["u_fast_p90"] = self._percentile(values, 0.90)
+        out["u_fast_p95"] = self._percentile(values, 0.95)
+        out["u_fast_max"] = max(values) if values else 0.0
         return out
