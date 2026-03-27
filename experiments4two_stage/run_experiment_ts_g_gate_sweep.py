@@ -14,7 +14,8 @@ from experiment_utils import (
     write_csv,
     write_json,
 )
-
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '2'
 
 EXP_NAME = "TS_G_gate_sweep"
 
