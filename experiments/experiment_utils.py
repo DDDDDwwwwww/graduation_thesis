@@ -185,33 +185,35 @@ def train_value_model_artifact(
     weight_decay: float = 1e-4,
     seed: int = 42,
     device: str = "cpu",
+    extra_args: list[str] | None = None,
 ) -> None:
-    run_cmd(
-        [
-            sys.executable,
-            str(ROOT / "experiments" / "train_value_model.py"),
-            "--dataset",
-            str(dataset_path),
-            "--encoder",
-            str(encoder),
-            "--model",
-            str(model),
-            "--epochs",
-            str(int(epochs)),
-            "--batch-size",
-            str(int(batch_size)),
-            "--learning-rate",
-            str(float(learning_rate)),
-            "--weight-decay",
-            str(float(weight_decay)),
-            "--seed",
-            str(int(seed)),
-            "--output-dir",
-            str(output_dir),
-            "--device",
-            str(device),
-        ]
-    )
+    cmd = [
+        sys.executable,
+        str(ROOT / "experiments" / "train_value_model.py"),
+        "--dataset",
+        str(dataset_path),
+        "--encoder",
+        str(encoder),
+        "--model",
+        str(model),
+        "--epochs",
+        str(int(epochs)),
+        "--batch-size",
+        str(int(batch_size)),
+        "--learning-rate",
+        str(float(learning_rate)),
+        "--weight-decay",
+        str(float(weight_decay)),
+        "--seed",
+        str(int(seed)),
+        "--output-dir",
+        str(output_dir),
+        "--device",
+        str(device),
+    ]
+    if extra_args:
+        cmd.extend([str(x) for x in extra_args])
+    run_cmd(cmd)
 
 
 def _build_agent(

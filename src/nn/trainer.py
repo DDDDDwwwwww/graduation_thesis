@@ -87,6 +87,7 @@ def train_value_model(
     loss_name="mse",
     patience=5,
     device="cpu",
+    verbose=True,
 ):
     """训练价值网络并保存 checkpoint 与指标。"""
     _set_seed(int(seed))
@@ -124,6 +125,8 @@ def train_value_model(
             dropout=float(transformer_kwargs.get("dropout", dropout)),
             position_encoding=str(transformer_kwargs.get("position_encoding", "sinusoidal")),
             use_global_features=bool(transformer_kwargs.get("use_global_features", True)),
+            fusion_mode=str(transformer_kwargs.get("fusion_mode", "add")),
+            global_hidden_dim=int(transformer_kwargs.get("global_hidden_dim", 32)),
             max_positions=int(transformer_kwargs.get("max_positions", 4096)),
         ).to(device)
     else:
@@ -160,15 +163,33 @@ def train_value_model(
         val_metrics = _eval_model(model, val_loader, criterion, device=device)
         row = {"epoch": epoch, "train_loss": train_loss, "val_loss": val_metrics["loss"], "val_sign_acc": val_metrics["sign_acc"]}
         history.append(row)
+        improved = row["val_loss"] < best_val
+
+        if verbose:
+            print(
+                "[train][epoch] "
+                f"{epoch}/{int(epochs)} "
+                f"train_loss={row['train_loss']:.6f} "
+                f"val_loss={row['val_loss']:.6f} "
+                f"val_sign_acc={row['val_sign_acc']:.4f} "
+                f"best_val_loss={(row['val_loss'] if improved else best_val):.6f}",
+                flush=True,
+            )
 
         # 早停：验证集损失不再提升时计数并提前停止。
-        if row["val_loss"] < best_val:
+        if improved:
             best_val = row["val_loss"]
             best_state = {k: v.detach().cpu() for k, v in model.state_dict().items()}
             bad_epochs = 0
         else:
             bad_epochs += 1
             if bad_epochs >= int(patience):
+                if verbose:
+                    print(
+                        "[train][early-stop] "
+                        f"epoch={epoch} patience={int(patience)} best_val_loss={best_val:.6f}",
+                        flush=True,
+                    )
                 break
 
     if best_state is not None:
@@ -205,6 +226,8 @@ def train_value_model(
                 "dropout": float(transformer_kwargs.get("dropout", dropout)),
                 "position_encoding": str(transformer_kwargs.get("position_encoding", "sinusoidal")),
                 "use_global_features": bool(transformer_kwargs.get("use_global_features", True)),
+                "fusion_mode": str(transformer_kwargs.get("fusion_mode", "add")),
+                "global_hidden_dim": int(transformer_kwargs.get("global_hidden_dim", 32)),
                 "max_positions": int(transformer_kwargs.get("max_positions", 4096)),
             }
         )

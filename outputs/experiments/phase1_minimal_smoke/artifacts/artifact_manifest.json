@@ -1,0 +1,9 @@
+{
+  "2": {
+    "token_transformer_global": {
+      "model_path": "outputs\\experiments\\phase1_minimal_smoke\\models\\size_2\\token_transformer_global\\model.pt",
+      "encoder_config_path": "outputs\\experiments\\phase1_minimal_smoke\\models\\size_2\\token_transformer_global\\encoder.json",
+      "vocab_path": null
+    }
+  }
+}

@@ -1,0 +1,2 @@
+agent_a_key,agent_b_key,dataset_games,mean_avg_decision_sec_a,mean_avg_decision_sec_b,mean_avg_game_length,mean_avg_score_a,mean_avg_score_b,mean_draw_rate,mean_legal_cache_hit_rate,mean_next_cache_hit_rate,mean_win_rate_a,n_games
+value_greedy:token_transformer_global,random,2,0.008949466664085371,4.022207576781511e-06,9.0,100.0,0.0,0.0,0.0,0.10204081632653061,1.0,1

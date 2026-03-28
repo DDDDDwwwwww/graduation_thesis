@@ -80,11 +80,25 @@ def load_value_artifacts(model_path, vocab_path=None, encoder_config_path=None, 
             dropout=float(checkpoint.get("dropout", 0.1)),
             position_encoding=str(checkpoint.get("position_encoding", "sinusoidal")),
             use_global_features=bool(checkpoint.get("use_global_features", True)),
+            fusion_mode=str(checkpoint.get("fusion_mode", "add")),
+            global_hidden_dim=int(checkpoint.get("global_hidden_dim", 32)),
             max_positions=int(checkpoint.get("max_positions", 4096)),
         )
-        if "global_proj.weight" in checkpoint["state_dict"]:
-            w = checkpoint["state_dict"]["global_proj.weight"]
+        state_dict = checkpoint["state_dict"]
+        if "global_proj.weight" in state_dict:
+            w = state_dict["global_proj.weight"]
             model.global_proj = torch.nn.Linear(int(w.shape[1]), int(w.shape[0]))
+        if "global_mlp.0.weight" in state_dict:
+            w0 = state_dict["global_mlp.0.weight"]
+            w2 = state_dict.get("global_mlp.2.weight")
+            hidden = int(w0.shape[0])
+            out_dim = int(w2.shape[0]) if w2 is not None else hidden
+            model.global_mlp = torch.nn.Sequential(
+                torch.nn.Linear(int(w0.shape[1]), hidden),
+                torch.nn.ReLU(),
+                torch.nn.Linear(hidden, out_dim),
+                torch.nn.ReLU(),
+            )
         extra = None
     else:
         raise ValueError(f"Unsupported model_type: {model_type}")

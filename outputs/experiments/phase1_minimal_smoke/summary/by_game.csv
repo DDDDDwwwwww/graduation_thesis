@@ -1,0 +1,2 @@
+agent_a_key,agent_b_key,avg_decision_sec_a,avg_decision_sec_b,avg_game_length,avg_score_a,avg_score_b,cache_enabled,dataset_games,draw_rate,draws,game,legal_cache_hit_rate,losses_a,n_matches,next_cache_hit_rate,win_rate_a,wins_a
+value_greedy:token_transformer_global,random,0.008949466664085371,4.022207576781511e-06,9.0,100.0,0.0,True,2,0.0,0,connectFour,0.0,0,1,0.10204081632653061,1.0,1

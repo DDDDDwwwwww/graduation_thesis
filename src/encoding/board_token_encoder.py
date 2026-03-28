@@ -55,6 +55,7 @@ class BoardTokenEncoder:
         position_mode="index",
         include_player_feature=True,
         include_turn_features=True,
+        global_feature_set="legacy",
         schema=None,
     ):
         if position_mode not in {"index", "xy"}:
@@ -62,6 +63,9 @@ class BoardTokenEncoder:
         self.position_mode = str(position_mode)
         self.include_player_feature = bool(include_player_feature)
         self.include_turn_features = bool(include_turn_features)
+        self.global_feature_set = str(global_feature_set).lower()
+        if self.global_feature_set not in {"legacy", "basic10", "none"}:
+            raise ValueError("global_feature_set must be one of: legacy, basic10, none")
         self.schema = dict(schema or {})
 
         self.predicate = str(self.schema.get("predicate", "cell"))
@@ -92,12 +96,50 @@ class BoardTokenEncoder:
 
     @property
     def global_feature_dim(self) -> int:
+        if self.global_feature_set == "none":
+            return 0
+        if self.global_feature_set == "basic10":
+            return 10
         dim = 0
         if self.include_player_feature:
             dim += 1
         if self.include_turn_features:
             dim += 2
         return dim
+
+    def _is_empty_content(self, content: str) -> bool:
+        token = str(content).strip().lower()
+        return token in {"", "b", "blank", "empty", "e", "nil", "none", "0"}
+
+    def _estimate_player_piece_counts(self, role: str | None, content_counts: dict[str, int]) -> tuple[int, int]:
+        if not content_counts:
+            return 0, 0
+        sorted_items = sorted(content_counts.items(), key=lambda kv: (-int(kv[1]), str(kv[0])))
+        if role is None:
+            current = int(sorted_items[0][1]) if sorted_items else 0
+            opponent = int(sorted_items[1][1]) if len(sorted_items) > 1 else max(0, sum(content_counts.values()) - current)
+            return current, opponent
+
+        role_l = str(role).strip().lower()
+        role_hints = {role_l}
+        role_hints.add(role_l.replace("player", "").replace("role", "").strip())
+        for ch in role_l:
+            if ch.isalpha():
+                role_hints.add(ch)
+                break
+        role_hints = {h for h in role_hints if h}
+
+        current = 0
+        total = sum(int(v) for v in content_counts.values())
+        for token, count in content_counts.items():
+            token_l = str(token).strip().lower()
+            if any((hint == token_l) or (hint in token_l) for hint in role_hints):
+                current += int(count)
+        opponent = max(0, int(total) - int(current))
+        if current == 0 and sorted_items:
+            current = int(sorted_items[0][1])
+            opponent = int(sorted_items[1][1]) if len(sorted_items) > 1 else max(0, int(total) - int(current))
+        return int(current), int(opponent)
 
     def _parse_board_fact(self, fact: str):
         m = _FACT_RE.match(str(fact))
@@ -183,7 +225,7 @@ class BoardTokenEncoder:
                 pos = (xi, yi)
             else:
                 pos = self.pos_to_id.get((xi, yi), 0)
-            tokens.append((yi, xi, cid, pos))
+            tokens.append((yi, xi, cid, pos, content))
 
         # 保证确定性顺序。
         tokens.sort(key=lambda t: (t[0], t[1]))
@@ -195,6 +237,7 @@ class BoardTokenEncoder:
             else:
                 tile_positions = np.asarray([0], dtype=np.int64)
             mask = np.asarray([True], dtype=np.bool_)
+            token_contents: list[str] = []
         else:
             tile_content_ids = np.asarray([t[2] for t in tokens], dtype=np.int64)
             if self.position_mode == "xy":
@@ -202,13 +245,48 @@ class BoardTokenEncoder:
             else:
                 tile_positions = np.asarray([t[3] for t in tokens], dtype=np.int64)
             mask = np.ones((len(tokens),), dtype=np.bool_)
+            token_contents = [str(t[4]) for t in tokens]
 
         globals_ = []
-        if self.include_player_feature:
-            globals_.append(self._role_scalar(role))
-        if self.include_turn_features:
-            globals_.append(float(np.tanh(max(0.0, float(ply_index)) / 50.0)))
-            globals_.append(1.0 if terminal else 0.0)
+        if self.global_feature_set == "legacy":
+            if self.include_player_feature:
+                globals_.append(self._role_scalar(role))
+            if self.include_turn_features:
+                globals_.append(float(np.tanh(max(0.0, float(ply_index)) / 50.0)))
+                globals_.append(1.0 if terminal else 0.0)
+        elif self.global_feature_set == "basic10":
+            total_cells = int(len(self.pos_to_id)) if self.pos_to_id else max(1, int(len(tile_content_ids)))
+            occupied_contents = [c for c in token_contents if not self._is_empty_content(c)]
+            occupied = int(len(occupied_contents))
+            occupied_ratio = float(occupied / max(1, total_cells))
+            empty_ratio = float(1.0 - occupied_ratio)
+
+            content_counts: dict[str, int] = {}
+            for c in occupied_contents:
+                content_counts[c] = int(content_counts.get(c, 0)) + 1
+            current_cnt, opp_cnt = self._estimate_player_piece_counts(role=role, content_counts=content_counts)
+            current_ratio = float(current_cnt / max(1, total_cells))
+            opp_ratio = float(opp_cnt / max(1, total_cells))
+            piece_diff_ratio = float((current_cnt - opp_cnt) / max(1, total_cells))
+            uniq_ratio = float(len(content_counts) / max(1, self.num_tokens - 1))
+            max_content_ratio = (
+                float(max(content_counts.values()) / max(1, occupied))
+                if content_counts
+                else 0.0
+            )
+
+            globals_ = [
+                self._role_scalar(role),
+                float(np.tanh(max(0.0, float(ply_index)) / 50.0)),
+                1.0 if terminal else 0.0,
+                occupied_ratio,
+                empty_ratio,
+                current_ratio,
+                opp_ratio,
+                piece_diff_ratio,
+                uniq_ratio,
+                max_content_ratio,
+            ]
         global_features = np.asarray(globals_, dtype=np.float32)
 
         return {
@@ -232,6 +310,7 @@ class BoardTokenEncoder:
             "position_mode": self.position_mode,
             "include_player_feature": self.include_player_feature,
             "include_turn_features": self.include_turn_features,
+            "global_feature_set": self.global_feature_set,
             "schema": self.schema,
             "x_to_idx": self.x_to_idx,
             "y_to_idx": self.y_to_idx,
@@ -247,6 +326,7 @@ class BoardTokenEncoder:
             position_mode=payload.get("position_mode", "index"),
             include_player_feature=payload.get("include_player_feature", True),
             include_turn_features=payload.get("include_turn_features", True),
+            global_feature_set=payload.get("global_feature_set", "legacy"),
             schema=payload.get("schema", {}),
         )
         enc.x_to_idx = {str(k): int(v) for k, v in payload.get("x_to_idx", {}).items()}

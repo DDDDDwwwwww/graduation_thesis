@@ -1,0 +1,22 @@
+[
+  {
+    "game": "connectFour",
+    "agent_a_key": "value_greedy:token_transformer_global",
+    "agent_b_key": "random",
+    "n_matches": 1,
+    "wins_a": 1,
+    "losses_a": 0,
+    "draws": 0,
+    "win_rate_a": 1.0,
+    "draw_rate": 0.0,
+    "avg_score_a": 100.0,
+    "avg_score_b": 0.0,
+    "avg_game_length": 9.0,
+    "avg_decision_sec_a": 0.008949466664085371,
+    "avg_decision_sec_b": 4.022207576781511e-06,
+    "legal_cache_hit_rate": 0.0,
+    "next_cache_hit_rate": 0.10204081632653061,
+    "cache_enabled": true,
+    "dataset_games": 2
+  }
+]

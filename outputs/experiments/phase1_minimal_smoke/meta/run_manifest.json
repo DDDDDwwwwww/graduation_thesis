@@ -1,0 +1,22 @@
+{
+  "experiment": "phase1_minimal_token_transformer_global",
+  "root": "outputs\\experiments\\phase1_minimal_smoke",
+  "args": {
+    "game": "games/connectFour.kif",
+    "dataset_sizes": [
+      2
+    ],
+    "playclock": 0.2,
+    "selfplay_iterations": 5,
+    "eval_iterations": 10,
+    "eval_rounds": 1,
+    "seed": 42,
+    "device": "cpu",
+    "epochs": 1,
+    "batch_size": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "global_hidden_dim": 32,
+    "out_dir": "outputs/experiments/phase1_minimal_smoke"
+  }
+}

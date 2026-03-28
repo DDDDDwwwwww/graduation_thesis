@@ -45,12 +45,16 @@ def main() -> None:
     parser.add_argument("--dropout", type=float, default=0.1)
     parser.add_argument("--loss", choices=["mse", "huber"], default="mse")
     parser.add_argument("--patience", type=int, default=5)
+    parser.add_argument("--quiet-train", action="store_true", help="Disable per-epoch training logs")
     parser.add_argument("--position-mode", choices=["index", "xy"], default="index")
     parser.add_argument("--d-model", type=int, default=128)
     parser.add_argument("--n-heads", type=int, default=4)
     parser.add_argument("--n-layers", type=int, default=3)
     parser.add_argument("--dim-feedforward", type=int, default=256)
     parser.add_argument("--position-encoding", choices=["sinusoidal", "learned"], default="sinusoidal")
+    parser.add_argument("--transformer-fusion-mode", choices=["add", "concat"], default="add")
+    parser.add_argument("--global-hidden-dim", type=int, default=32)
+    parser.add_argument("--global-feature-set", choices=["legacy", "basic10", "none"], default="legacy")
     parser.add_argument("--max-positions", type=int, default=4096)
     parser.add_argument("--disable-global-features", action="store_true")
     parser.add_argument("--output-dir", required=True)
@@ -81,10 +85,12 @@ def main() -> None:
         )
     else:
         if args.model == "transformer":
+            feature_set = "none" if args.disable_global_features else args.global_feature_set
             encoder = BoardTokenEncoder(
                 position_mode=args.position_mode,
                 include_player_feature=not args.disable_global_features,
                 include_turn_features=not args.disable_global_features,
+                global_feature_set=feature_set,
             ).fit(samples)
         elif args.model == "mlp":
             encoder = BoardTokenMLPEncoder.fit(
@@ -119,10 +125,13 @@ def main() -> None:
             "position_encoding": args.position_encoding,
             "max_positions": args.max_positions,
             "use_global_features": not args.disable_global_features,
+            "fusion_mode": args.transformer_fusion_mode,
+            "global_hidden_dim": args.global_hidden_dim,
         },
         loss_name=args.loss,
         patience=args.patience,
         device=args.device,
+        verbose=not args.quiet_train,
     )
 
     encoder.save(output_dir / "encoder.json")
@@ -169,8 +178,11 @@ def main() -> None:
                 "n_layers": args.n_layers,
                 "dim_feedforward": args.dim_feedforward,
                 "position_encoding": args.position_encoding,
+                "transformer_fusion_mode": args.transformer_fusion_mode,
+                "global_hidden_dim": args.global_hidden_dim,
                 "max_positions": args.max_positions,
                 "use_global_features": (not args.disable_global_features),
+                "global_feature_set": encoder.global_feature_set,
                 "global_feature_dim": encoder.global_feature_dim,
             }
         )

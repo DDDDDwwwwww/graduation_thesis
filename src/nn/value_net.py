@@ -43,6 +43,8 @@ class TransformerValueNet(nn.Module):
         dropout: float = 0.1,
         position_encoding: str = "sinusoidal",
         use_global_features: bool = True,
+        fusion_mode: str = "add",
+        global_hidden_dim: int = 32,
         max_positions: int = 4096,
     ):
         super().__init__()
@@ -50,6 +52,12 @@ class TransformerValueNet(nn.Module):
         self.d_model = int(d_model)
         self.position_encoding = str(position_encoding).lower()
         self.use_global_features = bool(use_global_features)
+        self.fusion_mode = str(fusion_mode).lower()
+        if self.fusion_mode not in {"add", "concat"}:
+            raise ValueError("fusion_mode must be 'add' or 'concat'")
+        self.global_hidden_dim = int(global_hidden_dim)
+        if self.global_hidden_dim <= 0:
+            raise ValueError("global_hidden_dim must be > 0")
         self.max_positions = int(max_positions)
         if self.position_encoding not in {"sinusoidal", "learned"}:
             raise ValueError("position_encoding must be 'sinusoidal' or 'learned'")
@@ -70,8 +78,10 @@ class TransformerValueNet(nn.Module):
         )
         self.encoder = nn.TransformerEncoder(encoder_layer, num_layers=int(n_layers))
         self.global_proj: nn.Linear | None = None
+        self.global_mlp: nn.Sequential | None = None
+        head_in = self.d_model if self.fusion_mode == "add" else (self.d_model + self.global_hidden_dim)
         self.value_head = nn.Sequential(
-            nn.Linear(self.d_model, 128),
+            nn.Linear(head_in, 128),
             nn.ReLU(),
             nn.Linear(128, 1),
             nn.Tanh(),
@@ -157,8 +167,26 @@ class TransformerValueNet(nn.Module):
 
         if self.use_global_features and global_features is not None:
             global_features = self._ensure_batch(global_features, target_dims=2).to(dtype=pooled.dtype)
-            if self.global_proj is None:
-                self.global_proj = nn.Linear(global_features.size(-1), self.d_model).to(pooled.device)
-            pooled = pooled + self.global_proj(global_features)
+            if self.fusion_mode == "add":
+                if self.global_proj is None:
+                    self.global_proj = nn.Linear(global_features.size(-1), self.d_model).to(pooled.device)
+                pooled = pooled + self.global_proj(global_features)
+            else:
+                if self.global_mlp is None:
+                    self.global_mlp = nn.Sequential(
+                        nn.Linear(global_features.size(-1), self.global_hidden_dim),
+                        nn.ReLU(),
+                        nn.Linear(self.global_hidden_dim, self.global_hidden_dim),
+                        nn.ReLU(),
+                    ).to(pooled.device)
+                g = self.global_mlp(global_features)
+                pooled = torch.cat([pooled, g], dim=-1)
+        elif self.fusion_mode == "concat":
+            zeros = torch.zeros(
+                (pooled.size(0), self.global_hidden_dim),
+                dtype=pooled.dtype,
+                device=pooled.device,
+            )
+            pooled = torch.cat([pooled, zeros], dim=-1)
 
         return self.value_head(pooled)
