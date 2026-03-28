@@ -82,6 +82,7 @@ def load_value_artifacts(model_path, vocab_path=None, encoder_config_path=None, 
             use_global_features=bool(checkpoint.get("use_global_features", True)),
             fusion_mode=str(checkpoint.get("fusion_mode", "add")),
             global_hidden_dim=int(checkpoint.get("global_hidden_dim", 32)),
+            token_branch_mode=str(checkpoint.get("token_branch_mode", "normal")),
             max_positions=int(checkpoint.get("max_positions", 4096)),
         )
         state_dict = checkpoint["state_dict"]

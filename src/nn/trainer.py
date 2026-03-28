@@ -127,6 +127,7 @@ def train_value_model(
             use_global_features=bool(transformer_kwargs.get("use_global_features", True)),
             fusion_mode=str(transformer_kwargs.get("fusion_mode", "add")),
             global_hidden_dim=int(transformer_kwargs.get("global_hidden_dim", 32)),
+            token_branch_mode=str(transformer_kwargs.get("token_branch_mode", "normal")),
             max_positions=int(transformer_kwargs.get("max_positions", 4096)),
         ).to(device)
     else:
@@ -228,6 +229,7 @@ def train_value_model(
                 "use_global_features": bool(transformer_kwargs.get("use_global_features", True)),
                 "fusion_mode": str(transformer_kwargs.get("fusion_mode", "add")),
                 "global_hidden_dim": int(transformer_kwargs.get("global_hidden_dim", 32)),
+                "token_branch_mode": str(transformer_kwargs.get("token_branch_mode", "normal")),
                 "max_positions": int(transformer_kwargs.get("max_positions", 4096)),
             }
         )

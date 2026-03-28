@@ -54,7 +54,8 @@ def main() -> None:
     parser.add_argument("--position-encoding", choices=["sinusoidal", "learned"], default="sinusoidal")
     parser.add_argument("--transformer-fusion-mode", choices=["add", "concat"], default="add")
     parser.add_argument("--global-hidden-dim", type=int, default=32)
-    parser.add_argument("--global-feature-set", choices=["legacy", "basic10", "none"], default="legacy")
+    parser.add_argument("--token-branch-mode", choices=["normal", "zero"], default="normal")
+    parser.add_argument("--global-feature-set", choices=["legacy", "basic10", "compact6", "none"], default="legacy")
     parser.add_argument("--max-positions", type=int, default=4096)
     parser.add_argument("--disable-global-features", action="store_true")
     parser.add_argument("--output-dir", required=True)
@@ -127,6 +128,7 @@ def main() -> None:
             "use_global_features": not args.disable_global_features,
             "fusion_mode": args.transformer_fusion_mode,
             "global_hidden_dim": args.global_hidden_dim,
+            "token_branch_mode": args.token_branch_mode,
         },
         loss_name=args.loss,
         patience=args.patience,
@@ -180,6 +182,7 @@ def main() -> None:
                 "position_encoding": args.position_encoding,
                 "transformer_fusion_mode": args.transformer_fusion_mode,
                 "global_hidden_dim": args.global_hidden_dim,
+                "token_branch_mode": args.token_branch_mode,
                 "max_positions": args.max_positions,
                 "use_global_features": (not args.disable_global_features),
                 "global_feature_set": encoder.global_feature_set,

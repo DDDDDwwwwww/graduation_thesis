@@ -45,6 +45,7 @@ class TransformerValueNet(nn.Module):
         use_global_features: bool = True,
         fusion_mode: str = "add",
         global_hidden_dim: int = 32,
+        token_branch_mode: str = "normal",
         max_positions: int = 4096,
     ):
         super().__init__()
@@ -58,6 +59,9 @@ class TransformerValueNet(nn.Module):
         self.global_hidden_dim = int(global_hidden_dim)
         if self.global_hidden_dim <= 0:
             raise ValueError("global_hidden_dim must be > 0")
+        self.token_branch_mode = str(token_branch_mode).lower()
+        if self.token_branch_mode not in {"normal", "zero"}:
+            raise ValueError("token_branch_mode must be 'normal' or 'zero'")
         self.max_positions = int(max_positions)
         if self.position_encoding not in {"sinusoidal", "learned"}:
             raise ValueError("position_encoding must be 'sinusoidal' or 'learned'")
@@ -164,6 +168,8 @@ class TransformerValueNet(nn.Module):
         key_padding_mask = None if mask is None else (~mask)
         x = self.encoder(x, src_key_padding_mask=key_padding_mask)
         pooled = self._masked_mean_pool(x, mask=mask)
+        if self.token_branch_mode == "zero":
+            pooled = torch.zeros_like(pooled)
 
         if self.use_global_features and global_features is not None:
             global_features = self._ensure_batch(global_features, target_dims=2).to(dtype=pooled.dtype)

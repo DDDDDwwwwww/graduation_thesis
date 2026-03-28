@@ -64,8 +64,8 @@ class BoardTokenEncoder:
         self.include_player_feature = bool(include_player_feature)
         self.include_turn_features = bool(include_turn_features)
         self.global_feature_set = str(global_feature_set).lower()
-        if self.global_feature_set not in {"legacy", "basic10", "none"}:
-            raise ValueError("global_feature_set must be one of: legacy, basic10, none")
+        if self.global_feature_set not in {"legacy", "basic10", "compact6", "none"}:
+            raise ValueError("global_feature_set must be one of: legacy, basic10, compact6, none")
         self.schema = dict(schema or {})
 
         self.predicate = str(self.schema.get("predicate", "cell"))
@@ -100,6 +100,8 @@ class BoardTokenEncoder:
             return 0
         if self.global_feature_set == "basic10":
             return 10
+        if self.global_feature_set == "compact6":
+            return 6
         dim = 0
         if self.include_player_feature:
             dim += 1
@@ -254,7 +256,7 @@ class BoardTokenEncoder:
             if self.include_turn_features:
                 globals_.append(float(np.tanh(max(0.0, float(ply_index)) / 50.0)))
                 globals_.append(1.0 if terminal else 0.0)
-        elif self.global_feature_set == "basic10":
+        elif self.global_feature_set in {"basic10", "compact6"}:
             total_cells = int(len(self.pos_to_id)) if self.pos_to_id else max(1, int(len(tile_content_ids)))
             occupied_contents = [c for c in token_contents if not self._is_empty_content(c)]
             occupied = int(len(occupied_contents))
@@ -275,18 +277,29 @@ class BoardTokenEncoder:
                 else 0.0
             )
 
-            globals_ = [
-                self._role_scalar(role),
-                float(np.tanh(max(0.0, float(ply_index)) / 50.0)),
-                1.0 if terminal else 0.0,
-                occupied_ratio,
-                empty_ratio,
-                current_ratio,
-                opp_ratio,
-                piece_diff_ratio,
-                uniq_ratio,
-                max_content_ratio,
-            ]
+            if self.global_feature_set == "basic10":
+                globals_ = [
+                    self._role_scalar(role),
+                    float(np.tanh(max(0.0, float(ply_index)) / 50.0)),
+                    1.0 if terminal else 0.0,
+                    occupied_ratio,
+                    empty_ratio,
+                    current_ratio,
+                    opp_ratio,
+                    piece_diff_ratio,
+                    uniq_ratio,
+                    max_content_ratio,
+                ]
+            else:
+                # 紧凑特征组（6维）：用于低成本筛查“特征太多带来噪声”的风险。
+                globals_ = [
+                    self._role_scalar(role),
+                    float(np.tanh(max(0.0, float(ply_index)) / 50.0)),
+                    occupied_ratio,
+                    current_ratio,
+                    opp_ratio,
+                    piece_diff_ratio,
+                ]
         global_features = np.asarray(globals_, dtype=np.float32)
 
         return {
