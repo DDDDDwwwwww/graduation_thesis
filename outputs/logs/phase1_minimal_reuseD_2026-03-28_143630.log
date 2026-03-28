@@ -1,0 +1,95 @@
+nohup: ignoring input
+[phase1_minimal_token_transformer_global] reuse dataset size=200 path=outputs/experiments/D_dataset_size_sensitivity/datasets/dataset_200.jsonl
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[train][epoch] 1/12 train_loss=1.028594 val_loss=0.997348 val_sign_acc=0.5076 best_val_loss=0.997348
+[train][epoch] 2/12 train_loss=0.997236 val_loss=1.023267 val_sign_acc=0.4924 best_val_loss=0.997348
+[train][epoch] 3/12 train_loss=1.001372 val_loss=0.998686 val_sign_acc=0.4924 best_val_loss=0.997348
+[train][epoch] 4/12 train_loss=1.004993 val_loss=0.998162 val_sign_acc=0.5076 best_val_loss=0.997348
+[train][epoch] 5/12 train_loss=1.002291 val_loss=0.992555 val_sign_acc=0.5076 best_val_loss=0.992555
+[train][epoch] 6/12 train_loss=1.000657 val_loss=0.994095 val_sign_acc=0.4924 best_val_loss=0.992555
+[train][epoch] 7/12 train_loss=0.992835 val_loss=0.986396 val_sign_acc=0.5717 best_val_loss=0.986396
+[train][epoch] 8/12 train_loss=0.993434 val_loss=0.982701 val_sign_acc=0.5717 best_val_loss=0.982701
+[train][epoch] 9/12 train_loss=0.989137 val_loss=1.013157 val_sign_acc=0.4924 best_val_loss=0.982701
+[train][epoch] 10/12 train_loss=0.996358 val_loss=0.984070 val_sign_acc=0.5717 best_val_loss=0.982701
+[train][epoch] 11/12 train_loss=0.994451 val_loss=0.982868 val_sign_acc=0.5717 best_val_loss=0.982701
+[train][epoch] 12/12 train_loss=0.990801 val_loss=0.982770 val_sign_acc=0.5717 best_val_loss=0.982701
+[train_value_model] saved artifacts to outputs/experiments/phase1_minimal_token_transformer_global/models/size_200/token_transformer_global
+[train_value_model] test_loss=0.991598, test_sign_acc=0.5455
+[progress][group-start] 1/1 game=connectFour pair=value_greedy:token_transformer_global__vs__random
+swipl: /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/../../../libtinfo.so.6: no version information available (required by /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/libswipl.so.10)
+/home/yuancheng/workspace/GGP/graduation_thesis/src/nn/inference.py:43: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(model_path, map_location=device)
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=1/10 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=5.19
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=2/10 winner=a score_a=100.0 score_b=0.0 ply=26 elapsed_sec=4.01
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=3/10 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=2.57
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=4/10 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=1.03
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=5/10 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=1.25
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=6/10 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=2.74
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=7/10 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=0.87
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=8/10 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=0.53
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=9/10 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=1.22
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=10/10 winner=b score_a=0.0 score_b=100.0 ply=27 elapsed_sec=3.78
+[progress][group-done] 1/1 game=connectFour pair=value_greedy:token_transformer_global__vs__random n_matches=10 win_rate_a=0.400 draw_rate=0.000 elapsed_sec=23.19
+[phase1_minimal_token_transformer_global] reuse dataset size=500 path=outputs/experiments/D_dataset_size_sensitivity/datasets/dataset_500.jsonl
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[train][epoch] 1/12 train_loss=1.000043 val_loss=0.976052 val_sign_acc=0.5920 best_val_loss=0.976052
+[train][epoch] 2/12 train_loss=0.969591 val_loss=0.970306 val_sign_acc=0.5920 best_val_loss=0.970306
+[train][epoch] 3/12 train_loss=0.966291 val_loss=0.965429 val_sign_acc=0.5920 best_val_loss=0.965429
+[train][epoch] 4/12 train_loss=0.963425 val_loss=0.968487 val_sign_acc=0.5920 best_val_loss=0.965429
+[train][epoch] 5/12 train_loss=0.964011 val_loss=0.965857 val_sign_acc=0.5920 best_val_loss=0.965429
+[train][epoch] 6/12 train_loss=0.961373 val_loss=0.964985 val_sign_acc=0.5920 best_val_loss=0.964985
+[train][epoch] 7/12 train_loss=0.960947 val_loss=0.975685 val_sign_acc=0.5914 best_val_loss=0.964985
+[train][epoch] 8/12 train_loss=0.959880 val_loss=0.965308 val_sign_acc=0.5920 best_val_loss=0.964985
+[train][epoch] 9/12 train_loss=0.961129 val_loss=0.968236 val_sign_acc=0.5920 best_val_loss=0.964985
+[train][epoch] 10/12 train_loss=0.961986 val_loss=0.965582 val_sign_acc=0.5920 best_val_loss=0.964985
+[train][epoch] 11/12 train_loss=0.960230 val_loss=0.971060 val_sign_acc=0.5920 best_val_loss=0.964985
+[train][early-stop] epoch=11 patience=5 best_val_loss=0.964985
+[train_value_model] saved artifacts to outputs/experiments/phase1_minimal_token_transformer_global/models/size_500/token_transformer_global
+[train_value_model] test_loss=0.970691, test_sign_acc=0.5853
+[progress][group-start] 1/1 game=connectFour pair=value_greedy:token_transformer_global__vs__random
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=1/10 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=1.51
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=2/10 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=3.15
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=3/10 winner=b score_a=0.0 score_b=100.0 ply=12 elapsed_sec=0.82
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=4/10 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=0.29
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=5/10 winner=b score_a=0.0 score_b=100.0 ply=10 elapsed_sec=0.17
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=6/10 winner=b score_a=0.0 score_b=100.0 ply=29 elapsed_sec=3.23
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=7/10 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=2.87
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=8/10 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=1.61
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=9/10 winner=a score_a=100.0 score_b=0.0 ply=27 elapsed_sec=4.10
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=10/10 winner=b score_a=0.0 score_b=100.0 ply=33 elapsed_sec=4.88
+[progress][group-done] 1/1 game=connectFour pair=value_greedy:token_transformer_global__vs__random n_matches=10 win_rate_a=0.300 draw_rate=0.000 elapsed_sec=22.62
+[phase1_minimal_token_transformer_global] reuse dataset size=1000 path=outputs/experiments/D_dataset_size_sensitivity/datasets/dataset_1000.jsonl
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[train][epoch] 1/12 train_loss=1.002765 val_loss=0.991596 val_sign_acc=0.5438 best_val_loss=0.991596
+[train][epoch] 2/12 train_loss=0.989284 val_loss=0.993935 val_sign_acc=0.5086 best_val_loss=0.991596
+[train][epoch] 3/12 train_loss=0.987699 val_loss=0.988962 val_sign_acc=0.5438 best_val_loss=0.988962
+[train][epoch] 4/12 train_loss=0.985785 val_loss=0.990740 val_sign_acc=0.5267 best_val_loss=0.988962
+[train][epoch] 5/12 train_loss=0.985138 val_loss=0.989401 val_sign_acc=0.5438 best_val_loss=0.988962
+[train][epoch] 6/12 train_loss=0.984772 val_loss=0.990383 val_sign_acc=0.5438 best_val_loss=0.988962
+[train][epoch] 7/12 train_loss=0.985328 val_loss=0.987354 val_sign_acc=0.5438 best_val_loss=0.987354
+[train][epoch] 8/12 train_loss=0.984170 val_loss=0.990337 val_sign_acc=0.5438 best_val_loss=0.987354
+[train][epoch] 9/12 train_loss=0.984113 val_loss=0.987453 val_sign_acc=0.5438 best_val_loss=0.987354
+[train][epoch] 10/12 train_loss=0.984244 val_loss=0.987501 val_sign_acc=0.5438 best_val_loss=0.987354
+[train][epoch] 11/12 train_loss=0.984054 val_loss=0.990535 val_sign_acc=0.5438 best_val_loss=0.987354
+[train][epoch] 12/12 train_loss=0.983472 val_loss=0.988266 val_sign_acc=0.5438 best_val_loss=0.987354
+[train][early-stop] epoch=12 patience=5 best_val_loss=0.987354
+[train_value_model] saved artifacts to outputs/experiments/phase1_minimal_token_transformer_global/models/size_1000/token_transformer_global
+[train_value_model] test_loss=0.983849, test_sign_acc=0.5556
+[progress][group-start] 1/1 game=connectFour pair=value_greedy:token_transformer_global__vs__random
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=1/10 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=1.83
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=2/10 winner=b score_a=0.0 score_b=100.0 ply=27 elapsed_sec=2.53
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=3/10 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=0.28
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=4/10 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=1.01
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=5/10 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=1.49
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=6/10 winner=b score_a=0.0 score_b=100.0 ply=35 elapsed_sec=5.02
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=7/10 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=2.19
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=8/10 winner=b score_a=0.0 score_b=100.0 ply=11 elapsed_sec=1.62
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=9/10 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=2.49
+[progress][match] game=connectFour pair=value_greedy:token_transformer_global__vs__random round=10/10 winner=b score_a=0.0 score_b=100.0 ply=27 elapsed_sec=4.00
+[progress][group-done] 1/1 game=connectFour pair=value_greedy:token_transformer_global__vs__random n_matches=10 win_rate_a=0.200 draw_rate=0.000 elapsed_sec=22.47
+[phase1_minimal_token_transformer_global] finished. output=outputs/experiments/phase1_minimal_token_transformer_global

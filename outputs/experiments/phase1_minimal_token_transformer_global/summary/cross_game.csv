@@ -1,0 +1,4 @@
+agent_a_key,agent_b_key,dataset_games,mean_avg_decision_sec_a,mean_avg_decision_sec_b,mean_avg_game_length,mean_avg_score_a,mean_avg_score_b,mean_draw_rate,mean_legal_cache_hit_rate,mean_next_cache_hit_rate,mean_win_rate_a,n_games
+value_greedy:token_transformer_global,random,200,0.11807840233150238,5.8592700498343275e-06,16.7,40.0,60.0,0.0,0.0,0.10209102091020911,0.4,1
+value_greedy:token_transformer_global,random,500,0.10323121519530112,4.8367898483904835e-06,18.8,30.0,70.0,0.0,0.0,0.10175054704595186,0.3,1
+value_greedy:token_transformer_global,random,1000,0.10920371683567125,4.669842177417968e-06,19.3,20.0,80.0,0.0,0.0,0.10204081632653061,0.2,1

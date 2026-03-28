@@ -1,0 +1,23 @@
+{
+  "200": {
+    "token_transformer_global": {
+      "model_path": "outputs/experiments/phase1_minimal_token_transformer_global/models/size_200/token_transformer_global/model.pt",
+      "encoder_config_path": "outputs/experiments/phase1_minimal_token_transformer_global/models/size_200/token_transformer_global/encoder.json",
+      "vocab_path": null
+    }
+  },
+  "500": {
+    "token_transformer_global": {
+      "model_path": "outputs/experiments/phase1_minimal_token_transformer_global/models/size_500/token_transformer_global/model.pt",
+      "encoder_config_path": "outputs/experiments/phase1_minimal_token_transformer_global/models/size_500/token_transformer_global/encoder.json",
+      "vocab_path": null
+    }
+  },
+  "1000": {
+    "token_transformer_global": {
+      "model_path": "outputs/experiments/phase1_minimal_token_transformer_global/models/size_1000/token_transformer_global/model.pt",
+      "encoder_config_path": "outputs/experiments/phase1_minimal_token_transformer_global/models/size_1000/token_transformer_global/encoder.json",
+      "vocab_path": null
+    }
+  }
+}

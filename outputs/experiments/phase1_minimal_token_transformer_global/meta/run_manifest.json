@@ -1,0 +1,25 @@
+{
+  "experiment": "phase1_minimal_token_transformer_global",
+  "root": "outputs/experiments/phase1_minimal_token_transformer_global",
+  "args": {
+    "game": "games/connectFour.kif",
+    "dataset_sizes": [
+      200,
+      500,
+      1000
+    ],
+    "playclock": 0.7,
+    "selfplay_iterations": 70,
+    "eval_iterations": 120,
+    "eval_rounds": 10,
+    "seed": 42,
+    "device": "cuda",
+    "epochs": 12,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "global_hidden_dim": 32,
+    "reuse_datasets_dir": "outputs/experiments/D_dataset_size_sensitivity/datasets",
+    "out_dir": "outputs/experiments/phase1_minimal_token_transformer_global"
+  }
+}

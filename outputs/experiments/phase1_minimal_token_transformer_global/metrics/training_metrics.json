@@ -1,0 +1,23 @@
+[
+  {
+    "dataset_games": 200,
+    "config": "token_transformer_global",
+    "test_loss": 0.9915983783275591,
+    "test_sign_acc": 0.5454545454545454,
+    "best_val_loss": 0.9827007542774207
+  },
+  {
+    "dataset_games": 500,
+    "config": "token_transformer_global",
+    "test_loss": 0.9706914074051373,
+    "test_sign_acc": 0.5853499018966645,
+    "best_val_loss": 0.9649846520233404
+  },
+  {
+    "dataset_games": 1000,
+    "config": "token_transformer_global",
+    "test_loss": 0.983848605311209,
+    "test_sign_acc": 0.5555555555555556,
+    "best_val_loss": 0.9873536166065204
+  }
+]
