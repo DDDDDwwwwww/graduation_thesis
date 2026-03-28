@@ -1,0 +1,20 @@
+{
+  "best_candidate": {
+    "candidate_name": "tau1e4_v0_b8",
+    "tau": 0.0001,
+    "visit_threshold": 0,
+    "slow_budget_per_move": 8,
+    "a_out_dir": "outputs4two_stage/experiments/TS_A_main_benchmark_final_tau1e4_v0_b8",
+    "vs_transformer_win_rate": 0.5666666666666668,
+    "vs_transformer_decision_sec": 0.22844471189133367,
+    "vs_transformer_slow_call_ratio": 0.054153062283994545,
+    "vs_transformer_slow_trigger_rate": 0.11414835303613674,
+    "vs_transformer_uncertainty_ok_rate": 0.94879501546214,
+    "vs_transformer_visit_ok_rate": 0.94879501546214,
+    "vs_pure_mct_win_rate": 0.5166666666666667,
+    "vs_pure_mct_decision_sec": 0.2218883637330726,
+    "vs_pure_mct_slow_call_ratio": 0.05501007033947742,
+    "slow_ratio_distance_to_target": 0.025846937716005457
+  },
+  "f_out_dir": "outputs4two_stage/experiments/TS_F_overhead_analysis_final_tau1e4_v0_b8"
+}

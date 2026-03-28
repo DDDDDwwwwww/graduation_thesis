@@ -1,0 +1,53 @@
+[
+  {
+    "candidate_name": "tau1e4_v0_b8",
+    "tau": 0.0001,
+    "visit_threshold": 0,
+    "slow_budget_per_move": 8,
+    "a_out_dir": "outputs4two_stage/experiments/TS_A_main_benchmark_final_tau1e4_v0_b8",
+    "vs_transformer_win_rate": 0.5666666666666668,
+    "vs_transformer_decision_sec": 0.22844471189133367,
+    "vs_transformer_slow_call_ratio": 0.054153062283994545,
+    "vs_transformer_slow_trigger_rate": 0.11414835303613674,
+    "vs_transformer_uncertainty_ok_rate": 0.94879501546214,
+    "vs_transformer_visit_ok_rate": 0.94879501546214,
+    "vs_pure_mct_win_rate": 0.5166666666666667,
+    "vs_pure_mct_decision_sec": 0.2218883637330726,
+    "vs_pure_mct_slow_call_ratio": 0.05501007033947742,
+    "slow_ratio_distance_to_target": 0.025846937716005457
+  },
+  {
+    "candidate_name": "tau3e4_v0_b8",
+    "tau": 0.0003,
+    "visit_threshold": 0,
+    "slow_budget_per_move": 8,
+    "a_out_dir": "outputs4two_stage/experiments/TS_A_main_benchmark_final_tau3e4_v0_b8",
+    "vs_transformer_win_rate": 0.5166666666666667,
+    "vs_transformer_decision_sec": 0.20605903958469693,
+    "vs_transformer_slow_call_ratio": 0.042199214581964774,
+    "vs_transformer_slow_trigger_rate": 0.07395768887711969,
+    "vs_transformer_uncertainty_ok_rate": 0.46003646452244595,
+    "vs_transformer_visit_ok_rate": 0.9410421450141079,
+    "vs_pure_mct_win_rate": 0.4833333333333334,
+    "vs_pure_mct_decision_sec": 0.21928650725706247,
+    "vs_pure_mct_slow_call_ratio": 0.04134330467223382,
+    "slow_ratio_distance_to_target": 0.03780078541803523
+  },
+  {
+    "candidate_name": "tau1e4_v0_b4",
+    "tau": 0.0001,
+    "visit_threshold": 0,
+    "slow_budget_per_move": 4,
+    "a_out_dir": "outputs4two_stage/experiments/TS_A_main_benchmark_final_tau1e4_v0_b4",
+    "vs_transformer_win_rate": 0.5499999999999999,
+    "vs_transformer_decision_sec": 0.20942402521878675,
+    "vs_transformer_slow_call_ratio": 0.026618986915854435,
+    "vs_transformer_slow_trigger_rate": 0.054816348529377674,
+    "vs_transformer_uncertainty_ok_rate": 0.9469760690391475,
+    "vs_transformer_visit_ok_rate": 0.9469760690391475,
+    "vs_pure_mct_win_rate": 0.5833333333333334,
+    "vs_pure_mct_decision_sec": 0.20798944902262975,
+    "vs_pure_mct_slow_call_ratio": 0.02680171602669698,
+    "slow_ratio_distance_to_target": 0.05338101308414557
+  }
+]

@@ -1,0 +1,440 @@
+[2026-03-28 03:45:13][TS_A_main_benchmark] start artifacts=outputs4two_stage/artifacts/two_stage_artifacts.json device=cuda games=3 rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:45:13][progress/grid-start] groups=18 games=3 pairs=6 rounds=20 device=cuda
+[2026-03-28 03:45:13][progress/group-start] 1/18 game=ticTacToe pair=random__vs__pure_mct
+[2026-03-28 03:45:13][progress/series-start] game=ticTacToe pair=random__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:45:16][progress/match] game=ticTacToe pair=random__vs__pure_mct round=1/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:03 series_eta=01:05
+[2026-03-28 03:45:18][progress/match] game=ticTacToe pair=random__vs__pure_mct round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:05 series_eta=00:45
+[2026-03-28 03:45:20][progress/match] game=ticTacToe pair=random__vs__pure_mct round=3/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:06 series_eta=00:37
+[2026-03-28 03:45:21][progress/match] game=ticTacToe pair=random__vs__pure_mct round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:08 series_eta=00:33
+[2026-03-28 03:45:23][progress/match] game=ticTacToe pair=random__vs__pure_mct round=5/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:09 series_eta=00:29
+[2026-03-28 03:45:24][progress/match] game=ticTacToe pair=random__vs__pure_mct round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:11 series_eta=00:26
+[2026-03-28 03:45:26][progress/match] game=ticTacToe pair=random__vs__pure_mct round=7/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:12 series_eta=00:23
+[2026-03-28 03:45:27][progress/match] game=ticTacToe pair=random__vs__pure_mct round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:14 series_eta=00:21
+[2026-03-28 03:45:29][progress/match] game=ticTacToe pair=random__vs__pure_mct round=9/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:15 series_eta=00:19
+[2026-03-28 03:45:30][progress/match] game=ticTacToe pair=random__vs__pure_mct round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:17 series_eta=00:17
+[2026-03-28 03:45:32][progress/match] game=ticTacToe pair=random__vs__pure_mct round=11/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:18 series_eta=00:15
+[2026-03-28 03:45:33][progress/match] game=ticTacToe pair=random__vs__pure_mct round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:20 series_eta=00:13
+[2026-03-28 03:45:35][progress/match] game=ticTacToe pair=random__vs__pure_mct round=13/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:01 series_elapsed=00:21 series_eta=00:11
+[2026-03-28 03:45:36][progress/match] game=ticTacToe pair=random__vs__pure_mct round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:23 series_eta=00:10
+[2026-03-28 03:45:38][progress/match] game=ticTacToe pair=random__vs__pure_mct round=15/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:24 series_eta=00:08
+[2026-03-28 03:45:40][progress/match] game=ticTacToe pair=random__vs__pure_mct round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:26 series_eta=00:06
+[2026-03-28 03:45:41][progress/match] game=ticTacToe pair=random__vs__pure_mct round=17/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:01 series_elapsed=00:28 series_eta=00:05
+[2026-03-28 03:45:43][progress/match] game=ticTacToe pair=random__vs__pure_mct round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:30 series_eta=00:03
+[2026-03-28 03:45:45][progress/match] game=ticTacToe pair=random__vs__pure_mct round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:31 series_eta=00:01
+[2026-03-28 03:45:46][progress/match] game=ticTacToe pair=random__vs__pure_mct round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:33 series_eta=00:00
+[2026-03-28 03:45:46][progress/series-end] game=ticTacToe pair=random__vs__pure_mct elapsed=00:33 rounds=20
+[2026-03-28 03:45:46][progress/group-end] 1/18 game=ticTacToe pair=random__vs__pure_mct group_elapsed=00:33 grid_elapsed=00:33 grid_eta=09:30
+[2026-03-28 03:45:46][progress/group-start] 2/18 game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct
+[2026-03-28 03:45:46][progress/series-start] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+/home/yuancheng/workspace/GGP/graduation_thesis/src/nn/inference.py:43: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(model_path, map_location=device)
+[2026-03-28 03:45:49][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:02 series_eta=00:49
+[2026-03-28 03:45:52][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=2/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:05 series_eta=00:48
+[2026-03-28 03:45:54][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=3/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:07 series_eta=00:42
+[2026-03-28 03:45:57][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:10 series_eta=00:40
+[2026-03-28 03:45:59][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=5/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:12 series_eta=00:38
+[2026-03-28 03:46:01][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:14 series_eta=00:34
+[2026-03-28 03:46:04][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=7/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:17 series_eta=00:32
+[2026-03-28 03:46:07][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=8/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:20 series_eta=00:30
+[2026-03-28 03:46:09][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:22 series_eta=00:27
+[2026-03-28 03:46:12][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=10/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:25 series_eta=00:25
+[2026-03-28 03:46:14][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:27 series_eta=00:22
+[2026-03-28 03:46:16][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:30 series_eta=00:20
+[2026-03-28 03:46:19][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=13/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:32 series_eta=00:17
+[2026-03-28 03:46:21][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:34 series_eta=00:14
+[2026-03-28 03:46:23][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=15/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:36 series_eta=00:12
+[2026-03-28 03:46:25][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:38 series_eta=00:09
+[2026-03-28 03:46:27][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=17/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:40 series_eta=00:07
+[2026-03-28 03:46:30][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:43 series_eta=00:04
+[2026-03-28 03:46:32][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:45 series_eta=00:02
+[2026-03-28 03:46:34][progress/match] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:47 series_eta=00:00
+[2026-03-28 03:46:34][progress/series-end] game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct elapsed=00:47 rounds=20
+[2026-03-28 03:46:34][progress/group-end] 2/18 game=ticTacToe pair=neural_mcts:token_mlp__vs__pure_mct group_elapsed=00:47 grid_elapsed=01:20 grid_eta=10:47
+[2026-03-28 03:46:34][progress/group-start] 3/18 game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct
+[2026-03-28 03:46:34][progress/series-start] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[2026-03-28 03:46:38][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=1/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:04 series_elapsed=00:04 series_eta=01:18
+[2026-03-28 03:46:41][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:06 series_eta=01:01
+[2026-03-28 03:46:44][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=3/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=00:10 series_eta=00:58
+[2026-03-28 03:46:47][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:13 series_eta=00:54
+[2026-03-28 03:46:51][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=5/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:16 series_eta=00:50
+[2026-03-28 03:46:54][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:19 series_eta=00:45
+[2026-03-28 03:46:57][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=7/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:23 series_eta=00:42
+[2026-03-28 03:47:00][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:26 series_eta=00:39
+[2026-03-28 03:47:03][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=9/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:29 series_eta=00:36
+[2026-03-28 03:47:06][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:32 series_eta=00:32
+[2026-03-28 03:47:10][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=11/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=00:35 series_eta=00:29
+[2026-03-28 03:47:13][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=12/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=00:39 series_eta=00:26
+[2026-03-28 03:47:17][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=13/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=00:42 series_eta=00:23
+[2026-03-28 03:47:20][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:45 series_eta=00:19
+[2026-03-28 03:47:23][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=15/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=00:49 series_eta=00:16
+[2026-03-28 03:47:26][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:51 series_eta=00:12
+[2026-03-28 03:47:29][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=17/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=00:55 series_eta=00:09
+[2026-03-28 03:47:33][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:58 series_eta=00:06
+[2026-03-28 03:47:36][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=19/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=01:02 series_eta=00:03
+[2026-03-28 03:47:39][progress/match] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=01:05 series_eta=00:00
+[2026-03-28 03:47:39][progress/series-end] game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct elapsed=01:05 rounds=20
+[2026-03-28 03:47:39][progress/group-end] 3/18 game=ticTacToe pair=neural_mcts:token_transformer__vs__pure_mct group_elapsed=01:05 grid_elapsed=02:26 grid_eta=12:13
+[2026-03-28 03:47:39][progress/group-start] 4/18 game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct
+[2026-03-28 03:47:39][progress/series-start] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:47:42][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:02 series_eta=00:46
+[2026-03-28 03:47:44][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:04 series_eta=00:42
+[2026-03-28 03:47:47][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:07 series_eta=00:40
+[2026-03-28 03:47:49][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:09 series_eta=00:37
+[2026-03-28 03:47:52][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=5/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:12 series_eta=00:36
+[2026-03-28 03:47:54][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:14 series_eta=00:33
+[2026-03-28 03:47:56][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=7/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:16 series_eta=00:31
+[2026-03-28 03:47:59][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:19 series_eta=00:28
+[2026-03-28 03:48:01][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=9/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:21 series_eta=00:26
+[2026-03-28 03:48:04][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:24 series_eta=00:24
+[2026-03-28 03:48:06][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:26 series_eta=00:21
+[2026-03-28 03:48:08][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:28 series_eta=00:19
+[2026-03-28 03:48:12][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=13/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=00:32 series_eta=00:17
+[2026-03-28 03:48:14][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:34 series_eta=00:14
+[2026-03-28 03:48:16][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=15/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:36 series_eta=00:12
+[2026-03-28 03:48:19][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:39 series_eta=00:09
+[2026-03-28 03:48:21][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:41 series_eta=00:07
+[2026-03-28 03:48:24][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:44 series_eta=00:04
+[2026-03-28 03:48:26][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=19/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:46 series_eta=00:02
+[2026-03-28 03:48:29][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:49 series_eta=00:00
+[2026-03-28 03:48:29][progress/series-end] game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct elapsed=00:49 rounds=20
+[2026-03-28 03:48:29][progress/group-end] 4/18 game=ticTacToe pair=two_stage_neural_mcts__vs__pure_mct group_elapsed=00:49 grid_elapsed=03:15 grid_eta=11:24
+[2026-03-28 03:48:29][progress/group-start] 5/18 game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp
+[2026-03-28 03:48:29][progress/series-start] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:48:31][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=1/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:02 series_eta=00:41
+[2026-03-28 03:48:32][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:03 series_eta=00:32
+[2026-03-28 03:48:34][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=3/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:05 series_eta=00:32
+[2026-03-28 03:48:36][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=4/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:07 series_eta=00:29
+[2026-03-28 03:48:38][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=5/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:09 series_eta=00:28
+[2026-03-28 03:48:39][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:10 series_eta=00:25
+[2026-03-28 03:48:42][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=7/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:13 series_eta=00:24
+[2026-03-28 03:48:44][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=8/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:15 series_eta=00:22
+[2026-03-28 03:48:45][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=9/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:16 series_eta=00:20
+[2026-03-28 03:48:47][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:18 series_eta=00:18
+[2026-03-28 03:48:49][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:20 series_eta=00:16
+[2026-03-28 03:48:50][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:21 series_eta=00:14
+[2026-03-28 03:48:52][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=13/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:23 series_eta=00:12
+[2026-03-28 03:48:54][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:25 series_eta=00:11
+[2026-03-28 03:48:56][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=15/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:27 series_eta=00:09
+[2026-03-28 03:48:58][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=16/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:29 series_eta=00:07
+[2026-03-28 03:49:00][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=17/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:31 series_eta=00:05
+[2026-03-28 03:49:02][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=18/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:33 series_eta=00:03
+[2026-03-28 03:49:04][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:35 series_eta=00:01
+[2026-03-28 03:49:06][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:37 series_eta=00:00
+[2026-03-28 03:49:06][progress/series-end] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp elapsed=00:37 rounds=20
+[2026-03-28 03:49:06][progress/group-end] 5/18 game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp group_elapsed=00:37 grid_elapsed=03:52 grid_eta=10:05
+[2026-03-28 03:49:06][progress/group-start] 6/18 game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer
+[2026-03-28 03:49:06][progress/series-start] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:49:08][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:01 series_eta=00:37
+[2026-03-28 03:49:10][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=2/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:04 series_eta=00:39
+[2026-03-28 03:49:13][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:06 series_eta=00:38
+[2026-03-28 03:49:16][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=4/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=00:09 series_eta=00:39
+[2026-03-28 03:49:18][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:11 series_eta=00:35
+[2026-03-28 03:49:20][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:14 series_eta=00:34
+[2026-03-28 03:49:23][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=7/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:02 series_elapsed=00:17 series_eta=00:32
+[2026-03-28 03:49:25][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:19 series_eta=00:29
+[2026-03-28 03:49:28][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=9/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:22 series_eta=00:26
+[2026-03-28 03:49:30][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:24 series_eta=00:24
+[2026-03-28 03:49:32][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:26 series_eta=00:21
+[2026-03-28 03:49:34][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:28 series_eta=00:18
+[2026-03-28 03:49:36][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:30 series_eta=00:16
+[2026-03-28 03:49:39][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=14/20 winner=draw score_a=50.0 score_b=50.0 round_time=00:03 series_elapsed=00:33 series_eta=00:14
+[2026-03-28 03:49:41][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=15/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:35 series_eta=00:11
+[2026-03-28 03:49:44][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=16/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:38 series_eta=00:09
+[2026-03-28 03:49:46][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:40 series_eta=00:07
+[2026-03-28 03:49:48][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:42 series_eta=00:04
+[2026-03-28 03:49:51][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:45 series_eta=00:02
+[2026-03-28 03:49:54][progress/match] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=20/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:48 series_eta=00:00
+[2026-03-28 03:49:54][progress/series-end] game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer elapsed=00:48 rounds=20
+[2026-03-28 03:49:54][progress/group-end] 6/18 game=ticTacToe pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer group_elapsed=00:48 grid_elapsed=04:40 grid_eta=09:21
+[2026-03-28 03:49:54][progress/group-start] 7/18 game=connectFour pair=random__vs__pure_mct
+[2026-03-28 03:49:54][progress/series-start] game=connectFour pair=random__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:49:59][progress/match] game=connectFour pair=random__vs__pure_mct round=1/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=00:04 series_eta=01:33
+[2026-03-28 03:50:01][progress/match] game=connectFour pair=random__vs__pure_mct round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:07 series_eta=01:09
+[2026-03-28 03:50:10][progress/match] game=connectFour pair=random__vs__pure_mct round=3/20 winner=b score_a=0.0 score_b=100.0 round_time=00:08 series_elapsed=00:16 series_eta=01:31
+[2026-03-28 03:50:13][progress/match] game=connectFour pair=random__vs__pure_mct round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=00:19 series_eta=01:16
+[2026-03-28 03:50:20][progress/match] game=connectFour pair=random__vs__pure_mct round=5/20 winner=b score_a=0.0 score_b=100.0 round_time=00:07 series_elapsed=00:26 series_eta=01:18
+[2026-03-28 03:50:23][progress/match] game=connectFour pair=random__vs__pure_mct round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:29 series_eta=01:09
+[2026-03-28 03:50:30][progress/match] game=connectFour pair=random__vs__pure_mct round=7/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=00:35 series_eta=01:06
+[2026-03-28 03:50:34][progress/match] game=connectFour pair=random__vs__pure_mct round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=00:40 series_eta=01:01
+[2026-03-28 03:50:45][progress/match] game=connectFour pair=random__vs__pure_mct round=9/20 winner=b score_a=0.0 score_b=100.0 round_time=00:10 series_elapsed=00:51 series_eta=01:02
+[2026-03-28 03:50:49][progress/match] game=connectFour pair=random__vs__pure_mct round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:54 series_eta=00:54
+[2026-03-28 03:50:57][progress/match] game=connectFour pair=random__vs__pure_mct round=11/20 winner=b score_a=0.0 score_b=100.0 round_time=00:08 series_elapsed=01:03 series_eta=00:51
+[2026-03-28 03:51:03][progress/match] game=connectFour pair=random__vs__pure_mct round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=01:09 series_eta=00:46
+[2026-03-28 03:51:06][progress/match] game=connectFour pair=random__vs__pure_mct round=13/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=01:12 series_eta=00:39
+[2026-03-28 03:51:13][progress/match] game=connectFour pair=random__vs__pure_mct round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=01:18 series_eta=00:33
+[2026-03-28 03:51:20][progress/match] game=connectFour pair=random__vs__pure_mct round=15/20 winner=b score_a=0.0 score_b=100.0 round_time=00:07 series_elapsed=01:25 series_eta=00:28
+[2026-03-28 03:51:24][progress/match] game=connectFour pair=random__vs__pure_mct round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=01:30 series_eta=00:22
+[2026-03-28 03:51:31][progress/match] game=connectFour pair=random__vs__pure_mct round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:07 series_elapsed=01:37 series_eta=00:17
+[2026-03-28 03:51:37][progress/match] game=connectFour pair=random__vs__pure_mct round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:05 series_elapsed=01:42 series_eta=00:11
+[2026-03-28 03:51:42][progress/match] game=connectFour pair=random__vs__pure_mct round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:05 series_elapsed=01:48 series_eta=00:05
+[2026-03-28 03:51:46][progress/match] game=connectFour pair=random__vs__pure_mct round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=01:52 series_eta=00:00
+[2026-03-28 03:51:46][progress/series-end] game=connectFour pair=random__vs__pure_mct elapsed=01:52 rounds=20
+[2026-03-28 03:51:46][progress/group-end] 7/18 game=connectFour pair=random__vs__pure_mct group_elapsed=01:52 grid_elapsed=06:32 grid_eta=10:17
+[2026-03-28 03:51:46][progress/group-start] 8/18 game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct
+[2026-03-28 03:51:46][progress/series-start] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:51:52][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=1/20 winner=b score_a=0.0 score_b=100.0 round_time=00:05 series_elapsed=00:05 series_eta=01:51
+[2026-03-28 03:51:55][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:09 series_eta=01:24
+[2026-03-28 03:51:58][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:12 series_eta=01:09
+[2026-03-28 03:52:02][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=4/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=00:15 series_eta=01:03
+[2026-03-28 03:52:06][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=00:19 series_eta=00:59
+[2026-03-28 03:52:09][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=6/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=00:23 series_eta=00:55
+[2026-03-28 03:52:12][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:26 series_eta=00:49
+[2026-03-28 03:52:16][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=8/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=00:30 series_eta=00:45
+[2026-03-28 03:52:19][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:33 series_eta=00:40
+[2026-03-28 03:52:24][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:05 series_elapsed=00:38 series_eta=00:38
+[2026-03-28 03:52:27][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:41 series_eta=00:34
+[2026-03-28 03:52:31][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=12/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=00:45 series_eta=00:30
+[2026-03-28 03:52:34][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:48 series_eta=00:26
+[2026-03-28 03:52:38][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:51 series_eta=00:22
+[2026-03-28 03:52:44][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=15/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=00:58 series_eta=00:19
+[2026-03-28 03:52:50][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:05 series_elapsed=01:04 series_eta=00:16
+[2026-03-28 03:52:59][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:08 series_elapsed=01:13 series_eta=00:12
+[2026-03-28 03:53:02][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=01:16 series_eta=00:08
+[2026-03-28 03:53:14][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=19/20 winner=a score_a=100.0 score_b=0.0 round_time=00:11 series_elapsed=01:28 series_eta=00:04
+[2026-03-28 03:53:18][progress/match] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=01:31 series_eta=00:00
+[2026-03-28 03:53:18][progress/series-end] game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct elapsed=01:31 rounds=20
+[2026-03-28 03:53:18][progress/group-end] 8/18 game=connectFour pair=neural_mcts:token_mlp__vs__pure_mct group_elapsed=01:31 grid_elapsed=08:04 grid_eta=10:05
+[2026-03-28 03:53:18][progress/group-start] 9/18 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct
+[2026-03-28 03:53:18][progress/series-start] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:53:22][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:04 series_elapsed=00:04 series_eta=01:24
+[2026-03-28 03:53:30][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:07 series_elapsed=00:12 series_eta=01:48
+[2026-03-28 03:53:40][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:10 series_elapsed=00:22 series_eta=02:05
+[2026-03-28 03:53:49][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:09 series_elapsed=00:31 series_eta=02:04
+[2026-03-28 03:53:53][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:04 series_elapsed=00:35 series_eta=01:46
+[2026-03-28 03:53:58][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=00:40 series_eta=01:34
+[2026-03-28 03:54:05][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:07 series_elapsed=00:47 series_eta=01:28
+[2026-03-28 03:54:18][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:13 series_elapsed=01:00 series_eta=01:31
+[2026-03-28 03:54:24][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:05 series_elapsed=01:06 series_eta=01:21
+[2026-03-28 03:54:31][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=10/20 winner=a score_a=100.0 score_b=0.0 round_time=00:06 series_elapsed=01:13 series_eta=01:13
+[2026-03-28 03:54:43][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:11 series_elapsed=01:24 series_eta=01:09
+[2026-03-28 03:54:47][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=01:29 series_eta=00:59
+[2026-03-28 03:54:55][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:07 series_elapsed=01:36 series_eta=00:52
+[2026-03-28 03:54:59][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=01:41 series_eta=00:43
+[2026-03-28 03:55:18][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:18 series_elapsed=02:00 series_eta=00:40
+[2026-03-28 03:55:24][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=02:06 series_eta=00:31
+[2026-03-28 03:55:34][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:09 series_elapsed=02:16 series_eta=00:24
+[2026-03-28 03:55:40][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=02:22 series_eta=00:15
+[2026-03-28 03:55:47][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=19/20 winner=a score_a=100.0 score_b=0.0 round_time=00:07 series_elapsed=02:29 series_eta=00:07
+[2026-03-28 03:55:55][progress/match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:07 series_elapsed=02:37 series_eta=00:00
+[2026-03-28 03:55:55][progress/series-end] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct elapsed=02:37 rounds=20
+[2026-03-28 03:55:55][progress/group-end] 9/18 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct group_elapsed=02:37 grid_elapsed=10:42 grid_eta=10:42
+[2026-03-28 03:55:55][progress/group-start] 10/18 game=connectFour pair=two_stage_neural_mcts__vs__pure_mct
+[2026-03-28 03:55:55][progress/series-start] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:55:58][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=00:03 series_eta=00:57
+[2026-03-28 03:56:05][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=00:09 series_eta=01:28
+[2026-03-28 03:56:09][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:04 series_elapsed=00:13 series_eta=01:19
+[2026-03-28 03:56:13][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:17 series_eta=01:10
+[2026-03-28 03:56:21][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:08 series_elapsed=00:26 series_eta=01:18
+[2026-03-28 03:56:26][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=6/20 winner=a score_a=100.0 score_b=0.0 round_time=00:04 series_elapsed=00:31 series_eta=01:12
+[2026-03-28 03:56:31][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:05 series_elapsed=00:36 series_eta=01:07
+[2026-03-28 03:56:38][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=00:43 series_eta=01:04
+[2026-03-28 03:56:45][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:06 series_elapsed=00:49 series_eta=01:00
+[2026-03-28 03:56:49][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=10/20 winner=a score_a=100.0 score_b=0.0 round_time=00:04 series_elapsed=00:54 series_eta=00:54
+[2026-03-28 03:56:53][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=00:57 series_eta=00:47
+[2026-03-28 03:56:57][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=01:02 series_eta=00:41
+[2026-03-28 03:57:03][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:05 series_elapsed=01:07 series_eta=00:36
+[2026-03-28 03:57:07][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=01:12 series_eta=00:30
+[2026-03-28 03:57:10][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=01:15 series_eta=00:25
+[2026-03-28 03:57:15][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=16/20 winner=a score_a=100.0 score_b=0.0 round_time=00:04 series_elapsed=01:20 series_eta=00:20
+[2026-03-28 03:57:18][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=01:23 series_eta=00:14
+[2026-03-28 03:57:22][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=18/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=01:27 series_eta=00:09
+[2026-03-28 03:57:26][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=01:30 series_eta=00:04
+[2026-03-28 03:57:30][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=01:34 series_eta=00:00
+[2026-03-28 03:57:30][progress/series-end] game=connectFour pair=two_stage_neural_mcts__vs__pure_mct elapsed=01:34 rounds=20
+[2026-03-28 03:57:30][progress/group-end] 10/18 game=connectFour pair=two_stage_neural_mcts__vs__pure_mct group_elapsed=01:34 grid_elapsed=12:16 grid_eta=09:49
+[2026-03-28 03:57:30][progress/group-start] 11/18 game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp
+[2026-03-28 03:57:30][progress/series-start] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:57:31][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:01 series_eta=00:29
+[2026-03-28 03:57:39][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:07 series_elapsed=00:09 series_eta=01:23
+[2026-03-28 03:57:41][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:10 series_eta=01:02
+[2026-03-28 03:57:51][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:10 series_elapsed=00:21 series_eta=01:26
+[2026-03-28 03:57:53][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:23 series_eta=01:09
+[2026-03-28 03:58:08][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:14 series_elapsed=00:38 series_eta=01:29
+[2026-03-28 03:58:10][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:40 series_eta=01:15
+[2026-03-28 03:58:12][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:01 series_elapsed=00:42 series_eta=01:03
+[2026-03-28 03:58:14][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:44 series_eta=00:54
+[2026-03-28 03:58:24][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:10 series_elapsed=00:54 series_eta=00:54
+[2026-03-28 03:58:26][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=00:55 series_eta=00:45
+[2026-03-28 03:58:35][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:09 series_elapsed=01:05 series_eta=00:43
+[2026-03-28 03:58:38][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=01:08 series_eta=00:36
+[2026-03-28 03:58:40][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:02 series_elapsed=01:10 series_eta=00:30
+[2026-03-28 03:58:42][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=01:12 series_eta=00:24
+[2026-03-28 03:58:49][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=01:18 series_eta=00:19
+[2026-03-28 03:58:50][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:01 series_elapsed=01:20 series_eta=00:14
+[2026-03-28 03:58:58][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:07 series_elapsed=01:28 series_eta=00:09
+[2026-03-28 03:59:01][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=19/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=01:31 series_eta=00:04
+[2026-03-28 03:59:06][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:05 series_elapsed=01:36 series_eta=00:00
+[2026-03-28 03:59:06][progress/series-end] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp elapsed=01:36 rounds=20
+[2026-03-28 03:59:06][progress/group-end] 11/18 game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp group_elapsed=01:36 grid_elapsed=13:53 grid_eta=08:50
+[2026-03-28 03:59:06][progress/group-start] 12/18 game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer
+[2026-03-28 03:59:06][progress/series-start] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer rounds=20 playclock=0.7 iterations=120
+[2026-03-28 03:59:09][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:02 series_eta=00:52
+[2026-03-28 03:59:13][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=00:07 series_eta=01:03
+[2026-03-28 03:59:22][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:08 series_elapsed=00:15 series_eta=01:28
+[2026-03-28 03:59:25][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:18 series_eta=01:14
+[2026-03-28 03:59:28][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:21 series_eta=01:04
+[2026-03-28 03:59:31][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:24 series_eta=00:57
+[2026-03-28 03:59:36][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:04 series_elapsed=00:29 series_eta=00:54
+[2026-03-28 03:59:39][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:32 series_eta=00:48
+[2026-03-28 03:59:43][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:04 series_elapsed=00:36 series_eta=00:44
+[2026-03-28 03:59:46][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:39 series_eta=00:39
+[2026-03-28 03:59:49][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=00:42 series_eta=00:34
+[2026-03-28 03:59:52][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=00:45 series_eta=00:30
+[2026-03-28 03:59:56][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=00:49 series_eta=00:26
+[2026-03-28 04:00:02][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=00:55 series_eta=00:23
+[2026-03-28 04:00:06][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:03 series_elapsed=00:59 series_eta=00:19
+[2026-03-28 04:00:12][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:06 series_elapsed=01:05 series_eta=00:16
+[2026-03-28 04:00:15][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:02 series_elapsed=01:08 series_eta=00:12
+[2026-03-28 04:00:19][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:04 series_elapsed=01:12 series_eta=00:08
+[2026-03-28 04:00:24][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=19/20 winner=a score_a=100.0 score_b=0.0 round_time=00:05 series_elapsed=01:17 series_eta=00:04
+[2026-03-28 04:00:27][progress/match] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:03 series_elapsed=01:20 series_eta=00:00
+[2026-03-28 04:00:27][progress/series-end] game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer elapsed=01:20 rounds=20
+[2026-03-28 04:00:27][progress/group-end] 12/18 game=connectFour pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer group_elapsed=01:20 grid_elapsed=15:13 grid_eta=07:36
+[2026-03-28 04:00:27][progress/group-start] 13/18 game=breakthrough pair=random__vs__pure_mct
+[2026-03-28 04:00:27][progress/series-start] game=breakthrough pair=random__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 04:00:53][progress/match] game=breakthrough pair=random__vs__pure_mct round=1/20 winner=b score_a=0.0 score_b=100.0 round_time=00:26 series_elapsed=00:26 series_eta=08:25
+[2026-03-28 04:01:30][progress/match] game=breakthrough pair=random__vs__pure_mct round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:36 series_elapsed=01:03 series_eta=09:29
+[2026-03-28 04:01:47][progress/match] game=breakthrough pair=random__vs__pure_mct round=3/20 winner=b score_a=0.0 score_b=100.0 round_time=00:17 series_elapsed=01:20 series_eta=07:36
+[2026-03-28 04:02:11][progress/match] game=breakthrough pair=random__vs__pure_mct round=4/20 winner=a score_a=100.0 score_b=0.0 round_time=00:23 series_elapsed=01:44 series_eta=06:56
+[2026-03-28 04:02:24][progress/match] game=breakthrough pair=random__vs__pure_mct round=5/20 winner=b score_a=0.0 score_b=100.0 round_time=00:13 series_elapsed=01:57 series_eta=05:51
+[2026-03-28 04:02:54][progress/match] game=breakthrough pair=random__vs__pure_mct round=6/20 winner=a score_a=100.0 score_b=0.0 round_time=00:30 series_elapsed=02:27 series_eta=05:44
+[2026-03-28 04:03:14][progress/match] game=breakthrough pair=random__vs__pure_mct round=7/20 winner=b score_a=0.0 score_b=100.0 round_time=00:20 series_elapsed=02:47 series_eta=05:11
+[2026-03-28 04:03:50][progress/match] game=breakthrough pair=random__vs__pure_mct round=8/20 winner=a score_a=100.0 score_b=0.0 round_time=00:35 series_elapsed=03:22 series_eta=05:04
+[2026-03-28 04:04:10][progress/match] game=breakthrough pair=random__vs__pure_mct round=9/20 winner=b score_a=0.0 score_b=100.0 round_time=00:20 series_elapsed=03:42 series_eta=04:32
+[2026-03-28 04:04:30][progress/match] game=breakthrough pair=random__vs__pure_mct round=10/20 winner=a score_a=100.0 score_b=0.0 round_time=00:20 series_elapsed=04:03 series_eta=04:03
+[2026-03-28 04:04:49][progress/match] game=breakthrough pair=random__vs__pure_mct round=11/20 winner=b score_a=0.0 score_b=100.0 round_time=00:19 series_elapsed=04:22 series_eta=03:34
+[2026-03-28 04:05:20][progress/match] game=breakthrough pair=random__vs__pure_mct round=12/20 winner=a score_a=100.0 score_b=0.0 round_time=00:30 series_elapsed=04:53 series_eta=03:15
+[2026-03-28 04:05:42][progress/match] game=breakthrough pair=random__vs__pure_mct round=13/20 winner=b score_a=0.0 score_b=100.0 round_time=00:21 series_elapsed=05:15 series_eta=02:49
+[2026-03-28 04:06:15][progress/match] game=breakthrough pair=random__vs__pure_mct round=14/20 winner=b score_a=0.0 score_b=100.0 round_time=00:33 series_elapsed=05:48 series_eta=02:29
+[2026-03-28 04:06:36][progress/match] game=breakthrough pair=random__vs__pure_mct round=15/20 winner=b score_a=0.0 score_b=100.0 round_time=00:20 series_elapsed=06:08 series_eta=02:02
+[2026-03-28 04:07:05][progress/match] game=breakthrough pair=random__vs__pure_mct round=16/20 winner=a score_a=100.0 score_b=0.0 round_time=00:29 series_elapsed=06:38 series_eta=01:39
+[2026-03-28 04:07:25][progress/match] game=breakthrough pair=random__vs__pure_mct round=17/20 winner=b score_a=0.0 score_b=100.0 round_time=00:20 series_elapsed=06:58 series_eta=01:13
+[2026-03-28 04:07:46][progress/match] game=breakthrough pair=random__vs__pure_mct round=18/20 winner=a score_a=100.0 score_b=0.0 round_time=00:20 series_elapsed=07:19 series_eta=00:48
+[2026-03-28 04:08:07][progress/match] game=breakthrough pair=random__vs__pure_mct round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:20 series_elapsed=07:40 series_eta=00:24
+[2026-03-28 04:08:36][progress/match] game=breakthrough pair=random__vs__pure_mct round=20/20 winner=a score_a=100.0 score_b=0.0 round_time=00:28 series_elapsed=08:09 series_eta=00:00
+[2026-03-28 04:08:36][progress/series-end] game=breakthrough pair=random__vs__pure_mct elapsed=08:09 rounds=20
+[2026-03-28 04:08:36][progress/group-end] 13/18 game=breakthrough pair=random__vs__pure_mct group_elapsed=08:09 grid_elapsed=23:22 grid_eta=08:59
+[2026-03-28 04:08:36][progress/group-start] 14/18 game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct
+[2026-03-28 04:08:36][progress/series-start] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 04:08:52][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:16 series_elapsed=00:16 series_eta=05:09
+[2026-03-28 04:09:46][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=2/20 winner=a score_a=100.0 score_b=0.0 round_time=00:53 series_elapsed=01:10 series_eta=10:30
+[2026-03-28 04:10:01][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:14 series_elapsed=01:24 series_eta=08:01
+[2026-03-28 04:10:46][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=4/20 winner=a score_a=100.0 score_b=0.0 round_time=00:45 series_elapsed=02:10 series_eta=08:40
+[2026-03-28 04:11:14][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=5/20 winner=b score_a=0.0 score_b=100.0 round_time=00:28 series_elapsed=02:38 series_eta=07:55
+[2026-03-28 04:11:46][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=6/20 winner=a score_a=100.0 score_b=0.0 round_time=00:31 series_elapsed=03:09 series_eta=07:22
+[2026-03-28 04:12:08][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:21 series_elapsed=03:31 series_eta=06:33
+[2026-03-28 04:12:56][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=8/20 winner=a score_a=100.0 score_b=0.0 round_time=00:48 series_elapsed=04:19 series_eta=06:29
+[2026-03-28 04:13:18][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:21 series_elapsed=04:41 series_eta=05:44
+[2026-03-28 04:14:09][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=10/20 winner=a score_a=100.0 score_b=0.0 round_time=00:50 series_elapsed=05:32 series_eta=05:32
+[2026-03-28 04:14:27][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=11/20 winner=b score_a=0.0 score_b=100.0 round_time=00:18 series_elapsed=05:51 series_eta=04:47
+[2026-03-28 04:15:19][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=12/20 winner=a score_a=100.0 score_b=0.0 round_time=00:52 series_elapsed=06:43 series_eta=04:28
+[2026-03-28 04:15:46][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:26 series_elapsed=07:09 series_eta=03:51
+[2026-03-28 04:16:36][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=14/20 winner=a score_a=100.0 score_b=0.0 round_time=00:50 series_elapsed=08:00 series_eta=03:25
+[2026-03-28 04:16:51][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:14 series_elapsed=08:15 series_eta=02:45
+[2026-03-28 04:17:38][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=16/20 winner=a score_a=100.0 score_b=0.0 round_time=00:46 series_elapsed=09:02 series_eta=02:15
+[2026-03-28 04:18:01][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:23 series_elapsed=09:25 series_eta=01:39
+[2026-03-28 04:18:42][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=18/20 winner=a score_a=100.0 score_b=0.0 round_time=00:41 series_elapsed=10:06 series_eta=01:07
+[2026-03-28 04:19:28][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:45 series_elapsed=10:51 series_eta=00:34
+[2026-03-28 04:20:26][progress/match] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct round=20/20 winner=a score_a=100.0 score_b=0.0 round_time=00:57 series_elapsed=11:49 series_eta=00:00
+[2026-03-28 04:20:26][progress/series-end] game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct elapsed=11:49 rounds=20
+[2026-03-28 04:20:26][progress/group-end] 14/18 game=breakthrough pair=neural_mcts:token_mlp__vs__pure_mct group_elapsed=11:49 grid_elapsed=35:12 grid_eta=10:03
+[2026-03-28 04:20:26][progress/group-start] 15/18 game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct
+[2026-03-28 04:20:26][progress/series-start] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 04:20:58][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=1/20 winner=b score_a=0.0 score_b=100.0 round_time=00:32 series_elapsed=00:32 series_eta=10:20
+[2026-03-28 04:22:05][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=2/20 winner=a score_a=100.0 score_b=0.0 round_time=01:06 series_elapsed=01:39 series_eta=14:53
+[2026-03-28 04:22:48][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:43 series_elapsed=02:22 series_eta=13:27
+[2026-03-28 04:23:44][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=4/20 winner=a score_a=100.0 score_b=0.0 round_time=00:55 series_elapsed=03:17 series_eta=13:11
+[2026-03-28 04:24:09][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=5/20 winner=b score_a=0.0 score_b=100.0 round_time=00:25 series_elapsed=03:43 series_eta=11:10
+[2026-03-28 04:25:00][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=6/20 winner=a score_a=100.0 score_b=0.0 round_time=00:51 series_elapsed=04:34 series_eta=10:40
+[2026-03-28 04:25:24][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=7/20 winner=b score_a=0.0 score_b=100.0 round_time=00:24 series_elapsed=04:58 series_eta=09:14
+[2026-03-28 04:26:27][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=8/20 winner=a score_a=100.0 score_b=0.0 round_time=01:02 series_elapsed=06:01 series_eta=09:01
+[2026-03-28 04:27:00][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=9/20 winner=b score_a=0.0 score_b=100.0 round_time=00:32 series_elapsed=06:33 series_eta=08:01
+[2026-03-28 04:27:45][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=10/20 winner=a score_a=100.0 score_b=0.0 round_time=00:45 series_elapsed=07:19 series_eta=07:19
+[2026-03-28 04:28:15][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=11/20 winner=b score_a=0.0 score_b=100.0 round_time=00:29 series_elapsed=07:49 series_eta=06:23
+[2026-03-28 04:28:55][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=12/20 winner=a score_a=100.0 score_b=0.0 round_time=00:39 series_elapsed=08:28 series_eta=05:39
+[2026-03-28 04:29:19][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=13/20 winner=b score_a=0.0 score_b=100.0 round_time=00:24 series_elapsed=08:52 series_eta=04:46
+[2026-03-28 04:30:03][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=14/20 winner=a score_a=100.0 score_b=0.0 round_time=00:44 series_elapsed=09:37 series_eta=04:07
+[2026-03-28 04:30:43][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:40 series_elapsed=10:17 series_eta=03:25
+[2026-03-28 04:31:34][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=16/20 winner=a score_a=100.0 score_b=0.0 round_time=00:51 series_elapsed=11:08 series_eta=02:47
+[2026-03-28 04:32:08][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=17/20 winner=b score_a=0.0 score_b=100.0 round_time=00:34 series_elapsed=11:42 series_eta=02:04
+[2026-03-28 04:32:58][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=18/20 winner=a score_a=100.0 score_b=0.0 round_time=00:49 series_elapsed=12:32 series_eta=01:23
+[2026-03-28 04:33:25][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=19/20 winner=b score_a=0.0 score_b=100.0 round_time=00:26 series_elapsed=12:59 series_eta=00:41
+[2026-03-28 04:34:12][progress/match] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct round=20/20 winner=a score_a=100.0 score_b=0.0 round_time=00:46 series_elapsed=13:46 series_eta=00:00
+[2026-03-28 04:34:12][progress/series-end] game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct elapsed=13:46 rounds=20
+[2026-03-28 04:34:12][progress/group-end] 15/18 game=breakthrough pair=neural_mcts:token_transformer__vs__pure_mct group_elapsed=13:46 grid_elapsed=48:59 grid_eta=09:47
+[2026-03-28 04:34:12][progress/group-start] 16/18 game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct
+[2026-03-28 04:34:12][progress/series-start] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct rounds=20 playclock=0.7 iterations=120
+[2026-03-28 04:34:34][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:21 series_elapsed=00:21 series_eta=06:57
+[2026-03-28 04:35:22][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=2/20 winner=a score_a=100.0 score_b=0.0 round_time=00:48 series_elapsed=01:10 series_eta=10:30
+[2026-03-28 04:35:59][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=3/20 winner=b score_a=0.0 score_b=100.0 round_time=00:36 series_elapsed=01:46 series_eta=10:05
+[2026-03-28 04:36:33][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=4/20 winner=a score_a=100.0 score_b=0.0 round_time=00:33 series_elapsed=02:20 series_eta=09:23
+[2026-03-28 04:36:58][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:24 series_elapsed=02:45 series_eta=08:17
+[2026-03-28 04:37:49][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=6/20 winner=a score_a=100.0 score_b=0.0 round_time=00:50 series_elapsed=03:36 series_eta=08:25
+[2026-03-28 04:38:28][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:38 series_elapsed=04:15 series_eta=07:54
+[2026-03-28 04:39:21][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=8/20 winner=a score_a=100.0 score_b=0.0 round_time=00:53 series_elapsed=05:09 series_eta=07:44
+[2026-03-28 04:39:36][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:14 series_elapsed=05:24 series_eta=06:36
+[2026-03-28 04:40:34][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=10/20 winner=a score_a=100.0 score_b=0.0 round_time=00:58 series_elapsed=06:22 series_eta=06:22
+[2026-03-28 04:41:03][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:29 series_elapsed=06:51 series_eta=05:36
+[2026-03-28 04:41:51][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=12/20 winner=a score_a=100.0 score_b=0.0 round_time=00:48 series_elapsed=07:39 series_eta=05:06
+[2026-03-28 04:42:31][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=13/20 winner=b score_a=0.0 score_b=100.0 round_time=00:39 series_elapsed=08:19 series_eta=04:28
+[2026-03-28 04:43:22][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=14/20 winner=a score_a=100.0 score_b=0.0 round_time=00:51 series_elapsed=09:10 series_eta=03:55
+[2026-03-28 04:43:37][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:14 series_elapsed=09:25 series_eta=03:08
+[2026-03-28 04:44:25][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=16/20 winner=a score_a=100.0 score_b=0.0 round_time=00:48 series_elapsed=10:13 series_eta=02:33
+[2026-03-28 04:44:43][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:17 series_elapsed=10:31 series_eta=01:51
+[2026-03-28 04:45:21][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=18/20 winner=a score_a=100.0 score_b=0.0 round_time=00:38 series_elapsed=11:09 series_eta=01:14
+[2026-03-28 04:45:43][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=19/20 winner=a score_a=100.0 score_b=0.0 round_time=00:22 series_elapsed=11:31 series_eta=00:36
+[2026-03-28 04:46:21][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct round=20/20 winner=a score_a=100.0 score_b=0.0 round_time=00:38 series_elapsed=12:09 series_eta=00:00
+[2026-03-28 04:46:21][progress/series-end] game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct elapsed=12:09 rounds=20
+[2026-03-28 04:46:21][progress/group-end] 16/18 game=breakthrough pair=two_stage_neural_mcts__vs__pure_mct group_elapsed=12:09 grid_elapsed=01:01:08 grid_eta=07:38
+[2026-03-28 04:46:21][progress/group-start] 17/18 game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp
+[2026-03-28 04:46:21][progress/series-start] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp rounds=20 playclock=0.7 iterations=120
+[2026-03-28 04:46:59][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:37 series_elapsed=00:37 series_eta=11:51
+[2026-03-28 04:47:18][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=2/20 winner=b score_a=0.0 score_b=100.0 round_time=00:19 series_elapsed=00:56 series_eta=08:28
+[2026-03-28 04:47:43][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:24 series_elapsed=01:21 series_eta=07:40
+[2026-03-28 04:48:10][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:27 series_elapsed=01:48 series_eta=07:15
+[2026-03-28 04:48:34][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:23 series_elapsed=02:12 series_eta=06:36
+[2026-03-28 04:48:57][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:23 series_elapsed=02:35 series_eta=06:02
+[2026-03-28 04:49:09][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:12 series_elapsed=02:47 series_eta=05:11
+[2026-03-28 04:49:31][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=8/20 winner=b score_a=0.0 score_b=100.0 round_time=00:21 series_elapsed=03:09 series_eta=04:44
+[2026-03-28 04:49:50][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:19 series_elapsed=03:28 series_eta=04:14
+[2026-03-28 04:50:03][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:13 series_elapsed=03:41 series_eta=03:41
+[2026-03-28 04:50:18][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:14 series_elapsed=03:56 series_eta=03:13
+[2026-03-28 04:50:47][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:29 series_elapsed=04:25 series_eta=02:57
+[2026-03-28 04:51:01][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:13 series_elapsed=04:39 series_eta=02:30
+[2026-03-28 04:51:39][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=14/20 winner=a score_a=100.0 score_b=0.0 round_time=00:38 series_elapsed=05:17 series_eta=02:16
+[2026-03-28 04:51:58][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:19 series_elapsed=05:36 series_eta=01:52
+[2026-03-28 04:52:20][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:21 series_elapsed=05:58 series_eta=01:29
+[2026-03-28 04:52:39][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:19 series_elapsed=06:17 series_eta=01:06
+[2026-03-28 04:52:59][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=18/20 winner=a score_a=100.0 score_b=0.0 round_time=00:19 series_elapsed=06:37 series_eta=00:44
+[2026-03-28 04:53:11][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=19/20 winner=a score_a=100.0 score_b=0.0 round_time=00:12 series_elapsed=06:49 series_eta=00:21
+[2026-03-28 04:53:33][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp round=20/20 winner=b score_a=0.0 score_b=100.0 round_time=00:21 series_elapsed=07:11 series_eta=00:00
+[2026-03-28 04:53:33][progress/series-end] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp elapsed=07:11 rounds=20
+[2026-03-28 04:53:33][progress/group-end] 17/18 game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_mlp group_elapsed=07:11 grid_elapsed=01:08:19 grid_eta=04:01
+[2026-03-28 04:53:33][progress/group-start] 18/18 game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer
+[2026-03-28 04:53:33][progress/series-start] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer rounds=20 playclock=0.7 iterations=120
+[2026-03-28 04:53:52][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=1/20 winner=a score_a=100.0 score_b=0.0 round_time=00:19 series_elapsed=00:19 series_eta=06:03
+[2026-03-28 04:54:39][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=2/20 winner=a score_a=100.0 score_b=0.0 round_time=00:46 series_elapsed=01:05 series_eta=09:53
+[2026-03-28 04:55:02][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=3/20 winner=a score_a=100.0 score_b=0.0 round_time=00:23 series_elapsed=01:29 series_eta=08:26
+[2026-03-28 04:55:45][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=4/20 winner=b score_a=0.0 score_b=100.0 round_time=00:43 series_elapsed=02:12 series_eta=08:50
+[2026-03-28 04:56:26][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=5/20 winner=a score_a=100.0 score_b=0.0 round_time=00:40 series_elapsed=02:52 series_eta=08:38
+[2026-03-28 04:57:09][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=6/20 winner=b score_a=0.0 score_b=100.0 round_time=00:43 series_elapsed=03:36 series_eta=08:24
+[2026-03-28 04:57:29][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=7/20 winner=a score_a=100.0 score_b=0.0 round_time=00:20 series_elapsed=03:56 series_eta=07:19
+[2026-03-28 04:57:56][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=8/20 winner=a score_a=100.0 score_b=0.0 round_time=00:27 series_elapsed=04:23 series_eta=06:35
+[2026-03-28 04:58:14][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=9/20 winner=a score_a=100.0 score_b=0.0 round_time=00:17 series_elapsed=04:41 series_eta=05:44
+[2026-03-28 04:58:50][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=10/20 winner=b score_a=0.0 score_b=100.0 round_time=00:36 series_elapsed=05:17 series_eta=05:17
+[2026-03-28 04:59:38][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=11/20 winner=a score_a=100.0 score_b=0.0 round_time=00:47 series_elapsed=06:04 series_eta=04:58
+[2026-03-28 05:00:32][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=12/20 winner=b score_a=0.0 score_b=100.0 round_time=00:54 series_elapsed=06:59 series_eta=04:39
+[2026-03-28 05:00:58][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=13/20 winner=a score_a=100.0 score_b=0.0 round_time=00:26 series_elapsed=07:25 series_eta=04:00
+[2026-03-28 05:01:15][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=14/20 winner=a score_a=100.0 score_b=0.0 round_time=00:17 series_elapsed=07:42 series_eta=03:18
+[2026-03-28 05:01:33][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=15/20 winner=a score_a=100.0 score_b=0.0 round_time=00:17 series_elapsed=08:00 series_eta=02:40
+[2026-03-28 05:02:18][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=16/20 winner=b score_a=0.0 score_b=100.0 round_time=00:44 series_elapsed=08:45 series_eta=02:11
+[2026-03-28 05:02:41][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=17/20 winner=a score_a=100.0 score_b=0.0 round_time=00:23 series_elapsed=09:08 series_eta=01:36
+[2026-03-28 05:03:20][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=18/20 winner=b score_a=0.0 score_b=100.0 round_time=00:38 series_elapsed=09:47 series_eta=01:05
+[2026-03-28 05:03:38][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=19/20 winner=a score_a=100.0 score_b=0.0 round_time=00:17 series_elapsed=10:05 series_eta=00:31
+[2026-03-28 05:04:19][progress/match] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer round=20/20 winner=a score_a=100.0 score_b=0.0 round_time=00:41 series_elapsed=10:46 series_eta=00:00
+[2026-03-28 05:04:19][progress/series-end] game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer elapsed=10:46 rounds=20
+[2026-03-28 05:04:19][progress/group-end] 18/18 game=breakthrough pair=two_stage_neural_mcts__vs__neural_mcts:token_transformer group_elapsed=10:46 grid_elapsed=01:19:06 grid_eta=00:00
+[2026-03-28 05:04:19][progress/grid-end] groups=18 total_elapsed=01:19:06
+[2026-03-28 05:04:19][TS_A_main_benchmark] finished output=outputs4two_stage/experiments/TS_A_main_benchmark_final_tau1e4_v0_b4

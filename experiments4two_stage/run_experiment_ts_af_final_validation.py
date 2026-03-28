@@ -13,7 +13,7 @@ from typing import TextIO
 
 ROOT = Path(__file__).resolve().parents[1]
 EXP_DIR = ROOT / "experiments4two_stage"
-OUTPUT_ROOT = ROOT / "outputs4two_stage" / "experiments"
+OUTPUT_ROOT = ROOT / "outputs4two_stage" / "experiments_tau_b_v"
 _LOG_FH: TextIO | None = None
 _ORIG_STDOUT = sys.stdout
 _ORIG_STDERR = sys.stderr
