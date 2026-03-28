@@ -42,6 +42,11 @@ def main() -> None:
     parser.add_argument("--learning-rate", type=float, default=1e-3)
     parser.add_argument("--weight-decay", type=float, default=1e-4)
     parser.add_argument("--global-hidden-dim", type=int, default=32)
+    parser.add_argument(
+        "--reuse-datasets-dir",
+        default=None,
+        help="Reuse existing dataset_{size}.jsonl files from this directory; if set, skip dataset generation.",
+    )
     parser.add_argument("--out-dir", default=f"outputs/experiments/{EXP_NAME}")
     args = parser.parse_args()
 
@@ -53,20 +58,30 @@ def main() -> None:
     all_summary = []
     train_eval_rows = []
     artifact_manifest = {}
+    reuse_root = Path(args.reuse_datasets_dir) if args.reuse_datasets_dir else None
 
     for i, size in enumerate(args.dataset_sizes):
-        dataset_path = data_dir / f"dataset_{size}.jsonl"
-        generate_dataset(
-            game=args.game,
-            n_games=int(size),
-            output_path=dataset_path,
-            iterations=args.selfplay_iterations,
-            playclock=args.playclock,
-            seed=args.seed + i * 1000,
-            agent="mixed_heuristic_pure",
-            heuristic_ratio=0.8,
-            sampling_mode="all_states",
-        )
+        if reuse_root is not None:
+            dataset_path = reuse_root / f"dataset_{size}.jsonl"
+            if not dataset_path.exists():
+                raise FileNotFoundError(
+                    f"Missing reused dataset file: {dataset_path}. "
+                    f"Expected name format: dataset_{size}.jsonl"
+                )
+            print(f"[{EXP_NAME}] reuse dataset size={size} path={dataset_path}", flush=True)
+        else:
+            dataset_path = data_dir / f"dataset_{size}.jsonl"
+            generate_dataset(
+                game=args.game,
+                n_games=int(size),
+                output_path=dataset_path,
+                iterations=args.selfplay_iterations,
+                playclock=args.playclock,
+                seed=args.seed + i * 1000,
+                agent="mixed_heuristic_pure",
+                heuristic_ratio=0.8,
+                sampling_mode="all_states",
+            )
 
         cfg_key = "token_transformer_global"
         model_dir = model_root / f"size_{size}" / cfg_key

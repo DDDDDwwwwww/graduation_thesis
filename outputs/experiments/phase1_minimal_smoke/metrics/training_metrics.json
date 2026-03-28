@@ -1,9 +1,0 @@
-[
-  {
-    "dataset_games": 2,
-    "config": "token_transformer_global",
-    "test_loss": 1.4076509475708008,
-    "test_sign_acc": 0.3333333333333333,
-    "best_val_loss": 1.4953604936599731
-  }
-]
