@@ -41,6 +41,18 @@ def is_finite(x: float) -> bool:
     return math.isfinite(float(x))
 
 
+def goal_to_unit_value(v: float) -> float:
+    """Map common GGP goal scale to [-1, 1].
+
+    Most games use [0,100] goals. For that case use (v-50)/50.
+    If value already looks normalized, keep it as-is then clip.
+    """
+    x = float(v)
+    if abs(x) <= 1.0:
+        return clip_unit(x)
+    return clip_unit((x - 50.0) / 50.0)
+
+
 def quantile(values: list[float], q: float) -> float:
     if not values:
         return 0.0
@@ -254,7 +266,7 @@ def search_value(
         ok = agent._run_single_iteration(game, root, roles, budget_end=None)
         if not ok:
             break
-    return clip_unit(float(root.mean_value))
+    return goal_to_unit_value(float(root.mean_value))
 
 
 def build_model_predictor(model_path: str, vocab_path: str | None, encoder_path: str | None, device: str):
@@ -707,6 +719,11 @@ def main() -> None:
             "z": metric_pack(z_values),
             "|q_t-b|": metric_pack(residual_abs),
         }
+        if summary["q_t"]["std"] <= 1e-12 or summary["b"]["std"] <= 1e-12:
+            print(
+                "[convert_sdrpv][WARN] detected near-constant q_t or b. "
+                "Please check search value mapping / teacher budget."
+            )
         stats_path = output_path.with_suffix(output_path.suffix + ".stats.json")
         stats_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
 
