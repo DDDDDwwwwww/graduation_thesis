@@ -1,0 +1,29 @@
+[
+  {
+    "game": "connectFour",
+    "agent_a_key": "neural_mcts:token_transformer",
+    "agent_b_key": "pure_mct",
+    "n_matches": 50,
+    "wins_a": 32,
+    "losses_a": 18,
+    "draws": 0,
+    "win_rate_a": 0.64,
+    "draw_rate": 0.0,
+    "avg_score_a": 64.0,
+    "avg_score_b": 36.0,
+    "avg_game_length": 13.1,
+    "avg_decision_sec_a": 0.2629975450132161,
+    "avg_decision_sec_b": 0.24289870432073227,
+    "avg_eval_calls_total_a": 0.0,
+    "avg_eval_calls_total_b": 0.0,
+    "avg_eval_calls_neural_a": 0.0,
+    "avg_eval_calls_neural_b": 0.0,
+    "avg_eval_calls_fallback_a": 0.0,
+    "avg_eval_calls_fallback_b": 0.0,
+    "avg_eval_calls_mixed_a": 0.0,
+    "avg_eval_calls_mixed_b": 0.0,
+    "legal_cache_hit_rate": 0.2270394757179511,
+    "next_cache_hit_rate": 0.035663042162947085,
+    "cache_enabled": true
+  }
+]

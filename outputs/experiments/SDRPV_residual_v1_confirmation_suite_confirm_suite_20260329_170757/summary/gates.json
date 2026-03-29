@@ -1,0 +1,12 @@
+{
+  "gate_1_fixed_time_delta_ge_0.05": false,
+  "gate_2_seed_majority_fixed_time": true,
+  "gate_3_no_regression_fixed_sims": true,
+  "passed_all": false,
+  "details": {
+    "delta_fixed_time": 0.026666666666666616,
+    "delta_fixed_sims": 0.020000000000000018,
+    "seed_fixed_time_better_count": 2,
+    "seed_pair_count": 3
+  }
+}

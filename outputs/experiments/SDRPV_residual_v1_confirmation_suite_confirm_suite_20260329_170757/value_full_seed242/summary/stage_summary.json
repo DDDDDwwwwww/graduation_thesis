@@ -1,0 +1,76 @@
+{
+  "fixed_sims": {
+    "iterations": 120,
+    "playclock": 0.5,
+    "summary_rows": [
+      {
+        "game": "connectFour",
+        "agent_a_key": "neural_mcts:token_transformer",
+        "agent_b_key": "pure_mct",
+        "n_matches": 50,
+        "wins_a": 36,
+        "losses_a": 14,
+        "draws": 0,
+        "win_rate_a": 0.72,
+        "draw_rate": 0.0,
+        "avg_score_a": 72.0,
+        "avg_score_b": 28.0,
+        "avg_game_length": 14.1,
+        "avg_decision_sec_a": 0.263572055982846,
+        "avg_decision_sec_b": 0.24167332468608724,
+        "avg_eval_calls_total_a": 0.0,
+        "avg_eval_calls_total_b": 0.0,
+        "avg_eval_calls_neural_a": 0.0,
+        "avg_eval_calls_neural_b": 0.0,
+        "avg_eval_calls_fallback_a": 0.0,
+        "avg_eval_calls_fallback_b": 0.0,
+        "avg_eval_calls_mixed_a": 0.0,
+        "avg_eval_calls_mixed_b": 0.0,
+        "legal_cache_hit_rate": 0.2372379521209326,
+        "next_cache_hit_rate": 0.03685808713741675,
+        "cache_enabled": true
+      }
+    ]
+  },
+  "fixed_time": {
+    "time_budget": 0.5,
+    "iterations_cap": 120,
+    "summary_rows": [
+      {
+        "game": "connectFour",
+        "agent_a_key": "neural_mcts:token_transformer",
+        "agent_b_key": "pure_mct",
+        "n_matches": 50,
+        "wins_a": 32,
+        "losses_a": 18,
+        "draws": 0,
+        "win_rate_a": 0.64,
+        "draw_rate": 0.0,
+        "avg_score_a": 64.0,
+        "avg_score_b": 36.0,
+        "avg_game_length": 13.1,
+        "avg_decision_sec_a": 0.2629975450132161,
+        "avg_decision_sec_b": 0.24289870432073227,
+        "avg_eval_calls_total_a": 0.0,
+        "avg_eval_calls_total_b": 0.0,
+        "avg_eval_calls_neural_a": 0.0,
+        "avg_eval_calls_neural_b": 0.0,
+        "avg_eval_calls_fallback_a": 0.0,
+        "avg_eval_calls_fallback_b": 0.0,
+        "avg_eval_calls_mixed_a": 0.0,
+        "avg_eval_calls_mixed_b": 0.0,
+        "legal_cache_hit_rate": 0.2270394757179511,
+        "next_cache_hit_rate": 0.035663042162947085,
+        "cache_enabled": true
+      }
+    ]
+  },
+  "integration": {
+    "mode": "value",
+    "fallback_legal_threshold": null,
+    "selective_max_neural_evals_per_move": null,
+    "selective_legal_move_threshold": null,
+    "selective_alpha": 1.0,
+    "selective_rollout_depth_limit": 64
+  }
+}

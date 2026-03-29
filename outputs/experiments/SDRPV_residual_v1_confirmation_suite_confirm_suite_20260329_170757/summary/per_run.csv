@@ -1,0 +1,7 @@
+cfg_tag,seed,n_matches,fixed_sims_wins,fixed_sims_win_rate,fixed_time_wins,fixed_time_win_rate
+sel_cap20,42,50,38,0.76,33,0.66
+sel_cap20,142,50,39,0.78,43,0.86
+sel_cap20,242,50,35,0.7,34,0.68
+value_full,42,50,38,0.76,35,0.7
+value_full,142,50,35,0.7,39,0.78
+value_full,242,50,36,0.72,32,0.64

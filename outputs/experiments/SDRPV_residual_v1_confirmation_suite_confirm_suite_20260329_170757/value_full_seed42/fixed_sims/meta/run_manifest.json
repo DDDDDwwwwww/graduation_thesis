@@ -1,0 +1,8 @@
+{
+  "experiment": "SDRPV_residual_v1_mcts_smoke_fixed_sims",
+  "root": "outputs/experiments/SDRPV_residual_v1_confirmation_suite_confirm_suite_20260329_170757/value_full_seed42/fixed_sims",
+  "args": {
+    "fixed_sims": 120,
+    "playclock": 0.5
+  }
+}

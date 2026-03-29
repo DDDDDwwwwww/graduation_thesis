@@ -1,0 +1,56 @@
+[
+  {
+    "cfg_tag": "sel_cap20",
+    "seed": 42,
+    "n_matches": 50,
+    "fixed_sims_win_rate": 0.76,
+    "fixed_time_win_rate": 0.66,
+    "fixed_sims_wins": 38,
+    "fixed_time_wins": 33
+  },
+  {
+    "cfg_tag": "sel_cap20",
+    "seed": 142,
+    "n_matches": 50,
+    "fixed_sims_win_rate": 0.78,
+    "fixed_time_win_rate": 0.86,
+    "fixed_sims_wins": 39,
+    "fixed_time_wins": 43
+  },
+  {
+    "cfg_tag": "sel_cap20",
+    "seed": 242,
+    "n_matches": 50,
+    "fixed_sims_win_rate": 0.7,
+    "fixed_time_win_rate": 0.68,
+    "fixed_sims_wins": 35,
+    "fixed_time_wins": 34
+  },
+  {
+    "cfg_tag": "value_full",
+    "seed": 42,
+    "n_matches": 50,
+    "fixed_sims_win_rate": 0.76,
+    "fixed_time_win_rate": 0.7,
+    "fixed_sims_wins": 38,
+    "fixed_time_wins": 35
+  },
+  {
+    "cfg_tag": "value_full",
+    "seed": 142,
+    "n_matches": 50,
+    "fixed_sims_win_rate": 0.7,
+    "fixed_time_win_rate": 0.78,
+    "fixed_sims_wins": 35,
+    "fixed_time_wins": 39
+  },
+  {
+    "cfg_tag": "value_full",
+    "seed": 242,
+    "n_matches": 50,
+    "fixed_sims_win_rate": 0.72,
+    "fixed_time_win_rate": 0.64,
+    "fixed_sims_wins": 36,
+    "fixed_time_wins": 32
+  }
+]

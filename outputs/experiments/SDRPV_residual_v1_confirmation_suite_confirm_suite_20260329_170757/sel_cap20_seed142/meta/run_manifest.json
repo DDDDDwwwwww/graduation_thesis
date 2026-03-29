@@ -1,0 +1,22 @@
+{
+  "experiment": "SDRPV_residual_v1_mcts_smoke",
+  "root": "outputs/experiments/SDRPV_residual_v1_confirmation_suite_confirm_suite_20260329_170757/sel_cap20_seed142",
+  "args": {
+    "model_dir": "outputs/experiments/SDRPV_residual_v1_residual_v1_gpu0_20260329_114156",
+    "game": "games/connectFour.kif",
+    "rounds": 50,
+    "seed": 142,
+    "device": "cuda",
+    "fixed_sims": 120,
+    "fixed_sims_playclock": 0.5,
+    "fixed_time": 0.5,
+    "fixed_time_iters": 120,
+    "integration_mode": "selective",
+    "fallback_legal_threshold": null,
+    "selective_max_neural_evals_per_move": 20,
+    "selective_legal_move_threshold": null,
+    "selective_alpha": 1.0,
+    "selective_rollout_depth_limit": 64,
+    "out_dir": "outputs/experiments/SDRPV_residual_v1_confirmation_suite_confirm_suite_20260329_170757/sel_cap20_seed142"
+  }
+}
