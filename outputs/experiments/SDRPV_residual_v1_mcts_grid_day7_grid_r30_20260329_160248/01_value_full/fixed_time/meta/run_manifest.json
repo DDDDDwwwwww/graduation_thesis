@@ -1,0 +1,8 @@
+{
+  "experiment": "SDRPV_residual_v1_mcts_grid_fixed_time",
+  "root": "outputs/experiments/SDRPV_residual_v1_mcts_grid_day7_grid_r30_20260329_160248/01_value_full/fixed_time",
+  "args": {
+    "time_budget": 0.5,
+    "iterations_cap": 120
+  }
+}

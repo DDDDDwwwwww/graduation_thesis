@@ -1,0 +1,10 @@
+{
+  "experiment": "SDRPV_residual_v1_mcts_grid_cfg",
+  "root": "outputs/experiments/SDRPV_residual_v1_mcts_grid_day7_grid_r30_20260329_160248/04_sel_cap20_alpha07",
+  "args": {
+    "tag": "sel_cap20_alpha07",
+    "evaluator_mode": "selective",
+    "selective_max_neural_evals_per_move": 20,
+    "selective_alpha": 0.7
+  }
+}

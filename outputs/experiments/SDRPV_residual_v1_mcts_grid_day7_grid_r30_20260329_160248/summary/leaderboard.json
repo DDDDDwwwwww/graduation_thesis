@@ -1,0 +1,84 @@
+[
+  {
+    "config_tag": "sel_cap20",
+    "rounds": 30,
+    "game": "connectFour",
+    "fixed_sims_win_rate_a": 0.8,
+    "fixed_sims_draw_rate": 0.0,
+    "fixed_sims_avg_decision_sec_a": 0.2645714761250559,
+    "fixed_sims_avg_eval_calls_neural_a": 6.624600387429335,
+    "fixed_sims_avg_eval_calls_fallback_a": 0.0,
+    "fixed_time_win_rate_a": 0.7666666666666667,
+    "fixed_time_draw_rate": 0.0,
+    "fixed_time_avg_decision_sec_a": 0.26037586617520986,
+    "fixed_time_avg_eval_calls_neural_a": 6.485980053072865,
+    "fixed_time_avg_eval_calls_fallback_a": 0.0,
+    "integration": {
+      "tag": "sel_cap20",
+      "evaluator_mode": "selective",
+      "selective_max_neural_evals_per_move": 20,
+      "selective_alpha": 1.0
+    }
+  },
+  {
+    "config_tag": "value_full",
+    "rounds": 30,
+    "game": "connectFour",
+    "fixed_sims_win_rate_a": 0.5666666666666667,
+    "fixed_sims_draw_rate": 0.0,
+    "fixed_sims_avg_decision_sec_a": 0.25784402218896935,
+    "fixed_sims_avg_eval_calls_neural_a": 0.0,
+    "fixed_sims_avg_eval_calls_fallback_a": 0.0,
+    "fixed_time_win_rate_a": 0.7333333333333333,
+    "fixed_time_draw_rate": 0.0,
+    "fixed_time_avg_decision_sec_a": 0.2599399348023299,
+    "fixed_time_avg_eval_calls_neural_a": 0.0,
+    "fixed_time_avg_eval_calls_fallback_a": 0.0,
+    "integration": {
+      "tag": "value_full",
+      "evaluator_mode": "value"
+    }
+  },
+  {
+    "config_tag": "sel_cap40",
+    "rounds": 30,
+    "game": "connectFour",
+    "fixed_sims_win_rate_a": 0.7666666666666667,
+    "fixed_sims_draw_rate": 0.0,
+    "fixed_sims_avg_decision_sec_a": 0.2616875744547094,
+    "fixed_sims_avg_eval_calls_neural_a": 6.4741799594740765,
+    "fixed_sims_avg_eval_calls_fallback_a": 0.0,
+    "fixed_time_win_rate_a": 0.6333333333333333,
+    "fixed_time_draw_rate": 0.0,
+    "fixed_time_avg_decision_sec_a": 0.26088039890962894,
+    "fixed_time_avg_eval_calls_neural_a": 6.239280640860879,
+    "fixed_time_avg_eval_calls_fallback_a": 0.0,
+    "integration": {
+      "tag": "sel_cap40",
+      "evaluator_mode": "selective",
+      "selective_max_neural_evals_per_move": 40,
+      "selective_alpha": 1.0
+    }
+  },
+  {
+    "config_tag": "sel_cap20_alpha07",
+    "rounds": 30,
+    "game": "connectFour",
+    "fixed_sims_win_rate_a": 0.4,
+    "fixed_sims_draw_rate": 0.0,
+    "fixed_sims_avg_decision_sec_a": 0.25951401820754,
+    "fixed_sims_avg_eval_calls_neural_a": 2.651436606221436,
+    "fixed_sims_avg_eval_calls_fallback_a": 2.651436606221436,
+    "fixed_time_win_rate_a": 0.6333333333333333,
+    "fixed_time_draw_rate": 0.0,
+    "fixed_time_avg_decision_sec_a": 0.26402111248419763,
+    "fixed_time_avg_eval_calls_neural_a": 2.6752134558481306,
+    "fixed_time_avg_eval_calls_fallback_a": 2.6752134558481306,
+    "integration": {
+      "tag": "sel_cap20_alpha07",
+      "evaluator_mode": "selective",
+      "selective_max_neural_evals_per_move": 20,
+      "selective_alpha": 0.7
+    }
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "config_tag": "value_full",
+  "rounds": 30,
+  "game": "connectFour",
+  "fixed_sims_win_rate_a": 0.5666666666666667,
+  "fixed_sims_draw_rate": 0.0,
+  "fixed_sims_avg_decision_sec_a": 0.25784402218896935,
+  "fixed_sims_avg_eval_calls_neural_a": 0.0,
+  "fixed_sims_avg_eval_calls_fallback_a": 0.0,
+  "fixed_time_win_rate_a": 0.7333333333333333,
+  "fixed_time_draw_rate": 0.0,
+  "fixed_time_avg_decision_sec_a": 0.2599399348023299,
+  "fixed_time_avg_eval_calls_neural_a": 0.0,
+  "fixed_time_avg_eval_calls_fallback_a": 0.0,
+  "integration": {
+    "tag": "value_full",
+    "evaluator_mode": "value"
+  }
+}
