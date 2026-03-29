@@ -9,11 +9,12 @@ RUN_TAG="${RUN_TAG:-${TS}}"
 DEVICE="${DEVICE:-cpu}"
 DATASET_PATH="${DATASET_PATH:-outputs/datasets/sdrpv_dataset_v3_parallel.jsonl}"
 TRAIN_NUM_WORKERS="${TRAIN_NUM_WORKERS:-8}"
-TRAIN_LOG="outputs/logs/sdrpv_residual_v1_${RUN_TAG}.log"
-MCTS_LOG="outputs/logs/sdrpv_residual_v1_mcts_smoke_${RUN_TAG}.log"
+LOG_FILE="${LOG_FILE:-outputs/logs/sdrpv_residual_v1_${RUN_TAG}.log}"
 MODEL_DIR="${MODEL_DIR:-outputs/experiments/SDRPV_residual_v1_${RUN_TAG}}"
 OFFLINE_METRICS="${MODEL_DIR}/offline_metrics.json"
 MCTS_OUT_DIR="${MCTS_OUT_DIR:-outputs/experiments/SDRPV_residual_v1_mcts_smoke_${RUN_TAG}}"
+
+exec >>"${LOG_FILE}" 2>&1
 
 echo "[RESIDUAL_V1] start $(date)"
 
@@ -26,11 +27,10 @@ echo "[RESIDUAL_V1] start $(date)"
   --loss huber \
   --num-workers "${TRAIN_NUM_WORKERS}" \
   --output-dir "${MODEL_DIR}" \
-  --device "${DEVICE}" \
-  >"${TRAIN_LOG}" 2>&1
+  --device "${DEVICE}"
 
 echo "[RESIDUAL_V1] train done $(date)"
-echo "[RESIDUAL_V1] train_log=${TRAIN_LOG}"
+echo "[RESIDUAL_V1] log_file=${LOG_FILE}"
 
 if [[ ! -f "${OFFLINE_METRICS}" ]]; then
   echo "[RESIDUAL_V1][ERROR] offline metrics not found: ${OFFLINE_METRICS}"
@@ -66,9 +66,7 @@ echo "[RESIDUAL_V1] step2 small-scale MCTS smoke start $(date)"
   --fixed-time 0.5 \
   --fixed-time-iters 120 \
   --out-dir "${MCTS_OUT_DIR}" \
-  --device "${DEVICE}" \
-  >"${MCTS_LOG}" 2>&1
+  --device "${DEVICE}"
 
 echo "[RESIDUAL_V1] step2 small-scale MCTS smoke done $(date)"
-echo "[RESIDUAL_V1] mcts_log=${MCTS_LOG}"
 echo "[RESIDUAL_V1] done $(date)"

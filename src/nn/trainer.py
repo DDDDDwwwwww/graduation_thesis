@@ -184,15 +184,33 @@ def train_value_model(
         val_metrics = _eval_model(model, val_loader, criterion, device=device)
         row = {"epoch": epoch, "train_loss": train_loss, "val_loss": val_metrics["loss"], "val_sign_acc": val_metrics["sign_acc"]}
         history.append(row)
+        print(
+            "[train_value_model] "
+            f"epoch={epoch}/{int(epochs)} "
+            f"train_loss={train_loss:.6f} "
+            f"val_loss={row['val_loss']:.6f} "
+            f"val_sign_acc={row['val_sign_acc']:.4f}",
+            flush=True,
+        )
 
         # 早停：验证集损失不再提升时计数并提前停止。
         if row["val_loss"] < best_val:
             best_val = row["val_loss"]
             best_state = {k: v.detach().cpu() for k, v in model.state_dict().items()}
             bad_epochs = 0
+            print(
+                "[train_value_model] new_best "
+                f"epoch={epoch} val_loss={best_val:.6f}",
+                flush=True,
+            )
         else:
             bad_epochs += 1
             if bad_epochs >= int(patience):
+                print(
+                    "[train_value_model] early_stop "
+                    f"epoch={epoch} bad_epochs={bad_epochs} patience={int(patience)}",
+                    flush=True,
+                )
                 break
 
     if best_state is not None:
@@ -208,6 +226,13 @@ def train_value_model(
         "n_val": len(val_ds),
         "n_test": len(test_ds),
     }
+    print(
+        "[train_value_model] "
+        f"test_loss={metrics['test_loss']:.6f} "
+        f"test_sign_acc={metrics['test_sign_acc']:.4f} "
+        f"n_train={metrics['n_train']} n_val={metrics['n_val']} n_test={metrics['n_test']}",
+        flush=True,
+    )
 
     checkpoint = {"model_type": model_name, "state_dict": model.state_dict()}
     if model_name == "mlp":
