@@ -1,0 +1,63 @@
+[RESIDUAL_V1] start Sun Mar 29 11:41:56 AM CST 2026
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[train_value_model] epoch=1/20 train_loss=0.045296 val_loss=0.027388 val_sign_acc=0.5222
+[train_value_model] new_best epoch=1 val_loss=0.027388
+[train_value_model] epoch=2/20 train_loss=0.028246 val_loss=0.027593 val_sign_acc=0.5053
+[train_value_model] epoch=3/20 train_loss=0.026759 val_loss=0.027295 val_sign_acc=0.5180
+[train_value_model] new_best epoch=3 val_loss=0.027295
+[train_value_model] epoch=4/20 train_loss=0.026947 val_loss=0.027115 val_sign_acc=0.5264
+[train_value_model] new_best epoch=4 val_loss=0.027115
+[train_value_model] epoch=5/20 train_loss=0.026673 val_loss=0.026874 val_sign_acc=0.5603
+[train_value_model] new_best epoch=5 val_loss=0.026874
+[train_value_model] epoch=6/20 train_loss=0.026691 val_loss=0.027283 val_sign_acc=0.5518
+[train_value_model] epoch=7/20 train_loss=0.026030 val_loss=0.027228 val_sign_acc=0.5455
+[train_value_model] epoch=8/20 train_loss=0.026036 val_loss=0.026399 val_sign_acc=0.5729
+[train_value_model] new_best epoch=8 val_loss=0.026399
+[train_value_model] epoch=9/20 train_loss=0.025528 val_loss=0.026365 val_sign_acc=0.5581
+[train_value_model] new_best epoch=9 val_loss=0.026365
+[train_value_model] epoch=10/20 train_loss=0.025074 val_loss=0.025387 val_sign_acc=0.6047
+[train_value_model] new_best epoch=10 val_loss=0.025387
+[train_value_model] epoch=11/20 train_loss=0.024820 val_loss=0.026292 val_sign_acc=0.5518
+[train_value_model] epoch=12/20 train_loss=0.024885 val_loss=0.025361 val_sign_acc=0.6089
+[train_value_model] new_best epoch=12 val_loss=0.025361
+[train_value_model] epoch=13/20 train_loss=0.024726 val_loss=0.026695 val_sign_acc=0.5772
+[train_value_model] epoch=14/20 train_loss=0.024660 val_loss=0.024932 val_sign_acc=0.6173
+[train_value_model] new_best epoch=14 val_loss=0.024932
+[train_value_model] epoch=15/20 train_loss=0.024403 val_loss=0.026310 val_sign_acc=0.5793
+[train_value_model] epoch=16/20 train_loss=0.024243 val_loss=0.026035 val_sign_acc=0.6004
+[train_value_model] epoch=17/20 train_loss=0.023846 val_loss=0.025181 val_sign_acc=0.6131
+[train_value_model] epoch=18/20 train_loss=0.023755 val_loss=0.025873 val_sign_acc=0.5793
+[train_value_model] epoch=19/20 train_loss=0.023737 val_loss=0.025046 val_sign_acc=0.6047
+[train_value_model] early_stop epoch=19 bad_epochs=5 patience=5
+[train_value_model] test_loss=0.025398 test_sign_acc=0.5738 n_train=3785 n_val=473 n_test=474
+[train_sdrpv_residual_v1] saved artifacts to outputs/experiments/SDRPV_residual_v1_residual_v1_gpu0_20260329_114156
+[train_sdrpv_residual_v1] samples=4732, test_loss_delta=0.025398, test_corr_vhat_qt=0.8286, test_rank_corr_vhat_qt=0.8005, test_mae_vhat_qt=0.177928, test_mae_b_qt=0.181349
+[RESIDUAL_V1] train done Sun Mar 29 11:47:26 AM CST 2026
+[RESIDUAL_V1] log_file=outputs/logs/sdrpv_residual_v1_residual_v1_gpu0_20260329_114156.log
+[RESIDUAL_V1] test_mae(v_hat,q_t)=0.17792767560196512
+[RESIDUAL_V1] test_mae(b,q_t)=0.18134940632356922
+[RESIDUAL_V1] test_corr(v_hat,q_t)=0.8285647929733481
+[RESIDUAL_V1] test_rank_corr(v_hat,q_t)=0.8005287525018557
+[RESIDUAL_V1] offline gate passed; ready for small-scale MCTS matches.
+[RESIDUAL_V1] step2 small-scale MCTS smoke start Sun Mar 29 11:47:26 AM CST 2026
+[progress][group-start] 1/1 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct
+swipl: /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/../../../libtinfo.so.6: no version information available (required by /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/libswipl.so.10)
+/home/yuancheng/workspace/GGP/graduation_thesis/src/nn/inference.py:43: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(model_path, map_location=device)
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=1/4 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=9.08
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=2/4 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=5.47
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=3/4 winner=b score_a=0.0 score_b=100.0 ply=12 elapsed_sec=6.55
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=4/4 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=11.25
+[progress][group-done] 1/1 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct n_matches=4 win_rate_a=0.500 draw_rate=0.000 elapsed_sec=32.35
+[progress][group-start] 1/1 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=1/4 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.90
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=2/4 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.66
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=3/4 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.59
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=4/4 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=10.95
+[progress][group-done] 1/1 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct n_matches=4 win_rate_a=0.500 draw_rate=0.000 elapsed_sec=32.10
+[residual_v1_mcts_smoke] done. output=outputs/experiments/SDRPV_residual_v1_mcts_smoke_residual_v1_gpu0_20260329_114156
+[RESIDUAL_V1] step2 small-scale MCTS smoke done Sun Mar 29 11:48:31 AM CST 2026
+[RESIDUAL_V1] done Sun Mar 29 11:48:31 AM CST 2026

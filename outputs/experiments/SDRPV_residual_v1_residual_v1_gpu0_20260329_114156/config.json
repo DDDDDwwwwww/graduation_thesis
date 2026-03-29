@@ -1,0 +1,55 @@
+{
+  "mode": "residual_v1",
+  "source_dataset": "outputs/datasets/sdrpv_dataset_v3_parallel.jsonl",
+  "game_filter": null,
+  "encoder": "board_token",
+  "model": "transformer",
+  "epochs": 20,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "seed": 42,
+  "hidden_dims": [
+    256,
+    128
+  ],
+  "dropout": 0.1,
+  "loss": "huber",
+  "patience": 5,
+  "device": "cuda",
+  "num_workers": 8,
+  "roles": [
+    "black",
+    "red"
+  ],
+  "num_input_rows": 4732,
+  "num_samples_used": 4732,
+  "conversion_stats": {
+    "total_input": 4732,
+    "kept": 4732,
+    "skipped": 0,
+    "missing_s": 0,
+    "missing_b": 0,
+    "missing_q_t": 0,
+    "game_filtered": 0,
+    "residual_clipped_count": 1
+  },
+  "split_sizes": {
+    "train": 3785,
+    "val": 473,
+    "test": 474
+  },
+  "test_loss_delta": 0.025398497536526954,
+  "test_sign_acc_delta": 0.5738396624472574,
+  "offline_test_metrics": {
+    "count": 474,
+    "corr_vhat_qt": 0.8285647929733481,
+    "rank_corr_vhat_qt": 0.8005287525018557,
+    "mae_vhat_qt": 0.17792767560196512,
+    "mae_b_qt": 0.18134940632356922,
+    "mae_gain_over_b": 0.0034217307216040938,
+    "mae_gain_ratio_over_b": 0.01886816610526387,
+    "corr_b_qt": 0.8191636969652918,
+    "rank_corr_b_qt": 0.7993339686303771
+  }
+}

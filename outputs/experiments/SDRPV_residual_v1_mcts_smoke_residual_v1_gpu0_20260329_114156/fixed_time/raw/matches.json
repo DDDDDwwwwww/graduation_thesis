@@ -1,0 +1,94 @@
+[
+  {
+    "game": "connectFour",
+    "game_file": "games/connectFour.kif",
+    "role_order": [
+      "red",
+      "black"
+    ],
+    "agent_a_key": "neural_mcts:token_transformer",
+    "agent_b_key": "pure_mct",
+    "role_a": "red",
+    "role_b": "black",
+    "score_a": 100.0,
+    "score_b": 0.0,
+    "winner": "a",
+    "ply_count": 9,
+    "avg_decision_sec_a": 0.3003833178016875,
+    "avg_decision_sec_b": 0.22313091903924942,
+    "legal_calls": 1704,
+    "legal_cache_hits": 286,
+    "next_calls": 805,
+    "next_cache_hits": 25,
+    "cache_enabled": true
+  },
+  {
+    "game": "connectFour",
+    "game_file": "games/connectFour.kif",
+    "role_order": [
+      "red",
+      "black"
+    ],
+    "agent_a_key": "neural_mcts:token_transformer",
+    "agent_b_key": "pure_mct",
+    "role_a": "black",
+    "role_b": "red",
+    "score_a": 100.0,
+    "score_b": 0.0,
+    "winner": "a",
+    "ply_count": 16,
+    "avg_decision_sec_a": 0.2729715241584927,
+    "avg_decision_sec_b": 0.25096209975890815,
+    "legal_calls": 3168,
+    "legal_cache_hits": 644,
+    "next_calls": 1443,
+    "next_cache_hits": 49,
+    "cache_enabled": true
+  },
+  {
+    "game": "connectFour",
+    "game_file": "games/connectFour.kif",
+    "role_order": [
+      "red",
+      "black"
+    ],
+    "agent_a_key": "neural_mcts:token_transformer",
+    "agent_b_key": "pure_mct",
+    "role_a": "red",
+    "role_b": "black",
+    "score_a": 0.0,
+    "score_b": 100.0,
+    "winner": "b",
+    "ply_count": 14,
+    "avg_decision_sec_a": 0.27978936502976076,
+    "avg_decision_sec_b": 0.25126429248069015,
+    "legal_calls": 2548,
+    "legal_cache_hits": 370,
+    "next_calls": 1242,
+    "next_cache_hits": 35,
+    "cache_enabled": true
+  },
+  {
+    "game": "connectFour",
+    "game_file": "games/connectFour.kif",
+    "role_order": [
+      "red",
+      "black"
+    ],
+    "agent_a_key": "neural_mcts:token_transformer",
+    "agent_b_key": "pure_mct",
+    "role_a": "black",
+    "role_b": "red",
+    "score_a": 0.0,
+    "score_b": 100.0,
+    "winner": "b",
+    "ply_count": 21,
+    "avg_decision_sec_a": 0.2511053702660969,
+    "avg_decision_sec_b": 0.26366551947735606,
+    "legal_calls": 3734,
+    "legal_cache_hits": 594,
+    "next_calls": 1805,
+    "next_cache_hits": 58,
+    "cache_enabled": true
+  }
+]
