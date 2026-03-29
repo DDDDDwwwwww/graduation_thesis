@@ -221,7 +221,9 @@ def _build_agent(
     artifacts: dict[str, ValueArtifact] | None,
     iterations: int,
     device: str,
+    agent_overrides: dict[str, dict] | None = None,
 ):
+    overrides = dict((agent_overrides or {}).get(agent_key, {}))
     runtime = _runtime_imports()
     if agent_key == "random":
         return runtime["RandomAgent"](name=f"random_{role}", role=role, seed=seed)
@@ -249,6 +251,14 @@ def _build_agent(
             raise ValueError("NeuralValueMCTS agent requires artifacts map.")
         cfg = agent_key.split(":", 1)[1]
         art = artifacts[cfg]
+        fallback_legal_threshold = overrides.pop("fallback_legal_threshold", None)
+        evaluator_mode = str(overrides.pop("evaluator_mode", "value"))
+        selective_max_neural_evals_per_move = overrides.pop("selective_max_neural_evals_per_move", None)
+        selective_legal_move_threshold = overrides.pop("selective_legal_move_threshold", None)
+        selective_alpha = overrides.pop("selective_alpha", 1.0)
+        selective_rollout_depth_limit = overrides.pop("selective_rollout_depth_limit", 64)
+        if overrides:
+            raise ValueError(f"Unknown neural_mcts overrides for {agent_key}: {sorted(overrides.keys())}")
         return runtime["NeuralValueMCTSAgent"].from_artifacts(
             name=f"nm_{cfg}_{role}",
             role=role,
@@ -259,8 +269,13 @@ def _build_agent(
             exploration_c=1.4,
             discount_factor=0.99,
             device=device,
-            evaluator_mode="value",
+            evaluator_mode=evaluator_mode,
             seed=seed,
+            fallback_legal_threshold=fallback_legal_threshold,
+            selective_max_neural_evals_per_move=selective_max_neural_evals_per_move,
+            selective_legal_move_threshold=selective_legal_move_threshold,
+            selective_alpha=selective_alpha,
+            selective_rollout_depth_limit=selective_rollout_depth_limit,
         )
     raise ValueError(f"Unknown agent key: {agent_key}")
 
@@ -276,6 +291,7 @@ def run_single_match(
     cache_enabled: bool,
     artifacts: dict[str, ValueArtifact] | None,
     device: str,
+    agent_overrides: dict[str, dict] | None = None,
 ) -> dict:
     runtime = _runtime_imports()
     game = runtime["GameStateMachine"](game_file, cache_enabled=cache_enabled)
@@ -296,13 +312,33 @@ def run_single_match(
     role_a = roles[0] if a_is_first_role else roles[1]
     role_b = roles[1] if a_is_first_role else roles[0]
 
-    agent_a = _build_agent(agent_a_key, role_a, seed=seed + 11, artifacts=artifacts, iterations=iterations, device=device)
-    agent_b = _build_agent(agent_b_key, role_b, seed=seed + 29, artifacts=artifacts, iterations=iterations, device=device)
+    agent_a = _build_agent(
+        agent_a_key,
+        role_a,
+        seed=seed + 11,
+        artifacts=artifacts,
+        iterations=iterations,
+        device=device,
+        agent_overrides=agent_overrides,
+    )
+    agent_b = _build_agent(
+        agent_b_key,
+        role_b,
+        seed=seed + 29,
+        artifacts=artifacts,
+        iterations=iterations,
+        device=device,
+        agent_overrides=agent_overrides,
+    )
     agents = {role_a: agent_a, role_b: agent_b}
 
     state = init_state
     ply = 0
     decision_seconds = {role_a: [], role_b: []}
+    eval_calls = {
+        role_a: {"eval_calls_total": 0, "eval_calls_neural": 0, "eval_calls_fallback": 0, "eval_calls_mixed": 0},
+        role_b: {"eval_calls_total": 0, "eval_calls_neural": 0, "eval_calls_fallback": 0, "eval_calls_mixed": 0},
+    }
 
     game.clear_caches()
     game.reset_perf_stats()
@@ -314,6 +350,11 @@ def run_single_match(
             t0 = time.perf_counter()
             move = agents[role].select_action(game, state, legal, time_limit=playclock)
             decision_seconds[role].append(time.perf_counter() - t0)
+            stats_fn = getattr(agents[role], "get_last_search_stats", None)
+            if callable(stats_fn):
+                stats = stats_fn() or {}
+                for key in ("eval_calls_total", "eval_calls_neural", "eval_calls_fallback", "eval_calls_mixed"):
+                    eval_calls[role][key] += int(stats.get(key, 0))
             joint[role] = move
         state = game.get_next_state(state, joint)
         ply += 1
@@ -337,6 +378,14 @@ def run_single_match(
         "ply_count": ply,
         "avg_decision_sec_a": statistics.fmean(decision_seconds[role_a]) if decision_seconds[role_a] else 0.0,
         "avg_decision_sec_b": statistics.fmean(decision_seconds[role_b]) if decision_seconds[role_b] else 0.0,
+        "avg_eval_calls_total_a": (eval_calls[role_a]["eval_calls_total"] / max(1, ply)),
+        "avg_eval_calls_total_b": (eval_calls[role_b]["eval_calls_total"] / max(1, ply)),
+        "avg_eval_calls_neural_a": (eval_calls[role_a]["eval_calls_neural"] / max(1, ply)),
+        "avg_eval_calls_neural_b": (eval_calls[role_b]["eval_calls_neural"] / max(1, ply)),
+        "avg_eval_calls_fallback_a": (eval_calls[role_a]["eval_calls_fallback"] / max(1, ply)),
+        "avg_eval_calls_fallback_b": (eval_calls[role_b]["eval_calls_fallback"] / max(1, ply)),
+        "avg_eval_calls_mixed_a": (eval_calls[role_a]["eval_calls_mixed"] / max(1, ply)),
+        "avg_eval_calls_mixed_b": (eval_calls[role_b]["eval_calls_mixed"] / max(1, ply)),
         "legal_calls": int(perf["legal_calls"]),
         "legal_cache_hits": int(perf["legal_cache_hits"]),
         "next_calls": int(perf["next_calls"]),
@@ -357,6 +406,7 @@ def run_series(
     artifacts: dict[str, ValueArtifact] | None,
     device: str,
     swap_roles: bool = True,
+    agent_overrides: dict[str, dict] | None = None,
 ) -> list[dict]:
     rows = []
     game_name = Path(game_file).stem
@@ -378,6 +428,7 @@ def run_series(
             cache_enabled=cache_enabled,
             artifacts=artifacts,
             device=device,
+            agent_overrides=agent_overrides,
         )
         rows.append(row)
         elapsed = time.perf_counter() - t0
@@ -421,6 +472,14 @@ def summarize_series(rows: list[dict]) -> dict:
         "avg_game_length": statistics.fmean(int(r["ply_count"]) for r in rows),
         "avg_decision_sec_a": statistics.fmean(float(r["avg_decision_sec_a"]) for r in rows),
         "avg_decision_sec_b": statistics.fmean(float(r["avg_decision_sec_b"]) for r in rows),
+        "avg_eval_calls_total_a": statistics.fmean(float(r.get("avg_eval_calls_total_a", 0.0)) for r in rows),
+        "avg_eval_calls_total_b": statistics.fmean(float(r.get("avg_eval_calls_total_b", 0.0)) for r in rows),
+        "avg_eval_calls_neural_a": statistics.fmean(float(r.get("avg_eval_calls_neural_a", 0.0)) for r in rows),
+        "avg_eval_calls_neural_b": statistics.fmean(float(r.get("avg_eval_calls_neural_b", 0.0)) for r in rows),
+        "avg_eval_calls_fallback_a": statistics.fmean(float(r.get("avg_eval_calls_fallback_a", 0.0)) for r in rows),
+        "avg_eval_calls_fallback_b": statistics.fmean(float(r.get("avg_eval_calls_fallback_b", 0.0)) for r in rows),
+        "avg_eval_calls_mixed_a": statistics.fmean(float(r.get("avg_eval_calls_mixed_a", 0.0)) for r in rows),
+        "avg_eval_calls_mixed_b": statistics.fmean(float(r.get("avg_eval_calls_mixed_b", 0.0)) for r in rows),
         "legal_cache_hit_rate": (legal_hits / legal_calls) if legal_calls else 0.0,
         "next_cache_hit_rate": (next_hits / next_calls) if next_calls else 0.0,
         "cache_enabled": bool(rows[0].get("cache_enabled", True)),
@@ -437,6 +496,7 @@ def run_match_grid(
     cache_enabled: bool,
     artifacts: dict[str, ValueArtifact] | None,
     device: str,
+    agent_overrides: dict[str, dict] | None = None,
 ) -> tuple[list[dict], list[dict]]:
     raw_rows: list[dict] = []
     summary_rows: list[dict] = []
@@ -465,6 +525,7 @@ def run_match_grid(
                 artifacts=artifacts,
                 device=device,
                 swap_roles=True,
+                agent_overrides=agent_overrides,
             )
             raw_rows.extend(series)
             summary = summarize_series(series)
@@ -500,6 +561,14 @@ def collect_cross_game_mean(summary_rows: list[dict], group_keys: list[str]) -> 
             "avg_game_length",
             "avg_decision_sec_a",
             "avg_decision_sec_b",
+            "avg_eval_calls_total_a",
+            "avg_eval_calls_total_b",
+            "avg_eval_calls_neural_a",
+            "avg_eval_calls_neural_b",
+            "avg_eval_calls_fallback_a",
+            "avg_eval_calls_fallback_b",
+            "avg_eval_calls_mixed_a",
+            "avg_eval_calls_mixed_b",
             "legal_cache_hit_rate",
             "next_cache_hit_rate",
         ]:

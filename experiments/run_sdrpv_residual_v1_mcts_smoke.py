@@ -30,6 +30,12 @@ def main() -> None:
     parser.add_argument("--fixed-sims-playclock", type=float, default=0.5, help="Per-move time for fixed-sims stage.")
     parser.add_argument("--fixed-time", type=float, default=0.5, help="Per-move time for fixed-time stage.")
     parser.add_argument("--fixed-time-iters", type=int, default=120, help="Iterations cap for fixed-time stage.")
+    parser.add_argument("--integration-mode", choices=["value", "selective"], default="value")
+    parser.add_argument("--fallback-legal-threshold", type=int, default=None)
+    parser.add_argument("--selective-max-neural-evals-per-move", type=int, default=None)
+    parser.add_argument("--selective-legal-move-threshold", type=int, default=None)
+    parser.add_argument("--selective-alpha", type=float, default=1.0)
+    parser.add_argument("--selective-rollout-depth-limit", type=int, default=64)
     parser.add_argument("--out-dir", default="outputs/experiments/SDRPV_residual_v1_mcts_smoke")
     args = parser.parse_args()
 
@@ -50,6 +56,16 @@ def main() -> None:
     }
     games = [str(args.game)]
     pairs = [("neural_mcts:token_transformer", "pure_mct")]
+    agent_overrides = {
+        "neural_mcts:token_transformer": {
+            "evaluator_mode": args.integration_mode,
+            "fallback_legal_threshold": args.fallback_legal_threshold,
+            "selective_max_neural_evals_per_move": args.selective_max_neural_evals_per_move,
+            "selective_legal_move_threshold": args.selective_legal_move_threshold,
+            "selective_alpha": args.selective_alpha,
+            "selective_rollout_depth_limit": args.selective_rollout_depth_limit,
+        }
+    }
 
     root_layout = init_output_layout("SDRPV_residual_v1_mcts_smoke", args.out_dir, args=args)
 
@@ -70,6 +86,7 @@ def main() -> None:
         cache_enabled=True,
         artifacts=artifacts,
         device=args.device,
+        agent_overrides=agent_overrides,
     )
     write_json(fixed_sims_layout["raw"] / "matches.json", raw_sims)
     write_json(fixed_sims_layout["summary"] / "by_game.json", summary_sims)
@@ -92,6 +109,7 @@ def main() -> None:
         cache_enabled=True,
         artifacts=artifacts,
         device=args.device,
+        agent_overrides=agent_overrides,
     )
     write_json(fixed_time_layout["raw"] / "matches.json", raw_time)
     write_json(fixed_time_layout["summary"] / "by_game.json", summary_time)
@@ -108,6 +126,14 @@ def main() -> None:
             "iterations_cap": int(args.fixed_time_iters),
             "summary_rows": summary_time,
         },
+        "integration": {
+            "mode": args.integration_mode,
+            "fallback_legal_threshold": args.fallback_legal_threshold,
+            "selective_max_neural_evals_per_move": args.selective_max_neural_evals_per_move,
+            "selective_legal_move_threshold": args.selective_legal_move_threshold,
+            "selective_alpha": args.selective_alpha,
+            "selective_rollout_depth_limit": args.selective_rollout_depth_limit,
+        },
     }
     write_json(root_layout["summary"] / "stage_summary.json", stage_summary)
 
@@ -116,4 +142,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

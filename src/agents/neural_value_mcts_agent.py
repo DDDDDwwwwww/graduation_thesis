@@ -5,7 +5,11 @@ from __future__ import annotations
 在统一 MCTS 核心流程中，把叶子评估器替换为价值网络评估器。
 """
 
-from mcts.evaluators import ValueNetworkEvaluator
+from mcts.evaluators import (
+    RandomRolloutEvaluator,
+    SelectiveValueEvaluator,
+    ValueNetworkEvaluator,
+)
 
 from ._mcts_core import _MCTSCoreAgent
 
@@ -26,6 +30,10 @@ class NeuralValueMCTSAgent(_MCTSCoreAgent):
         evaluator_mode="value",
         seed=None,
         fallback_legal_threshold=None,
+        selective_max_neural_evals_per_move=None,
+        selective_legal_move_threshold=None,
+        selective_alpha=1.0,
+        selective_rollout_depth_limit=64,
     ):
         """初始化神经 MCTS 参数与评估器。"""
         super().__init__(
@@ -40,10 +48,23 @@ class NeuralValueMCTSAgent(_MCTSCoreAgent):
             update_history_on_backprop=False,
         )
         self.evaluator_mode = evaluator_mode
-        # 当前里程碑仅实现纯 value 模式，不混入 rollout。
-        if self.evaluator_mode != "value":
+        if self.evaluator_mode not in {"value", "selective"}:
             raise ValueError(f"Unsupported evaluator_mode: {self.evaluator_mode}")
-        self.evaluator = ValueNetworkEvaluator(value_model=value_model.to(device), encoder=encoder, device=device)
+        self._last_search_stats = {}
+        value_eval = ValueNetworkEvaluator(value_model=value_model.to(device), encoder=encoder, device=device)
+        if self.evaluator_mode == "value":
+            self.evaluator = value_eval
+        else:
+            self.evaluator = SelectiveValueEvaluator(
+                value_evaluator=value_eval,
+                fallback_evaluator=RandomRolloutEvaluator(
+                    depth_limit=selective_rollout_depth_limit,
+                    rng=self._rng,
+                ),
+                alpha=selective_alpha,
+                max_neural_evals_per_move=selective_max_neural_evals_per_move,
+                legal_move_threshold=selective_legal_move_threshold,
+            )
 
     @classmethod
     def from_artifacts(
@@ -60,6 +81,10 @@ class NeuralValueMCTSAgent(_MCTSCoreAgent):
         evaluator_mode="value",
         seed=None,
         fallback_legal_threshold=None,
+        selective_max_neural_evals_per_move=None,
+        selective_legal_move_threshold=None,
+        selective_alpha=1.0,
+        selective_rollout_depth_limit=64,
     ):
         """从训练产物快速构造神经 MCTS 智能体。"""
         from nn.inference import load_value_artifacts
@@ -91,4 +116,23 @@ class NeuralValueMCTSAgent(_MCTSCoreAgent):
             evaluator_mode=evaluator_mode,
             seed=seed,
             fallback_legal_threshold=fallback_legal_threshold,
+            selective_max_neural_evals_per_move=selective_max_neural_evals_per_move,
+            selective_legal_move_threshold=selective_legal_move_threshold,
+            selective_alpha=selective_alpha,
+            selective_rollout_depth_limit=selective_rollout_depth_limit,
         )
+
+    def select_action(self, game_machine, state, legal_actions, time_limit=None):
+        reset_fn = getattr(self.evaluator, "reset_for_new_move", None)
+        if callable(reset_fn):
+            reset_fn()
+        action = super().select_action(game_machine, state, legal_actions, time_limit=time_limit)
+        stats_fn = getattr(self.evaluator, "get_stats", None)
+        if callable(stats_fn):
+            self._last_search_stats = stats_fn()
+        else:
+            self._last_search_stats = {}
+        return action
+
+    def get_last_search_stats(self):
+        return dict(self._last_search_stats)
