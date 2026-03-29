@@ -8,6 +8,7 @@ TS="$(date +%Y%m%d_%H%M%S)"
 RUN_TAG="${RUN_TAG:-${TS}}"
 DEVICE="${DEVICE:-cpu}"
 DATASET_PATH="${DATASET_PATH:-outputs/datasets/sdrpv_dataset_v3_parallel.jsonl}"
+TRAIN_NUM_WORKERS="${TRAIN_NUM_WORKERS:-8}"
 TRAIN_LOG="outputs/logs/sdrpv_residual_v1_${RUN_TAG}.log"
 MCTS_LOG="outputs/logs/sdrpv_residual_v1_mcts_smoke_${RUN_TAG}.log"
 MODEL_DIR="${MODEL_DIR:-outputs/experiments/SDRPV_residual_v1_${RUN_TAG}}"
@@ -23,6 +24,7 @@ echo "[RESIDUAL_V1] start $(date)"
   --epochs 20 \
   --batch-size 128 \
   --loss huber \
+  --num-workers "${TRAIN_NUM_WORKERS}" \
   --output-dir "${MODEL_DIR}" \
   --device "${DEVICE}" \
   >"${TRAIN_LOG}" 2>&1

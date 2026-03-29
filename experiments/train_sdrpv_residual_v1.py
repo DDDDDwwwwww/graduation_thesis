@@ -279,6 +279,7 @@ def main() -> None:
     parser.add_argument("--max-positions", type=int, default=4096)
     parser.add_argument("--disable-global-features", action="store_true")
     parser.add_argument("--max-samples", type=int, default=None)
+    parser.add_argument("--num-workers", type=int, default=0, help="DataLoader worker processes.")
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--device", default="cpu")
     args = parser.parse_args()
@@ -358,6 +359,7 @@ def main() -> None:
         loss_name=args.loss,
         patience=args.patience,
         device=args.device,
+        num_workers=args.num_workers,
     )
 
     encoder.save(output_dir / "encoder.json")
@@ -391,6 +393,7 @@ def main() -> None:
         "loss": args.loss,
         "patience": args.patience,
         "device": args.device,
+        "num_workers": args.num_workers,
         "roles": roles,
         "num_input_rows": len(rows),
         "num_samples_used": len(samples),
@@ -422,4 +425,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

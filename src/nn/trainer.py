@@ -87,6 +87,7 @@ def train_value_model(
     loss_name="mse",
     patience=5,
     device="cpu",
+    num_workers=0,
 ):
     """训练价值网络并保存 checkpoint 与指标。"""
     _set_seed(int(seed))
@@ -104,9 +105,32 @@ def train_value_model(
     if model_name == "transformer":
         collate_fn = ValueDataset.collate_board_tokens
 
-    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
-    val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
-    test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
+    loader_workers = max(0, int(num_workers))
+    loader_kwargs = {
+        "num_workers": loader_workers,
+        "pin_memory": str(device).lower().startswith("cuda"),
+    }
+    train_loader = DataLoader(
+        train_ds,
+        batch_size=batch_size,
+        shuffle=True,
+        collate_fn=collate_fn,
+        **loader_kwargs,
+    )
+    val_loader = DataLoader(
+        val_ds,
+        batch_size=batch_size,
+        shuffle=False,
+        collate_fn=collate_fn,
+        **loader_kwargs,
+    )
+    test_loader = DataLoader(
+        test_ds,
+        batch_size=batch_size,
+        shuffle=False,
+        collate_fn=collate_fn,
+        **loader_kwargs,
+    )
 
     if model_name == "mlp":
         model = MLPValueNet(
