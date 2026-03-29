@@ -1,0 +1,4 @@
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[train_sdrpv_teacher_only] saved artifacts to outputs/experiments/SDRPV_teacher_only_v3
+[train_sdrpv_teacher_only] samples=4732, test_loss=0.048348, test_sign_acc=0.7785

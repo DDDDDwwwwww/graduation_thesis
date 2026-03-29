@@ -1,0 +1,9 @@
+[PIPELINE] start Sun Mar 29 12:29:34 AM CST 2026
+[PIPELINE] step1 convert start Sun Mar 29 12:29:34 AM CST 2026
+[PIPELINE] step1 convert done Sun Mar 29 04:54:34 AM CST 2026
+[PIPELINE] convert_log=outputs/logs/sdrpv_convert_v3_20260329_002934.log
+[PIPELINE] q_t.std=0.3955613187621022 b.std=0.3434316289458051 |q_t-b|.mean=0.1844653053772319
+[PIPELINE] step2 teacher-only training start Sun Mar 29 04:54:34 AM CST 2026
+[PIPELINE] step2 teacher-only training done Sun Mar 29 04:55:39 AM CST 2026
+[PIPELINE] train_log=outputs/logs/sdrpv_teacher_only_v3_20260329_002934.log
+[PIPELINE] done Sun Mar 29 04:55:39 AM CST 2026

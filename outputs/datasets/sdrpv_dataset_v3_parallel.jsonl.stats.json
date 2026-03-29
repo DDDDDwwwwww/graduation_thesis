@@ -1,0 +1,68 @@
+{
+  "args": {
+    "input": [
+      "outputs/experiments/D_dataset_size_sensitivity/datasets/dataset_200.jsonl"
+    ],
+    "output": "outputs/datasets/sdrpv_dataset_v3_parallel.jsonl",
+    "game": null,
+    "baseline_mode": "shallow_mcts",
+    "teacher_sims": 600,
+    "student_sims": 120,
+    "baseline_sims": 32,
+    "resume": true,
+    "max_samples": null,
+    "phase_sampling": false,
+    "seed": 42,
+    "baseline_cache": "outputs/cache/sdrpv_baseline_cache_v3.jsonl",
+    "teacher_cache": "outputs/cache/sdrpv_teacher_cache_v3.jsonl",
+    "base_model_path": null,
+    "base_vocab_path": null,
+    "base_encoder_path": null,
+    "device": "cpu",
+    "num_workers": 8,
+    "log_every": 20,
+    "heartbeat_sec": 30
+  },
+  "stats": {
+    "total_input": 5934,
+    "success": 4732,
+    "skip": 1202,
+    "fail": 0,
+    "missing_fields": 0,
+    "nan_or_inf": 0,
+    "missing_game": 0
+  },
+  "success_rate": 0.797438490057297,
+  "b": {
+    "count": 4732,
+    "mean": -0.01854181892777895,
+    "std": 0.3434316289458051,
+    "p05": -0.570584096875,
+    "p50": -0.01865012500000006,
+    "p95": 0.5452971874999999
+  },
+  "q_t": {
+    "count": 4732,
+    "mean": -0.0335770586176392,
+    "std": 0.3955613187621022,
+    "p05": -0.8103033460634561,
+    "p50": -0.0377371640211809,
+    "p95": 0.7625668550600084
+  },
+  "z": {
+    "count": 4732,
+    "mean": 0.0,
+    "std": 1.0,
+    "p05": -1.0,
+    "p50": 0.0,
+    "p95": 1.0
+  },
+  "|q_t-b|": {
+    "count": 4732,
+    "mean": 0.1844653053772319,
+    "std": 0.14095023226602774,
+    "p05": 0.01433212910863398,
+    "p50": 0.15483386428934123,
+    "p95": 0.4200657097798406
+  }
+}

@@ -1,0 +1,861 @@
+swipl: /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/../../../libtinfo.so.6: no version information available (required by /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/libswipl.so.10)
+[convert_sdrpv] preparing tasks... rows=5934, num_workers=8
+[convert_sdrpv] prepare_progress=20/5934, tasks=20
+[convert_sdrpv] prepare_progress=40/5934, tasks=38
+[convert_sdrpv] prepare_progress=80/5934, tasks=74
+[convert_sdrpv] prepare_progress=100/5934, tasks=94
+[convert_sdrpv] prepare_progress=120/5934, tasks=114
+[convert_sdrpv] prepare_progress=140/5934, tasks=132
+[convert_sdrpv] prepare_progress=180/5934, tasks=168
+[convert_sdrpv] prepare_progress=200/5934, tasks=184
+[convert_sdrpv] prepare_progress=220/5934, tasks=202
+[convert_sdrpv] prepare_progress=240/5934, tasks=218
+[convert_sdrpv] prepare_progress=260/5934, tasks=236
+[convert_sdrpv] prepare_progress=280/5934, tasks=252
+[convert_sdrpv] prepare_progress=300/5934, tasks=272
+[convert_sdrpv] prepare_progress=360/5934, tasks=324
+[convert_sdrpv] prepare_progress=400/5934, tasks=358
+[convert_sdrpv] prepare_progress=440/5934, tasks=392
+[convert_sdrpv] prepare_progress=460/5934, tasks=406
+[convert_sdrpv] prepare_progress=480/5934, tasks=426
+[convert_sdrpv] prepare_progress=500/5934, tasks=442
+[convert_sdrpv] prepare_progress=520/5934, tasks=456
+[convert_sdrpv] prepare_progress=540/5934, tasks=476
+[convert_sdrpv] prepare_progress=560/5934, tasks=490
+[convert_sdrpv] prepare_progress=580/5934, tasks=510
+[convert_sdrpv] prepare_progress=600/5934, tasks=526
+[convert_sdrpv] prepare_progress=640/5934, tasks=554
+[convert_sdrpv] prepare_progress=660/5934, tasks=574
+[convert_sdrpv] prepare_progress=680/5934, tasks=594
+[convert_sdrpv] prepare_progress=700/5934, tasks=606
+[convert_sdrpv] prepare_progress=740/5934, tasks=636
+[convert_sdrpv] prepare_progress=800/5934, tasks=680
+[convert_sdrpv] prepare_progress=840/5934, tasks=710
+[convert_sdrpv] prepare_progress=860/5934, tasks=726
+[convert_sdrpv] prepare_progress=880/5934, tasks=746
+[convert_sdrpv] prepare_progress=920/5934, tasks=780
+[convert_sdrpv] prepare_progress=980/5934, tasks=824
+[convert_sdrpv] prepare_progress=1000/5934, tasks=844
+[convert_sdrpv] prepare_progress=1020/5934, tasks=858
+[convert_sdrpv] prepare_progress=1040/5934, tasks=878
+[convert_sdrpv] prepare_progress=1060/5934, tasks=898
+[convert_sdrpv] prepare_progress=1080/5934, tasks=918
+[convert_sdrpv] prepare_progress=1100/5934, tasks=934
+[convert_sdrpv] prepare_progress=1160/5934, tasks=978
+[convert_sdrpv] prepare_progress=1180/5934, tasks=994
+[convert_sdrpv] prepare_progress=1200/5934, tasks=1008
+[convert_sdrpv] prepare_progress=1220/5934, tasks=1028
+[convert_sdrpv] prepare_progress=1240/5934, tasks=1048
+[convert_sdrpv] prepare_progress=1280/5934, tasks=1082
+[convert_sdrpv] prepare_progress=1300/5934, tasks=1096
+[convert_sdrpv] prepare_progress=1340/5934, tasks=1130
+[convert_sdrpv] prepare_progress=1360/5934, tasks=1144
+[convert_sdrpv] prepare_progress=1380/5934, tasks=1164
+[convert_sdrpv] prepare_progress=1400/5934, tasks=1180
+[convert_sdrpv] prepare_progress=1440/5934, tasks=1208
+[convert_sdrpv] prepare_progress=1460/5934, tasks=1224
+[convert_sdrpv] prepare_progress=1480/5934, tasks=1244
+[convert_sdrpv] prepare_progress=1520/5934, tasks=1270
+[convert_sdrpv] prepare_progress=1560/5934, tasks=1306
+[convert_sdrpv] prepare_progress=1580/5934, tasks=1322
+[convert_sdrpv] prepare_progress=1600/5934, tasks=1342
+[convert_sdrpv] prepare_progress=1620/5934, tasks=1356
+[convert_sdrpv] prepare_progress=1640/5934, tasks=1376
+[convert_sdrpv] prepare_progress=1660/5934, tasks=1390
+[convert_sdrpv] prepare_progress=1700/5934, tasks=1426
+[convert_sdrpv] prepare_progress=1720/5934, tasks=1438
+[convert_sdrpv] prepare_progress=1780/5934, tasks=1486
+[convert_sdrpv] prepare_progress=1800/5934, tasks=1498
+[convert_sdrpv] prepare_progress=1820/5934, tasks=1512
+[convert_sdrpv] prepare_progress=1840/5934, tasks=1526
+[convert_sdrpv] prepare_progress=1860/5934, tasks=1546
+[convert_sdrpv] prepare_progress=1900/5934, tasks=1580
+[convert_sdrpv] prepare_progress=1920/5934, tasks=1594
+[convert_sdrpv] prepare_progress=1960/5934, tasks=1624
+[convert_sdrpv] prepare_progress=1980/5934, tasks=1642
+[convert_sdrpv] prepare_progress=2000/5934, tasks=1658
+[convert_sdrpv] prepare_progress=2020/5934, tasks=1672
+[convert_sdrpv] prepare_progress=2040/5934, tasks=1692
+[convert_sdrpv] prepare_progress=2080/5934, tasks=1718
+[convert_sdrpv] prepare_progress=2100/5934, tasks=1738
+[convert_sdrpv] prepare_progress=2120/5934, tasks=1754
+[convert_sdrpv] prepare_progress=2140/5934, tasks=1770
+[convert_sdrpv] prepare_progress=2160/5934, tasks=1782
+[convert_sdrpv] prepare_progress=2180/5934, tasks=1802
+[convert_sdrpv] prepare_progress=2220/5934, tasks=1826
+[convert_sdrpv] prepare_progress=2240/5934, tasks=1840
+[convert_sdrpv] prepare_progress=2260/5934, tasks=1860
+[convert_sdrpv] prepare_progress=2280/5934, tasks=1876
+[convert_sdrpv] prepare_progress=2340/5934, tasks=1918
+[convert_sdrpv] prepare_progress=2360/5934, tasks=1934
+[convert_sdrpv] prepare_progress=2380/5934, tasks=1954
+[convert_sdrpv] prepare_progress=2400/5934, tasks=1974
+[convert_sdrpv] prepare_progress=2420/5934, tasks=1988
+[convert_sdrpv] prepare_progress=2440/5934, tasks=2008
+[convert_sdrpv] prepare_progress=2500/5934, tasks=2054
+[convert_sdrpv] prepare_progress=2520/5934, tasks=2068
+[convert_sdrpv] prepare_progress=2540/5934, tasks=2088
+[convert_sdrpv] prepare_progress=2560/5934, tasks=2100
+[convert_sdrpv] prepare_progress=2600/5934, tasks=2132
+[convert_sdrpv] prepare_progress=2620/5934, tasks=2144
+[convert_sdrpv] prepare_progress=2640/5934, tasks=2160
+[convert_sdrpv] prepare_progress=2680/5934, tasks=2188
+[convert_sdrpv] prepare_progress=2700/5934, tasks=2208
+[convert_sdrpv] prepare_progress=2720/5934, tasks=2228
+[convert_sdrpv] prepare_progress=2740/5934, tasks=2244
+[convert_sdrpv] prepare_progress=2760/5934, tasks=2264
+[convert_sdrpv] prepare_progress=2800/5934, tasks=2298
+[convert_sdrpv] prepare_progress=2820/5934, tasks=2316
+[convert_sdrpv] prepare_progress=2840/5934, tasks=2330
+[convert_sdrpv] prepare_progress=2860/5934, tasks=2344
+[convert_sdrpv] prepare_progress=2880/5934, tasks=2364
+[convert_sdrpv] prepare_progress=2900/5934, tasks=2374
+[convert_sdrpv] prepare_progress=2920/5934, tasks=2390
+[convert_sdrpv] prepare_progress=2940/5934, tasks=2410
+[convert_sdrpv] prepare_progress=2980/5934, tasks=2444
+[convert_sdrpv] prepare_progress=3000/5934, tasks=2464
+[convert_sdrpv] prepare_progress=3020/5934, tasks=2478
+[convert_sdrpv] prepare_progress=3060/5934, tasks=2508
+[convert_sdrpv] prepare_progress=3080/5934, tasks=2524
+[convert_sdrpv] prepare_progress=3100/5934, tasks=2540
+[convert_sdrpv] prepare_progress=3140/5934, tasks=2574
+[convert_sdrpv] prepare_progress=3160/5934, tasks=2588
+[convert_sdrpv] prepare_progress=3180/5934, tasks=2608
+[convert_sdrpv] prepare_progress=3200/5934, tasks=2624
+[convert_sdrpv] prepare_progress=3220/5934, tasks=2636
+[convert_sdrpv] prepare_progress=3240/5934, tasks=2650
+[convert_sdrpv] prepare_progress=3260/5934, tasks=2664
+[convert_sdrpv] prepare_progress=3300/5934, tasks=2696
+[convert_sdrpv] prepare_progress=3320/5934, tasks=2710
+[convert_sdrpv] prepare_progress=3340/5934, tasks=2730
+[convert_sdrpv] prepare_progress=3380/5934, tasks=2756
+[convert_sdrpv] prepare_progress=3400/5934, tasks=2772
+[convert_sdrpv] prepare_progress=3420/5934, tasks=2792
+[convert_sdrpv] prepare_progress=3440/5934, tasks=2804
+[convert_sdrpv] prepare_progress=3460/5934, tasks=2818
+[convert_sdrpv] prepare_progress=3480/5934, tasks=2834
+[convert_sdrpv] prepare_progress=3500/5934, tasks=2850
+[convert_sdrpv] prepare_progress=3520/5934, tasks=2870
+[convert_sdrpv] prepare_progress=3560/5934, tasks=2896
+[convert_sdrpv] prepare_progress=3580/5934, tasks=2910
+[convert_sdrpv] prepare_progress=3600/5934, tasks=2924
+[convert_sdrpv] prepare_progress=3640/5934, tasks=2958
+[convert_sdrpv] prepare_progress=3660/5934, tasks=2970
+[convert_sdrpv] prepare_progress=3680/5934, tasks=2990
+[convert_sdrpv] prepare_progress=3700/5934, tasks=3004
+[convert_sdrpv] prepare_progress=3720/5934, tasks=3024
+[convert_sdrpv] prepare_progress=3740/5934, tasks=3038
+[convert_sdrpv] prepare_progress=3780/5934, tasks=3072
+[convert_sdrpv] prepare_progress=3800/5934, tasks=3086
+[convert_sdrpv] prepare_progress=3820/5934, tasks=3106
+[convert_sdrpv] prepare_progress=3840/5934, tasks=3120
+[convert_sdrpv] prepare_progress=3860/5934, tasks=3136
+[convert_sdrpv] prepare_progress=3900/5934, tasks=3160
+[convert_sdrpv] prepare_progress=3920/5934, tasks=3174
+[convert_sdrpv] prepare_progress=3940/5934, tasks=3186
+[convert_sdrpv] prepare_progress=3960/5934, tasks=3198
+[convert_sdrpv] prepare_progress=3980/5934, tasks=3210
+[convert_sdrpv] prepare_progress=4000/5934, tasks=3228
+[convert_sdrpv] prepare_progress=4020/5934, tasks=3244
+[convert_sdrpv] prepare_progress=4040/5934, tasks=3264
+[convert_sdrpv] prepare_progress=4080/5934, tasks=3298
+[convert_sdrpv] prepare_progress=4100/5934, tasks=3312
+[convert_sdrpv] prepare_progress=4120/5934, tasks=3332
+[convert_sdrpv] prepare_progress=4140/5934, tasks=3344
+[convert_sdrpv] prepare_progress=4180/5934, tasks=3376
+[convert_sdrpv] prepare_progress=4220/5934, tasks=3408
+[convert_sdrpv] prepare_progress=4260/5934, tasks=3428
+[convert_sdrpv] prepare_progress=4300/5934, tasks=3462
+[convert_sdrpv] prepare_progress=4340/5934, tasks=3494
+[convert_sdrpv] prepare_progress=4360/5934, tasks=3508
+[convert_sdrpv] prepare_progress=4380/5934, tasks=3528
+[convert_sdrpv] prepare_progress=4420/5934, tasks=3554
+[convert_sdrpv] prepare_progress=4460/5934, tasks=3574
+[convert_sdrpv] prepare_progress=4480/5934, tasks=3590
+[convert_sdrpv] prepare_progress=4500/5934, tasks=3606
+[convert_sdrpv] prepare_progress=4520/5934, tasks=3624
+[convert_sdrpv] prepare_progress=4560/5934, tasks=3650
+[convert_sdrpv] prepare_progress=4580/5934, tasks=3670
+[convert_sdrpv] prepare_progress=4600/5934, tasks=3690
+[convert_sdrpv] prepare_progress=4640/5934, tasks=3722
+[convert_sdrpv] prepare_progress=4680/5934, tasks=3756
+[convert_sdrpv] prepare_progress=4700/5934, tasks=3770
+[convert_sdrpv] prepare_progress=4720/5934, tasks=3782
+[convert_sdrpv] prepare_progress=4740/5934, tasks=3796
+[convert_sdrpv] prepare_progress=4760/5934, tasks=3816
+[convert_sdrpv] prepare_progress=4780/5934, tasks=3836
+[convert_sdrpv] prepare_progress=4800/5934, tasks=3850
+[convert_sdrpv] prepare_progress=4820/5934, tasks=3864
+[convert_sdrpv] prepare_progress=4840/5934, tasks=3884
+[convert_sdrpv] prepare_progress=4860/5934, tasks=3896
+[convert_sdrpv] prepare_progress=4880/5934, tasks=3916
+[convert_sdrpv] prepare_progress=4920/5934, tasks=3950
+[convert_sdrpv] prepare_progress=4960/5934, tasks=3976
+[convert_sdrpv] prepare_progress=5000/5934, tasks=4008
+[convert_sdrpv] prepare_progress=5020/5934, tasks=4028
+[convert_sdrpv] prepare_progress=5040/5934, tasks=4042
+[convert_sdrpv] prepare_progress=5060/5934, tasks=4056
+[convert_sdrpv] prepare_progress=5100/5934, tasks=4080
+[convert_sdrpv] prepare_progress=5120/5934, tasks=4094
+[convert_sdrpv] prepare_progress=5160/5934, tasks=4112
+[convert_sdrpv] prepare_progress=5180/5934, tasks=4124
+[convert_sdrpv] prepare_progress=5200/5934, tasks=4144
+[convert_sdrpv] prepare_progress=5260/5934, tasks=4190
+[convert_sdrpv] prepare_progress=5280/5934, tasks=4210
+[convert_sdrpv] prepare_progress=5300/5934, tasks=4222
+[convert_sdrpv] prepare_progress=5320/5934, tasks=4234
+[convert_sdrpv] prepare_progress=5340/5934, tasks=4246
+[convert_sdrpv] prepare_progress=5360/5934, tasks=4266
+[convert_sdrpv] prepare_progress=5380/5934, tasks=4280
+[convert_sdrpv] prepare_progress=5400/5934, tasks=4300
+[convert_sdrpv] prepare_progress=5420/5934, tasks=4314
+[convert_sdrpv] prepare_progress=5440/5934, tasks=4334
+[convert_sdrpv] prepare_progress=5460/5934, tasks=4346
+[convert_sdrpv] prepare_progress=5500/5934, tasks=4378
+[convert_sdrpv] prepare_progress=5520/5934, tasks=4392
+[convert_sdrpv] prepare_progress=5540/5934, tasks=4406
+[convert_sdrpv] prepare_progress=5560/5934, tasks=4420
+[convert_sdrpv] prepare_progress=5580/5934, tasks=4440
+[convert_sdrpv] prepare_progress=5600/5934, tasks=4460
+[convert_sdrpv] prepare_progress=5620/5934, tasks=4472
+[convert_sdrpv] prepare_progress=5640/5934, tasks=4488
+[convert_sdrpv] prepare_progress=5660/5934, tasks=4508
+[convert_sdrpv] prepare_progress=5680/5934, tasks=4522
+[convert_sdrpv] prepare_progress=5700/5934, tasks=4536
+[convert_sdrpv] prepare_progress=5720/5934, tasks=4556
+[convert_sdrpv] prepare_progress=5740/5934, tasks=4570
+[convert_sdrpv] prepare_progress=5760/5934, tasks=4584
+[convert_sdrpv] prepare_progress=5780/5934, tasks=4604
+[convert_sdrpv] prepare_progress=5800/5934, tasks=4624
+[convert_sdrpv] prepare_progress=5820/5934, tasks=4638
+[convert_sdrpv] prepare_progress=5840/5934, tasks=4652
+[convert_sdrpv] prepare_progress=5860/5934, tasks=4672
+[convert_sdrpv] prepare_progress=5880/5934, tasks=4686
+[convert_sdrpv] prepare_progress=5920/5934, tasks=4718
+[convert_sdrpv] task_ready=4732
+[convert_sdrpv] processed=1/4732 success=1 skip=1202 fail=0 rate=0.03/s
+[convert_sdrpv] processed=12/4732 success=12 skip=1202 fail=0 rate=0.19/s
+[convert_sdrpv] processed=20/4732 success=20 skip=1202 fail=0 rate=0.22/s
+[convert_sdrpv] processed=27/4732 success=27 skip=1202 fail=0 rate=0.22/s
+[convert_sdrpv] processed=37/4732 success=37 skip=1202 fail=0 rate=0.24/s
+[convert_sdrpv] processed=40/4732 success=40 skip=1202 fail=0 rate=0.25/s
+[convert_sdrpv] processed=50/4732 success=50 skip=1202 fail=0 rate=0.27/s
+[convert_sdrpv] processed=55/4732 success=55 skip=1202 fail=0 rate=0.25/s
+[convert_sdrpv] processed=60/4732 success=60 skip=1202 fail=0 rate=0.27/s
+[convert_sdrpv] processed=68/4732 success=68 skip=1202 fail=0 rate=0.27/s
+[convert_sdrpv] processed=75/4732 success=75 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=79/4732 success=79 skip=1202 fail=0 rate=0.25/s
+[convert_sdrpv] processed=80/4732 success=80 skip=1202 fail=0 rate=0.25/s
+[convert_sdrpv] processed=88/4732 success=88 skip=1202 fail=0 rate=0.25/s
+[convert_sdrpv] processed=98/4732 success=98 skip=1202 fail=0 rate=0.25/s
+[convert_sdrpv] processed=100/4732 success=100 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=113/4732 success=113 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=120/4732 success=120 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=126/4732 success=126 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=136/4732 success=136 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=140/4732 success=140 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=149/4732 success=149 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=159/4732 success=159 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=160/4732 success=160 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=173/4732 success=173 skip=1202 fail=0 rate=0.26/s
+[convert_sdrpv] processed=180/4732 success=180 skip=1202 fail=0 rate=0.27/s
+[convert_sdrpv] processed=189/4732 success=189 skip=1202 fail=0 rate=0.27/s
+[convert_sdrpv] processed=200/4732 success=200 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=215/4732 success=215 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=220/4732 success=220 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=227/4732 success=227 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=236/4732 success=236 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=240/4732 success=240 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=247/4732 success=247 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=255/4732 success=255 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=260/4732 success=260 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=271/4732 success=271 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=280/4732 success=280 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=289/4732 success=289 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=300/4732 success=300 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=308/4732 success=308 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=320/4732 success=320 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=331/4732 success=331 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=339/4732 success=339 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=340/4732 success=340 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=347/4732 success=347 skip=1202 fail=0 rate=0.28/s
+[convert_sdrpv] processed=360/4732 success=360 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=375/4732 success=375 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=380/4732 success=380 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=389/4732 success=389 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=399/4732 success=399 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=400/4732 success=400 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=408/4732 success=408 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=417/4732 success=417 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=420/4732 success=420 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=431/4732 success=431 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=440/4732 success=440 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=447/4732 success=447 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=454/4732 success=454 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=460/4732 success=460 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=472/4732 success=472 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=480/4732 success=480 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=488/4732 success=488 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=499/4732 success=499 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=500/4732 success=500 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=515/4732 success=515 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=520/4732 success=520 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=532/4732 success=532 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=539/4732 success=539 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=540/4732 success=540 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=551/4732 success=551 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=559/4732 success=559 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=560/4732 success=560 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=567/4732 success=567 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=577/4732 success=577 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=580/4732 success=580 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=593/4732 success=593 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=600/4732 success=600 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=611/4732 success=611 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=620/4732 success=620 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=633/4732 success=633 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=640/4732 success=640 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=651/4732 success=651 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=660/4732 success=660 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=671/4732 success=671 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=679/4732 success=679 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=680/4732 success=680 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=687/4732 success=687 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=698/4732 success=698 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=700/4732 success=700 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=708/4732 success=708 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=719/4732 success=719 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=720/4732 success=720 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=727/4732 success=727 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=735/4732 success=735 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=740/4732 success=740 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=746/4732 success=746 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=758/4732 success=758 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=760/4732 success=760 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=769/4732 success=769 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=780/4732 success=780 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=795/4732 success=795 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=800/4732 success=800 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=809/4732 success=809 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=815/4732 success=815 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=820/4732 success=820 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=824/4732 success=824 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=833/4732 success=833 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=840/4732 success=840 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=850/4732 success=850 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=858/4732 success=858 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=860/4732 success=860 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=869/4732 success=869 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=878/4732 success=878 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=880/4732 success=880 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=887/4732 success=887 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=895/4732 success=895 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=900/4732 success=900 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=908/4732 success=908 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=920/4732 success=920 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=925/4732 success=925 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=936/4732 success=936 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=940/4732 success=940 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=949/4732 success=949 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=960/4732 success=960 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=969/4732 success=969 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=980/4732 success=980 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=988/4732 success=988 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=999/4732 success=999 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1000/4732 success=1000 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1007/4732 success=1007 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1014/4732 success=1014 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1020/4732 success=1020 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1029/4732 success=1029 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1039/4732 success=1039 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1040/4732 success=1040 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1055/4732 success=1055 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1060/4732 success=1060 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1072/4732 success=1072 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1077/4732 success=1077 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1080/4732 success=1080 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1090/4732 success=1090 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1098/4732 success=1098 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1100/4732 success=1100 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1114/4732 success=1114 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1120/4732 success=1120 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1129/4732 success=1129 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1140/4732 success=1140 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1147/4732 success=1147 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1155/4732 success=1155 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1160/4732 success=1160 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1172/4732 success=1172 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1180/4732 success=1180 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1193/4732 success=1193 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1200/4732 success=1200 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1208/4732 success=1208 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1219/4732 success=1219 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1220/4732 success=1220 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1227/4732 success=1227 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1235/4732 success=1235 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1240/4732 success=1240 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1251/4732 success=1251 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1260/4732 success=1260 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1267/4732 success=1267 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1275/4732 success=1275 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1280/4732 success=1280 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1289/4732 success=1289 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1295/4732 success=1295 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1300/4732 success=1300 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1309/4732 success=1309 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1316/4732 success=1316 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1320/4732 success=1320 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1328/4732 success=1328 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1337/4732 success=1337 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1340/4732 success=1340 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1348/4732 success=1348 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1356/4732 success=1356 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1360/4732 success=1360 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1369/4732 success=1369 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1377/4732 success=1377 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1380/4732 success=1380 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1386/4732 success=1386 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1395/4732 success=1395 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1400/4732 success=1400 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1411/4732 success=1411 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1419/4732 success=1419 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1420/4732 success=1420 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1427/4732 success=1427 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1437/4732 success=1437 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1440/4732 success=1440 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=1451/4732 success=1451 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1460/4732 success=1460 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1471/4732 success=1471 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1479/4732 success=1479 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1480/4732 success=1480 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1489/4732 success=1489 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1499/4732 success=1499 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1500/4732 success=1500 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1509/4732 success=1509 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1520/4732 success=1520 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1526/4732 success=1526 skip=1202 fail=0 rate=0.29/s
+[convert_sdrpv] processed=1536/4732 success=1536 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1540/4732 success=1540 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1560/4732 success=1560 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1565/4732 success=1565 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1577/4732 success=1577 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1580/4732 success=1580 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1593/4732 success=1593 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1600/4732 success=1600 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1610/4732 success=1610 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1620/4732 success=1620 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1626/4732 success=1626 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1635/4732 success=1635 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1640/4732 success=1640 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1649/4732 success=1649 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1659/4732 success=1659 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1660/4732 success=1660 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1667/4732 success=1667 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1679/4732 success=1679 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1680/4732 success=1680 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1695/4732 success=1695 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1700/4732 success=1700 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1707/4732 success=1707 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1716/4732 success=1716 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1720/4732 success=1720 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1727/4732 success=1727 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1735/4732 success=1735 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1740/4732 success=1740 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1753/4732 success=1753 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1760/4732 success=1760 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1767/4732 success=1767 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1776/4732 success=1776 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1780/4732 success=1780 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1788/4732 success=1788 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1798/4732 success=1798 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1800/4732 success=1800 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1809/4732 success=1809 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1819/4732 success=1819 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1820/4732 success=1820 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1834/4732 success=1834 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1840/4732 success=1840 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1854/4732 success=1854 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1860/4732 success=1860 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1869/4732 success=1869 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1877/4732 success=1877 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1880/4732 success=1880 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1892/4732 success=1892 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1895/4732 success=1895 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1900/4732 success=1900 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1909/4732 success=1909 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1919/4732 success=1919 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1920/4732 success=1920 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1927/4732 success=1927 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1937/4732 success=1937 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1940/4732 success=1940 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1949/4732 success=1949 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1959/4732 success=1959 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1960/4732 success=1960 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1979/4732 success=1979 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1980/4732 success=1980 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1987/4732 success=1987 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=1995/4732 success=1995 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2000/4732 success=2000 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2011/4732 success=2011 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2020/4732 success=2020 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2025/4732 success=2025 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2037/4732 success=2037 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2040/4732 success=2040 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2047/4732 success=2047 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2059/4732 success=2059 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2060/4732 success=2060 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2066/4732 success=2066 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2076/4732 success=2076 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2080/4732 success=2080 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2089/4732 success=2089 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2098/4732 success=2098 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2100/4732 success=2100 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2110/4732 success=2110 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2119/4732 success=2119 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2120/4732 success=2120 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2129/4732 success=2129 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2137/4732 success=2137 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2140/4732 success=2140 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2151/4732 success=2151 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2160/4732 success=2160 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2171/4732 success=2171 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2180/4732 success=2180 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2189/4732 success=2189 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2200/4732 success=2200 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2209/4732 success=2209 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2220/4732 success=2220 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2229/4732 success=2229 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2239/4732 success=2239 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2240/4732 success=2240 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2247/4732 success=2247 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2255/4732 success=2255 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2260/4732 success=2260 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2270/4732 success=2270 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2280/4732 success=2280 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2285/4732 success=2285 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2292/4732 success=2292 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2300/4732 success=2300 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2317/4732 success=2317 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2320/4732 success=2320 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2334/4732 success=2334 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2340/4732 success=2340 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2347/4732 success=2347 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2356/4732 success=2356 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2360/4732 success=2360 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2369/4732 success=2369 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2380/4732 success=2380 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2389/4732 success=2389 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2398/4732 success=2398 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2400/4732 success=2400 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2408/4732 success=2408 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2415/4732 success=2415 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2420/4732 success=2420 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2426/4732 success=2426 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2435/4732 success=2435 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2440/4732 success=2440 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2449/4732 success=2449 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2460/4732 success=2460 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2469/4732 success=2469 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2477/4732 success=2477 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2480/4732 success=2480 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2489/4732 success=2489 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2499/4732 success=2499 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2500/4732 success=2500 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2512/4732 success=2512 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2520/4732 success=2520 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2527/4732 success=2527 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2538/4732 success=2538 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2540/4732 success=2540 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2552/4732 success=2552 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2559/4732 success=2559 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2560/4732 success=2560 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2568/4732 success=2568 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2578/4732 success=2578 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2580/4732 success=2580 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2588/4732 success=2588 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2596/4732 success=2596 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2600/4732 success=2600 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2609/4732 success=2609 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2620/4732 success=2620 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2631/4732 success=2631 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2640/4732 success=2640 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2649/4732 success=2649 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2659/4732 success=2659 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2660/4732 success=2660 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2667/4732 success=2667 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2677/4732 success=2677 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2680/4732 success=2680 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2685/4732 success=2685 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2699/4732 success=2699 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2700/4732 success=2700 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2708/4732 success=2708 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2716/4732 success=2716 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2720/4732 success=2720 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2734/4732 success=2734 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2740/4732 success=2740 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2748/4732 success=2748 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2758/4732 success=2758 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2760/4732 success=2760 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2768/4732 success=2768 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2776/4732 success=2776 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2780/4732 success=2780 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2794/4732 success=2794 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2799/4732 success=2799 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2800/4732 success=2800 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2809/4732 success=2809 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2819/4732 success=2819 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2820/4732 success=2820 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2827/4732 success=2827 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2837/4732 success=2837 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2840/4732 success=2840 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2848/4732 success=2848 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2855/4732 success=2855 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2860/4732 success=2860 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2872/4732 success=2872 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2880/4732 success=2880 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2891/4732 success=2891 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2900/4732 success=2900 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2908/4732 success=2908 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2919/4732 success=2919 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2920/4732 success=2920 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2930/4732 success=2930 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2940/4732 success=2940 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2949/4732 success=2949 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2960/4732 success=2960 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2972/4732 success=2972 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2980/4732 success=2980 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2991/4732 success=2991 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=2999/4732 success=2999 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3000/4732 success=3000 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3008/4732 success=3008 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3017/4732 success=3017 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3020/4732 success=3020 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3031/4732 success=3031 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3039/4732 success=3039 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3040/4732 success=3040 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3053/4732 success=3053 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3060/4732 success=3060 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3070/4732 success=3070 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3076/4732 success=3076 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3080/4732 success=3080 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3088/4732 success=3088 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3096/4732 success=3096 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3100/4732 success=3100 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3107/4732 success=3107 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3115/4732 success=3115 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3120/4732 success=3120 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3134/4732 success=3134 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3140/4732 success=3140 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3152/4732 success=3152 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3160/4732 success=3160 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3167/4732 success=3167 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3176/4732 success=3176 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3180/4732 success=3180 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3189/4732 success=3189 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3198/4732 success=3198 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3200/4732 success=3200 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3209/4732 success=3209 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3217/4732 success=3217 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3220/4732 success=3220 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3225/4732 success=3225 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3237/4732 success=3237 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3240/4732 success=3240 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3245/4732 success=3245 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3252/4732 success=3252 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3259/4732 success=3259 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3260/4732 success=3260 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3268/4732 success=3268 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3279/4732 success=3279 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3280/4732 success=3280 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3287/4732 success=3287 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3297/4732 success=3297 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3300/4732 success=3300 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3307/4732 success=3307 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3316/4732 success=3316 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3320/4732 success=3320 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3333/4732 success=3333 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3340/4732 success=3340 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3350/4732 success=3350 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3358/4732 success=3358 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3360/4732 success=3360 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3367/4732 success=3367 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3375/4732 success=3375 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3380/4732 success=3380 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3395/4732 success=3395 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3400/4732 success=3400 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3408/4732 success=3408 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3420/4732 success=3420 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3427/4732 success=3427 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3437/4732 success=3437 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3440/4732 success=3440 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3446/4732 success=3446 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3453/4732 success=3453 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3460/4732 success=3460 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3475/4732 success=3475 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3480/4732 success=3480 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3484/4732 success=3484 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3492/4732 success=3492 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3500/4732 success=3500 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3506/4732 success=3506 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3511/4732 success=3511 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3519/4732 success=3519 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3520/4732 success=3520 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3535/4732 success=3535 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3540/4732 success=3540 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3551/4732 success=3551 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3560/4732 success=3560 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3570/4732 success=3570 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3576/4732 success=3576 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3580/4732 success=3580 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3588/4732 success=3588 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3598/4732 success=3598 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3600/4732 success=3600 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3605/4732 success=3605 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3613/4732 success=3613 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3620/4732 success=3620 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3631/4732 success=3631 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3640/4732 success=3640 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3645/4732 success=3645 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3652/4732 success=3652 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3659/4732 success=3659 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3660/4732 success=3660 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3667/4732 success=3667 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3675/4732 success=3675 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3680/4732 success=3680 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3690/4732 success=3690 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3700/4732 success=3700 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3706/4732 success=3706 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3712/4732 success=3712 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3719/4732 success=3719 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3720/4732 success=3720 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3727/4732 success=3727 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3738/4732 success=3738 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3740/4732 success=3740 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3749/4732 success=3749 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3760/4732 success=3760 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3768/4732 success=3768 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3777/4732 success=3777 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3780/4732 success=3780 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3795/4732 success=3795 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3800/4732 success=3800 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3810/4732 success=3810 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3819/4732 success=3819 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3820/4732 success=3820 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3837/4732 success=3837 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3840/4732 success=3840 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3845/4732 success=3845 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3857/4732 success=3857 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3860/4732 success=3860 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3869/4732 success=3869 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3880/4732 success=3880 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3889/4732 success=3889 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3895/4732 success=3895 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3900/4732 success=3900 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3911/4732 success=3911 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3920/4732 success=3920 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3935/4732 success=3935 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3940/4732 success=3940 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3951/4732 success=3951 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3960/4732 success=3960 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3971/4732 success=3971 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3980/4732 success=3980 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=3991/4732 success=3991 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4000/4732 success=4000 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4011/4732 success=4011 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4020/4732 success=4020 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4031/4732 success=4031 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4040/4732 success=4040 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4049/4732 success=4049 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4060/4732 success=4060 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4068/4732 success=4068 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4078/4732 success=4078 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4080/4732 success=4080 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4089/4732 success=4089 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4098/4732 success=4098 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4100/4732 success=4100 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4107/4732 success=4107 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4120/4732 success=4120 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4131/4732 success=4131 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4140/4732 success=4140 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4148/4732 success=4148 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4160/4732 success=4160 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4172/4732 success=4172 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4180/4732 success=4180 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4186/4732 success=4186 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4193/4732 success=4193 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4200/4732 success=4200 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4215/4732 success=4215 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4220/4732 success=4220 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4229/4732 success=4229 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4239/4732 success=4239 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4240/4732 success=4240 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4248/4732 success=4248 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4260/4732 success=4260 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4271/4732 success=4271 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4279/4732 success=4279 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4280/4732 success=4280 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4289/4732 success=4289 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4300/4732 success=4300 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4306/4732 success=4306 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4314/4732 success=4314 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4320/4732 success=4320 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4329/4732 success=4329 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4339/4732 success=4339 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4340/4732 success=4340 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4347/4732 success=4347 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4358/4732 success=4358 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4360/4732 success=4360 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4369/4732 success=4369 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4377/4732 success=4377 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4380/4732 success=4380 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4388/4732 success=4388 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4400/4732 success=4400 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4411/4732 success=4411 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4419/4732 success=4419 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4420/4732 success=4420 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4428/4732 success=4428 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4435/4732 success=4435 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4440/4732 success=4440 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4449/4732 success=4449 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4460/4732 success=4460 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4465/4732 success=4465 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4475/4732 success=4475 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4480/4732 success=4480 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4486/4732 success=4486 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4494/4732 success=4494 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4500/4732 success=4500 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4515/4732 success=4515 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4520/4732 success=4520 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4529/4732 success=4529 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4539/4732 success=4539 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4540/4732 success=4540 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4547/4732 success=4547 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4556/4732 success=4556 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4560/4732 success=4560 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4567/4732 success=4567 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4580/4732 success=4580 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4586/4732 success=4586 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4592/4732 success=4592 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4598/4732 success=4598 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4600/4732 success=4600 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4605/4732 success=4605 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4613/4732 success=4613 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4620/4732 success=4620 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4629/4732 success=4629 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4637/4732 success=4637 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4640/4732 success=4640 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4649/4732 success=4649 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4659/4732 success=4659 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4660/4732 success=4660 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4668/4732 success=4668 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4679/4732 success=4679 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4680/4732 success=4680 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4689/4732 success=4689 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4700/4732 success=4700 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4705/4732 success=4705 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4717/4732 success=4717 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4720/4732 success=4720 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] processed=4732/4732 success=4732 skip=1202 fail=0 rate=0.30/s
+[convert_sdrpv] done. output=outputs/datasets/sdrpv_dataset_v3_parallel.jsonl
+[convert_sdrpv] stats=outputs/datasets/sdrpv_dataset_v3_parallel.jsonl.stats.json
+[convert_sdrpv] success=4732, skip=1202, fail=0, success_rate=0.7974
