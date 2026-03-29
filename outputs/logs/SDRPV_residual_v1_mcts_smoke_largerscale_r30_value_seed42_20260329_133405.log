@@ -1,0 +1,71 @@
+nohup: ignoring input
+[progress][group-start] 1/1 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct
+swipl: /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/../../../libtinfo.so.6: no version information available (required by /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/libswipl.so.10)
+/home/yuancheng/workspace/GGP/graduation_thesis/src/nn/inference.py:43: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(model_path, map_location=device)
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=1/30 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=6.80
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=2/30 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=5.31
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=3/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.87
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=4/30 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=7.00
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=5/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.80
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=6/30 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.49
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=7/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.79
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=8/30 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=10.96
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=9/30 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=10.37
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=10/30 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.52
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=11/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.85
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=12/30 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=8.01
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=13/30 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=9.71
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=14/30 winner=a score_a=100.0 score_b=0.0 ply=12 elapsed_sec=6.56
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=15/30 winner=b score_a=0.0 score_b=100.0 ply=24 elapsed_sec=12.68
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=16/30 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.59
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=17/30 winner=b score_a=0.0 score_b=100.0 ply=12 elapsed_sec=6.40
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=18/30 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.67
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=19/30 winner=b score_a=0.0 score_b=100.0 ply=26 elapsed_sec=13.53
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=20/30 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=5.26
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=21/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.96
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=22/30 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.43
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=23/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.84
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=24/30 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=5.54
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=25/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=4.00
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=26/30 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=12.03
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=27/30 winner=a score_a=100.0 score_b=0.0 ply=25 elapsed_sec=13.33
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=28/30 winner=b score_a=0.0 score_b=100.0 ply=25 elapsed_sec=13.31
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=29/30 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=8.09
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=30/30 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.02
+[progress][group-done] 1/1 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct n_matches=30 win_rate_a=0.700 draw_rate=0.000 elapsed_sec=232.71
+[progress][group-start] 1/1 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=1/30 winner=b score_a=0.0 score_b=100.0 ply=12 elapsed_sec=6.66
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=2/30 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.90
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=3/30 winner=a score_a=100.0 score_b=0.0 ply=25 elapsed_sec=13.26
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=4/30 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.38
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=5/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.63
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=6/30 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=8.16
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=7/30 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=10.15
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=8/30 winner=a score_a=100.0 score_b=0.0 ply=12 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=9/30 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=10.13
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=10/30 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.89
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=11/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.75
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=12/30 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=12.91
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=13/30 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=10.30
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=14/30 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.05
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=15/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.84
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=16/30 winner=a score_a=100.0 score_b=0.0 ply=28 elapsed_sec=14.91
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=17/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.95
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=18/30 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=8.16
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=19/30 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.82
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=20/30 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=5.31
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=21/30 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.72
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=22/30 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.18
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=23/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.85
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=24/30 winner=b score_a=0.0 score_b=100.0 ply=25 elapsed_sec=13.05
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=25/30 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.99
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=26/30 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=12.30
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=27/30 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.76
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=28/30 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=5.46
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=29/30 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=9.50
+[progress][match] game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct round=30/30 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.27
+[progress][group-done] 1/1 game=connectFour pair=neural_mcts:token_transformer__vs__pure_mct n_matches=30 win_rate_a=0.567 draw_rate=0.000 elapsed_sec=239.50
+[residual_v1_mcts_smoke] done. output=outputs/experiments/SDRPV_residual_v1_mcts_smoke_largerscale_r30_value_seed42_20260329_133405
