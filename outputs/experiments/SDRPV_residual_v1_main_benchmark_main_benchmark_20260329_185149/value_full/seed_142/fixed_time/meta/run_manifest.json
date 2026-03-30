@@ -1,0 +1,8 @@
+{
+  "experiment": "SDRPV_residual_v1_main_benchmark_fixed_time",
+  "root": "outputs/experiments/SDRPV_residual_v1_main_benchmark_main_benchmark_20260329_185149/value_full/seed_142/fixed_time",
+  "args": {
+    "time_budget": 0.5,
+    "iterations_cap": 120
+  }
+}

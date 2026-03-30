@@ -1,0 +1,42 @@
+[
+  {
+    "config_tag": "value_full",
+    "games_count": 3,
+    "seeds_count": 3,
+    "rounds": 50,
+    "fixed_sims_win_rate_mean": 0.5066666666666666,
+    "fixed_sims_n_matches": 450,
+    "fixed_time_win_rate_mean": 0.5333333333333334,
+    "fixed_time_n_matches": 450,
+    "fixed_sims_avg_decision_sec_a_mean": 0.239170970711446,
+    "fixed_time_avg_decision_sec_a_mean": 0.23762404383721775,
+    "fixed_sims_avg_eval_calls_neural_a_mean": 0.0,
+    "fixed_time_avg_eval_calls_neural_a_mean": 0.0,
+    "fixed_sims_avg_eval_calls_fallback_a_mean": 0.0,
+    "fixed_time_avg_eval_calls_fallback_a_mean": 0.0,
+    "override": {
+      "evaluator_mode": "value"
+    }
+  },
+  {
+    "config_tag": "sel_cap20",
+    "games_count": 3,
+    "seeds_count": 3,
+    "rounds": 50,
+    "fixed_sims_win_rate_mean": 0.3866666666666667,
+    "fixed_sims_n_matches": 450,
+    "fixed_time_win_rate_mean": 0.42000000000000004,
+    "fixed_time_n_matches": 450,
+    "fixed_sims_avg_decision_sec_a_mean": 0.25603913827036723,
+    "fixed_time_avg_decision_sec_a_mean": 0.2576400739061346,
+    "fixed_sims_avg_eval_calls_neural_a_mean": 5.99166915780382,
+    "fixed_time_avg_eval_calls_neural_a_mean": 6.073795823110542,
+    "fixed_sims_avg_eval_calls_fallback_a_mean": 0.0010449735449735448,
+    "fixed_time_avg_eval_calls_fallback_a_mean": 0.0013414254590725179,
+    "override": {
+      "evaluator_mode": "selective",
+      "selective_max_neural_evals_per_move": 20,
+      "selective_alpha": 1.0
+    }
+  }
+]
