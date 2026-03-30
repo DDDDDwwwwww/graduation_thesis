@@ -666,9 +666,7 @@ for each leaf node s in MCTS:
 
 1. 纯 UCT / pure MCTS baseline
 2. 原始 value-only baseline
-3. 你的 Fast-Slow 方案（可作为负结果对照）
-4. 你的 Token Transformer fusion 方案（可作为负结果对照）
-5. 本文最终方案 SDRPV-Net
+3. 本文最终方案 SDRPV-Net
 
 ### 比较设置
 
