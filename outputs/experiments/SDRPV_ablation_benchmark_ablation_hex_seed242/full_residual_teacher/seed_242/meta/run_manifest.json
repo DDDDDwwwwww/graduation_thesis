@@ -1,8 +1,0 @@
-{
-  "experiment": "SDRPV_ablation_benchmark_seed",
-  "root": "outputs/experiments/SDRPV_ablation_benchmark_ablation_hex_seed242/full_residual_teacher/seed_242",
-  "args": {
-    "seed": 242,
-    "config_tag": "full_residual_teacher"
-  }
-}

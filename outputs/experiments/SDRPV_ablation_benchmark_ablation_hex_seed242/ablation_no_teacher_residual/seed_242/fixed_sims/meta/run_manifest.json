@@ -1,8 +1,0 @@
-{
-  "experiment": "SDRPV_ablation_benchmark_fixed_sims",
-  "root": "outputs/experiments/SDRPV_ablation_benchmark_ablation_hex_seed242/ablation_no_teacher_residual/seed_242/fixed_sims",
-  "args": {
-    "fixed_sims": 120,
-    "playclock": 0.5
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "experiment": "SDRPV_ablation_benchmark_fixed_time",
-  "root": "outputs/experiments/SDRPV_ablation_benchmark_ablation_hex_seed242/ablation_no_residual_teacher/seed_242/fixed_time",
-  "args": {
-    "time_budget": 0.5,
-    "iterations_cap": 120
-  }
-}
