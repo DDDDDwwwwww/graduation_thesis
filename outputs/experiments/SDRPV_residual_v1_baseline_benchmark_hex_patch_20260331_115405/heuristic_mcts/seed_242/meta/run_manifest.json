@@ -1,0 +1,8 @@
+{
+  "experiment": "SDRPV_residual_v1_baseline_benchmark_seed",
+  "root": "outputs/experiments/SDRPV_residual_v1_baseline_benchmark_hex_patch_20260331_115405/heuristic_mcts/seed_242",
+  "args": {
+    "seed": 242,
+    "opponent_tag": "heuristic_mcts"
+  }
+}

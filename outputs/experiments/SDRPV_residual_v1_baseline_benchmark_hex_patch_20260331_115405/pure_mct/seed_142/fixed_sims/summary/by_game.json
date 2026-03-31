@@ -1,0 +1,29 @@
+[
+  {
+    "game": "hex",
+    "agent_a_key": "neural_mcts:sdrpv_value_full",
+    "agent_b_key": "pure_mct",
+    "n_matches": 50,
+    "wins_a": 30,
+    "losses_a": 20,
+    "draws": 0,
+    "win_rate_a": 0.6,
+    "draw_rate": 0.0,
+    "avg_score_a": 60.0,
+    "avg_score_b": 40.0,
+    "avg_game_length": 18.82,
+    "avg_decision_sec_a": 0.26289944697265255,
+    "avg_decision_sec_b": 0.37892172010769487,
+    "avg_eval_calls_total_a": 0.0,
+    "avg_eval_calls_total_b": 0.0,
+    "avg_eval_calls_neural_a": 0.0,
+    "avg_eval_calls_neural_b": 0.0,
+    "avg_eval_calls_fallback_a": 0.0,
+    "avg_eval_calls_fallback_b": 0.0,
+    "avg_eval_calls_mixed_a": 0.0,
+    "avg_eval_calls_mixed_b": 0.0,
+    "legal_cache_hit_rate": 0.5757288252544419,
+    "next_cache_hit_rate": 0.04642680659811281,
+    "cache_enabled": true
+  }
+]

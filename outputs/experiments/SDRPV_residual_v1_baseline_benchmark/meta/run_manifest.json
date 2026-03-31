@@ -8,7 +8,8 @@
     "games": [
       "games/ticTacToe.kif",
       "games/connectFour.kif",
-      "games/breakthrough.kif"
+      "games/breakthrough.kif",
+      "games/hex.kif"
     ],
     "rounds": 50,
     "seeds": "42,142,242",

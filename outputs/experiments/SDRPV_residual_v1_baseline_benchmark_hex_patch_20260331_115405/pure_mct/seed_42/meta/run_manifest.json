@@ -1,0 +1,8 @@
+{
+  "experiment": "SDRPV_residual_v1_baseline_benchmark_seed",
+  "root": "outputs/experiments/SDRPV_residual_v1_baseline_benchmark_hex_patch_20260331_115405/pure_mct/seed_42",
+  "args": {
+    "seed": 42,
+    "opponent_tag": "pure_mct"
+  }
+}
