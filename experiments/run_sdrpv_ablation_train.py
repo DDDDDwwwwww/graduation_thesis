@@ -106,6 +106,7 @@ def main() -> None:
     parser.add_argument("--max-positions", type=int, default=4096)
     parser.add_argument("--disable-global-features", action="store_true")
     parser.add_argument("--max-samples", type=int, default=None)
+    parser.add_argument("--device", default="cpu")
     parser.add_argument("--python-bin", default=sys.executable)
     parser.add_argument("--out-dir", default="outputs/experiments/SDRPV_ablation_train")
     args = parser.parse_args()

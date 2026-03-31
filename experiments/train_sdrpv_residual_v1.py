@@ -258,6 +258,7 @@ def evaluate_residual_offline(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train residual_v1 model from SDRPV JSONL.")
     parser.add_argument("--dataset", required=True, help="Input SDRPV JSONL path.")
+    parser.add_argument("--target-field", choices=["q_t", "z"], default="q_t")
     parser.add_argument("--game", default=None, help="Optional game_name filter")
     parser.add_argument("--encoder", choices=["fact_vector", "board_token"], default="board_token")
     parser.add_argument("--model", choices=["mlp", "transformer"], default="transformer")

@@ -1,0 +1,12 @@
+[
+  {
+    "config_tag": "ablation_no_residual_teacher",
+    "delta_fixed_sims_vs_full": 0.026666666666666616,
+    "delta_fixed_time_vs_full": 0.05999999999999983
+  },
+  {
+    "config_tag": "ablation_no_teacher_residual",
+    "delta_fixed_sims_vs_full": 0.08666666666666656,
+    "delta_fixed_time_vs_full": 0.026666666666666616
+  }
+]
