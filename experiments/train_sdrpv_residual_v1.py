@@ -3,11 +3,13 @@ from __future__ import annotations
 """Residual-v1 training entry for SDRPV datasets.
 
 This script trains a value model to predict clipped residual targets:
-  delta = clip(q_t - b, -1, 1)
+  delta = clip(target - b, -1, 1)
+where ``target`` is ``q_t`` by default and can optionally be ``z`` for
+ablation runs.
 
-Offline validation reports:
-  - corr(v_hat, q_t) / rank correlation
-  - MAE(v_hat, q_t) vs MAE(b, q_t)
+Offline validation reports compare:
+  - corr(v_hat, target) / rank correlation
+  - MAE(v_hat, target) vs MAE(b, target)
 where v_hat = clip(b + delta_hat, -1, 1).
 """
 
@@ -75,6 +77,7 @@ def _split_dataset(samples: list[dict], train_ratio=0.8, val_ratio=0.1, seed=42)
 
 def convert_sdrpv_to_residual_samples(
     rows: list[dict],
+    target_field: str = "q_t",
     game_filter: str | None = None,
 ) -> tuple[list[dict], dict]:
     samples: list[dict] = []
@@ -84,9 +87,10 @@ def convert_sdrpv_to_residual_samples(
         "skipped": 0,
         "missing_s": 0,
         "missing_b": 0,
-        "missing_q_t": 0,
+        "missing_target": 0,
         "game_filtered": 0,
         "residual_clipped_count": 0,
+        "target_field": target_field,
     }
     for row in rows:
         if game_filter and str(row.get("game_name", "")) != str(game_filter):
@@ -104,8 +108,8 @@ def convert_sdrpv_to_residual_samples(
             stats["missing_b"] += 1
             stats["skipped"] += 1
             continue
-        if "q_t" not in row:
-            stats["missing_q_t"] += 1
+        if target_field not in row:
+            stats["missing_target"] += 1
             stats["skipped"] += 1
             continue
 
@@ -117,8 +121,8 @@ def convert_sdrpv_to_residual_samples(
             continue
 
         b = clip_unit(float(row["b"]))
-        q_t = clip_unit(float(row["q_t"]))
-        residual_raw = q_t - b
+        target_value = clip_unit(float(row[target_field]))
+        residual_raw = target_value - b
         residual_target = clip_unit(residual_raw)
         if abs(residual_raw - residual_target) > 1e-12:
             stats["residual_clipped_count"] += 1
@@ -130,7 +134,8 @@ def convert_sdrpv_to_residual_samples(
             "terminal": bool(s.get("terminal", False)),
             "value_target": float(residual_target),
             "baseline_b": float(b),
-            "teacher_q_t": float(q_t),
+            "supervision_target": float(target_value),
+            "target_field": str(target_field),
             "game_name": row.get("game_name"),
             "match_id": row.get("match_id"),
             "source_agent": row.get("source_agent"),
@@ -189,21 +194,35 @@ def evaluate_residual_offline(
     model,
     encoder,
     device: str,
+    target_field: str,
 ) -> dict:
     if not samples:
-        return {
+        out = {
             "count": 0,
-            "corr_vhat_qt": 0.0,
-            "rank_corr_vhat_qt": 0.0,
-            "mae_vhat_qt": 0.0,
-            "mae_b_qt": 0.0,
+            "target_field": target_field,
+            "corr_vhat_target": 0.0,
+            "rank_corr_vhat_target": 0.0,
+            "mae_vhat_target": 0.0,
+            "mae_b_target": 0.0,
             "mae_gain_over_b": 0.0,
             "mae_gain_ratio_over_b": 0.0,
-            "corr_b_qt": 0.0,
-            "rank_corr_b_qt": 0.0,
+            "corr_b_target": 0.0,
+            "rank_corr_b_target": 0.0,
         }
+        if target_field == "q_t":
+            out.update(
+                {
+                    "corr_vhat_qt": 0.0,
+                    "rank_corr_vhat_qt": 0.0,
+                    "mae_vhat_qt": 0.0,
+                    "mae_b_qt": 0.0,
+                    "corr_b_qt": 0.0,
+                    "rank_corr_b_qt": 0.0,
+                }
+            )
+        return out
 
-    q_ts: list[float] = []
+    targets: list[float] = []
     bs: list[float] = []
     v_hats: list[float] = []
     with torch.no_grad():
@@ -229,30 +248,43 @@ def evaluate_residual_offline(
                 )
             delta_hat = float(predict_value(model, x, device=device))
             b = float(s["baseline_b"])
-            q_t = float(s["teacher_q_t"])
+            target_value = float(s["supervision_target"])
             v_hat = clip_unit(b + delta_hat)
             bs.append(b)
-            q_ts.append(q_t)
+            targets.append(target_value)
             v_hats.append(v_hat)
 
-    arr_q = np.asarray(q_ts, dtype=np.float64)
+    arr_target = np.asarray(targets, dtype=np.float64)
     arr_b = np.asarray(bs, dtype=np.float64)
     arr_v = np.asarray(v_hats, dtype=np.float64)
-    mae_vhat_qt = float(np.mean(np.abs(arr_v - arr_q)))
-    mae_b_qt = float(np.mean(np.abs(arr_b - arr_q)))
-    mae_gain = mae_b_qt - mae_vhat_qt
-    mae_gain_ratio = 0.0 if mae_b_qt <= 1e-12 else mae_gain / mae_b_qt
-    return {
-        "count": int(arr_q.size),
-        "corr_vhat_qt": _pearson_corr(arr_v, arr_q),
-        "rank_corr_vhat_qt": _spearman_corr(arr_v, arr_q),
-        "mae_vhat_qt": mae_vhat_qt,
-        "mae_b_qt": mae_b_qt,
+    mae_vhat_target = float(np.mean(np.abs(arr_v - arr_target)))
+    mae_b_target = float(np.mean(np.abs(arr_b - arr_target)))
+    mae_gain = mae_b_target - mae_vhat_target
+    mae_gain_ratio = 0.0 if mae_b_target <= 1e-12 else mae_gain / mae_b_target
+    out = {
+        "count": int(arr_target.size),
+        "target_field": target_field,
+        "corr_vhat_target": _pearson_corr(arr_v, arr_target),
+        "rank_corr_vhat_target": _spearman_corr(arr_v, arr_target),
+        "mae_vhat_target": mae_vhat_target,
+        "mae_b_target": mae_b_target,
         "mae_gain_over_b": mae_gain,
         "mae_gain_ratio_over_b": float(mae_gain_ratio),
-        "corr_b_qt": _pearson_corr(arr_b, arr_q),
-        "rank_corr_b_qt": _spearman_corr(arr_b, arr_q),
+        "corr_b_target": _pearson_corr(arr_b, arr_target),
+        "rank_corr_b_target": _spearman_corr(arr_b, arr_target),
     }
+    if target_field == "q_t":
+        out.update(
+            {
+                "corr_vhat_qt": out["corr_vhat_target"],
+                "rank_corr_vhat_qt": out["rank_corr_vhat_target"],
+                "mae_vhat_qt": out["mae_vhat_target"],
+                "mae_b_qt": out["mae_b_target"],
+                "corr_b_qt": out["corr_b_target"],
+                "rank_corr_b_qt": out["rank_corr_b_target"],
+            }
+        )
+    return out
 
 
 def main() -> None:
@@ -297,6 +329,7 @@ def main() -> None:
 
     samples, convert_stats = convert_sdrpv_to_residual_samples(
         rows=rows,
+        target_field=args.target_field,
         game_filter=args.game,
     )
     if not samples:
@@ -368,10 +401,34 @@ def main() -> None:
         vocab.save(output_dir / "vocab.json")
 
     offline_metrics = {
-        "all": evaluate_residual_offline(samples=samples, model=model, encoder=encoder, device=args.device),
-        "train": evaluate_residual_offline(samples=train_samples, model=model, encoder=encoder, device=args.device),
-        "val": evaluate_residual_offline(samples=val_samples, model=model, encoder=encoder, device=args.device),
-        "test": evaluate_residual_offline(samples=test_samples, model=model, encoder=encoder, device=args.device),
+        "all": evaluate_residual_offline(
+            samples=samples,
+            model=model,
+            encoder=encoder,
+            device=args.device,
+            target_field=args.target_field,
+        ),
+        "train": evaluate_residual_offline(
+            samples=train_samples,
+            model=model,
+            encoder=encoder,
+            device=args.device,
+            target_field=args.target_field,
+        ),
+        "val": evaluate_residual_offline(
+            samples=val_samples,
+            model=model,
+            encoder=encoder,
+            device=args.device,
+            target_field=args.target_field,
+        ),
+        "test": evaluate_residual_offline(
+            samples=test_samples,
+            model=model,
+            encoder=encoder,
+            device=args.device,
+            target_field=args.target_field,
+        ),
     }
     (output_dir / "offline_metrics.json").write_text(
         json.dumps(offline_metrics, ensure_ascii=False, indent=2),
@@ -381,6 +438,7 @@ def main() -> None:
     config = {
         "mode": "residual_v1",
         "source_dataset": args.dataset,
+        "target_field": args.target_field,
         "game_filter": args.game,
         "encoder": args.encoder,
         "model": args.model,
@@ -417,10 +475,11 @@ def main() -> None:
     print(
         "[train_sdrpv_residual_v1] "
         f"samples={len(samples)}, test_loss_delta={metrics['test_loss']:.6f}, "
-        f"test_corr_vhat_qt={offline_metrics['test']['corr_vhat_qt']:.4f}, "
-        f"test_rank_corr_vhat_qt={offline_metrics['test']['rank_corr_vhat_qt']:.4f}, "
-        f"test_mae_vhat_qt={offline_metrics['test']['mae_vhat_qt']:.6f}, "
-        f"test_mae_b_qt={offline_metrics['test']['mae_b_qt']:.6f}"
+        f"target_field={args.target_field}, "
+        f"test_corr_vhat_target={offline_metrics['test']['corr_vhat_target']:.4f}, "
+        f"test_rank_corr_vhat_target={offline_metrics['test']['rank_corr_vhat_target']:.4f}, "
+        f"test_mae_vhat_target={offline_metrics['test']['mae_vhat_target']:.6f}, "
+        f"test_mae_b_target={offline_metrics['test']['mae_b_target']:.6f}"
     )
 
 
