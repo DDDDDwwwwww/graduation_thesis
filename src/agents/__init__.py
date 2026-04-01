@@ -10,9 +10,7 @@ from .pure_mct_agent import PureMCTAgent
 
 __all__ = [
     "BaseAgent",
-    "RandomAgent",
     "PureMCTAgent",
     "HeuristicMCTSAgent",
-    "ValueGreedyAgent",
     "NeuralValueMCTSAgent",
 ]

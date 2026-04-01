@@ -10,7 +10,6 @@ import torch
 
 from encoding.board_token_encoder import BoardTokenEncoder
 from encoding.board_token_mlp_encoder import BoardTokenMLPEncoder
-from encoding.fact_vector_encoder import FactVectorEncoder
 from encoding.vocab import FactVocabulary
 
 from .value_net import MLPValueNet, TransformerValueNet
@@ -56,9 +55,9 @@ def load_value_artifacts(model_path, vocab_path=None, encoder_config_path=None, 
                 raise ValueError("vocab_path is required for fact_vector + mlp model.")
             vocab = FactVocabulary.load(vocab_path)
             if encoder_config_path is not None and Path(encoder_config_path).exists():
-                encoder = FactVectorEncoder.load(encoder_config_path, vocab=vocab)
+                encoder = BoardTokenMLPEncoder.load(encoder_config_path, vocab=vocab)
             else:
-                encoder = FactVectorEncoder(vocab=vocab, roles=[], include_role=False, include_turn_features=False)
+                encoder = BoardTokenMLPEncoder(vocab=vocab, roles=[], include_role=False, include_turn_features=False)
             extra = vocab
 
         model = MLPValueNet(

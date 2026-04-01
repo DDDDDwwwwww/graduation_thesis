@@ -15,7 +15,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 
-NEURAL_KEYS = ("fact_mlp", "token_mlp", "token_transformer")
+NEURAL_KEYS = ("token_transformer")
 
 
 def _runtime_imports():
@@ -104,7 +104,7 @@ def init_output_layout(
 def default_games(multi: bool = True) -> list[str]:
     if multi:
         return [
-            "games/ticTacToe.kif",
+            "games/hex.kif",
             "games/connectFour.kif",
             "games/breakthrough.kif",
         ]

@@ -19,7 +19,6 @@ if str(SRC) not in sys.path:
 
 from encoding.board_token_encoder import BoardTokenEncoder
 from encoding.board_token_mlp_encoder import BoardTokenMLPEncoder
-from encoding.fact_vector_encoder import FactVectorEncoder
 from encoding.vocab import FactVocabulary
 from nn.dataset import ValueDataset
 from nn.trainer import train_value_model
@@ -73,12 +72,6 @@ def main() -> None:
         if args.model != "mlp":
             raise ValueError("encoder=fact_vector only supports model=mlp")
         vocab = FactVocabulary.fit((s["state_facts"] for s in samples))
-        encoder = FactVectorEncoder(
-            vocab=vocab,
-            roles=roles,
-            include_role=True,
-            include_turn_features=True,
-        )
     else:
         if args.model == "transformer":
             encoder = BoardTokenEncoder(
