@@ -1,0 +1,1100 @@
+nohup: ignoring input
+[ABLATION_ALL] start Wed Apr  1 11:20:17 AM CST 2026
+[ABLATION_ALL] run_tag=ablation_hex_seed242
+[ABLATION_ALL] dataset=outputs/datasets/sdrpv_dataset_v3_parallel.jsonl
+[ABLATION_ALL] device=cuda
+[ABLATION_ALL] train_seed=242
+[ABLATION_ALL] benchmark_seeds=242
+[ABLATION_ALL] rounds=50
+[ABLATION_ALL] games=games/hex.kif games/connectFour.kif games/breakthrough.kif
+[ABLATION_ALL] train_out_dir=outputs/experiments/SDRPV_ablation_train_ablation_hex_seed242
+[ABLATION_ALL] bench_out_dir=outputs/experiments/SDRPV_ablation_benchmark_ablation_hex_seed242
+[ABLATION_ALL] log_file=outputs/logs/SDRPV_ablation_all_ablation_hex_seed242.log
+[ABLATION_ALL] stage=train begin Wed Apr  1 11:20:17 AM CST 2026
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[train_value_model] epoch=1/20 train_loss=0.034994 val_loss=0.029051 val_sign_acc=0.5285
+[train_value_model] new_best epoch=1 val_loss=0.029051
+[train_value_model] epoch=2/20 train_loss=0.026997 val_loss=0.028205 val_sign_acc=0.4947
+[train_value_model] new_best epoch=2 val_loss=0.028205
+[train_value_model] epoch=3/20 train_loss=0.026730 val_loss=0.028078 val_sign_acc=0.5137
+[train_value_model] new_best epoch=3 val_loss=0.028078
+[train_value_model] epoch=4/20 train_loss=0.026950 val_loss=0.028413 val_sign_acc=0.5476
+[train_value_model] epoch=5/20 train_loss=0.026774 val_loss=0.027788 val_sign_acc=0.5137
+[train_value_model] new_best epoch=5 val_loss=0.027788
+[train_value_model] epoch=6/20 train_loss=0.026570 val_loss=0.029120 val_sign_acc=0.4715
+[train_value_model] epoch=7/20 train_loss=0.027120 val_loss=0.028595 val_sign_acc=0.5285
+[train_value_model] epoch=8/20 train_loss=0.026203 val_loss=0.027029 val_sign_acc=0.6195
+[train_value_model] new_best epoch=8 val_loss=0.027029
+[train_value_model] epoch=9/20 train_loss=0.025666 val_loss=0.027454 val_sign_acc=0.5518
+[train_value_model] epoch=10/20 train_loss=0.025534 val_loss=0.025849 val_sign_acc=0.6089
+[train_value_model] new_best epoch=10 val_loss=0.025849
+[train_value_model] epoch=11/20 train_loss=0.025139 val_loss=0.026774 val_sign_acc=0.5708
+[train_value_model] epoch=12/20 train_loss=0.025050 val_loss=0.026140 val_sign_acc=0.5539
+[train_value_model] epoch=13/20 train_loss=0.024823 val_loss=0.025710 val_sign_acc=0.6364
+[train_value_model] new_best epoch=13 val_loss=0.025710
+[train_value_model] epoch=14/20 train_loss=0.024346 val_loss=0.025697 val_sign_acc=0.5814
+[train_value_model] new_best epoch=14 val_loss=0.025697
+[train_value_model] epoch=15/20 train_loss=0.024353 val_loss=0.024917 val_sign_acc=0.6342
+[train_value_model] new_best epoch=15 val_loss=0.024917
+[train_value_model] epoch=16/20 train_loss=0.024479 val_loss=0.024992 val_sign_acc=0.6089
+[train_value_model] epoch=17/20 train_loss=0.024077 val_loss=0.025336 val_sign_acc=0.6152
+[train_value_model] epoch=18/20 train_loss=0.023743 val_loss=0.024658 val_sign_acc=0.6131
+[train_value_model] new_best epoch=18 val_loss=0.024658
+[train_value_model] epoch=19/20 train_loss=0.023949 val_loss=0.025740 val_sign_acc=0.6110
+[train_value_model] epoch=20/20 train_loss=0.023690 val_loss=0.024878 val_sign_acc=0.6300
+[train_value_model] test_loss=0.025251 test_sign_acc=0.6055 n_train=3785 n_val=473 n_test=474
+[train_sdrpv_residual_v1] saved artifacts to outputs/experiments/SDRPV_ablation_train_ablation_hex_seed242/models/01_full_residual_teacher
+[train_sdrpv_residual_v1] samples=4732, test_loss_delta=0.025251, target_field=q_t, test_corr_vhat_target=0.8304, test_rank_corr_vhat_target=0.8253, test_mae_vhat_target=0.178840, test_mae_b_target=0.183608
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[train_value_model] epoch=1/20 train_loss=0.085392 val_loss=0.086517 val_sign_acc=0.5328
+[train_value_model] new_best epoch=1 val_loss=0.086517
+[train_value_model] epoch=2/20 train_loss=0.075085 val_loss=0.079834 val_sign_acc=0.6596
+[train_value_model] new_best epoch=2 val_loss=0.079834
+[train_value_model] epoch=3/20 train_loss=0.067171 val_loss=0.078177 val_sign_acc=0.6490
+[train_value_model] new_best epoch=3 val_loss=0.078177
+[train_value_model] epoch=4/20 train_loss=0.062223 val_loss=0.062145 val_sign_acc=0.7442
+[train_value_model] new_best epoch=4 val_loss=0.062145
+[train_value_model] epoch=5/20 train_loss=0.058013 val_loss=0.058641 val_sign_acc=0.7505
+[train_value_model] new_best epoch=5 val_loss=0.058641
+[train_value_model] epoch=6/20 train_loss=0.053874 val_loss=0.055932 val_sign_acc=0.7590
+[train_value_model] new_best epoch=6 val_loss=0.055932
+[train_value_model] epoch=7/20 train_loss=0.051639 val_loss=0.052148 val_sign_acc=0.7970
+[train_value_model] new_best epoch=7 val_loss=0.052148
+[train_value_model] epoch=8/20 train_loss=0.049457 val_loss=0.050320 val_sign_acc=0.7632
+[train_value_model] new_best epoch=8 val_loss=0.050320
+[train_value_model] epoch=9/20 train_loss=0.049782 val_loss=0.055442 val_sign_acc=0.7315
+[train_value_model] epoch=10/20 train_loss=0.047357 val_loss=0.053934 val_sign_acc=0.7252
+[train_value_model] epoch=11/20 train_loss=0.044408 val_loss=0.046989 val_sign_acc=0.8013
+[train_value_model] new_best epoch=11 val_loss=0.046989
+[train_value_model] epoch=12/20 train_loss=0.042621 val_loss=0.046747 val_sign_acc=0.8013
+[train_value_model] new_best epoch=12 val_loss=0.046747
+[train_value_model] epoch=13/20 train_loss=0.043775 val_loss=0.054051 val_sign_acc=0.7315
+[train_value_model] epoch=14/20 train_loss=0.042232 val_loss=0.048009 val_sign_acc=0.7844
+[train_value_model] epoch=15/20 train_loss=0.042326 val_loss=0.046865 val_sign_acc=0.7822
+[train_value_model] epoch=16/20 train_loss=0.038917 val_loss=0.045729 val_sign_acc=0.7653
+[train_value_model] new_best epoch=16 val_loss=0.045729
+[train_value_model] epoch=17/20 train_loss=0.039528 val_loss=0.043053 val_sign_acc=0.8034
+[train_value_model] new_best epoch=17 val_loss=0.043053
+[train_value_model] epoch=18/20 train_loss=0.037488 val_loss=0.041471 val_sign_acc=0.7970
+[train_value_model] new_best epoch=18 val_loss=0.041471
+[train_value_model] epoch=19/20 train_loss=0.035588 val_loss=0.040203 val_sign_acc=0.8309
+[train_value_model] new_best epoch=19 val_loss=0.040203
+[train_value_model] epoch=20/20 train_loss=0.037685 val_loss=0.040385 val_sign_acc=0.8245
+[train_value_model] test_loss=0.046432 test_sign_acc=0.7405 n_train=3785 n_val=473 n_test=474
+[train_sdrpv_teacher_only] saved artifacts to outputs/experiments/SDRPV_ablation_train_ablation_hex_seed242/models/02_ablation_no_residual_teacher
+[train_sdrpv_teacher_only] samples=4732, test_loss=0.046432, test_sign_acc=0.7405
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[train_value_model] epoch=1/20 train_loss=0.347018 val_loss=0.323096 val_sign_acc=0.5624
+[train_value_model] new_best epoch=1 val_loss=0.323096
+[train_value_model] epoch=2/20 train_loss=0.336531 val_loss=0.331545 val_sign_acc=0.5180
+[train_value_model] epoch=3/20 train_loss=0.334481 val_loss=0.325062 val_sign_acc=0.5433
+[train_value_model] epoch=4/20 train_loss=0.332220 val_loss=0.311527 val_sign_acc=0.6152
+[train_value_model] new_best epoch=4 val_loss=0.311527
+[train_value_model] epoch=5/20 train_loss=0.326559 val_loss=0.303695 val_sign_acc=0.6342
+[train_value_model] new_best epoch=5 val_loss=0.303695
+[train_value_model] epoch=6/20 train_loss=0.313473 val_loss=0.302781 val_sign_acc=0.6173
+[train_value_model] new_best epoch=6 val_loss=0.302781
+[train_value_model] epoch=7/20 train_loss=0.307434 val_loss=0.283466 val_sign_acc=0.6829
+[train_value_model] new_best epoch=7 val_loss=0.283466
+[train_value_model] epoch=8/20 train_loss=0.286306 val_loss=0.248389 val_sign_acc=0.7526
+[train_value_model] new_best epoch=8 val_loss=0.248389
+[train_value_model] epoch=9/20 train_loss=0.272479 val_loss=0.265405 val_sign_acc=0.7125
+[train_value_model] epoch=10/20 train_loss=0.268174 val_loss=0.255394 val_sign_acc=0.7294
+[train_value_model] epoch=11/20 train_loss=0.256950 val_loss=0.249962 val_sign_acc=0.7463
+[train_value_model] epoch=12/20 train_loss=0.246918 val_loss=0.244143 val_sign_acc=0.7632
+[train_value_model] new_best epoch=12 val_loss=0.244143
+[train_value_model] epoch=13/20 train_loss=0.248997 val_loss=0.270069 val_sign_acc=0.7104
+[train_value_model] epoch=14/20 train_loss=0.239203 val_loss=0.254853 val_sign_acc=0.7442
+[train_value_model] epoch=15/20 train_loss=0.236129 val_loss=0.241049 val_sign_acc=0.7696
+[train_value_model] new_best epoch=15 val_loss=0.241049
+[train_value_model] epoch=16/20 train_loss=0.229311 val_loss=0.233923 val_sign_acc=0.7611
+[train_value_model] new_best epoch=16 val_loss=0.233923
+[train_value_model] epoch=17/20 train_loss=0.232305 val_loss=0.215865 val_sign_acc=0.7970
+[train_value_model] new_best epoch=17 val_loss=0.215865
+[train_value_model] epoch=18/20 train_loss=0.227927 val_loss=0.209243 val_sign_acc=0.8013
+[train_value_model] new_best epoch=18 val_loss=0.209243
+[train_value_model] epoch=19/20 train_loss=0.215669 val_loss=0.200539 val_sign_acc=0.8076
+[train_value_model] new_best epoch=19 val_loss=0.200539
+[train_value_model] epoch=20/20 train_loss=0.216374 val_loss=0.218031 val_sign_acc=0.7759
+[train_value_model] test_loss=0.192941 test_sign_acc=0.8080 n_train=3785 n_val=473 n_test=474
+[train_sdrpv_residual_v1] saved artifacts to outputs/experiments/SDRPV_ablation_train_ablation_hex_seed242/models/03_ablation_no_teacher_residual
+[train_sdrpv_residual_v1] samples=4732, test_loss_delta=0.192941, target_field=z, test_corr_vhat_target=0.6707, test_rank_corr_vhat_target=0.6622, test_mae_vhat_target=0.549567, test_mae_b_target=0.875163
+[sdrpv_ablation_train] done. output=outputs/experiments/SDRPV_ablation_train_ablation_hex_seed242
+[ABLATION_ALL] stage=train done Wed Apr  1 11:21:52 AM CST 2026
+[ABLATION_ALL] stage=benchmark begin Wed Apr  1 11:21:52 AM CST 2026
+[ablation_benchmark] start games=3 rounds=50 seeds=[242] configs=['full_residual_teacher', 'ablation_no_residual_teacher', 'ablation_no_teacher_residual'] device=cuda
+[ablation_benchmark] config_start 1/3 tag=full_residual_teacher
+[ablation_benchmark] seed_start config=full_residual_teacher seed=242 (1/1)
+[ablation_benchmark] mode_start config=full_residual_teacher seed=242 mode=fixed_sims iterations=120 playclock=0.5
+[progress][group-start] 1/3 game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct
+swipl: /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/../../../libtinfo.so.6: no version information available (required by /home/yuancheng/anaconda3/envs/ggp_thesis/lib/swipl/bin/x86_64-linux/../../lib/x86_64-linux/libswipl.so.10)
+/home/yuancheng/workspace/GGP/graduation_thesis/src/nn/inference.py:43: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(model_path, map_location=device)
+/home/yuancheng/anaconda3/envs/ggp_thesis/lib/python3.10/site-packages/torch/nn/modules/transformer.py:502: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. (Triggered internally at ../aten/src/ATen/NestedTensorImpl.cpp:178.)
+  output = torch._nested_tensor_from_mask(
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=1/50 winner=b score_a=0.0 score_b=100.0 ply=24 elapsed_sec=15.77
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=8.64
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=3/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.52
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.48
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=5/50 winner=a score_a=100.0 score_b=0.0 ply=23 elapsed_sec=14.64
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.16
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=9.06
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=8/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.66
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=9/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.70
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.62
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=11/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.42
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=8.27
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=8.25
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=10.85
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=9.39
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=8.94
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=8.48
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=9.66
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=19/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=10.98
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=11.20
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=13.67
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=22/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=11.77
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=9.85
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=12.03
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=11.44
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=9.76
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=10.89
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=18.09
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.89
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.06
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=31/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=11.05
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=8.02
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=33/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.31
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.78
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=35/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=9.06
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=8.53
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=10.27
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=8.73
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.50
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.36
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=41/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=10.08
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=13.36
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=7.00
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=9.36
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=45/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=11.66
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=8.70
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=47/50 winner=b score_a=0.0 score_b=100.0 ply=24 elapsed_sec=13.27
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=9.46
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=49/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=11.76
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.39
+[progress][group-done] 1/3 game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.720 draw_rate=0.000 elapsed_sec=508.80
+[progress][group-start] 2/3 game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=1/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=10.35
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=2/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=5/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.15
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=6/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.52
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.75
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=9/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=10/50 winner=b score_a=0.0 score_b=100.0 ply=11 elapsed_sec=5.54
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=11/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.06
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.75
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=4.70
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.18
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=16/50 winner=b score_a=0.0 score_b=100.0 ply=9 elapsed_sec=4.50
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=18/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=9.57
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.18
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.75
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=22/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=9.57
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=4.70
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=25/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=7.27
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=26/50 winner=b score_a=0.0 score_b=100.0 ply=11 elapsed_sec=5.53
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=27/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.76
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=30/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=7.56
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=32/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.57
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=33/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.22
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=34/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=35/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=36/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.59
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=37/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.02
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=39/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=9.07
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.74
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=41/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=9.30
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=42/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=7.27
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=44/50 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.47
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=10.34
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=12 elapsed_sec=5.73
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=48/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=7.56
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=10.34
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=12 elapsed_sec=5.73
+[progress][group-done] 2/3 game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.660 draw_rate=0.000 elapsed_sec=300.53
+[progress][group-start] 3/3 game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=1/50 winner=a score_a=100.0 score_b=0.0 ply=39 elapsed_sec=19.81
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.67
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=3/50 winner=b score_a=0.0 score_b=100.0 ply=68 elapsed_sec=34.53
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.71
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=5/50 winner=b score_a=0.0 score_b=100.0 ply=50 elapsed_sec=25.44
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.64
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=7/50 winner=b score_a=0.0 score_b=100.0 ply=64 elapsed_sec=32.57
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.69
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=9/50 winner=b score_a=0.0 score_b=100.0 ply=42 elapsed_sec=21.41
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.63
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=11/50 winner=b score_a=0.0 score_b=100.0 ply=50 elapsed_sec=25.45
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.70
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=13/50 winner=b score_a=0.0 score_b=100.0 ply=56 elapsed_sec=28.48
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.65
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=15/50 winner=b score_a=0.0 score_b=100.0 ply=62 elapsed_sec=31.52
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.70
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=17/50 winner=b score_a=0.0 score_b=100.0 ply=50 elapsed_sec=25.40
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=92 elapsed_sec=46.75
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=19/50 winner=b score_a=0.0 score_b=100.0 ply=60 elapsed_sec=30.48
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.62
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=35 elapsed_sec=17.78
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=22/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.71
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=23/50 winner=b score_a=0.0 score_b=100.0 ply=34 elapsed_sec=17.27
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.61
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=26 elapsed_sec=13.22
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.65
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=52 elapsed_sec=26.44
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.59
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=29/50 winner=b score_a=0.0 score_b=100.0 ply=46 elapsed_sec=23.41
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.67
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=31/50 winner=b score_a=0.0 score_b=100.0 ply=46 elapsed_sec=23.38
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.60
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=33/50 winner=b score_a=0.0 score_b=100.0 ply=52 elapsed_sec=26.41
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=88 elapsed_sec=44.73
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=50 elapsed_sec=25.40
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=36/50 winner=b score_a=0.0 score_b=100.0 ply=47 elapsed_sec=23.90
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=37/50 winner=b score_a=0.0 score_b=100.0 ply=72 elapsed_sec=36.58
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=90 elapsed_sec=45.72
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=39/50 winner=b score_a=0.0 score_b=100.0 ply=54 elapsed_sec=27.43
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=40/50 winner=b score_a=0.0 score_b=100.0 ply=85 elapsed_sec=43.16
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=41/50 winner=b score_a=0.0 score_b=100.0 ply=50 elapsed_sec=25.43
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=70 elapsed_sec=35.56
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=43 elapsed_sec=21.86
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=88 elapsed_sec=44.70
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=49 elapsed_sec=24.88
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.62
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=47/50 winner=b score_a=0.0 score_b=100.0 ply=66 elapsed_sec=33.51
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=70 elapsed_sec=35.54
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=49/50 winner=b score_a=0.0 score_b=100.0 ply=52 elapsed_sec=26.43
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.69
+[progress][group-done] 3/3 game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.540 draw_rate=0.000 elapsed_sec=1662.75
+[ablation_benchmark] mode_done config=full_residual_teacher seed=242 mode=fixed_sims win_rate_mean=0.6400 n_matches=150 elapsed_sec=2472.08
+[ablation_benchmark] mode_start config=full_residual_teacher seed=242 mode=fixed_time time_budget=0.5 iterations_cap=120
+[progress][group-start] 1/3 game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=1/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=12.28
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=14.90
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=3/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=10.10
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.75
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=5/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.33
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=9.70
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=7.06
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.28
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=9/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=13.19
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.03
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=10.86
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=10.17
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=13/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=11.64
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=8.19
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=15/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=12.13
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=15.34
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.51
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.30
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=10.11
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=16.86
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=21/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=13.63
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=22/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=10.03
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=10.56
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=9.62
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=25/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=10.10
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.35
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=9.11
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=28/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=8.04
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.12
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.85
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=31/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=12.74
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=12.45
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=33/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=11.47
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.63
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=35/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.90
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=36/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=10.85
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=37/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=11.17
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=38/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.83
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=10.55
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=13.72
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=41/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.42
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.75
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=43/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.26
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=7.87
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=45/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=9.68
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.32
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=7.74
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=11.88
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.18
+[progress][match] game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=8.61
+[progress][group-done] 1/3 game=hex pair=neural_mcts:full_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.700 draw_rate=0.000 elapsed_sec=509.16
+[progress][group-start] 2/3 game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=1/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=9.32
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=25 elapsed_sec=12.39
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.67
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=5/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=10.36
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=6/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=7.56
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.67
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=9/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.30
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.67
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=14/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=15/50 winner=b score_a=0.0 score_b=100.0 ply=8 elapsed_sec=3.98
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=16/50 winner=b score_a=0.0 score_b=100.0 ply=11 elapsed_sec=5.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=25 elapsed_sec=12.43
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=18/50 winner=b score_a=0.0 score_b=100.0 ply=11 elapsed_sec=5.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=19/50 winner=b score_a=0.0 score_b=100.0 ply=12 elapsed_sec=6.06
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=11.88
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=22/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=23/50 winner=b score_a=0.0 score_b=100.0 ply=12 elapsed_sec=5.91
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=24/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.54
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=25/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.22
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=26/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=7.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=27/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=10.35
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=28/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.54
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=30/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.18
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=32/50 winner=b score_a=0.0 score_b=100.0 ply=9 elapsed_sec=4.50
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=33/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=34/50 winner=b score_a=0.0 score_b=100.0 ply=11 elapsed_sec=5.55
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=35/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.22
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=36/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=7.56
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=38/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.56
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.78
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=41/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=42/50 winner=b score_a=0.0 score_b=100.0 ply=11 elapsed_sec=5.48
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=43/50 winner=b score_a=0.0 score_b=100.0 ply=8 elapsed_sec=3.97
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=44/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.56
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=48/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.56
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.67
+[progress][group-done] 2/3 game=connectFour pair=neural_mcts:full_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.600 draw_rate=0.000 elapsed_sec=299.05
+[progress][group-start] 3/3 game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=1/50 winner=b score_a=0.0 score_b=100.0 ply=24 elapsed_sec=12.20
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.67
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=45 elapsed_sec=22.83
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=90 elapsed_sec=45.68
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=5/50 winner=b score_a=0.0 score_b=100.0 ply=60 elapsed_sec=30.47
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.64
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=57 elapsed_sec=28.93
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=8/50 winner=b score_a=0.0 score_b=100.0 ply=75 elapsed_sec=38.09
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=9/50 winner=a score_a=100.0 score_b=0.0 ply=45 elapsed_sec=22.90
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.64
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=41 elapsed_sec=20.86
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.61
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=13/50 winner=b score_a=0.0 score_b=100.0 ply=62 elapsed_sec=31.53
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.65
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=15/50 winner=b score_a=0.0 score_b=100.0 ply=44 elapsed_sec=22.38
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=72 elapsed_sec=36.59
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=17/50 winner=b score_a=0.0 score_b=100.0 ply=68 elapsed_sec=34.59
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.63
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=43 elapsed_sec=21.86
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=94 elapsed_sec=47.79
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=55 elapsed_sec=27.94
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=22/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.62
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.92
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.67
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=25/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.89
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.61
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=34 elapsed_sec=17.27
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.61
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.85
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.64
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=43 elapsed_sec=21.85
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=90 elapsed_sec=45.71
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=33/50 winner=b score_a=0.0 score_b=100.0 ply=48 elapsed_sec=24.41
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=96 elapsed_sec=48.76
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=42 elapsed_sec=21.33
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.63
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=41 elapsed_sec=20.84
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=72 elapsed_sec=36.58
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=39/50 winner=b score_a=0.0 score_b=100.0 ply=48 elapsed_sec=24.40
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=70 elapsed_sec=35.58
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=41/50 winner=a score_a=100.0 score_b=0.0 ply=55 elapsed_sec=27.94
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.59
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=43/50 winner=b score_a=0.0 score_b=100.0 ply=54 elapsed_sec=27.40
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.70
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=45/50 winner=b score_a=0.0 score_b=100.0 ply=58 elapsed_sec=29.45
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.57
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=47/50 winner=b score_a=0.0 score_b=100.0 ply=24 elapsed_sec=12.17
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.66
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=49/50 winner=b score_a=0.0 score_b=100.0 ply=64 elapsed_sec=32.50
+[progress][match] game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.62
+[progress][group-done] 3/3 game=breakthrough pair=neural_mcts:full_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.720 draw_rate=0.000 elapsed_sec=1647.22
+[ablation_benchmark] mode_done config=full_residual_teacher seed=242 mode=fixed_time win_rate_mean=0.6733 n_matches=150 elapsed_sec=2455.43
+[ablation_benchmark] seed_done config=full_residual_teacher seed=242 fixed_sims_win_rate_mean=0.6400 fixed_time_win_rate_mean=0.6733
+[ablation_benchmark] config_done 1/3 tag=full_residual_teacher fixed_sims_win_rate_mean=0.6400 fixed_time_win_rate_mean=0.6733
+[ablation_benchmark] config_start 2/3 tag=ablation_no_residual_teacher
+[ablation_benchmark] seed_start config=ablation_no_residual_teacher seed=242 (1/1)
+[ablation_benchmark] mode_start config=ablation_no_residual_teacher seed=242 mode=fixed_sims iterations=120 playclock=0.5
+[progress][group-start] 1/3 game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=1/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=11.48
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.78
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.81
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=4/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=13.08
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=5/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=11.20
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=6/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=11.29
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=7/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=10.82
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=9.33
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=9/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=10.47
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.43
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=23 elapsed_sec=14.23
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=12/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.02
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=12.72
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=14/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=8.15
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=15/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=12.42
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=16/50 winner=b score_a=0.0 score_b=100.0 ply=25 elapsed_sec=15.29
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=9.80
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.98
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=19/50 winner=b score_a=0.0 score_b=100.0 ply=24 elapsed_sec=13.69
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=20/50 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=15.00
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.85
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=22/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.28
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=8.07
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=14.04
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=9.65
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.79
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=12.71
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.11
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=29/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=12.23
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=12.85
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.93
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=32/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=12.10
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=33/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.31
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=34/50 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=13.40
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=9.32
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.04
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=37/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=10.50
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=14.19
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=13.66
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=40/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=13.24
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=41/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=9.08
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=13.02
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=7.66
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.53
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=7.90
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.55
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=47/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.18
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=48/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.02
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=14.73
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.53
+[progress][group-done] 1/3 game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.520 draw_rate=0.000 elapsed_sec=545.47
+[progress][group-start] 2/3 game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=1/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=2/50 winner=b score_a=0.0 score_b=100.0 ply=9 elapsed_sec=4.51
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=10.85
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=5/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.22
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=8/50 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.47
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=9/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.29
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=10/50 winner=b score_a=0.0 score_b=100.0 ply=9 elapsed_sec=4.36
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.21
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.72
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.15
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.25
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=12 elapsed_sec=5.73
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=9.82
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=20/50 winner=b score_a=0.0 score_b=100.0 ply=11 elapsed_sec=5.53
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=22/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=10.83
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=24/50 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.48
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=25/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=12 elapsed_sec=5.69
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=27/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=9.84
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.22
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.78
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=33/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.29
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=26 elapsed_sec=12.91
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=35/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=38/50 winner=b score_a=0.0 score_b=100.0 ply=9 elapsed_sec=4.50
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.75
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=41/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=10.08
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=26 elapsed_sec=12.91
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.21
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=10.89
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=46/50 winner=b score_a=0.0 score_b=100.0 ply=11 elapsed_sec=5.40
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=50/50 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.46
+[progress][group-done] 2/3 game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.820 draw_rate=0.000 elapsed_sec=280.60
+[progress][group-start] 3/3 game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=1/50 winner=a score_a=100.0 score_b=0.0 ply=53 elapsed_sec=26.96
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.64
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.89
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.66
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=5/50 winner=b score_a=0.0 score_b=100.0 ply=50 elapsed_sec=25.44
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=70 elapsed_sec=35.56
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=49 elapsed_sec=24.94
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.61
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=9/50 winner=b score_a=0.0 score_b=100.0 ply=40 elapsed_sec=20.34
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.66
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=41 elapsed_sec=20.80
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=51 elapsed_sec=25.93
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=72 elapsed_sec=36.59
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=15/50 winner=b score_a=0.0 score_b=100.0 ply=56 elapsed_sec=28.48
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.60
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.89
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=88 elapsed_sec=44.67
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=19/50 winner=b score_a=0.0 score_b=100.0 ply=76 elapsed_sec=38.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=68 elapsed_sec=34.58
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=63 elapsed_sec=32.02
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=22/50 winner=b score_a=0.0 score_b=100.0 ply=73 elapsed_sec=37.08
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=23/50 winner=b score_a=0.0 score_b=100.0 ply=46 elapsed_sec=23.34
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.61
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=66 elapsed_sec=33.57
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.70
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=60 elapsed_sec=30.48
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.68
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=29/50 winner=b score_a=0.0 score_b=100.0 ply=52 elapsed_sec=26.45
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.61
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=55 elapsed_sec=27.95
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.56
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=33/50 winner=b score_a=0.0 score_b=100.0 ply=46 elapsed_sec=23.38
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.62
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=48 elapsed_sec=24.38
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=36/50 winner=b score_a=0.0 score_b=100.0 ply=77 elapsed_sec=39.10
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=37/50 winner=b score_a=0.0 score_b=100.0 ply=54 elapsed_sec=27.44
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.72
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=51 elapsed_sec=25.94
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=40/50 winner=b score_a=0.0 score_b=100.0 ply=97 elapsed_sec=49.23
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=41/50 winner=b score_a=0.0 score_b=100.0 ply=28 elapsed_sec=14.23
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.60
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=43/50 winner=b score_a=0.0 score_b=100.0 ply=62 elapsed_sec=31.46
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=45/50 winner=b score_a=0.0 score_b=100.0 ply=68 elapsed_sec=34.53
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.60
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=47/50 winner=b score_a=0.0 score_b=100.0 ply=48 elapsed_sec=24.39
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.64
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=49/50 winner=b score_a=0.0 score_b=100.0 ply=52 elapsed_sec=26.43
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.67
+[progress][group-done] 3/3 game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.620 draw_rate=0.000 elapsed_sec=1673.62
+[ablation_benchmark] mode_done config=ablation_no_residual_teacher seed=242 mode=fixed_sims win_rate_mean=0.6533 n_matches=150 elapsed_sec=2499.70
+[ablation_benchmark] mode_start config=ablation_no_residual_teacher seed=242 mode=fixed_time time_budget=0.5 iterations_cap=120
+[progress][group-start] 1/3 game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=1/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=10.84
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.84
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=7.58
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=13.09
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=5/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=7.02
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=14.05
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=8.32
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.88
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=9/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=14.49
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.56
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=11/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=11.29
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=12/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.82
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.74
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=11.36
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=10.62
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=16/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=12.31
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=14.77
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=18/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=9.00
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=19/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=12.46
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.21
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.90
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=22/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=10.12
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=12.92
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=24/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.99
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=25/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=15.98
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=26/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.43
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=13.20
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=28/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.74
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=9.12
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=30/50 winner=b score_a=0.0 score_b=100.0 ply=25 elapsed_sec=14.63
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.07
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=9.53
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=33/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.45
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=34/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.14
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=24 elapsed_sec=14.63
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=36/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=11.99
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=11.10
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.05
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=39/50 winner=b score_a=0.0 score_b=100.0 ply=12 elapsed_sec=6.28
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.49
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=41/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=15.98
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.84
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=7.87
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.66
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=45/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=12.47
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=8.43
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=6.18
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=14.45
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=49/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=11.94
+[progress][match] game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=50/50 winner=b score_a=0.0 score_b=100.0 ply=25 elapsed_sec=15.08
+[progress][group-done] 1/3 game=hex pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.580 draw_rate=0.000 elapsed_sec=546.91
+[progress][group-start] 2/3 game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=1/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.06
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=3/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.07
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.79
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=5/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=6/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=9.58
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.21
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=12 elapsed_sec=5.72
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=9/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.29
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=12/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.56
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.18
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=4.71
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.21
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=12 elapsed_sec=5.74
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.21
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.78
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=7.27
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.79
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=22/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=23/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=10.07
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.67
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=25/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.30
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=4.70
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=8 elapsed_sec=3.98
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=28/50 winner=b score_a=0.0 score_b=100.0 ply=9 elapsed_sec=4.51
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.28
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.78
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=31/50 winner=b score_a=0.0 score_b=100.0 ply=10 elapsed_sec=4.90
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=4.71
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=33/50 winner=a score_a=100.0 score_b=0.0 ply=27 elapsed_sec=13.43
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=34/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.44
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=35/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.30
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.76
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.75
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.78
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=41/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=42/50 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.47
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=7.27
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=44/50 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.47
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.18
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=8.81
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][group-done] 2/3 game=connectFour pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.780 draw_rate=0.000 elapsed_sec=296.56
+[progress][group-start] 3/3 game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=1/50 winner=b score_a=0.0 score_b=100.0 ply=38 elapsed_sec=19.35
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.60
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=3/50 winner=b score_a=0.0 score_b=100.0 ply=80 elapsed_sec=40.64
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.67
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=5/50 winner=b score_a=0.0 score_b=100.0 ply=54 elapsed_sec=27.46
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.66
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=7/50 winner=b score_a=0.0 score_b=100.0 ply=40 elapsed_sec=20.34
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=8/50 winner=b score_a=0.0 score_b=100.0 ply=91 elapsed_sec=46.20
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=9/50 winner=b score_a=0.0 score_b=100.0 ply=44 elapsed_sec=22.38
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.70
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=51 elapsed_sec=25.90
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=12/50 winner=b score_a=0.0 score_b=100.0 ply=59 elapsed_sec=30.00
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=13/50 winner=b score_a=0.0 score_b=100.0 ply=44 elapsed_sec=22.40
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.62
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=79 elapsed_sec=40.12
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=88 elapsed_sec=44.71
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=63 elapsed_sec=31.98
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=66 elapsed_sec=33.53
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=19/50 winner=b score_a=0.0 score_b=100.0 ply=58 elapsed_sec=29.49
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.59
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=21/50 winner=b score_a=0.0 score_b=100.0 ply=42 elapsed_sec=21.36
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=22/50 winner=b score_a=0.0 score_b=100.0 ply=65 elapsed_sec=33.05
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=43 elapsed_sec=21.86
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=70 elapsed_sec=35.58
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=62 elapsed_sec=31.54
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.70
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=44 elapsed_sec=22.38
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.59
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.93
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.62
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=31/50 winner=b score_a=0.0 score_b=100.0 ply=62 elapsed_sec=31.47
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.54
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=33/50 winner=b score_a=0.0 score_b=100.0 ply=40 elapsed_sec=20.34
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=35/50 winner=a score_a=100.0 score_b=0.0 ply=45 elapsed_sec=22.87
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.60
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=57 elapsed_sec=28.95
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.68
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=39/50 winner=b score_a=0.0 score_b=100.0 ply=38 elapsed_sec=19.36
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=41/50 winner=b score_a=0.0 score_b=100.0 ply=64 elapsed_sec=32.50
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.64
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=43/50 winner=b score_a=0.0 score_b=100.0 ply=42 elapsed_sec=21.30
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=44/50 winner=b score_a=0.0 score_b=100.0 ply=61 elapsed_sec=31.01
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=45/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=10.18
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=70 elapsed_sec=35.55
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=47/50 winner=b score_a=0.0 score_b=100.0 ply=34 elapsed_sec=17.34
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.64
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=39 elapsed_sec=19.83
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.67
+[progress][group-done] 3/3 game=breakthrough pair=neural_mcts:ablation_no_residual_teacher__vs__pure_mct n_matches=50 win_rate_a=0.580 draw_rate=0.000 elapsed_sec=1603.72
+[ablation_benchmark] mode_done config=ablation_no_residual_teacher seed=242 mode=fixed_time win_rate_mean=0.6467 n_matches=150 elapsed_sec=2447.19
+[ablation_benchmark] seed_done config=ablation_no_residual_teacher seed=242 fixed_sims_win_rate_mean=0.6533 fixed_time_win_rate_mean=0.6467
+[ablation_benchmark] config_done 2/3 tag=ablation_no_residual_teacher fixed_sims_win_rate_mean=0.6533 fixed_time_win_rate_mean=0.6467
+[ablation_benchmark] config_start 3/3 tag=ablation_no_teacher_residual
+[ablation_benchmark] seed_start config=ablation_no_teacher_residual seed=242 (1/1)
+[ablation_benchmark] mode_start config=ablation_no_teacher_residual seed=242 mode=fixed_sims iterations=120 playclock=0.5
+[progress][group-start] 1/3 game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=1/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.98
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=12.38
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=3/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.89
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=4/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.83
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=5/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=12.94
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.95
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=7/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=10.43
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.06
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=9/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=9.80
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.00
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=11.83
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=16.20
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=6.01
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.79
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=7.36
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.34
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=10.36
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=17.16
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=10.09
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=20/50 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=24.32
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.68
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=22/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=12.24
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=23/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=17.79
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=24/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=9.58
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=11.52
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=26/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=11.37
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=27/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=16.37
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.28
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.34
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=12.42
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=31/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=11.79
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=32/50 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=13.87
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=33/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=9.94
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=10.33
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.96
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=36/50 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=29.42
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=7.96
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=13.33
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=7.65
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=40/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.07
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=41/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=12.51
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=18.27
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=25 elapsed_sec=15.13
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=12.17
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.67
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=12.70
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=11.31
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=18.87
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=49/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.64
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=50/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=17.97
+[progress][group-done] 1/3 game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct n_matches=50 win_rate_a=0.600 draw_rate=0.000 elapsed_sec=601.90
+[progress][group-start] 2/3 game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=1/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=10.32
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=10.86
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=3/50 winner=b score_a=0.0 score_b=100.0 ply=10 elapsed_sec=4.98
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=26 elapsed_sec=12.91
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=5/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.21
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=6/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.55
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.20
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.76
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=9/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=26 elapsed_sec=12.93
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=11/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.00
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=12/50 winner=b score_a=0.0 score_b=100.0 ply=35 elapsed_sec=17.63
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.26
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=11.90
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=9.32
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=9.83
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=10.35
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.75
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.25
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.78
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=10.37
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=22/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=9.84
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=24/50 winner=a score_a=100.0 score_b=0.0 ply=26 elapsed_sec=12.91
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=25/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=26/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.53
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=27/50 winner=a score_a=100.0 score_b=0.0 ply=15 elapsed_sec=7.26
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.75
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.75
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.25
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=32/50 winner=b score_a=0.0 score_b=100.0 ply=9 elapsed_sec=4.45
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=33/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.25
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=24 elapsed_sec=11.87
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=35/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.15
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.79
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=38/50 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=11.59
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.15
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=40/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=7.55
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=41/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=42/50 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.42
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=43/50 winner=b score_a=0.0 score_b=100.0 ply=24 elapsed_sec=12.10
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=30 elapsed_sec=14.95
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.22
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=10.85
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=47/50 winner=b score_a=0.0 score_b=100.0 ply=26 elapsed_sec=13.11
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=4.70
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=9.80
+[progress][group-done] 2/3 game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct n_matches=50 win_rate_a=0.780 draw_rate=0.000 elapsed_sec=392.65
+[progress][group-start] 3/3 game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=1/50 winner=a score_a=100.0 score_b=0.0 ply=51 elapsed_sec=25.93
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=60 elapsed_sec=30.47
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=43 elapsed_sec=21.85
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=72 elapsed_sec=36.60
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=5/50 winner=b score_a=0.0 score_b=100.0 ply=76 elapsed_sec=38.59
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=6/50 winner=b score_a=0.0 score_b=100.0 ply=75 elapsed_sec=38.13
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=57 elapsed_sec=28.95
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=64 elapsed_sec=32.54
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=9/50 winner=b score_a=0.0 score_b=100.0 ply=42 elapsed_sec=21.39
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=88 elapsed_sec=44.67
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=65 elapsed_sec=33.01
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=90 elapsed_sec=45.71
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=41 elapsed_sec=20.85
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=88 elapsed_sec=44.70
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=57 elapsed_sec=29.00
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.54
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=17/50 winner=b score_a=0.0 score_b=100.0 ply=36 elapsed_sec=18.34
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.61
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=19/50 winner=b score_a=0.0 score_b=100.0 ply=50 elapsed_sec=25.40
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=20/50 winner=b score_a=0.0 score_b=100.0 ply=81 elapsed_sec=41.13
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=21/50 winner=b score_a=0.0 score_b=100.0 ply=40 elapsed_sec=20.37
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=22/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.58
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=23/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.91
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=24/50 winner=b score_a=0.0 score_b=100.0 ply=59 elapsed_sec=30.00
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=52 elapsed_sec=26.46
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.61
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=27/50 winner=a score_a=100.0 score_b=0.0 ply=45 elapsed_sec=22.83
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.60
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=51 elapsed_sec=25.90
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.61
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=45 elapsed_sec=22.85
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=32/50 winner=b score_a=0.0 score_b=100.0 ply=73 elapsed_sec=37.05
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=33/50 winner=b score_a=0.0 score_b=100.0 ply=56 elapsed_sec=28.46
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.61
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=56 elapsed_sec=28.44
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=84 elapsed_sec=42.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=37/50 winner=b score_a=0.0 score_b=100.0 ply=36 elapsed_sec=18.31
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=43 elapsed_sec=21.84
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=40/50 winner=b score_a=0.0 score_b=100.0 ply=77 elapsed_sec=39.15
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=41/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.87
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.63
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=65 elapsed_sec=33.05
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.67
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=45/50 winner=b score_a=0.0 score_b=100.0 ply=38 elapsed_sec=19.34
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=77 elapsed_sec=39.15
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=88 elapsed_sec=44.67
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=49/50 winner=b score_a=0.0 score_b=100.0 ply=58 elapsed_sec=29.43
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.59
+[progress][group-done] 3/3 game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct n_matches=50 win_rate_a=0.680 draw_rate=0.000 elapsed_sec=1632.35
+[ablation_benchmark] mode_done config=ablation_no_teacher_residual seed=242 mode=fixed_sims win_rate_mean=0.6867 n_matches=150 elapsed_sec=2626.91
+[ablation_benchmark] mode_start config=ablation_no_teacher_residual seed=242 mode=fixed_time time_budget=0.5 iterations_cap=120
+[progress][group-start] 1/3 game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=1/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.42
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=11.40
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=8.86
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=13.58
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=5/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=9.28
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.48
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.75
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=8/50 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=11.90
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=9/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=6.52
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=10/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=13.19
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=11/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.98
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.79
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=13/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=10.91
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=12.72
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=15/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.39
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=11.71
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=17/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.24
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=11.52
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=12.12
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.97
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=21/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=11.52
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=22/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=12.79
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=23/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=8.48
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=24/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=11.07
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=20 elapsed_sec=12.94
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.17
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=27/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=15.80
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=14.55
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=11.23
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=30/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=12.37
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=7.61
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.29
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=33/50 winner=a score_a=100.0 score_b=0.0 ply=23 elapsed_sec=12.10
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=34/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=10.20
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=12 elapsed_sec=6.22
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=11.65
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=37/50 winner=b score_a=0.0 score_b=100.0 ply=18 elapsed_sec=9.50
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=38/50 winner=b score_a=0.0 score_b=100.0 ply=23 elapsed_sec=12.46
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=39/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=10.09
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=22 elapsed_sec=16.48
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=41/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=8.64
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=42/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=12.18
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=17 elapsed_sec=9.65
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=44/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.51
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=11.65
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=12.49
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=9.17
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=48/50 winner=b score_a=0.0 score_b=100.0 ply=25 elapsed_sec=22.36
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.65
+[progress][match] game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=10.39
+[progress][group-done] 1/3 game=hex pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct n_matches=50 win_rate_a=0.600 draw_rate=0.000 elapsed_sec=549.97
+[progress][group-start] 2/3 game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=1/50 winner=b score_a=0.0 score_b=100.0 ply=8 elapsed_sec=3.97
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=10 elapsed_sec=4.70
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=3/50 winner=b score_a=0.0 score_b=100.0 ply=34 elapsed_sec=17.14
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=8.80
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=5/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.18
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.78
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=7/50 winner=a score_a=100.0 score_b=0.0 ply=9 elapsed_sec=4.19
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=20 elapsed_sec=9.83
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=9/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=11.09
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=10/50 winner=b score_a=0.0 score_b=100.0 ply=25 elapsed_sec=12.57
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=12/50 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.47
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=13/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.78
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=15/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=8 elapsed_sec=3.68
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=17/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.22
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=18/50 winner=b score_a=0.0 score_b=100.0 ply=9 elapsed_sec=4.46
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.24
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=20/50 winner=b score_a=0.0 score_b=100.0 ply=21 elapsed_sec=10.57
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.21
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=22/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=7.56
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=23/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=11.08
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=24/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=7.53
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=16 elapsed_sec=7.86
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=26/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.57
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=27/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.22
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=28/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.58
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=29/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=30/50 winner=b score_a=0.0 score_b=100.0 ply=7 elapsed_sec=3.46
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=31/50 winner=a score_a=100.0 score_b=0.0 ply=11 elapsed_sec=5.21
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=32/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.52
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=33/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.16
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=34/50 winner=b score_a=0.0 score_b=100.0 ply=19 elapsed_sec=9.57
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.03
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=36/50 winner=b score_a=0.0 score_b=100.0 ply=13 elapsed_sec=6.50
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.23
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=16 elapsed_sec=7.78
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=39/50 winner=b score_a=0.0 score_b=100.0 ply=14 elapsed_sec=7.02
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=18 elapsed_sec=8.81
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=41/50 winner=a score_a=100.0 score_b=0.0 ply=13 elapsed_sec=6.23
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=14 elapsed_sec=6.75
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=43/50 winner=a score_a=100.0 score_b=0.0 ply=7 elapsed_sec=3.17
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=44/50 winner=b score_a=0.0 score_b=100.0 ply=17 elapsed_sec=8.57
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=45/50 winner=a score_a=100.0 score_b=0.0 ply=25 elapsed_sec=12.42
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=46/50 winner=b score_a=0.0 score_b=100.0 ply=33 elapsed_sec=16.64
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=47/50 winner=a score_a=100.0 score_b=0.0 ply=21 elapsed_sec=10.33
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=48/50 winner=b score_a=0.0 score_b=100.0 ply=15 elapsed_sec=7.52
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=49/50 winner=a score_a=100.0 score_b=0.0 ply=19 elapsed_sec=9.32
+[progress][match] game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=12 elapsed_sec=5.73
+[progress][group-done] 2/3 game=connectFour pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct n_matches=50 win_rate_a=0.560 draw_rate=0.000 elapsed_sec=361.03
+[progress][group-start] 3/3 game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=1/50 winner=b score_a=0.0 score_b=100.0 ply=72 elapsed_sec=36.56
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=2/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.57
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=3/50 winner=a score_a=100.0 score_b=0.0 ply=55 elapsed_sec=27.88
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=4/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.69
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=5/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.89
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=6/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.71
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=7/50 winner=b score_a=0.0 score_b=100.0 ply=52 elapsed_sec=26.44
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=8/50 winner=a score_a=100.0 score_b=0.0 ply=78 elapsed_sec=39.57
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=9/50 winner=a score_a=100.0 score_b=0.0 ply=45 elapsed_sec=22.89
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=10/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.69
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=11/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.89
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=12/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.66
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=13/50 winner=b score_a=0.0 score_b=100.0 ply=30 elapsed_sec=15.27
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=14/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=15/50 winner=b score_a=0.0 score_b=100.0 ply=50 elapsed_sec=25.40
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=16/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.65
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=17/50 winner=b score_a=0.0 score_b=100.0 ply=38 elapsed_sec=19.31
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=18/50 winner=a score_a=100.0 score_b=0.0 ply=76 elapsed_sec=38.59
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=19/50 winner=a score_a=100.0 score_b=0.0 ply=47 elapsed_sec=23.90
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=20/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.66
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=21/50 winner=a score_a=100.0 score_b=0.0 ply=53 elapsed_sec=26.93
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=22/50 winner=a score_a=100.0 score_b=0.0 ply=68 elapsed_sec=34.57
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=23/50 winner=b score_a=0.0 score_b=100.0 ply=40 elapsed_sec=20.33
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=24/50 winner=b score_a=0.0 score_b=100.0 ply=53 elapsed_sec=26.96
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=25/50 winner=b score_a=0.0 score_b=100.0 ply=60 elapsed_sec=30.50
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=26/50 winner=a score_a=100.0 score_b=0.0 ply=88 elapsed_sec=44.69
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=27/50 winner=a score_a=100.0 score_b=0.0 ply=49 elapsed_sec=24.90
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=28/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.62
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=29/50 winner=b score_a=0.0 score_b=100.0 ply=44 elapsed_sec=22.34
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=30/50 winner=a score_a=100.0 score_b=0.0 ply=68 elapsed_sec=34.57
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=31/50 winner=b score_a=0.0 score_b=100.0 ply=44 elapsed_sec=22.35
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=32/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.66
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=33/50 winner=b score_a=0.0 score_b=100.0 ply=24 elapsed_sec=12.18
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=34/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.69
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=35/50 winner=b score_a=0.0 score_b=100.0 ply=22 elapsed_sec=11.19
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=36/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.57
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=37/50 winner=a score_a=100.0 score_b=0.0 ply=43 elapsed_sec=21.84
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=38/50 winner=a score_a=100.0 score_b=0.0 ply=74 elapsed_sec=37.61
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=39/50 winner=b score_a=0.0 score_b=100.0 ply=46 elapsed_sec=23.38
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=40/50 winner=a score_a=100.0 score_b=0.0 ply=72 elapsed_sec=36.57
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=41/50 winner=b score_a=0.0 score_b=100.0 ply=62 elapsed_sec=31.48
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=42/50 winner=a score_a=100.0 score_b=0.0 ply=72 elapsed_sec=36.62
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=43/50 winner=b score_a=0.0 score_b=100.0 ply=40 elapsed_sec=20.36
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=44/50 winner=b score_a=0.0 score_b=100.0 ply=67 elapsed_sec=34.05
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=45/50 winner=b score_a=0.0 score_b=100.0 ply=60 elapsed_sec=30.46
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=46/50 winner=a score_a=100.0 score_b=0.0 ply=82 elapsed_sec=41.66
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=47/50 winner=b score_a=0.0 score_b=100.0 ply=60 elapsed_sec=30.50
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=48/50 winner=a score_a=100.0 score_b=0.0 ply=86 elapsed_sec=43.68
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=49/50 winner=b score_a=0.0 score_b=100.0 ply=66 elapsed_sec=33.55
+[progress][match] game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct round=50/50 winner=a score_a=100.0 score_b=0.0 ply=80 elapsed_sec=40.65
+[progress][group-done] 3/3 game=breakthrough pair=neural_mcts:ablation_no_teacher_residual__vs__pure_mct n_matches=50 win_rate_a=0.620 draw_rate=0.000 elapsed_sec=1586.34
+[ablation_benchmark] mode_done config=ablation_no_teacher_residual seed=242 mode=fixed_time win_rate_mean=0.5933 n_matches=150 elapsed_sec=2497.34
+[ablation_benchmark] seed_done config=ablation_no_teacher_residual seed=242 fixed_sims_win_rate_mean=0.6867 fixed_time_win_rate_mean=0.5933
+[ablation_benchmark] config_done 3/3 tag=ablation_no_teacher_residual fixed_sims_win_rate_mean=0.6867 fixed_time_win_rate_mean=0.5933
+[ablation_benchmark] done output=outputs/experiments/SDRPV_ablation_benchmark_ablation_hex_seed242
+[ABLATION_ALL] stage=benchmark done Wed Apr  1 03:31:51 PM CST 2026
+[ABLATION_ALL] done Wed Apr  1 03:31:51 PM CST 2026
+[ABLATION_ALL] model_manifest=outputs/experiments/SDRPV_ablation_train_ablation_hex_seed242/summary/model_manifest.csv
+[ABLATION_ALL] aggregate_csv=outputs/experiments/SDRPV_ablation_benchmark_ablation_hex_seed242/summary/aggregate_summary.csv
+[ABLATION_ALL] by_game_csv=outputs/experiments/SDRPV_ablation_benchmark_ablation_hex_seed242/summary/by_game_average.csv
+[ABLATION_ALL] delta_csv=outputs/experiments/SDRPV_ablation_benchmark_ablation_hex_seed242/summary/delta_vs_full.csv

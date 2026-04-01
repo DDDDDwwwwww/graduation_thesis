@@ -1,0 +1,4 @@
+agent_a_key,agent_b_key,config_tag,fixed_sims_avg_decision_sec_a_mean,fixed_sims_avg_eval_calls_fallback_a_mean,fixed_sims_avg_eval_calls_neural_a_mean,fixed_sims_n_matches,fixed_sims_win_rate_mean,fixed_time_avg_decision_sec_a_mean,fixed_time_avg_eval_calls_fallback_a_mean,fixed_time_avg_eval_calls_neural_a_mean,fixed_time_n_matches,fixed_time_win_rate_mean,games_count,rounds,seeds_count
+neural_mcts:full_residual_teacher,pure_mct,full_residual_teacher,0.2480696672993834,0.0,0.0,150,0.64,0.24801597780339255,0.0,0.0,150,0.6733333333333332,3,50,1
+neural_mcts:ablation_no_residual_teacher,pure_mct,ablation_no_residual_teacher,0.2467998993671694,0.0,0.0,150,0.6533333333333333,0.24744466087237968,0.0,0.0,150,0.6466666666666666,3,50,1
+neural_mcts:ablation_no_teacher_residual,pure_mct,ablation_no_teacher_residual,0.2523791270180168,0.0,0.0,150,0.6866666666666666,0.24921437706152574,0.0,0.0,150,0.5933333333333334,3,50,1

@@ -1,0 +1,58 @@
+{
+  "mode": "residual_v1",
+  "source_dataset": "outputs/datasets/sdrpv_dataset_v3_parallel.jsonl",
+  "target_field": "z",
+  "game_filter": null,
+  "encoder": "board_token",
+  "model": "transformer",
+  "epochs": 20,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "seed": 242,
+  "hidden_dims": [
+    256,
+    128
+  ],
+  "dropout": 0.1,
+  "loss": "huber",
+  "patience": 5,
+  "device": "cuda",
+  "num_workers": 0,
+  "roles": [
+    "black",
+    "red"
+  ],
+  "num_input_rows": 4732,
+  "num_samples_used": 4732,
+  "conversion_stats": {
+    "total_input": 4732,
+    "kept": 4732,
+    "skipped": 0,
+    "missing_s": 0,
+    "missing_b": 0,
+    "missing_target": 0,
+    "game_filtered": 0,
+    "residual_clipped_count": 1533,
+    "target_field": "z"
+  },
+  "split_sizes": {
+    "train": 3785,
+    "val": 473,
+    "test": 474
+  },
+  "test_loss_delta": 0.19294139290157752,
+  "test_sign_acc_delta": 0.8080168776371308,
+  "offline_test_metrics": {
+    "count": 474,
+    "target_field": "z",
+    "corr_vhat_target": 0.670745977571389,
+    "rank_corr_vhat_target": 0.6622160462482478,
+    "mae_vhat_target": 0.5495665210199767,
+    "mae_b_target": 0.8751634492339134,
+    "mae_gain_over_b": 0.3255969282139367,
+    "mae_gain_ratio_over_b": 0.37204127811662213,
+    "corr_b_target": 0.37017118854562,
+    "rank_corr_b_target": 0.35388664402467174
+  }
+}

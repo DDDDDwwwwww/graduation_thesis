@@ -1,0 +1,11 @@
+{
+  "experiment": "SDRPV_ablation_benchmark_cfg",
+  "root": "outputs/experiments/SDRPV_ablation_benchmark_ablation_hex_seed242/ablation_no_residual_teacher",
+  "args": {
+    "config_tag": "ablation_no_residual_teacher",
+    "pair": [
+      "neural_mcts:ablation_no_residual_teacher",
+      "pure_mct"
+    ]
+  }
+}
