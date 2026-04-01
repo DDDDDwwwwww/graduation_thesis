@@ -23,8 +23,6 @@ def _runtime_imports():
         HeuristicMCTSAgent,
         NeuralValueMCTSAgent,
         PureMCTAgent,
-        RandomAgent,
-        ValueGreedyAgent,
     )
     from ggp_statemachine import GameStateMachine  # noqa: WPS433
 
@@ -32,8 +30,6 @@ def _runtime_imports():
         "HeuristicMCTSAgent": HeuristicMCTSAgent,
         "NeuralValueMCTSAgent": NeuralValueMCTSAgent,
         "PureMCTAgent": PureMCTAgent,
-        "RandomAgent": RandomAgent,
-        "ValueGreedyAgent": ValueGreedyAgent,
         "GameStateMachine": GameStateMachine,
     }
 

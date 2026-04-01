@@ -1,8 +1,0 @@
-{
-  "experiment": "SDRPV_residual_v1_baseline_benchmark_fixed_time",
-  "root": "outputs/experiments/SDRPV_residual_v1_baseline_benchmark_hex_patch_20260331_115405/baseline_token_transformer_2000/seed_242/fixed_time",
-  "args": {
-    "time_budget": 0.5,
-    "iterations_cap": 120
-  }
-}

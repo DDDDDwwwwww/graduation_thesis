@@ -1,8 +1,0 @@
-{
-  "experiment": "SDRPV_residual_v1_mcts_smoke_fixed_sims",
-  "root": "outputs/experiments/SDRPV_residual_v1_mcts_smoke_r30_value_seed242_20260329_153310/fixed_sims",
-  "args": {
-    "fixed_sims": 120,
-    "playclock": 0.5
-  }
-}

@@ -1,2 +1,0 @@
-agent_a_key,agent_b_key,avg_decision_sec_a,avg_decision_sec_b,avg_game_length,avg_score_a,avg_score_b,cache_enabled,draw_rate,draws,game,legal_cache_hit_rate,losses_a,n_matches,next_cache_hit_rate,win_rate_a,wins_a
-neural_mcts:token_transformer,pure_mct,0.2760623943140095,0.24725570768905095,15.0,50.0,50.0,True,0.0,0,connectFour,0.16980455441993902,2,4,0.03153918791312559,0.5,2
