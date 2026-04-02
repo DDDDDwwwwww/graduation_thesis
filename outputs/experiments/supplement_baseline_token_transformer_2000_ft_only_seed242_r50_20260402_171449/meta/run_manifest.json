@@ -1,0 +1,26 @@
+{
+  "experiment": "baseline_token_transformer_2000_fixed_time_only",
+  "root": "outputs/experiments/supplement_baseline_token_transformer_2000_ft_only_seed242_r50_20260402_171449",
+  "args": {
+    "games": [
+      "games/breakthrough.kif",
+      "games/connectFour.kif",
+      "games/hex.kif"
+    ],
+    "pairs": [
+      [
+        "neural_mcts:baseline_token_transformer_2000",
+        "pure_mct"
+      ],
+      [
+        "neural_mcts:baseline_token_transformer_2000",
+        "heuristic_mcts"
+      ]
+    ],
+    "rounds": 50,
+    "seed": 242,
+    "fixed_time": 0.5,
+    "fixed_time_iters": 120,
+    "device": "cuda"
+  }
+}
