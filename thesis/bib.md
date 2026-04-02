@@ -28,3 +28,22 @@
   journal = {Science},
   year    = {2018}
 }
+
+@inproceedings{maras2024fast,
+  title     = {Fast and knowledge-free deep learning for general game playing (student abstract)},
+  author    = {Maras, Micha{\l} and K{\k{e}}pa, Micha{\l} and Kowalski, Jakub and Szyku{\l}a, Marek},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {38},
+  number    = {21},
+  pages     = {23576--23578},
+  year      = {2024}
+}
+
+@inproceedings{finnsson2008simulation,
+  title     = {Simulation-based approach to general game playing},
+  author    = {Finnsson, Hilmar and Bj{\"o}rnsson, Yngvi},
+  booktitle = {AAAI},
+  volume    = {8},
+  pages     = {259--264},
+  year      = {2008}
+}
