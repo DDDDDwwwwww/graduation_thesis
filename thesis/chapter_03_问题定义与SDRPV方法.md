@@ -24,6 +24,15 @@ $$
 
 【图 3-1 预留：SDRPV 方法总体流程图。建议展示状态采样、SDRPV 样本构造、teacher-only 训练、residual_v1 训练以及在线搜索接入五个环节之间的关系。】
 
+```latex
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.92\linewidth]{figures/chapter3/sdrpv_overview.pdf}
+\caption{SDRPV 方法总体流程图。}
+\label{fig:sdrpv_overview}
+\end{figure}
+```
+
 ## 3.2 SDRPV 样本的构造方式
 
 SDRPV 方法的数据基础，是围绕状态价值建模任务统一构造的监督样本。本文以对局过程中的中间状态作为基本学习单元，而不是只以整局输赢作为监督对象，并在此基础上组织出统一的 SDRPV 样本格式。每条样本包含 `s`、`b`、`q_t`、`z`、`phi` 和 `metadata` 六类信息。记单条样本为
@@ -57,6 +66,26 @@ $$
 从方法设计角度看，SDRPV 样本并不是若干标签的简单拼接，而是围绕同一研究目标组织起来的统一监督结构：`s` 提供状态表示，`b` 给出低成本参照，`q_t` 提供强搜索监督，`z` 提供终局结果约束，`phi` 则提供阶段上下文。这样的样本结构为 teacher-only 学习和 residual 学习提供了共同基础，也使本文的方法从一开始就具有完整的闭环特征。
 
 【表 3-2 预留：SDRPV 样本字段说明表。建议列出字段名、含义、来源、取值范围和在训练中的作用，例如 `b` 来自浅层搜索，`q_t` 来自 teacher 搜索，`phi` 为阶段特征。】
+
+```latex
+\begin{table}[htbp]
+\centering
+\caption{SDRPV 样本字段说明}
+\label{tab:sdrpv_sample_fields}
+\begin{tabular}{p{1.8cm}p{2.8cm}p{2.5cm}p{2.3cm}p{4.3cm}}
+\toprule
+字段 & 含义 & 来源 & 取值范围 & 在训练中的作用 \\
+\midrule
+\texttt{s} & 当前状态主体，包含事实集合、行动方、步数与终局标志 & 自对弈轨迹中的中间状态 & 结构化状态对象 & 作为统一状态编码输入，承载局面语义 \\
+\texttt{b} & 低成本 baseline value & 浅层 MCTS 搜索 & $[-1,1]$ & 提供低成本参照，并用于构造残差目标 \\
+\texttt{q\_t} & teacher 搜索监督值 & 高预算 MCTS 搜索 & $[-1,1]$ & 提供更强搜索监督，刻画目标局面价值 \\
+\texttt{z} & 归一化终局监督 & 终局得分映射 & $[-1,1]$ & 提供终局结果约束，可作为辅助监督信号 \\
+$\phi$ & 阶段特征向量 & 当前状态统计量 & $\mathbb{R}^{K}$ & 提供进度、占位率、合法动作数等全局上下文 \\
+\texttt{metadata} & 样本来源与转换记录 & 数据构建管线 & 结构化键值字段 & 支持去重、分组分析与结果留档追溯 \\
+\bottomrule
+\end{tabular}
+\end{table}
+```
 
 ## 3.3 teacher-only 路线的作用
 
@@ -120,6 +149,15 @@ $$
 
 【图 3-3 预留：residual_v1 训练目标示意图。建议展示 baseline 值 `b`、teacher 值 `q_t`、残差目标 `q_t-b` 与最终预测值 `b+\hat{\Delta}` 之间的关系。】
 
+```latex
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.88\linewidth]{figures/chapter3/residual_v1_target.pdf}
+\caption{residual\_v1 训练目标示意图。}
+\label{fig:residual_v1_target}
+\end{figure}
+```
+
 ## 3.5 输入表示、模型形式与推理接口
 
 为了让学习到的价值模型能够真正服务于 GGP 场景下的在线搜索，本节进一步说明模型在表示层、结构层和接口层上的具体设计。在输入表示方面，本文没有重新设计一套面向单一游戏的特征工程，而是采用 token 化状态编码思路，将棋盘内容、空间位置、当前玩家以及回合信息组织为结构化输入；在主线方案中，最终使用的是基于棋盘 token 的表示方式与 Transformer 价值模型的组合。这样的编码方式既能保留局面结构信息，又能够兼顾不同游戏之间的统一表示需求。
@@ -160,6 +198,15 @@ $$
 从本文的方法组织来看，residual_v1 与 value-full 的组合构成了主线方案，而 selective 模式更多承担集成对照的作用。这一结构与前文分析相呼应：teacher-only 用于验证 teacher 信号可学习，residual_v1 用于提升相对基线估计的修正能力，而 value-full 则对应更直接、更稳定的在线部署方式。
 
 【图 3-4 预留：在线搜索中的价值评估接入示意图。建议展示统一 MCTS 主循环、value-full 评估路径、selective 评估路径与 fallback 评估路径之间的关系。】
+
+```latex
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.92\linewidth]{figures/chapter3/value_mcts_integration.pdf}
+\caption{在线搜索中的价值评估接入示意图。}
+\label{fig:value_mcts_integration}
+\end{figure}
+```
 
 ## 3.7 本章小结
 
