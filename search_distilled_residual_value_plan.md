@@ -1,4 +1,4 @@
-# 最终版执行方案：Search-Distilled Residual Phase-Aware Value Net
+# 最终版执行方案：Search-Distilled Residual Progress-guided Value Net
 
 ## 1. 方案定位
 
@@ -21,7 +21,7 @@
 
 本文最终采用的模型命名为：
 
-**Search-Distilled Residual Phase-Aware Value Net（SDRPV-Net）**
+**Search-Distilled Residual Progress-guided Value Net（SDRPV-Net）**
 
 核心思想如下：
 
@@ -49,6 +49,7 @@ $$
 
 推理时，网络不会无差别接入所有 MCTS 节点，而是只在关键节点调用，以减少网络推理开销对搜索预算的侵蚀。
 
+其中，Progress-guided 强调本方法并非直接从原始终局结果学习状态价值，而是结合搜索反馈、基线估计与对局推进过程中的状态信息，逐步学习对 baseline 的残差修正。
 ---
 
 ## 3. 为什么这条路线比继续改网络结构更可行
