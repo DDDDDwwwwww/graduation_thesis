@@ -86,7 +86,7 @@ c\sqrt{\frac{\ln N(s)}{N(s,a)+1}}
 \right),
 $$
 
-其中 $c$ 为探索系数。第二类是 `heuristic_mcts`，它在共享搜索内核之上引入历史统计驱动的动作采样与 rollout 引导，使搜索能够利用仿真过程中积累的控制知识，提高相较于纯随机搜索的有效性，这与 Finnsson 和 Björnsson 提出的 simulation-based GGP 思路一致 \cite{finnsson2008simulation}。第三类是神经价值增强搜索，它在非终局叶节点调用价值模型，在终局节点仍直接读取规则层真实得分，从而将学习到的价值估计作为搜索评估的补充信息。
+其中 $c$ 为探索系数。第二类是 `heuristic_mcts`，它在共享搜索内核之上引入历史统计驱动的动作采样与 rollout 引导，使搜索能够利用仿真过程中积累的控制知识，提高相较于纯随机搜索的有效性，这与 Finnsson 和 Björnsson 提出的 simulation-based GGP 思路一致 \cite{finnsson2008simulation}。第三类是神经价值增强搜索，它在非终局叶节点调用价值模型，在终局节点仍直接读取规则层真实得分，从而将学习到的价值估计作为搜索评估的补充信息。这种保留树搜索主循环、重点替换叶节点评估与规划组件的组织方式，也与 MuZero 等神经搜索方法所体现出的模块化集成思路一致 \cite{schrittwieser2020muzero,grill2020regularized}。
 
 统一内核的另一个优点，是叶节点评估逻辑可以与搜索主循环解耦。于是，随机 rollout、历史统计引导的 rollout 以及神经价值评估都能够在相同接口下互换，搜索树结构、UCT 选择逻辑和回传过程则始终保持一致。对于论文中的方法比较而言，这种设计能有效降低方法差异被外围实现差异放大的风险。
 
@@ -111,7 +111,7 @@ $$
 
 其中 $c_i$ 表示第 $i$ 个位置的内容 token，$p_i$ 表示其位置编码，$m$ 表示有效位置掩码，$\phi(s)$ 表示全局阶段特征。这样的设计既保留了棋盘游戏的空间结构，又避免了为每一种游戏手工设计不同输入格式。
 
-在模型层，本文采用基于 Transformer 的价值评估结构，并将其作为神经价值搜索的核心评估器。一方面，这一设计能够与 `baseline_token_transformer_2000` 所代表的神经价值基线保持一致的表示范式，便于在线对比；另一方面，它也为 SDRPV 中的残差学习提供了统一的特征底座。Transformer 主干通过 token 嵌入、位置编码、掩码池化和全局特征融合完成局面表征，最终输出归一化的标量价值估计，其形式可概括为
+在模型层，本文采用基于 Transformer 的价值评估结构，并将其作为神经价值搜索的核心评估器。一方面，这一设计能够与 `baseline_token_transformer` 所代表的神经价值基线保持一致的表示范式，便于在线对比；另一方面，它也为 SDRPV 中的残差学习提供了统一的特征底座。Transformer 主干通过 token 嵌入、位置编码、掩码池化和全局特征融合完成局面表征，最终输出归一化的标量价值估计，其形式可概括为
 
 $$
 h(s)=\mathrm{Transformer}\bigl(x(s)\bigr),\qquad
@@ -145,7 +145,7 @@ $$
 t_m \le 0.5,\qquad k_m \le 120.
 $$
 
-在这一统一预算下，实验分为三类：一是 baseline benchmark，用于比较 SDRPV 方法与 `pure_mct`、`heuristic_mcts`、`baseline_token_transformer_2000` 三个基线在 `breakthrough`、`connectFour`、`hex` 上的真实对局表现；二是 ablation benchmark，用于比较完整方案与不同删减版本之间的性能差异；三是离线指标评测，用于分析残差学习目标是否带来了对较强搜索监督的更好逼近。
+在这一统一预算下，实验分为三类：一是 baseline benchmark，用于比较 SDRPV 方法与 `pure_mct`、`heuristic_mcts`、`baseline_token_transformer` 三个基线在 `breakthrough`、`connectFour`、`hex` 上的真实对局表现；二是 ablation benchmark，用于比较完整方案与不同删减版本之间的性能差异；三是离线指标评测，用于分析残差学习目标是否带来了对较强搜索监督的更好逼近。
 
 【表 4-2 预留：训练与评测链路说明表。建议列出数据构建、残差训练、离线指标评估、baseline benchmark、ablation benchmark 五个阶段的输入、输出和核心作用。】
 
