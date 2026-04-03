@@ -30,6 +30,6 @@
 
 3. 设计并实现了统一的状态编码、价值评估与搜索集成方案。本文采用基于棋盘 token 的通用表示方式，并以 Transformer 结构输出标量价值估计，使神经评估器能够在保持跨游戏统一性的同时融入共享 MCTS 内核。相较于直接替代规则系统的做法，本文始终保留规则真值在终局判定中的主导地位，从而明确了规则执行与神经评估的工程边界。
 
-4. 完成了系统化的实验验证。本文以 `connectFour` 自对弈样本构建训练数据，并在 `breakthrough`、`connectFour` 和 `hex` 上进行 fixed-time 在线评测。实验结果表明，SDRPV 在离线指标上优于基线值 `b` 与 teacher-only 路线，在在线 baseline benchmark 中对 `pure_mct` 和 `heuristic_mcts` 的三游戏总体胜率均达到 `0.7133`，对 `baseline_token_transformer` 也取得 `0.5467` 的总体正优势；ablation benchmark 则进一步说明，teacher 监督与 residual 目标对最终性能提升具有共同作用。上述结果说明，本文提出的技术路线能够在统一 GGP 框架下转化为真实的搜索收益。
+4. 完成了系统化的实验验证。本文以 `connectFour` 自对弈样本构建训练数据，并在 `breakthrough`、`connectFour` 和 `hex` 上进行 fixed-time（固定时间）在线评测。实验结果表明，SDRPV 在离线指标上优于基线值 `b` 与 teacher-only 路线，在在线 baseline benchmark 中对 `pure_mct` 和 `heuristic_mcts` 的三游戏总体胜率均达到 `0.7133`，对 `baseline_token_transformer` 也取得 `0.5467` 的总体正优势；ablation benchmark 则进一步说明，teacher 监督与 residual 目标对最终性能提升具有共同作用。上述结果说明，本文提出的技术路线能够在统一 GGP 框架下转化为真实的搜索收益。
 
 总体而言，本文的工作重点并不在于提出一种完全脱离既有搜索框架的新型博弈智能体，而在于围绕统一规则环境中的价值修正问题，形成一条具有清晰监督来源、明确系统边界和可验证实验收益的方法路线。这也是本文相对于一般神经博弈研究更强调通用规则场景下搜索增强的原因所在。

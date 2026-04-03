@@ -8,7 +8,7 @@
 
 本文的实验环境建立在统一的 GGP 状态机之上，所有方法共享相同的规则执行机制、状态转移接口与终局评分规则。在线实验采用的游戏包括 `breakthrough`、`connectFour` 和 `hex`，它们共同覆盖了不同的棋盘规模、行动空间与博弈结构，因此能够较为全面地考察本文方法在多种棋盘型 GGP 任务中的适用性。
 
-在线实验统一采用 fixed-time 设置。具体而言，每一步决策的搜索时间预算设为 `0.5 s`，同时设置搜索迭代上限为 `120` 次；所有结果均以 `seed=242` 的运行留档为统计依据。若第 $m$ 步的实际搜索时间和搜索迭代数分别记为 $t_m$ 与 $k_m$，则实验预算约束满足
+在线实验统一采用 fixed-time（固定时间）设置。具体而言，每一步决策的搜索时间预算设为 `0.5 s`，同时设置搜索迭代上限为 `120` 次；所有结果均以 `seed=242` 的运行留档为统计依据。若第 $m$ 步的实际搜索时间和搜索迭代数分别记为 $t_m$ 与 $k_m$，则实验预算约束满足
 
 $$
 t_m \le 0.5,\qquad k_m \le 120.
@@ -76,7 +76,7 @@ $$
 
 在该实验中，本文方法采用 SDRPV 驱动的神经价值增强搜索；对比方法依次为 `pure_mct`、`heuristic_mcts` 和 `baseline_token_transformer`。前三者共同构成从纯搜索到启发式搜索再到神经价值搜索的递进对照，因此该 benchmark 可以清楚回答两个问题：第一，SDRPV 是否优于传统搜索基线；第二，SDRPV 相对于已有神经价值方法是否具有额外收益。
 
-除以 SDRPV 为核心的主 baseline benchmark 外，本文还新增了一个补充 baseline benchmark，即固定 `baseline_token_transformer` 为对局主体，仅与 `pure_mct` 和 `heuristic_mcts` 进行对弈。该补充实验与主 benchmark 共用完全一致的 fixed-time 设置、随机种子与对局轮数，因此能够在“相同表示范式、相同传统搜索对手、相同预算约束”的条件下，直接比较 SDRPV 与神经价值基线对传统搜索基线的实际压制能力。换言之，主 benchmark 用于证明SDRPV 整体更强，而补充 benchmark 则进一步证明这种优势不只是 token Transformer 表示带来的普遍收益，还是来自 SDRPV 的残差学习目标及其搜索接入方式。
+除以 SDRPV 为核心的主 baseline benchmark 外，本文还新增了一个补充 baseline benchmark，即固定 `baseline_token_transformer` 为对局主体，仅与 `pure_mct` 和 `heuristic_mcts` 进行对弈。该补充实验与主 benchmark 共用完全一致的 fixed-time 设置、随机种子与对局轮数，因此能够在“相同表示范式、相同传统搜索对手、相同预算约束”的条件下，直接比较 SDRPV 与神经价值基线对传统搜索基线的实际压制能力。换言之，主 benchmark 用于证明 SDRPV 整体更强，而补充 benchmark 则进一步说明这种优势不仅来自 token Transformer 表示带来的普遍收益，也来自 SDRPV 的残差学习目标及其搜索接入方式。
 
 【图 5-1 预留：baseline benchmark 组织流程图。建议展示“模型加载 -> 搜索代理配置 -> fixed-time 对局执行 -> 单局结果汇总 -> 分游戏统计与总体统计”的流程。】
 
