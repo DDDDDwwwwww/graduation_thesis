@@ -1,0 +1,79 @@
+﻿% Translated from: thesis/chapter_02_相关研究与技术基础.md
+% Target journal: General
+% Generated: 2026-04-03
+\chapter{Related Work and Technical Foundations}
+\setcounter{figure}{0}
+\setcounter{equation}{0}
+\renewcommand{\thefigure}{\thechapter-\arabic{figure}}
+\renewcommand{\theequation}{\thechapter-\arabic{equation}}
+
+\section{General Game Playing and Rule Description Research}
+
+The core idea of General Game Playing (GGP) is to let an agent receive formal rule descriptions at runtime and complete game reasoning, action selection, and strategy learning with minimal reliance on handcrafted domain knowledge. Genesereth et al. systematically clarified this objective early on, namely replacing game-specific manual encoding with unified rule input, so that the focus shifts from building a strong engine for one game to building reusable agents across games \cite{genesereth2005general}. This perspective has been reinforced in later studies, and recent surveys further indicate that GGP remains an important testbed for examining how representation, reasoning, search, and learning can be coordinated in a unified task framework \cite{genesereth2026general}.
+
+At the rule-representation layer, GDL/KIF provides a machine-parsable and logically executable foundation. Compared with specialized interfaces tailored to a few fixed games, GDL explicitly represents roles, legal actions, state transitions, terminal conditions, and utility values, allowing different games to be mapped to a consistent execution semantics. As research expands to imperfect information and epistemic reasoning, GDL-III further incorporates knowledge states and observation constraints, showing that rule languages continue to evolve with research needs \cite{thielscher2017gdl3}. Earlier extensions of GDL for imperfect information and stochasticity also support this trend, indicating a sustained effort toward unified rule descriptions that cover richer information structures \cite{thielscher2010incomplete}. Building on this, Partridge and Thielscher combined deep learning and search in hidden-information GGP settings, demonstrating that unified rule frameworks can serve not only perfect-information board games but also more complex settings \cite{partridge2022hidden}.
+
+Recent studies also show that rule descriptions are not merely static inputs. They can be translated into intermediate forms for solving and reasoning. He et al. translated GDL into quantified Boolean formulas (QBF) and solved two-player zero-sum games with general solvers, showing that formal rule representations remain valuable for state solving, terminal analysis, and complete reasoning in small-scale settings \cite{he2024qbf}. This line of work motivates our design choice: even when neural value models are introduced, the rule layer should remain the semantic backbone rather than being replaced by learned modules.
+
+\section{Unified State Machines, Rule Parsing, and Logical Reasoning}
+
+In a GGP system, rule descriptions must be grounded in a unified state-machine interface to support search and gameplay execution. The interface typically includes operations for role retrieval, initial-state generation, legal-action queries, joint-action execution, terminal detection, and goal-value retrieval. Letting the current state be $s_t$ and the joint action be $a_t$, the core semantics can be written as follows:
+
+\begin{equation}
+a_t \in \mathcal{A}(s_t),\qquad
+s_{t+1}=T(s_t,a_t),\qquad
+r_t=R(s_t).
+\end{equation}
+
+The value of this unified semantics is that it decouples rule interpretation from search control. A search algorithm does not need to know whether the concrete game is \texttt{connectFour}, \texttt{breakthrough}, or \texttt{hex}; it only calls standard interfaces for legal actions, transitions, and terminal scores \cite{genesereth2005general}. Therefore, in GGP, generality comes not only from rule languages but also from the engineering organization that realizes them as unified state-machine interfaces.
+
+Furthermore, translating GDL into executable logic programs supports our GDL-to-Prolog execution pipeline. First, logic programming is naturally close to GDL in representation style and helps preserve declarative structure. Second, logical inference directly supports legal-action queries, terminal checking, and state evolution. Third, such pipelines offer interpretability and cross-game reusability. Although logical inference can be computationally expensive, recent results indicate that with suitable intermediate representations, caching, or solver optimizations, rule-driven unified reasoning remains practical in GGP \cite{he2024qbf}. For this reason, we do not manually implement per-game state machines and then attach search; we keep a rule-driven unified state-machine route.
+
+\section{Monte Carlo Tree Search and Main Improvement Lines}
+
+MCTS is one of the most representative general search methods in game AI. Its basic pipeline consists of selection, expansion, simulation, and backpropagation \cite{browne2012survey}. In each iteration, the algorithm selects a node, expands and simulates from the new node, and backpropagates the evaluation through the visited path. Let $N(s)$ be node visits, $N(s,a)$ edge visits, and $W(s,a)$ accumulated return. The classical UCT criterion is:
+
+\begin{equation}
+a^\ast=\arg\max_{a\in\mathcal{A}(s)}
+\left(
+\frac{W(s,a)}{N(s,a)}
++
+c\sqrt{\frac{\ln N(s)}{N(s,a)+1}}
+\right).
+\end{equation}
+
+This framework is valuable because it does not require a complete heuristic function or a domain-specific evaluator, which makes it well suited as a core method in GGP \cite{browne2012survey}.
+
+In GGP, early work treated MCTS as a default solver for settings where rules are unknown beforehand but forward simulation is available. Finnsson and Bjornsson showed that even without deep models, pure search can be strengthened through simulation statistics, action biasing, and rollout guidance \cite{finnsson2008simulation}. The progression from pure MCTS to heuristic MCTS can thus be seen as a gradual injection of experience into a unified search skeleton.
+
+With deep learning, research moved from improving rollouts to improving leaf evaluation and policy priors. Anthony et al. and Silver et al. demonstrated the strong performance of coupling neural models and tree search through self-play loops \cite{anthony2017thinking,silver2018general}. MuZero further combined search with a learned environment model and still achieved strong planning performance under unknown dynamics, while Grill et al. offered a regularized-policy-optimization view that unifies AlphaZero-style methods \cite{schrittwieser2020muzero,grill2020regularized}. Although many of these results come from fixed games, they provide two key lessons for this thesis: MCTS can be stably integrated with neural evaluators, and leaf-node evaluation is a highly effective integration point.
+
+Recent neural-MCTS surveys and methods also show that there is no single integration pattern. Different combinations of value networks, policy priors, node-selection rules, and training strategies can substantially affect efficiency and stability \cite{kemmerling2023neural}. Liu et al. further analyzed node-selection efficiency under neural guidance, showing that budget allocation remains a bottleneck even when value networks are available \cite{liu2024efficient}. This supports our design choice of keeping a unified MCTS kernel while introducing value-based leaf correction.
+
+\section{Neural Value Evaluation, Cross-Game Representation, and Transfer Learning}
+
+For GGP, the key challenge is not only whether neural models can be integrated into search, but whether representation can remain unified and transferable across games. Goldwaser and Thielscher extended AlphaZero-style ideas to GGP and showed feasibility, while also exposing practical challenges in representation, action-space handling, and training cost \cite{goldwaser2020deep}. Soemers et al. later combined Ludii and Polygames to automatically construct input-output tensors for multiple board games, further advancing automatic cross-game adaptation \cite{soemers2021ludii}.
+
+Closer to our focus, Maras et al. proposed a knowledge-free deep-learning route for GGP, using attention-based structures to reduce dependency on board-topology priors and game-specific assumptions \cite{maras2024fast}. This indicates that if value models are to serve GGP effectively, handcrafted feature engineering and fixed-game assumptions should be minimized. Partridge and Thielscher also showed in hidden-information GGP that unified representation remains challenging beyond perfect-information games \cite{partridge2022hidden}. Along the same direction, Player of Games demonstrated the possibility of handling perfect-information, hidden-information, and stochastic games with a single learning-and-search framework \cite{schmid2021player}.
+
+Beyond representation, transfer is central to the practicality of neural methods in GGP. McEwan and Thielscher studied cross-game knowledge transfer and showed that suitable transfer can reduce the cost of restarting from scratch for each new game \cite{mcewan2022knowledge}. Soemers et al. further discussed generalization paths for policy-value networks, showing that transfer depends not only on larger model capacity but also on coordinated design of representation, action encoding, and training objectives \cite{soemers2023transfer}. These findings provide direct support for our unified board-token representation and general value-modeling framework.
+
+Overall, existing neural-GGP research has established three points: deep models can be effective in rule-general environments; unified representation is more aligned with GGP goals than single-game feature engineering; and transfer plus automatic adaptation are key to practical performance. However, there is still limited discussion on how to improve leaf-node evaluation under limited search budgets by combining stable teacher supervision with residual learning targets.
+
+\section{Search Distillation, Teacher Signals, and Residual Learning}
+
+From the supervision-design perspective, training value models only from terminal outcomes often suffers from sparse and noisy signals, whereas teacher signals generated by stronger search are usually closer to the state evaluations needed in online search. Representative work on neural-search synergy has shown that strong-search outputs can guide both inference and training as high-quality supervision \cite{anthony2017thinking,silver2018general}. This provides a methodological basis for constructing samples with low-cost baseline values and high-budget teacher values.
+
+Recent work in game AI and reinforcement learning further interprets this through distillation and teacher-student frameworks. Li et al. extended DeepCFR with knowledge distillation and used stronger policy knowledge to guide approximation in multi-player imperfect-information games \cite{li2023kdbd2cfr}. More generally, policy distillation demonstrated that teacher policies can be compressed into smaller and more efficient student models while supporting multi-task knowledge integration \cite{rusu2015policy}. Although these studies are not specifically designed for GGP, they reveal a shared pattern: when problem spaces are large and direct learning is difficult, intermediate supervision from stronger search or stronger teachers is often more effective than relying only on final returns.
+
+Residual value modeling also improves learning stability. ResQ combined main and residual functions for multi-agent value decomposition and emphasized learning correction terms on top of existing approximations rather than fitting full value structure from scratch \cite{shen2022resq}. Although the task differs from ours, the core implication is consistent with SDRPV: if baseline estimates already contain useful information, learning correction terms is usually easier to optimize and more stable under limited samples and compute budgets.
+
+Taken together, teacher signals and residual learning solve complementary issues. Teacher signals answer what is worth learning by aligning supervision with strong-search evaluation; residual learning answers how to learn stably by leveraging existing baselines. Prior work has validated both ideas in fixed games and imperfect-information settings, but fewer studies have systematically integrated both within a unified GGP state machine and unified MCTS framework for cross-game value correction. This is exactly the gap our work targets.
+
+\section{Review of Existing Work and Our Entry Point}
+
+The literature above provides a strong technical foundation for this thesis. First, work on GGP and GDL/KIF shows that unified rule description and unified state machines are prerequisites for cross-game search and learning \cite{genesereth2005general,thielscher2017gdl3,he2024qbf}. Second, work on MCTS and its heuristic/neural extensions shows that leaf evaluation quality directly affects search performance under limited budgets, so value models should serve the search process rather than replace it \cite{browne2012survey,finnsson2008simulation,liu2024efficient}. Third, work on neural GGP, transfer, and distillation shows that unified representation, cross-game generalization, and strong supervision are key directions \cite{mcewan2022knowledge,soemers2023transfer,partridge2022hidden,maras2024fast}.
+
+At the same time, three limitations remain. Many neural-search methods rely on fixed games or stable input-output structures and are hard to transfer to runtime-defined GGP settings. Existing deep-learning GGP studies focus more on whether cross-game representation can be learned or whether deep search can be introduced, with less systematic discussion on teacher-based supervision and residual correction under limited search budgets. In addition, rule-reasoning systems and neural evaluators are still loosely coupled in many studies, and a complete closed loop of unified rule semantics, unified state-machine execution, unified search skeleton, and value-correction-oriented learning objectives is still insufficiently developed.
+
+Therefore, the entry point of this thesis is not to propose a generic deep RL method outside GGP. Instead, under a unified rule-driven framework, we build a technical route centered on search distillation and residual value modeling that is closer to real search demands. The next chapter formalizes this problem and describes how SDRPV organizes sample construction, teacher supervision, residual objectives, and integration with MCTS.

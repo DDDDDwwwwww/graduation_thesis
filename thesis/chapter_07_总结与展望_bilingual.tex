@@ -1,0 +1,45 @@
+﻿% Translated from: thesis/chapter_07_总结与展望.md
+% Target journal: General
+% Generated: 2026-04-03
+
+% --- Paragraph 1 ---
+% # 第七章 总结与展望
+
+\chapter{Conclusion and Future Work}
+
+% --- Paragraph 2 ---
+% 本文围绕通用博弈游戏（General Game Playing, GGP）场景下的搜索增强问题展开研究，重点讨论在统一规则描述与统一状态机框架中，如何构建能够稳定接入蒙特卡洛树搜索（Monte Carlo Tree Search, MCTS）的神经价值评估方法。针对现有方法在统一表示、监督构造和在线集成稳定性方面的不足，本文提出了 Search-Distilled Residual Progress-guided Value（SDRPV）方法，并完成了从规则执行、样本构造、模型训练到在线评测的完整实现。
+
+This thesis investigates search enhancement in the context of General Game Playing (GGP), with a focus on how to construct a neural value evaluation method that can be stably integrated into Monte Carlo Tree Search (MCTS) under a unified rule-description and state-machine framework. To address the limitations of existing methods in unified representation, supervision construction, and online integration stability, this thesis proposes the Search-Distilled Residual Progress-guided Value (SDRPV) method and completes an end-to-end implementation spanning rule execution, sample construction, model training, and online evaluation.
+
+% --- Paragraph 3 ---
+% 本文的核心思路是，将价值学习组织为“低成本基线估计 + 强搜索 teacher 监督 + 残差修正”的统一过程。基于这一思路，本文构建了支持 `breakthrough`、`connectFour` 和 `hex` 的统一规则执行与状态机接口，设计了包含 `s`、`b`、`q_t`、`z` 和 `phi` 的 SDRPV 样本结构，并采用基于棋盘 token 的统一状态表示与 Transformer 价值网络实现残差学习，最终将训练得到的价值模型接入共享 MCTS 内核，形成面向固定时间在线对局的神经价值增强搜索方案。
+
+The core idea is to organize value learning as a unified process of low-cost baseline estimation, strong-search teacher supervision, and residual correction. Following this idea, this thesis builds unified rule-execution and state-machine interfaces for `breakthrough`, `connectFour`, and `hex`; designs an SDRPV sample structure containing `s`, `b`, `q_t`, `z`, and `phi`; applies a board-token-based unified state representation and a Transformer value network for residual learning; and finally integrates the trained value model into a shared MCTS kernel, yielding a neural-value-enhanced search scheme for fixed-time online matches.
+
+% --- Paragraph 4 ---
+% 实验结果表明，SDRPV 在离线指标与在线对局两个层面均取得了较为稳定的效果。离线评估中，SDRPV 在 `MAE`、`MSE` 与相关系数等指标上优于基线值 `b` 与 teacher-only 路线，说明模型学习到的是对基线估计的有效修正。在线 baseline benchmark 中，SDRPV 对 `pure_mct` 和 `heuristic_mcts` 的三游戏总体胜率均达到 `0.7133`，相对于 `baseline_token_transformer` 也保持了总体正优势；ablation benchmark 则进一步说明，teacher 监督为价值修正提供了有效方向，residual 目标提升了方法的稳定性。上述结果说明，本文提出的技术路线能够在统一 GGP 框架下转化为真实的搜索收益。
+
+Experimental results show that SDRPV achieves stable improvements at both offline-metric and online-play levels. In offline evaluation, SDRPV outperforms baseline value `b` and the teacher-only route on `MAE`, `MSE`, and correlation metrics, indicating that the model learns effective corrections to baseline estimates. In the online baseline benchmark, SDRPV reaches an overall three-game win rate of `0.7133` against both `pure_mct` and `heuristic_mcts`, while also maintaining an overall positive edge over `baseline_token_transformer`; the ablation benchmark further shows that teacher supervision provides an effective direction for value correction and that the residual objective improves method stability. These results demonstrate that the proposed technical route can be translated into real search gains under a unified GGP framework.
+
+% --- Paragraph 5 ---
+% 本文工作的主要价值在于：验证了神经价值方法在规则驱动框架中服务于搜索增强的可行性，说明了相较于直接拟合强搜索值，围绕基线估计开展残差修正更符合当前 GGP 场景下的价值建模需求；同时，本文通过统一状态机、统一搜索骨架和统一评测口径组织实验，使方法效果能够在较清晰的工程边界内被解释与比较。
+
+The main value of this work lies in validating the feasibility of using neural value methods to serve search enhancement within a rule-driven framework, and in showing that, compared with directly fitting strong-search values, residual correction around baseline estimation is better aligned with value-modeling needs in current GGP settings. In addition, by organizing experiments with a unified state machine, a unified search skeleton, and a unified evaluation protocol, this thesis makes method behavior interpretable and comparable within clear engineering boundaries.
+
+% --- Paragraph 6 ---
+% 与此同时，本文仍存在一定局限。当前训练数据主要来自 `connectFour` 自对弈样本，跨游戏监督覆盖范围仍然有限；从分游戏结果看，SDRPV 在 `breakthrough` 和 `connectFour` 上表现较强，但在 `hex` 上的优势相对有限；此外，现阶段对神经评估与 MCTS 的在线接入策略探索仍较为初步，集成机制仍有进一步优化空间。
+
+At the same time, this thesis has limitations. The current training data mainly come from `connectFour` self-play samples, so cross-game supervision coverage is still limited. In per-game results, SDRPV performs strongly on `breakthrough` and `connectFour`, but gains are relatively limited on `hex`. Moreover, exploration of online integration strategies between neural evaluation and MCTS remains preliminary, and there is room for further optimization of the integration mechanism.
+
+% --- Paragraph 7 ---
+% 未来工作可从以下几个方向展开：其一，引入更多游戏和更丰富的阶段样本，提升监督信号的跨游戏覆盖范围；其二，结合 phase-aware 建模思路，增强模型对不同对局阶段的适应能力；其三，继续优化神经评估与 MCTS 的集成方式，探索更稳健的选择性调用与动态预算分配策略；其四，在更大规模 benchmark 和更多类型的 GGP 任务上进一步验证本文方法的稳定性与适用范围。
+
+Future work can proceed in four directions. First, introduce more games and richer stage-wise samples to improve cross-game coverage of supervision signals. Second, incorporate phase-aware modeling to enhance adaptation across different game stages. Third, continue to optimize neural-evaluation and MCTS integration, including more robust selective-calling and dynamic-budget-allocation strategies. Fourth, further verify the stability and applicability of the proposed method on larger benchmarks and more diverse GGP tasks.
+
+% --- Paragraph 8 ---
+% 总体而言，本文围绕统一 GGP 场景下的价值修正问题，提出并验证了 SDRPV 方法，形成了一条具有清晰监督来源、明确系统边界和可复核实验结果的技术路线。虽然当前工作仍具有阶段性，但研究结果表明，在规则驱动执行框架中引入搜索蒸馏监督与残差价值修正，能够为有限预算下的搜索增强带来真实而稳定的收益，也为后续研究提供了可继续推进的基础。
+% 
+
+Overall, this thesis addresses value correction in unified GGP settings by proposing and validating SDRPV, forming a technical route with clear supervision sources, explicit system boundaries, and reproducible experimental results. Although the current work is still at a staged level, the findings indicate that introducing search-distillation supervision and residual value correction into a rule-driven execution framework can deliver real and stable search gains under limited budgets, and provides a practical basis for follow-up research.
+
