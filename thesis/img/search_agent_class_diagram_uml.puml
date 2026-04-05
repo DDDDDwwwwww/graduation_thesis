@@ -1,0 +1,91 @@
+@startuml
+title Search Agent Class Diagram (Shared MCTS Kernel)
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundCorner 10
+
+package "Core" {
+  abstract class BaseAgent {
+    +name
+    +role
+    +select_action(game_machine, state, legal_actions, time_limit)
+  }
+
+  class _MCTSCoreAgent {
+    -iterations
+    -exploration_constant
+    -discount_factor
+    -temperature
+    -root
+    -history_stats
+    -evaluator
+    +select_move(game_machine, state, time_limit)
+    +select_action(game_machine, state, legal_actions, time_limit)
+    -_run_single_iteration(...)
+    -_select_joint_actions(...)
+    -_backpropagate(...)
+    -_prepare_root(state)
+    -_best_action_from_node(...)
+  }
+}
+
+package "Concrete Agents" {
+  class PureMCTAgent
+  class HeuristicMCTSAgent
+  class NeuralValueMCTSAgent {
+    +from_artifacts(...)
+    +get_last_search_stats()
+  }
+}
+
+package "Evaluators" {
+  interface LeafEvaluator {
+    +evaluate(game, state, role, time_limit)
+    +evaluate_for_roles(game, state, roles, budget_end)
+  }
+
+  class RandomRolloutEvaluator
+  class HeuristicRolloutEvaluator
+  class ValueNetworkEvaluator
+  class SelectiveValueEvaluator
+}
+
+package "MCTS Utilities" {
+  class TreeNode
+  class "selectors\n(select_by_uct, gibbs_sample)" as Selectors
+}
+
+package "Neural Components" {
+  class BoardTokenEncoder
+  class TransformerValueNet
+}
+
+BaseAgent <|-- _MCTSCoreAgent
+_MCTSCoreAgent <|-- PureMCTAgent
+_MCTSCoreAgent <|-- HeuristicMCTSAgent
+_MCTSCoreAgent <|-- NeuralValueMCTSAgent
+
+LeafEvaluator <|.. RandomRolloutEvaluator
+LeafEvaluator <|.. HeuristicRolloutEvaluator
+LeafEvaluator <|.. ValueNetworkEvaluator
+LeafEvaluator <|.. SelectiveValueEvaluator
+
+_MCTSCoreAgent --> LeafEvaluator : plug-in evaluation
+_MCTSCoreAgent --> TreeNode : build/search tree
+_MCTSCoreAgent --> Selectors : UCT/Gibbs selection
+
+PureMCTAgent --> RandomRolloutEvaluator : uses
+HeuristicMCTSAgent --> HeuristicRolloutEvaluator : uses
+NeuralValueMCTSAgent --> ValueNetworkEvaluator : uses
+NeuralValueMCTSAgent --> SelectiveValueEvaluator : optional mode
+ValueNetworkEvaluator --> BoardTokenEncoder : encode(state)
+ValueNetworkEvaluator --> TransformerValueNet : predict value
+
+note bottom of _MCTSCoreAgent
+  Shared loop:
+  selection -> expansion -> evaluation -> backpropagation
+  Only leaf evaluator differs across agents.
+end note
+
+@enduml

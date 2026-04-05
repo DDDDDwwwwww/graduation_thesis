@@ -56,6 +56,9 @@ That is, on the sample distribution $\mathcal{D}$, make the final prediction as 
 
 This formulation emphasizes two principles. First, the value model serves search rather than replacing it, so supervision should align with search demand. Second, the goal is stable search-quality improvement, not architectural complexity by itself. Based on this, we propose Search-Distilled Residual Progress-guided Value (SDRPV) Method, which integrates strong search signals, low-cost baseline estimation and stage information into the value learning process.
 
+% SDRPV 方法的整体流程见图~\ref{fig:sdrpv_overview}。
+The overall workflow of SDRPV is shown in Fig.~\ref{fig:sdrpv_overview}.
+
 
 % --- Paragraph 11 ---
 % 【图 3-1 预留：SDRPV 方法总体流程图。建议展示状态采样、SDRPV 样本构造、teacher-only 训练、residual_v1 训练以及在线搜索接入五个环节之间的关系。】
@@ -124,6 +127,9 @@ Each component can be calculated directly from the current state, and does not d
 % --- Paragraph 24 ---
 % 从方法设计角度看，SDRPV 样本并不是若干标签的简单拼接，而是围绕同一研究目标组织起来的统一监督结构：\texttt{s} 提供状态表示，\texttt{b} 给出低成本参照，\texttt{q_t} 提供强搜索监督，\texttt{z} 提供终局结果约束，\texttt{phi} 则提供阶段上下文。这样的样本结构为 teacher-only 学习和 residual 学习提供了共同基础，也使本文的方法从一开始就具有完整的闭环特征。
 SDRPV samples are not simple splicing of several labels, but a unified supervision structure organized around the same research goal: \texttt{s} provides state representation, \texttt{b} gives low-cost reference, \texttt{q_t} provides strong search supervision, \texttt{z} provides final result constraint, and \texttt{phi} provides stage context. This unified structure supports both teacher-only learning and residual learning in a single closed loop.
+
+% 关键字段定义与训练角色汇总见表~\ref{tab:sdrpv_sample_fields}。
+The key field definitions and their roles in training are summarized in Table~\ref{tab:sdrpv_sample_fields}.
 
 
 % --- Paragraph 25 ---
@@ -243,6 +249,9 @@ with
 % 这样一来，residual_v1 不仅提出了一种新的训练目标，也为后续实验章节中的有效性分析提供了直接证据链。
 In this way, residual_v1 not only proposes a new training goal, but also provides a direct evidence chain for the effectiveness analysis in the subsequent experimental chapters.
 
+% 其训练目标关系示意见图~\ref{fig:residual_v1_target}。
+The relationship among training targets is illustrated in Fig.~\ref{fig:residual_v1_target}.
+
 % --- Paragraph 47 ---
 % 【图 3-3 预留：residual_v1 训练目标示意图。建议展示 baseline 值 \texttt{b}、teacher 值 \texttt{q_t}、残差目标 \texttt{q_t-b} 与最终预测值 \texttt{b+\hat{\Delta}} 之间的关系。】
 
@@ -287,8 +296,8 @@ This design keeps terminal logic consistent with game rules while enabling neura
 
 
 % --- Paragraph 56 ---
-% 训练价值模型并不是本文的最终目的，将其稳定接入搜索流程并转化为可观测的搜索收益，才是 SDRPV 方法成立的关键。为此，本文设计了统一的神经价值搜索代理，并支持 \texttt{value} 与 \texttt{selective} 两种评估模式。前者对应 value-full 接入方式，即在叶节点评估时直接调用价值网络；后者对应选择性接入方式，即只在满足特定条件时使用神经网络，在不满足条件时退回到随机 rollout 或低成本评估器，并通过 \texttt{alpha}、\texttt{max_neural_evals_per_move} 和 \texttt{legal_move_threshold} 等参数控制调用强度。
-Training a value model is not the endpoint; stable integration into search and measurable online gain are essential. We therefore design a unified neural-value search agent with two modes: \texttt{value} and \texttt{selective}. In \texttt{value} mode, the value network is used directly at leaf nodes. In \texttt{selective} mode, neural evaluation is called only when conditions are satisfied; otherwise, the system falls back to rollout or a low-cost evaluator. The invocation strength is controlled by parameters such as \texttt{alpha}, \texttt{max_neural_evals_per_move}, and \texttt{legal_move_threshold}.
+% 训练价值模型并不是本文的最终目的，将其稳定接入搜索流程并转化为可观测的搜索收益，才是 SDRPV 方法成立的关键。结合本文后续实验设置，在线部署的主线方案采用 \texttt{value} 模式，即 value-full 接入方式：在叶节点评估时直接调用价值网络。与此同时，为了说明统一搜索代理在工程实现上的可扩展性，本文也保留了 \texttt{selective} 这一选择性接入思路，即只在满足特定条件时使用神经网络，在不满足条件时退回到随机 rollout 或低成本评估器，并可通过 \texttt{alpha}、\texttt{max_neural_evals_per_move} 和 \texttt{legal_move_threshold} 等参数控制调用强度。但需要说明的是，本文实验验证与结果分析均围绕 value-full 主线展开，selective 在此主要作为补充性的系统设计说明，而非本文重点验证对象。
+Training a value model is not the endpoint; stable integration into search and measurable online gains are essential to the SDRPV method. Under the experimental setup used in this thesis, the mainline online deployment adopts \texttt{value} mode, i.e., value-full integration, where the value network is invoked directly at leaf nodes. Meanwhile, to show the engineering extensibility of a unified search agent, we also retain a \texttt{selective} integration idea: neural evaluation is used only when specific conditions are satisfied; otherwise, the system falls back to random rollout or a low-cost evaluator. The calling intensity can be controlled by parameters such as \texttt{alpha}, \texttt{max_neural_evals_per_move}, and \texttt{legal_move_threshold}. Importantly, the experimental validation and result analysis in this thesis are centered on the value-full mainline; here, selective is included as supplementary system-design description rather than as a primary validated target.
 
 % --- Paragraph 57 ---
 % 对非终局叶节点 $s_\ell$，value-full 模式的评估可写为
@@ -300,8 +309,8 @@ V_{\mathrm{leaf}}^{\mathrm{value}}(s_\ell)=\hat{v}(s_\ell).
 
 
 % --- Paragraph 59 ---
-% 而 selective 模式可表示为
-Selective evaluation is
+% 若从系统实现完整性的角度补充说明，selective 接入可抽象表示为
+For completeness of system implementation, selective integration can be abstractly written as
 
 
 
@@ -312,19 +321,22 @@ I(s_\ell)\hat{v}(s_\ell)+\bigl(1-I(s_\ell)\bigr)V_{\mathrm{fallback}}(s_\ell),
 \end{equation}
 
 % --- Paragraph 61 ---
-% 其中 $I(s_\ell)\in \{0,1\}$ 表示当前叶节点是否满足神经评估调用条件，$V_{\mathrm{fallback}}$ 表示回退评估器输出。
+% 其中 $I(s_\ell)\in \{0,1\}$ 表示当前叶节点是否满足神经评估调用条件，$V_{\mathrm{fallback}}$ 表示回退评估器输出。这里的形式化表达主要用于刻画一种可选的集成机制，便于与主线的 value-full 接入方式进行概念区分。
 
-where $I(s_\ell)\in\{0,1\}$ indicates whether neural evaluation is triggered. $V_{\mathrm{fallback}}$ indicates the output of the rollback evaluator。
+where $I(s_\ell)\in\{0,1\}$ indicates whether neural evaluation is triggered, and $V_{\mathrm{fallback}}$ denotes the fallback evaluator output. This formalization is mainly used to characterize an optional integration mechanism and to conceptually distinguish it from the value-full mainline integration.
 % --- Paragraph 62 ---
 % 这种集成方式延续了深度网络与树搜索协同的基本思路，但并不照搬 AlphaZero 一类大规模自博弈闭环，而是更贴近本文的研究条件与方法目标 \cite{anthony2017thinking,silver2018general}。具体而言，本文保留统一的 GGP 状态机和既有 MCTS 主循环，只对叶节点评估器进行神经化扩展；同时将搜索蒸馏、基线修正与在线集成拆分为可独立验证的阶段，从而降低系统整体复杂度，并提升实验分析的可解释性。
 This integration follows neural-tree-search synergy while remaining aligned with our constraints \cite{anthony2017thinking,silver2018general}. We keep a unified GGP state machine and the existing MCTS loop, and only replace the leaf evaluator with a neural component. This design improves interpretability and reduces integration complexity by splitting search distillation, baseline correction and online integration into independent verification stages.
 
 % --- Paragraph 63 ---
-% 从本文的方法组织来看，residual_v1 与 value-full 的组合构成了主线方案，而 selective 模式更多承担集成对照的作用。这一结构与前文分析相呼应：teacher-only 用于验证 teacher 信号可学习，residual_v1 用于提升相对基线估计的修正能力，而 value-full 则对应更直接、更稳定的在线部署方式。
-From the perspective of the method organization in this paper, the combination of residual_v1 and value-full constitutes the main line scheme, while the selective mode is more responsible for the role of integrated control. This structure echoes the previous analysis: teacher-only is used to verify that the teacher signal is learnable, residual_v1 is used to improve the correction ability of relative baseline estimation, and value-full corresponds to a more direct and stable online deployment.
+% 从本文的方法组织来看，residual_v1 与 value-full 的组合构成了主线方案，也是全文实验设计与结果分析实际围绕的对象。与之相比，selective 模式在本文中主要用于补充说明统一代理仍可兼容条件触发式神经评估这一扩展方向，而不承担独立实验路线或对照路线的论证任务。这一结构与前文分析相呼应：teacher-only 用于验证 teacher 信号可学习，residual_v1 用于提升相对基线估计的修正能力，而 value-full 则对应本文实际采用且验证的在线部署方式。
+From the method organization, the combination of \texttt{residual\_v1} and value-full constitutes the mainline scheme and is the actual focus of the experimental design and result analysis in this thesis. In contrast, selective mode is mainly included to show that the unified agent can still accommodate condition-triggered neural evaluation as an extension directio. However, in this work, it does not represent an independently validated experimental route or a control route. This structure is consistent with the previous analysis: teacher-only is used to verify learnability of teacher signals, \texttt{residual\_v1} improves correction ability relative to baseline estimation, and value-full corresponds to the online deployment strategy that is actually adopted and validated in this thesis.
+
+% 在线搜索中的价值评估接入关系见图~\ref{fig:value_mcts_integration}。
+The value-evaluation integration in online search is shown in Fig.~\ref{fig:value_mcts_integration}.
 
 % --- Paragraph 64 ---
-% 【图 3-4 预留：在线搜索中的价值评估接入示意图。建议展示统一 MCTS 主循环、value-full 评估路径、selective 评估路径与 fallback 评估路径之间的关系。】
+% 【图 3-4 预留：在线搜索中的价值评估接入示意图。正文重点展示本文实际采用的 value-full 评估路径；若需体现系统扩展性，可在图中以次要路径标注 selective 与 fallback 的关系，但不将其表述为本文已完成实验验证的主结果。】
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.92\linewidth]{img/value_mcts_integration.pdf}

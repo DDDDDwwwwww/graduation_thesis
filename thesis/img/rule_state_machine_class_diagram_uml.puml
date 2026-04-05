@@ -1,0 +1,74 @@
+@startuml
+title Rule Parsing and State Machine Class Diagram
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundCorner 10
+
+package "Rule Parsing Layer" {
+  class SExpressionParser {
+    +tokenize(text)
+    +read_from_tokens(tokens)
+    +atom(token)
+    +parse(text)
+  }
+
+  class GDLTranslator {
+    -prolog_rules
+    +translate(expressions)
+    -_visit(exp)
+    -_handle_atom(token)
+  }
+}
+
+package "State Machine Layer" {
+  class GameStateMachine {
+    -prolog
+    -translator
+    -parser
+    -cache_enabled
+    -_legal_cache
+    -_next_cache
+    -_perf_stats
+    +get_roles()
+    +get_initial_state()
+    +get_legal_moves(state, role)
+    +get_next_state(state, moves)
+    +is_terminal(state)
+    +get_goal(state, role)
+    +clear_caches()
+    +get_perf_stats()
+    +extract_board_facts(state)
+    +get_role_index(role)
+  }
+
+  class "SWI-Prolog Runtime\n(pyswip.Prolog)" as PrologRuntime <<external>> {
+    +assertz(rule)
+    +query(goal)
+    +retractall(pattern)
+    +abolish(predicate_arity)
+  }
+}
+
+package "Search Layer" {
+  interface RuntimeAPI {
+    +get_legal_moves(state, role)
+    +get_next_state(state, moves)
+    +is_terminal(state)
+    +get_goal(state, role)
+  }
+}
+
+SExpressionParser --> GDLTranslator : parsed expressions
+GDLTranslator --> GameStateMachine : executable rules
+GameStateMachine --> PrologRuntime : query/assert/retract
+GameStateMachine ..|> RuntimeAPI : provides
+
+note right of GameStateMachine
+  Internal cache:
+  - _legal_cache
+  - _next_cache
+  Reduces repeated inference cost
+end note
+
+@enduml
