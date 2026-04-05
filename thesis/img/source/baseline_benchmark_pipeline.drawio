@@ -1,0 +1,72 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="baseline_benchmark_pipeline" id="AuMDZVPHAESpgLVO4GEI">
+    <mxGraphModel dx="1323" dy="857" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=13;fontColor=#374151;" value="SDRPV vs pure_mct / heuristic_mcts / baseline_token_transformer under unified fixed-time constraints" vertex="1">
+          <mxGeometry height="26" width="1250" x="40" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=13;" value="Input A: Model Artifacts&lt;div&gt;model.pt + encoder.json&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="260" x="60" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0284C7;fontColor=#0C4A6E;fontSize=13;" value="Input B: Benchmark Config&lt;div&gt;games: breakthrough/connectFour/hex&lt;/div&gt;&lt;div&gt;rounds=50, seeds=242&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="360" x="360" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=13;" value="Input C: Budget Protocol&lt;div&gt;fixed-time: 0.5s / move&lt;/div&gt;&lt;div&gt;iteration cap: 120&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="300" x="760" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#78350F;fontSize=13;" value="1. Load Agents and Artifacts&lt;div&gt;run_sdrpv_residual_v1_baseline_benchmark.py&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="320" x="60" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=13;" value="2. Configure Match Grid&lt;div&gt;Agent A: neural_mcts:sdrpv_value_full&lt;/div&gt;&lt;div&gt;Opponents: pure_mct / heuristic_mcts / baseline_token_transformer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="430" x="430" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#7C3AED;fontColor=#4C1D95;fontSize=13;" value="3. Execute Matches (fixed-time)&lt;div&gt;for each game x opponent x seed&lt;/div&gt;&lt;div&gt;playclock=0.5, iterations=120&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="360" x="920" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;fontColor=#064E3B;fontSize=13;" value="4. Archive Per-Run Outputs&lt;div&gt;matches.json&lt;/div&gt;&lt;div&gt;by_game.json + by_game.csv&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="340" x="180" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FECACA;strokeColor=#DC2626;fontColor=#7F1D1D;fontSize=13;" value="5. Aggregate Statistics&lt;div&gt;per_seed_summary&lt;/div&gt;&lt;div&gt;by_game_average&lt;/div&gt;&lt;div&gt;aggregate_summary&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="260" x="600" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#B45309;fontColor=#78350F;fontSize=13;" value="6. Benchmark Conclusions&lt;div&gt;cross-game win rates&lt;/div&gt;&lt;div&gt;comparison against traditional and neural baselines&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="360" x="920" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#94A3B8;fontColor=#334155;fontSize=12;" value="Main output folder:&lt;div&gt;outputs/experiments/SDRPV_residual_v1_baseline_benchmark/&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="520" x="420" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-13" edge="1" parent="1" source="u4iDOBK9iI3ekZQV_Gzn-3" style="endArrow=classic;html=1;strokeColor=#2563EB;strokeWidth=2;" target="u4iDOBK9iI3ekZQV_Gzn-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-14" edge="1" parent="1" source="u4iDOBK9iI3ekZQV_Gzn-4" style="endArrow=classic;html=1;strokeColor=#0284C7;strokeWidth=2;" target="u4iDOBK9iI3ekZQV_Gzn-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-15" edge="1" parent="1" source="u4iDOBK9iI3ekZQV_Gzn-5" style="endArrow=classic;html=1;strokeColor=#16A34A;strokeWidth=2;" target="u4iDOBK9iI3ekZQV_Gzn-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-16" edge="1" parent="1" source="u4iDOBK9iI3ekZQV_Gzn-6" style="endArrow=classic;html=1;strokeColor=#D97706;strokeWidth=2;" target="u4iDOBK9iI3ekZQV_Gzn-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-17" edge="1" parent="1" source="u4iDOBK9iI3ekZQV_Gzn-7" style="endArrow=classic;html=1;strokeColor=#DB2777;strokeWidth=2;" target="u4iDOBK9iI3ekZQV_Gzn-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-18" edge="1" parent="1" source="u4iDOBK9iI3ekZQV_Gzn-8" style="endArrow=classic;html=1;strokeColor=#7C3AED;strokeWidth=2;" target="u4iDOBK9iI3ekZQV_Gzn-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1090" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-19" edge="1" parent="1" source="u4iDOBK9iI3ekZQV_Gzn-9" style="endArrow=classic;html=1;strokeColor=#059669;strokeWidth=2;" target="u4iDOBK9iI3ekZQV_Gzn-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-20" edge="1" parent="1" source="u4iDOBK9iI3ekZQV_Gzn-10" style="endArrow=classic;html=1;strokeColor=#DC2626;strokeWidth=2;" target="u4iDOBK9iI3ekZQV_Gzn-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u4iDOBK9iI3ekZQV_Gzn-21" edge="1" parent="1" source="u4iDOBK9iI3ekZQV_Gzn-11" style="dashed=1;endArrow=open;html=1;strokeColor=#64748B;" target="u4iDOBK9iI3ekZQV_Gzn-12" value="store summary artifacts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -75,6 +75,7 @@ After cleaning and normalization, we obtain \texttt{4732} valid samples, split i
 % --- Paragraph 13 ---
 % 这种构建方式使训练目标从一开始就面向本文的最终应用场景，即在有限搜索预算下，通过学习修正量提升叶节点评估质量。
 This construction method makes the training target oriented to the final application scenario of this paper from the beginning, that is, under the limited search budget, the quality of leaf node evaluation is improved by learning the correction.
+Table~\ref{tab:experiment_objects_and_data_sources} summarizes the experimental objects, unified control settings, data sources, and corresponding outputs used in this chapter.
 
 
 % --- Paragraph 14 ---
@@ -144,13 +145,15 @@ In this experiment, the proposed method uses SDRPV-driven neural value enhanceme
 % --- Paragraph 24 ---
 % 除以 SDRPV 为核心的主 baseline benchmark 外，本文还新增了一个补充 baseline benchmark，即固定 \texttt{baseline_token_transformer} 为对局主体，仅与 \texttt{pure_mct} 和 \texttt{heuristic_mcts} 进行对弈。该补充实验与主 benchmark 共用完全一致的 fixed-time 设置、随机种子与对局轮数，因此能够在“相同表示范式、相同传统搜索对手、相同预算约束”的条件下，直接比较 SDRPV 与神经价值基线对传统搜索基线的实际压制能力。换言之，主 benchmark 用于证明 SDRPV 整体更强，而补充 benchmark 则进一步说明这种优势不仅来自 token Transformer 表示带来的普遍收益，也来自 SDRPV 的残差学习目标及其搜索接入方式。
 We also add a supplemental baseline benchmark by fixing \texttt{baseline_token_transformer} as the main agent and playing only against \texttt{pure_mct} and \texttt{heuristic_mcts} under exactly the same fixed-time settings, seeds, and game counts. This allows a direct comparison of suppression strength against traditional-search opponents under matched conditions. In other words, the main benchmark is used to prove that SDRPV is stronger as a whole, while the supplementary benchmark further shows that this advantage not only comes from the general benefits brought by token Transformer representation, but also from the residual learning goal of SDRPV and its search access method.
+Figure~\ref{fig:baseline_benchmark_pipeline} illustrates the execution pipeline of the baseline benchmark from model loading and agent setup to fixed-time matches and aggregated statistics.
+Table~\ref{tab:baseline_and_supplement_design} summarizes the design relation between the main and supplemental benchmark groups, and Figure~\ref{fig:baseline_supplement_relation} visualizes their comparison logic.
 
 
 % --- Paragraph 25 ---
 % 【图 5-1 预留：baseline benchmark 组织流程图。建议展示“模型加载 -> 搜索代理配置 -> fixed-time 对局执行 -> 单局结果汇总 -> 分游戏统计与总体统计”的流程。】
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.90\linewidth]{figures/chapter5/baseline_benchmark_pipeline.pdf}
+\includegraphics[width=0.90\linewidth]{img/baseline_benchmark_pipeline.pdf}
 \caption{Pipeline of the baseline benchmark.}
 \label{fig:baseline_benchmark_pipeline}
 \end{figure}
@@ -175,7 +178,7 @@ Supplemental baseline benchmark & baseline\_token\_transformer & pure\_mct, heur
 % 【图 5-2 预留：主 baseline benchmark 与补充 baseline benchmark 的关系示意图。建议用双路径对照展示 SDRPV 与 \texttt{baseline_token_transformer} 分别对接 \texttt{pure_mct}、\texttt{heuristic_mcts}，并在中间标出 \texttt{SDRPV vs baseline_token_transformer} 的直接比较关系。】
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.88\linewidth]{figures/chapter5/baseline_supplement_relation.pdf}
+\includegraphics[width=0.88\linewidth]{img/baseline_supplement_relation.pdf}
 \caption{Relation between the main and supplemental baseline benchmarks.}
 \label{fig:baseline_supplement_relation}
 \end{figure}
@@ -197,6 +200,7 @@ The benchmark uses the same control settings as the baseline benchmark to ensure
 % --- Paragraph 34 ---
 % 通过这一设置，ablation benchmark 可以回答如下问题：如果不学习残差修正量，而是直接依赖较强搜索值进行监督，在线表现会发生怎样的变化；如果保留残差框架但移除 teacher 监督信号，模型是否仍能形成有效的搜索增强。也就是说，消融实验是用来解释 SDRPV 的性能来源和结构合理性。
 Through this setting, the ablation benchmark can answer the following questions: if we do not learn the residual correction, but directly rely on the strong search value for supervision, how will the online performance change; if the residual framework is retained but the teacher supervision signal is removed, whether the model can still form an effective search enhancement. That is to say, the ablation experiment is used to explain the performance source and structural rationality of SDRPV.
+Table~\ref{tab:ablation_configurations} lists the three ablation configurations and their differences in supervision objective, online integration style, and expected role.
 
 % --- Paragraph 35 ---
 % 【表 5-3 预留：ablation 配置说明表。建议列出完整方案、去除残差方案、去除 teacher 方案三类配置在监督目标、在线接入方式和预期作用上的区别。】

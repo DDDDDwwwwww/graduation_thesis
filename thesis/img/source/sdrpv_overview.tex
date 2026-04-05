@@ -18,8 +18,6 @@
     note/.style={draw=black!55, rounded corners=1.5mm, thick, align=left, text width=88mm, fill=cDetail, inner sep=3mm}
 ]
 
-\node[draw=none, font=\Large\bfseries, anchor=west] (title) at (-0.2,4.0) {SDRPV Overall Pipeline};
-\node[draw=none, font=\small, text=black!70, anchor=west] at (-0.2,3.55) {Main line: data construction $\rightarrow$ supervision learning $\rightarrow$ online search integration};
 
 \node[box, fill=cState, anchor=west] (state) at (0,2.35) {Self-play trajectories\\intermediate states $s$};
 \node[box, fill=cSample, right=of state, text width=42mm] (sample) {SDRPV sample construction\\$x=(s,b,q_t,z,\phi,\mathrm{metadata})$};

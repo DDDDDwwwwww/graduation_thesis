@@ -16,8 +16,6 @@
     arr/.style={-{Latex[length=2.8mm]}, thick, draw=black!65},
     note/.style={draw=black!55, rounded corners=1.5mm, thick, align=left, fill=white, text width=75mm, inner sep=2.6mm}
 ]
-\node[draw=none, font=\Large\bfseries, anchor=west] at (-0.2,4.0) {Residual\_v1 Training Target and Inference Recovery};
-\node[draw=none, font=\small, text=black!70, anchor=west] at (-0.2,3.55) {Train on residual $(q_t-b)$; recover final value by adding baseline};
 
 \node[box, fill=cState, text width=18mm, anchor=west] (s) at (0,2.35) {State\\$s$};
 \node[box, fill=cBase, text width=30mm, right=of s] (b) {Baseline\\$b(s)$};

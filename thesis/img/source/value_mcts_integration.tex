@@ -16,8 +16,6 @@
     note/.style={draw=black!55, rounded corners=1.5mm, thick, align=left, fill=white, inner sep=2.6mm}
 ]
 
-\node[draw=none, font=\Large\bfseries, anchor=west] at (-0.1,3.95) {Value-Full Integration in Online MCTS};
-\node[draw=none, font=\small, text=black!70, anchor=west] at (-0.1,3.50) {Main deployment in this thesis: residual\_v1 + value-full leaf evaluation};
 
 \node[box, fill=cLoop, text width=42mm, anchor=west] (loop) at (0,2.20) {MCTS main loop\\Selection $\rightarrow$ Expansion\\$\rightarrow$ Leaf eval $\rightarrow$ Backup};
 \node[box, fill=cLeaf, text width=32mm, right=of loop] (leaf) {Leaf state $s_\ell$\\(non-terminal)};

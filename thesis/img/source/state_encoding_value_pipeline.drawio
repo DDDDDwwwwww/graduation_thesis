@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Chapter4-State-Encoding-Value-Pipeline" id="VZ_MfYPjawErI8260FQj">
+    <mxGraphModel dx="882" dy="571" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#3B82F6;fontColor=#1E3A8A;" value="State facts s&lt;div&gt;(e.g., cell(x,y,content), control(role))&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="280" x="60" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0284C7;fontColor=#0C4A6E;" value="BoardTokenEncoder&lt;div&gt;parse board facts + role + ply + terminal&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="290" x="390" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;" value="Encoded tensors x(s)&lt;div&gt;(tile_content_ids, tile_positions, mask, global_features)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="360" x="730" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontColor=#78350F;" value="TransformerValueNet&lt;div&gt;content embedding + positional encoding&lt;/div&gt;&lt;div&gt;masked pooling + value head&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="320" x="1140" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;" value="Predicted value  v_hat(s)=tanh(W h(s)+b)" vertex="1">
+          <mxGeometry height="75" width="320" x="1510" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#7C3AED;fontColor=#4C1D95;" value="ValueNetworkEvaluator&lt;div&gt;(non-terminal leaf nodes)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="320" x="1510" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;fontColor=#064E3B;" value="MCTS leaf evaluation&lt;div&gt;used by NeuralValueMCTSAgent&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="320" x="1140" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-9" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#334155;" value="Terminal state?&lt;div&gt;Yes -&amp;gt; use rule-grounded goal(state, role)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="320" x="680" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-10" edge="1" parent="1" source="Yy-Txg-MZKAT4nFMpFgy-2" style="endArrow=classic;html=1;strokeColor=#3B82F6;strokeWidth=2;" target="Yy-Txg-MZKAT4nFMpFgy-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-11" edge="1" parent="1" source="Yy-Txg-MZKAT4nFMpFgy-3" style="endArrow=classic;html=1;strokeColor=#0284C7;strokeWidth=2;" target="Yy-Txg-MZKAT4nFMpFgy-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-12" edge="1" parent="1" source="Yy-Txg-MZKAT4nFMpFgy-4" style="endArrow=classic;html=1;strokeColor=#16A34A;strokeWidth=2;" target="Yy-Txg-MZKAT4nFMpFgy-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-13" edge="1" parent="1" source="Yy-Txg-MZKAT4nFMpFgy-5" style="endArrow=classic;html=1;strokeColor=#D97706;strokeWidth=2;" target="Yy-Txg-MZKAT4nFMpFgy-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-14" edge="1" parent="1" source="Yy-Txg-MZKAT4nFMpFgy-6" style="endArrow=classic;html=1;strokeColor=#7C3AED;strokeWidth=2;" target="Yy-Txg-MZKAT4nFMpFgy-7" value="if non-terminal">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-15" edge="1" parent="1" source="Yy-Txg-MZKAT4nFMpFgy-7" style="endArrow=classic;html=1;strokeColor=#059669;strokeWidth=2;" target="Yy-Txg-MZKAT4nFMpFgy-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-16" edge="1" parent="1" source="Yy-Txg-MZKAT4nFMpFgy-4" style="dashed=1;endArrow=open;html=1;strokeColor=#64748B;" target="Yy-Txg-MZKAT4nFMpFgy-9" value="terminal check">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yy-Txg-MZKAT4nFMpFgy-17" edge="1" parent="1" source="Yy-Txg-MZKAT4nFMpFgy-9" style="endArrow=classic;html=1;strokeColor=#64748B;" target="Yy-Txg-MZKAT4nFMpFgy-8" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

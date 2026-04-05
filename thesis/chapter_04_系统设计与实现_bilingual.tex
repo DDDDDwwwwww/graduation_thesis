@@ -32,7 +32,7 @@ Figure~\ref{fig:system_architecture} visualizes this five-layer organization and
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.92\linewidth]{img/system_architecture.png}
+\includegraphics[width=0.92\linewidth]{img/system_architecture.pdf}
 \caption{Overall system architecture.}
 \label{fig:system_architecture}
 \end{figure}
@@ -40,6 +40,7 @@ Figure~\ref{fig:system_architecture} visualizes this five-layer organization and
 % --- Paragraph 7 ---
 % 为便于读者理解系统组织方式，可进一步将其概括为三类核心对象：一是与游戏规则执行相关的运行对象，二是与搜索和评估相关的算法对象，三是与训练、评测和留档相关的实验对象。这样的组织方式既服务于工程实现，也服务于论文中的证据追踪，因为每一类结论都可以追溯到对应的模块职责、输入输出及其运行阶段。
 For clarity, the system can be grouped into three categories of core objects: runtime objects for rule execution, algorithm objects for search and evaluation, and experiment objects for training, benchmarking, and archiving. This organization supports both engineering implementation and evidence traceability.
+Table~\ref{tab:system_module_responsibilities} summarizes each module's main input, output, and role in this layered architecture.
 
 % --- Paragraph 8 ---
 % 【表 4-1 预留：系统模块职责说明表。建议列出规则解析、状态机、搜索代理、状态编码、价值评估、实验编排、结果归档等模块的主要输入、输出和作用。】
@@ -198,7 +199,7 @@ Figure~\ref{fig:state_encoding_value_pipeline} presents this inference path from
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.92\linewidth]{img/state_encoding_value_pipeline.png}
+\includegraphics[width=0.92\linewidth]{img/state_encoding_value_pipeline.pdf}
 \caption{Pipeline of state encoding and value evaluation.}
 \label{fig:state_encoding_value_pipeline}
 \end{figure}
@@ -230,6 +231,7 @@ t_m \le 0.5,\qquad k_m \le 120.
 % --- Paragraph 42 ---
 % 在这一统一预算下，实验分为三类：一是 baseline benchmark，用于比较 SDRPV 方法与 \texttt{pure_mct}、\texttt{heuristic_mcts}、\texttt{baseline_token_transformer} 三个基线在 \texttt{breakthrough}、\texttt{connectFour}、\texttt{hex} 上的真实对局表现；二是 ablation benchmark，用于比较完整方案与不同删减版本之间的性能差异；三是离线指标评测，用于分析残差学习目标是否带来了对较强搜索监督的更好逼近。
 Under this unified budget, experiments include three parts: baseline benchmark (SDRPV vs. \texttt{pure_mct}, \texttt{heuristic_mcts}, \texttt{baseline_token_transformer} on \texttt{breakthrough}, \texttt{connectFour}, and \texttt{hex}), ablation benchmark (full model vs. reduced variants), and offline metrics (whether residual objectives better approximate stronger-search supervision).
+Table~\ref{tab:training_and_evaluation_pipeline} presents the end-to-end mapping from data construction to online benchmarks, including key inputs, outputs, and the role of each stage.
 
 % --- Paragraph 43 ---
 % 【表 4-2 预留：训练与评测链路说明表。建议列出数据构建、残差训练、离线指标评估、baseline benchmark、ablation benchmark 五个阶段的输入、输出和核心作用。】
