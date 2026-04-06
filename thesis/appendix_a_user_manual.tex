@@ -1,0 +1,156 @@
+﻿\chapter{Appendix A User Manual}
+\label{appendix:user_manual}
+
+% 附录内采用 A.1, A.1.1 编号格式
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\renewcommand{\thesection}{A.\arabic{section}}
+\renewcommand{\thesubsection}{A.\arabic{section}.\arabic{subsection}}
+
+\section{手册目的}
+
+本手册用于指导非项目开发者在一台新机器上独立完成以下工作：
+\begin{enumerate}
+    \item 训练 SDRPV 主模型（\texttt{residual\_v1}）；
+    \item 运行正式在线评测（\texttt{run\_sdrpv\_residual\_v1\_baseline\_benchmark.py}）；
+    \item （可选）运行 ablation 实验并检查结果文件。
+\end{enumerate}
+
+本手册默认从项目根目录执行命令。
+
+\section{环境准备}
+
+\subsection{系统与硬件建议}
+\begin{itemize}
+    \item 操作系统：Windows 或 Linux（64 位）；
+    \item 内存：建议 16GB 及以上；
+    \item GPU：可选。无 GPU 时可使用 CPU 完成全部流程。
+\end{itemize}
+
+\subsection{软件依赖}
+\begin{itemize}
+    \item Python 3.8 及以上；
+    \item SWI-Prolog（用于 GDL/KIF 规则执行）；
+    \item Python 包：\texttt{torch}、\texttt{numpy}、\texttt{pyswip}。
+\end{itemize}
+
+\subsection{目录自检}
+请确认以下路径存在：
+\begin{itemize}
+    \item \texttt{experiments/}
+    \item \texttt{games/}
+    \item \texttt{outputs/datasets/sdrpv\_dataset\_v3\_parallel.jsonl}
+    \item \texttt{scripts/run\_user\_manual\_pipeline.py}
+\end{itemize}
+
+\section{快速可运行检查}
+
+\subsection{执行命令}
+\begin{verbatim}
+python scripts/run_user_manual_pipeline.py --quick --device cuda
+\end{verbatim}
+
+\subsection{预期输出}
+成功后应生成目录：
+\begin{itemize}
+    \item \texttt{outputs/experiments/UM\_pipeline\_<timestamp>/residual\_v1\_model/}
+    \item \texttt{outputs/experiments/UM\_pipeline\_<timestamp>/baseline\_benchmark/}
+    \item \texttt{outputs/experiments/UM\_pipeline\_<timestamp>/meta/run\_manifest.json}
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \fbox{\parbox{0.90\linewidth}{
+    截图留位提示：请插入“quick 模式命令执行完成”的终端截图。\\
+    建议包含：命令行、`done` 提示、输出根目录路径。}}
+    \caption{Quick 模式运行完成截图（留位）}
+    \label{fig:um_quick_placeholder}
+\end{figure}
+
+\section{完整复现实验流程}
+
+\subsection{主流程：训练 + baseline benchmark}
+执行命令：
+\begin{verbatim}
+python scripts/run_user_manual_pipeline.py \
+  --dataset outputs/datasets/sdrpv_dataset_v3_parallel.jsonl \
+  --device cuda \
+  --seed-train 42 \
+  --seed-eval 242 \
+  --epochs 20 \
+  --rounds 50
+\end{verbatim}
+
+上述流程对齐论文实验口径：
+\begin{itemize}
+    \item 游戏集合：\texttt{breakthrough}、\texttt{connectFour}、\texttt{hex}；
+    \item 预算设置：\texttt{fixed-time=0.5s}，\texttt{iterations\_cap=120}；
+    \item 评测随机种子：\texttt{seed=242}；
+    \item 每组对局轮数：\texttt{50}。
+\end{itemize}
+
+\subsection{可选流程：ablation}
+若需同时跑消融实验，执行：
+\begin{verbatim}
+python scripts/run_user_manual_pipeline.py \
+  --dataset outputs/datasets/sdrpv_dataset_v3_parallel.jsonl \
+  --device cuda \
+  --seed-train 42 \
+  --seed-eval 242 \
+  --epochs 20 \
+  --rounds 50 \
+  --run-ablation
+\end{verbatim}
+
+\begin{figure}[htbp]
+    \centering
+    \fbox{\parbox{0.90\linewidth}{
+    截图留位提示：请插入“完整流程运行中”的终端截图。\\
+    建议包含：训练阶段完成日志、benchmark 阶段开始日志、当前进度信息。}}
+    \caption{完整流程运行过程截图（留位）}
+    \label{fig:um_fullrun_placeholder}
+\end{figure}
+
+\section{结果验证与性能检查}
+
+\subsection{关键结果文件}
+主流程结束后，至少检查以下文件：
+\begin{itemize}
+    \item \texttt{residual\_v1\_model/offline\_metrics.json}
+    \item \texttt{baseline\_benchmark/summary/aggregate\_summary.csv}
+    \item \texttt{baseline\_benchmark/summary/by\_game\_average.csv}
+    \item \texttt{meta/run\_manifest.json}
+\end{itemize}
+
+\subsection{通过判据}
+\begin{itemize}
+    \item 若关键结果文件全部生成，判定流程可运行；
+    \item 若 \texttt{aggregate\_summary.csv} 与 \texttt{by\_game\_average.csv} 均存在，判定在线评测链路完整；
+    \item 若 \texttt{offline\_metrics.json} 存在，判定离线评估链路完整。
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \fbox{\parbox{0.90\linewidth}{
+    截图留位提示：请插入“输出目录树与关键 summary 文件”的截图。\\
+    建议包含：`offline_metrics.json`、`aggregate_summary.csv`、`by_game_average.csv`。}}
+    \caption{结果文件检查截图（留位）}
+    \label{fig:um_outputs_placeholder}
+\end{figure}
+
+\section{常见问题}
+
+\subsection{找不到数据集文件}
+现象：出现 \texttt{Dataset not found}。\\
+处理：检查 \texttt{--dataset} 路径，确认文件存在。
+
+\subsection{Prolog 初始化失败}
+现象：\texttt{pyswip} 或 SWI-Prolog 相关报错。\\
+处理：确认 SWI-Prolog 已安装，并且当前 Python 环境可访问。
+
+\subsection{运行耗时较长}
+处理建议：
+\begin{itemize}
+    \item 先用 \texttt{--quick} 验证链路；
+    \item 调试时临时减小 \texttt{--epochs} 或 \texttt{--rounds}。
+\end{itemize}
